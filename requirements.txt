@@ -47,7 +47,6 @@ Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
 keyring==10.6.0
 keyrings.alt==3.0
-language-selector==0.1
 launchpadlib==1.10.6
 lazr.restfulclient==0.13.5
 lazr.uri==1.0.3
