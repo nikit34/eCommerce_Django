@@ -123,18 +123,8 @@ testpath==0.4.2
 tornado==6.0.3
 traitlets==4.3.2
 Twisted==19.7.0
-ubuntu-drivers-common==0.0.0
 ufw==0.36
 unattended-upgrades==0.1
-unity-scope-chromiumbookmarks==0.1
-unity-scope-colourlovers==0.1
-unity-scope-devhelp==0.1
-unity-scope-firefoxbookmarks==0.1
-unity-scope-manpages==0.1
-unity-scope-openclipart==0.1
-unity-scope-texdoc==0.1
-unity-scope-tomboy==0.1
-unity-scope-zotero==0.1
 urllib3==1.25.3
 usb-creator==0.3.3
 virtualenv==16.7.2
@@ -146,4 +136,3 @@ Werkzeug==0.15.5
 widgetsnbextension==3.5.1
 wrapt==1.11.2
 xkit==0.0.0
-zope.interface==4.6.0
