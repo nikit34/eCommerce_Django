@@ -1,5 +1,4 @@
 absl-py==0.7.1
-apturl==0.5.2
 asn1crypto==0.24.0
 astor==0.8.0
 attrs==19.1.0
