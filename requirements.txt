@@ -93,7 +93,6 @@ pyOpenSSL==19.0.0
 pypi==2.1
 pyRFC3339==1.0
 pyrsistent==0.15.4
-python-apt==1.6.4
 python-dateutil==2.8.0
 python-debian==0.1.32
 pytz==2019.2
