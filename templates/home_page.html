@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>Home page template</title>
+
+{% block base_head %}
+<link rel='stylesheet' href='{% static "css/media.css" %}'>
+{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+    <h1>{{ title }}</h1>
+    <h1>Hello, world!</h1>
+</div>
+    <div class="row">
+        <div class="col">
+            <img src="{% static 'img/pic_1.jpg' %}" class="img-fluid"/>
+            <p>{{ content }}</p>
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col">
+            <h1>Premium</h1>
+            {{ premium_content }}
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}
