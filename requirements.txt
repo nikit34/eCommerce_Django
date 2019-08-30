@@ -15,7 +15,6 @@ chardet==3.0.4
 constantly==15.1.0
 cryptography==2.7
 cssselect==1.1.0
-cupshelpers==1.0
 decorator==4.4.0
 defer==1.0.6
 defusedxml==0.6.0
