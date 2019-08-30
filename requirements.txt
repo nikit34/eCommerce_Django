@@ -116,7 +116,6 @@ six==1.12.0
 soupsieve==1.9.3
 sqlparse==0.3.0
 stripe==2.35.1
-system-service==0.3
 systemd-python==234
 termcolor==1.1.0
 terminado==0.8.2
