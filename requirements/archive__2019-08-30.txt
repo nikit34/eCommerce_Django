@@ -77,7 +77,7 @@ parsel==1.5.2
 parso==0.5.1
 pexpect==4.7.0
 pickleshare==0.7.5
-Pillow==6.1.0
+Pillow==6.2.0
 pip==9.0.1
 post==2019.4.13
 prometheus-client==0.7.1
