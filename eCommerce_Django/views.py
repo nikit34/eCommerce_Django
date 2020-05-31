@@ -7,10 +7,10 @@ from .forms import ContactForm
 def home_page(request):
     context = {
         "title": "Home",
-        "content": "Welcome to home page!"
+        "content": "Welcome to Olyalya shop!"
     }
     if request.user.is_authenticated:
-        context["premium_content"] = "YEAH"
+        context["premium_content"] = "You have premium account"
     return render(request, "home_page.html", context)
 
 

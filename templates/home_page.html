@@ -11,21 +11,25 @@
 
 <div class="text-center">
     <h1>{{ title }}</h1>
-    <h1>Hello, world!</h1>
+    <h1>Best offers</h1>
 </div>
-    <div class="row">
+<div class="row">
+    {% for obj in object_list %}
         <div class="col">
-            <img src="{% static 'img/pic_1.jpg' %}" class="img-fluid"/>
-            <p>{{ content }}</p>
+        {{ forloop.counter }}
+        {% include 'products/snippets/card.html' with instance=obj %}
+        <div class="row"><div class="col-12"><hr></div></div>
         </div>
+    {% endfor %}
+</div>
+
+{% if user.is_authenticated %}
+<div class="row">
+    <div class="col">
+        <h1>Premium</h1>
+        {{ premium_content }}
     </div>
-    {% if user.is_authenticated %}
-    <div class="row">
-        <div class="col">
-            <h1>Premium</h1>
-            {{ premium_content }}
-        </div>
-    </div>
-    {% endif %}
+</div>
+{% endif %}
 
 {% endblock %}
