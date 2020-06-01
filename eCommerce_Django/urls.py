@@ -15,11 +15,11 @@ from carts.views import cart_detail_api_view
 
 from marketing.views import MarketingPreferenceUpdateView, MailchimpWebhookView
 
-from .views import home_page, about_page, contact_page
+from .views import ProductListView, about_page, contact_page
 
 
 urlpatterns = [
-  url(r'^$', home_page, name='home'),
+  url(r'^$', ProductListView.as_view(), name='home'),
   url(r'^about/$', about_page, name='about'),
   url(r'^contact/$', contact_page, name='contact'),
   url(r'^login/$', LoginView.as_view(), name='login'),

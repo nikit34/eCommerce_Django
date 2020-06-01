@@ -1,17 +1,31 @@
 from django.contrib.auth import authenticate, login, get_user_model
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
+from django.views.generic import ListView
+
+from carts.models import Cart
+from products.models import Product
+
 from .forms import ContactForm
 
 
-def home_page(request):
-    context = {
-        "title": "Home",
-        "content": "Welcome to Olyalya shop!"
-    }
-    if request.user.is_authenticated:
-        context["premium_content"] = "You have premium account"
-    return render(request, "home_page.html", context)
+class ProductListView(ListView):
+    template_name = 'home_page.html'
+
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super(ProductListView, self).get_context_data(*args, **kwargs)
+    #     print(context)
+    #     return context
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProductListView, self).get_context_data(*args, **kwargs)
+        cart_obj, new_obj = Cart.objects.new_or_get(self.request)
+        context['cart'] = cart_obj
+        return context
+
+    def get_queryset(self, *args, **kwargs):
+        request = self.request
+        return Product.objects.all()
 
 
 def about_page(request):
