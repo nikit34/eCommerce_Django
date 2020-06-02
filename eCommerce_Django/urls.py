@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 
 from addresses.views import checkout_address_create_view, checkout_address_reuse_view
 
@@ -21,6 +21,7 @@ from .views import ProductListView, about_page, contact_page
 urlpatterns = [
   url(r'^$', ProductListView.as_view(), name='home'),
   url(r'^about/$', about_page, name='about'),
+  url(r'^accounts/', include("accounts.urls", namespace='accounts')),
   url(r'^contact/$', contact_page, name='contact'),
   url(r'^login/$', LoginView.as_view(), name='login'),
   url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),

@@ -1,4 +1,5 @@
 import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -39,6 +40,9 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
+LOGIN_URL = '/login/'
+LOGIN_URL_REDIRECT = '/'
+LOGOUT_URL = '/logout/'
 
 FORCE_SESSION_TO_ONE = False
 FORCE_INACTIVE_USER_ENDSESSION = False
@@ -147,8 +151,3 @@ CSRF_COOKIE_SECURE              = False
 SECURE_HSTS_SECONDS             = None
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
 SECURE_FRAME_DENY               = False
-
-AWS_GROUP_NAME = 'first'
-AWS_USERNAME = 'nikit34'
-AWS_ACCESS_KEY_ID = 'AKIAVXAOJH7MJSYTITAL'
-AWS_SECRET_KEY = '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'

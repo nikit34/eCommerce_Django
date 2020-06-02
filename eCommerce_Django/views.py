@@ -25,7 +25,16 @@ class ProductListView(ListView):
 
     def get_queryset(self, *args, **kwargs):
         request = self.request
-        return Product.objects.all()
+        if request.GET.get("price") == "descend":
+            return Product.objects.order_by('price')
+        elif request.GET.get("price") == "ascend":
+            return Product.objects.order_by('-price')
+        elif request.GET.get("time_update") == "descend":
+            return Product.objects.order_by('timestamp')
+        elif request.GET.get("time_update") == "ascend":
+            return Product.objects.order_by('-timestamp')
+        else:
+            return Product.objects.all()
 
 
 def about_page(request):

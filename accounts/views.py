@@ -1,12 +1,22 @@
 from django.contrib.auth import authenticate, login, get_user_model
-from django.views.generic import CreateView, FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView, FormView, DetailView
+from django.utils.decorators import method_decorator
 from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.utils.http import is_safe_url
 
 from .forms import LoginForm, RegisterForm, GuestForm
 from .models import GuestEmail
 from .signals import user_logged_in
+
+
+class AccountHomeView(LoginRequiredMixin, DetailView):
+    template_name = 'accounts/home.html'
+
+    def get_object(self):
+        return self.request.user
 
 
 def guest_register_view(request):
@@ -27,7 +37,6 @@ def guest_register_view(request):
             return redirect(redirect_path)
         else:
             return redirect('/register/')
-
     return redirect('/register/')
 
 

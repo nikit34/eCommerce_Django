@@ -1,33 +1,32 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 
 <title>Home page template</title>
 
 {% block base_head %}
-<link rel='stylesheet' href='{% static "css/media.css" %}'>
-{% endblock %}
-
-{% block content %}
+<link rel="stylesheet" href='{% static "css/media.css" %}' />
+{% endblock %} {% block content %}
 
 <div class="text-center">
-    <h1>{{ title }}</h1>
-    <h1>Best offers</h1>
+  <h1>{{ title }}</h1>
+  <h1>Best offers</h1>
+</div>
+{% include 'snippets/select_sort.html' %}
+<div class="row">
+  {% for obj in object_list %}
+  <div class="col">
+    {% include 'snippets/card.html' with instance=obj %}
+  </div>
 </div>
 <div class="row">
-    {% for obj in object_list %}
-        <div class="col">
-        {% include 'snippets/card.html' with instance=obj %}
-        </div></div><div class="row"><div class="col-12"><hr></div>
-    {% endfor %}
+  <div class="col-12"><hr /></div>
+  {% endfor %}
 </div>
 
 {% if user.is_authenticated %}
 <div class="row">
-    <div class="col">
-        <h1>Premium</h1>
-        {{ premium_content }}
-    </div>
+  <div class="col">
+    <h1>Premium</h1>
+    {{ premium_content }}
+  </div>
 </div>
-{% endif %}
-
-{% endblock %}
+{% endif %} {% endblock %}
