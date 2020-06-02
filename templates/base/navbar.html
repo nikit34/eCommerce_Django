@@ -4,13 +4,14 @@
 {% url 'login' as login_url %}
 {% url 'logout' as logout_url %}
 {% url 'register' as register_url %}
+{% url 'account:home' as account_url %}
 {% url 'cart:home' as cart_url %}
 {% load static %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
     <div class="container">
         <a class="navbar-brand" href="{{ home_url }}" style="font-family: 'Times New Roman'; font-style: italic;">
-            <!--<img src="{% static 'img/pic_1.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="" />-->
+            <img src="//getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
           {% if brand_name %} {{ brand_name }} {% else %} Sewing Shop {% endif %}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,8 +30,16 @@
               <a class="nav-link" href="{{ product_list_url }}" style="font-family: 'Times New Roman'; font-style: italic;">Products <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
             </li>
             {% if user.is_authenticated %}
-            <li class="nav-item {% if request.path == logout_url %}active{% endif %}">
-              <a class="nav-link" href="{{ logout_url }}" style="font-family: 'Times New Roman'; font-style: italic;">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">Home</a>
+              <a class="dropdown-item" href="#">Billing</a>
+              <a class="dropdown-item" href="#">Preferences</a>
+              <a class="dropdown-item" href="#">History</a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ logout_url }}">Logout</a>
+              </div>
             </li>
             {% else %}
             <li class="nav-item {% if request.path == register_url %}active{% endif %}">
