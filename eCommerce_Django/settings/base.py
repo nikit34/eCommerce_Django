@@ -47,8 +47,18 @@ LOGOUT_URL = '/logout/'
 FORCE_SESSION_TO_ONE = False
 FORCE_INACTIVE_USER_ENDSESSION = False
 
-BASE_URL = '127.0.0.1:8000'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'permikov134@gmail.com'
+EMAIL_HOST_PASSWORD = 'Nikita134permi'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'permikov134@mail.ru'
+MANAGERS = (
+    ('Nikita', "permikov134@gmail.com"),
+)
+ADMINS = MANAGERS
+
+BASE_URL = '127.0.0.1:8000'
 
 MAILCHIMP_API_KEY = '68424da964a8f72415b1dbd57834144e-us4'
 MAILCHIMP_DATA_CENTER = 'us4'
