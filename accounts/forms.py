@@ -50,6 +50,14 @@ class UserAdminCreationForm(forms.ModelForm):
         return user
 
 
+class UserDetailChangeForm(form.ModelForm):
+    full_name = forms.CharField(label='Name', required=False, widget=forms.TextInput(attrs={"class": 'form-control'}))
+
+    class Meta:
+        model = User
+        field = ['full_name']
+
+
 class UserAdminChangeForm(forms.ModelForm):
     """A form for updating users. Includes all the fields on
     the user, but replaces the password field with admin's
