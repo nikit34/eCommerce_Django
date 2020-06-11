@@ -50,12 +50,12 @@ class UserAdminCreationForm(forms.ModelForm):
         return user
 
 
-class UserDetailChangeForm(form.ModelForm):
+class UserDetailChangeForm(forms.ModelForm):
     full_name = forms.CharField(label='Name', required=False, widget=forms.TextInput(attrs={"class": 'form-control'}))
 
     class Meta:
         model = User
-        field = ['full_name']
+        fields = ['full_name']
 
 
 class UserAdminChangeForm(forms.ModelForm):
@@ -80,7 +80,7 @@ class GuestForm(forms.ModelForm):
     # email = forms.EmailField()
     class Meta:
         model = GuestEmail
-        field = ['email']
+        fields = ['email']
 
     def __init__(self, request, *args, **kwargs):
         self.request = request
@@ -105,7 +105,7 @@ class LoginForm(forms.Form):
         super(LoginForm, self).__init__(*args, **kwargs)
 
     def clean(self):
-        self.request = request
+        request = self.request
         data = self.cleaned_data
         email = data.get("email")
         password = data.get("password")
