@@ -1,12 +1,46 @@
-<div class="btn-toolbar" role="toolbar">
+{% comment %} <div class="btn-toolbar" role="toolbar">
   <form action="{% url 'home' %}" method="get">
     <div class="btn-group" role="group">
-      <button type="submit" name="price" value="descend" class="btn btn-secondary">Price - descending</button>
-      <button type="submit" name="price" value="ascend" class="btn btn-secondary">Price - ascending</button>
+    Price:
+      <button type="submit" name="price" value="descend" class="btn btn-secondary">descending</button>
+      <button type="submit" name="price" value="ascend" class="btn btn-secondary">ascending</button>
     &nbsp;
-      <button type="submit" name="time_update" value="descend" class="btn btn-secondary">Time update</button>
-      <button type="submit" name="time_update" value="ascend" class="btn btn-secondary">Time update</button>
+    Time:
+      <button type="submit" name="time_update" value="descend" class="btn btn-secondary float-right">update early</button>
+      <button type="submit" name="time_update" value="ascend" class="btn btn-secondary float-right">update last</button>
     </div>
   </form>
 </div>
+<br> {% endcomment %}
+
 <br>
+
+<form action="{% url 'home' %}" method="get">
+<div class="row pull-right">
+<div class="dropup">
+  <button class="btn btn-default dropdown-toggle" type="submit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Price
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <button type="submit" name="price" value="descend" class="btn btn-default">descending</button>
+    <button type="submit" name="price" value="ascend" class="btn btn-default">ascending</button>
+  </ul>
+</div>
+ &nbsp;
+<div class="dropup">
+  <button class="btn btn-default dropdown-toggle" type="submit" data-toggle="dropdown">
+    Time
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right">
+    <button type="submit" name="time_update" value="descend" class="btn btn-default">update early</button>
+    <button type="submit" name="time_update" value="ascend" class="btn btn-default">update last</button>
+  </ul>
+</div>
+
+</div>
+
+</form>
+<br><br>
+<hr>
