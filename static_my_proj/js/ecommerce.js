@@ -77,6 +77,37 @@ $(document).ready(function(){
     }
     // product-cart
     var productForm = $('.form-product-ajax')
+
+    function getOwnedProduct(productId){
+        // $.ajax({
+        //     url: actionEndpoint,
+        //     method: httpMethod,
+        //     data: formData,
+        //     success: function(data){
+        //     },
+        //     error: function(){
+        //     }
+        // })
+        if(productId == 1){
+            return true;
+        }
+        return false;
+    }
+    $.each(productForm, function(index, object){
+        var $this = $(this);
+        var isUser = $this.attr("data-user");
+        var submitSpan = $this.find(".submit-span");
+        var productInput = $this.find("[name='product_id']");
+        var productId = productInput.attr("value");
+        var productIsDigital = productInput.attr("data-is-digital");
+        if (productIsDigital && isUser){
+            var isOwned = getOwnedProduct(productId);
+            if(isOwned){
+                submitSpan.html("<a href='/library/'>In Library</a>");
+            }
+        }
+    })
+
     productForm.submit(function(event){
         event.preventDefault();
         var thisForm = $(this)
@@ -91,7 +122,7 @@ $(document).ready(function(){
             success: function(data){
                 var submitSpan = thisForm.find('.submit-span')
                 if (data.added){
-                    submitSpan.html('In cart<button type="submit" class="btn btn-link">Remove?</button>')
+                    submitSpan.html("<div class='btn-group'> <a class='btn btn-link' href='/cart/'>In cart</a> <button type='submit' class='btn btn-link'>Remove?</button></div>");
                 } else {
                     submitSpan.html('<button type="submit" class="btn btn-success">Add to cart</button>')
                 }

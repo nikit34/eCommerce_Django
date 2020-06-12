@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
-from eCommerce_Django.utils import unique_slug_generator
+from eCommerce_Django.utils import unique_slug_generator, get_filename
 
 
 def get_filename_ext(filepath):
@@ -82,6 +82,10 @@ class Product(models.Model):
     def name(self):
         return self.title
 
+    def get_downloads(self):
+        qs = self.productfile_set.all()
+        return qs
+
 
 def product_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
@@ -103,6 +107,18 @@ class ProductFile(models.Model):
     product = models.ForeignKey(Product)
     file = models.FileField(upload_to=upload_product_file_loc, \
         storage = FileSystemStorage(location=settings.PROTECTED_ROOT))
+    free = models.BooleanField(default=False)
+    user_required = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.file.name)
+
+    def get_default_url(self):
+        return self.product.get_absolute_url()
+
+    def get_download_url(self):
+        return reverse('products:download', kwargs={'slug':self.product.slug, 'pk':self.pk})
+
+    @property
+    def name(self):
+        return get_filename(self.file.name)
