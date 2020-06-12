@@ -2,11 +2,13 @@ import math
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 from django.urls import reverse
+from django.conf import settings
 
 from addresses.models import Address
 from billing.models import BillingProfile
 from carts.models import Cart
 from eCommerce_Django.utils import unique_order_id_generator
+from products.models import Product
 
 
 ORDER_STATUS_CHOICES = (
@@ -49,6 +51,8 @@ class Order(models.Model):
     order_id = models.CharField(max_length=120, blank=True)
     shipping_address = models.ForeignKey(Address, related_name='shipping_address', on_delete=models.DO_NOTHING, null=True, blank=True)
     billing_address = models.ForeignKey(Address, related_name='billing_address', on_delete=models.DO_NOTHING, null=True, blank=True)
+    shipping_address_final = models.TextField(blank=True, null=True)
+    billing_address_final = models.TextField(blank=True, null=True)
     cart = models.ForeignKey(Cart, on_delete=models.DO_NOTHING)
     status = models.CharField(max_length=120, default='created', choices=ORDER_STATUS_CHOICES)
     shipping_total = models.DecimalField(default=5.99, max_digits=100, decimal_places=2)
@@ -72,7 +76,7 @@ class Order(models.Model):
         if self.status == 'refunded':
             return "Refunded order"
         elif self.status == 'shipped':
-            return "Spipped"
+            return "Shipped"
         return "Shipping Soon"
 
     def update_total(self):
@@ -85,18 +89,38 @@ class Order(models.Model):
         return new_total
 
     def check_done(self):
+        shipping_address_required = not self.cart.is_digital
+        shipping_done = False
+        if shipping_address_required and self.shipping_address:
+            shipping_done = True
+        elif shipping_address_required and not self.shipping_address:
+            shipping_done = False
+        else:
+            shipping_done = True
         billing_profile = self.billing_profile
         shipping_address = self.shipping_address
         billing_address = self.billing_address
         total = self.total
-        if billing_profile and shipping_address and billing_address and total > 0:
+        if billing_profile and shipping_done and billing_address and total > 0:
             return True
         return False
 
+    def update_purchases(self):
+        for p in self.cart.products.all():
+            obj, created = ProductPurchase.objects.get_or_create(
+                order_id=self.order_id,
+                product=p,
+                billing_profile=self.billing_profile
+            )
+        return ProductPurchase.objects.filter(order_id=self.order_id).count()
+
+
     def mark_paid(self):
-        if self.check_done():
-            self.status = 'paid'
-            self.save()
+        if self.status != 'paid':
+            if self.check_done():
+                self.status = 'paid'
+                self.save()
+                self.update_purchases()
         return self.status
 
 
@@ -106,6 +130,10 @@ def pre_save_create_order_id(sender, instance, *args, **kwargs):
     qs = Order.objects.filter(cart=instance.cart).exclude(billing_profile=instance.billing_profile)
     if qs.exists():
         qs.update(active=False)
+    if instance.shipping_address and not instance.shipping_address_final:
+        instance.shipping_address_final = instance.shipping_address.get_address()
+    if instance.billing_address and not instance.billing_address_final:
+        instance.billing_address_final = instance.billing_address.get_address()
 
 
 pre_save.connect(pre_save_create_order_id, sender=Order)
@@ -133,3 +161,21 @@ def post_save_order(sender, instance, created, *args, **kwargs):
 
 
 post_save.connect(post_save_order, sender=Order)
+
+
+class ProductPurchaseManager(models.Manager):
+    def all(self):
+        return self.get_queryset().filter(refunded=False)
+
+class ProductPurchase(models.Model):
+    order_id = models.CharField(max_length=120)
+    billing_profile = models.ForeignKey(BillingProfile) # billingprofile.productpurchase_set.all()
+    product = models.ForeignKey(Product) # product.productpurchase_set.count()
+    refunded = models.BooleanField(default=False)
+    updated = models.DateTimeField(auto_now=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    objects = ProductPurchaseManager()
+
+    def __str__(self):
+        return self.product.title

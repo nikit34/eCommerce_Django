@@ -4,16 +4,11 @@ from django.shortcuts import render, redirect
 
 from accounts.forms import LoginForm, GuestForm
 from accounts.models import GuestEmail
-
 from addresses.models import Address
-from addresses.forms import AddressForm
-
+from addresses.forms import AddressCheckoutForm
 from billing.models import BillingProfile
-
 from orders.models import Order
-
 from products.models import Product
-
 from .models import Cart
 
 import stripe
@@ -75,8 +70,9 @@ def checkout_home(request):
 
     login_form = LoginForm(request=request)
     guest_form = GuestForm(request=request)
-    address_form = AddressForm()
+    address_form = AddressCheckoutForm()
     billing_address_id = request.session.get('billing_address_id', None)
+    shipping_address_required = not cart_obj.is_digital
     shipping_address_id = request.session.get('shipping_address_id', None)
     billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
     address_qs = None
@@ -120,6 +116,7 @@ def checkout_home(request):
         'address_qs': address_qs,
         'has_card': has_card,
         'publish_key': STRIPE_PUB_KEY,
+        'shipping_address_required': shipping_address_required,
     }
 
     return render(request, 'carts/checkout.html', context)
