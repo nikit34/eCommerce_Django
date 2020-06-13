@@ -49,7 +49,7 @@ def contact_page(request):
     contact_form = ContactForm(request.POST or None)
     context = {
         "title": "Contact",
-        "content": "Welcome to contact page!",
+        "content": "Here you can leave your feedback.",
         "form": contact_form,
     }
     if contact_form.is_valid():
