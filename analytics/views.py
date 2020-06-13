@@ -1,9 +1,28 @@
+import datetime
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
-from django.views.generic import TemplateView
+from django.http import HttpResponse, JsonResponse
+from django.views.generic import TemplateView, View
+from django.db.models import Count, Sum, Avg
+from django.utils import timezone
+
 
 from orders.models import Order
+
+
+class SAlesAjaxView(View):
+    def get(self, request, *args, **kwargs):
+        data = {}
+        print(request.user)
+        if request.user.is_staff:
+            if request.GET.get('type') == 'week':
+                data['labels'] = ["Mon", "Tues", "Weds", "Thurs", "Fri","Sat", "Sun"]
+                data['data'] = [123, 131, 232, 12, 323,313, 3193]
+            if request.GET.get('type') == '4week':
+                data['labels'] = ["Last Week", "Two Weeks Ago", "Three Weeks Ago", "Four Weeks Ago"]
+                data['data'] = [123, 131, 343, 13231]
+        return JsonResponse(data)
+
 
 
 class SalesView(LoginRequiredMixin, TemplateView):
@@ -17,9 +36,8 @@ class SalesView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(SalesView, self).get_context_data(*args, **kwargs)
-        qs = Order.objects.all()
-        context['orders'] = qs
-        context['recent_orders'] = qs.recent().not_refunded()[:5]
-        context['shipped_orders'] = qs.recent().not_refunded().by_status(status='shipped')[:5]
-        context['paid_orders'] = qs.recent().not_refunded().by_status(status='paid')[:5]
+        qs = Order.objects.all().by_weeks_range(weeks_ago=10, number_of_weeks=10)
+        context['today'] = qs.by_range(start_date=timezone.now().date()).get_sales_breakdown()
+        context['this_week'] = qs.by_weeks_range(weeks_ago=1, number_of_weeks=1).get_sales_breakdown()
+        context['last_four_weeks'] = qs.by_weeks_range(weeks_ago=5, number_of_weeks=4).get_sales_breakdown()
         return context
