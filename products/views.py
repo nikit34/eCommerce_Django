@@ -14,23 +14,6 @@ from .models import Product, ProductFile
 from orders.models import ProductPurchase
 
 
-class ProductFeaturedListView(ListView):
-    template_name = 'products/list.html'
-
-    def get_queryset(self, *args, **kwargs):
-        request = self.request
-        return Product.objects.all().featured()
-
-
-class ProductFeaturedDetailView(ObjectViewedMixin, DetailView):
-    queryset = Product.objects.all().featured()
-    template_name = 'products/featured-detail.html'
-
-    # def get_queryset(self, *args, **kwargs):
-    #     request = self.request
-    #     return Product.objects.featured()
-
-
 class UserProductHistoryView(LoginRequiredMixin, ListView):
     template_name = "products/user-history.html"
 
@@ -49,11 +32,6 @@ class UserProductHistoryView(LoginRequiredMixin, ListView):
 class ProductListView(ListView):
     template_name = 'products/list.html'
 
-    # def get_context_data(self, *args, **kwargs):
-    #     context = super(ProductListView, self).get_context_data(*args, **kwargs)
-    #     print(context)
-    #     return context
-
     def get_context_data(self, *args, **kwargs):
         context = super(ProductListView, self).get_context_data(*args, **kwargs)
         cart_obj, new_obj = Cart.objects.new_or_get(self.request)
@@ -63,14 +41,6 @@ class ProductListView(ListView):
     def get_queryset(self, *args, **kwargs):
         request = self.request
         return Product.objects.all()
-
-
-def product_list_view(request):
-    queryset = Product.objects.all()
-    context = {
-        'object_list':queryset
-    }
-    return render(request, 'products/list.html', context)
 
 
 class ProductDetailSlugView(ObjectViewedMixin, DetailView):
@@ -138,3 +108,20 @@ class ProductDownloadView(View):
             response['Content-Disposition'] = "attachment;filename=%s" %(download_obj.name)
             response['X-SendFile'] = str(download_obj.name)
             return response
+
+
+class ProductFeaturedListView(ListView):
+    template_name = 'products/list.html'
+
+    def get_queryset(self, *args, **kwargs):
+        request = self.request
+        return Product.objects.all().featured()
+
+
+class ProductFeaturedDetailView(ObjectViewedMixin, DetailView):
+    queryset = Product.objects.all().featured()
+    template_name = 'products/featured-detail.html'
+
+    # def get_queryset(self, *args, **kwargs):
+    #     request = self.request
+    #     return Product.objects.featured()
