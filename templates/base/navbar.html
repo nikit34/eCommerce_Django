@@ -11,7 +11,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
     <div class="container">
         <a class="navbar-brand" href="{{ home_url }}" style="font-family: 'Times New Roman'; font-style: italic;">
-            <img src="//getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
           {% if brand_name %} {{ brand_name }} {% else %} Sewing Shop {% endif %}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +33,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">Home</a>
-              <a class="dropdown-item" href="{{ account_url }}#billing">Billing</a>
+              <a class="dropdown-item" href="{{ cart_url }}">Billing</a>
               <a class="dropdown-item" href="{% url 'account:user-product-history' %}">History</a>
               <a class="dropdown-item" href="{% url 'library' %}">Library</a>
               <div class="dropdown-divider"></div>
