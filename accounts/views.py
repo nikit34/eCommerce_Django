@@ -16,6 +16,7 @@ from .models import GuestEmail, EmailActivation
 from .signals import user_logged_in
 from eCommerce_Django.mixins import NextUrlMixin, RequestFormAttachMixin
 
+
 class AccountHomeView(LoginRequiredMixin, DetailView):
     template_name = 'accounts/home.html'
 
@@ -117,4 +118,3 @@ class UserDetailUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('account:home')
-

@@ -12,11 +12,6 @@ from .forms import ContactForm
 class ProductListView(ListView):
     template_name = 'home_page.html'
 
-    # def get_context_data(self, *args, **kwargs):
-    #     context = super(ProductListView, self).get_context_data(*args, **kwargs)
-    #     print(context)
-    #     return context
-
     def get_context_data(self, *args, **kwargs):
         context = super(ProductListView, self).get_context_data(*args, **kwargs)
         cart_obj, new_obj = Cart.objects.new_or_get(self.request)
@@ -61,9 +56,4 @@ def contact_page(request):
         if request.is_ajax():
             return JsonResponse(errors, status=400, content_type='application/json')
 
-    # if request.method == "POST":
-    #     print(request.POST)
-    #     print(request.POST.get("fullname"))
-    #     print(request.POST.get("email"))
-    #     print(request.POST.get("content"))
     return render(request, "contact/view.html", context)
