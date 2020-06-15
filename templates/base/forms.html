@@ -4,7 +4,7 @@
 
 <div class="col-12 col-md-6 mx-auto">
 {% if title %}<h1 class="my-3">{{ title }}</h1>{% endif %}
-<form method="POST" action="{% if action_url %}{{ action_url }}{% endif %}">
+<form method="POST" action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}">
 
     {% csrf_token %}
 

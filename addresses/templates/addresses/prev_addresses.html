@@ -1,5 +1,5 @@
 {% if address_qs.exists %}
-    <form method="POST" action="{{ action_url }}"> {% csrf_token %}
+    <form method="POST" action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}"> {% csrf_token %}
         {% if next_url %}
             <input type="hidden" name="next" value="{{ next_url }}" />
         {% endif %}
