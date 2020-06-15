@@ -31,7 +31,7 @@ class AccountEmailActivateView(FormMixin, View):
     def get(self, request, key=None, *args, **kwargs):
         self.key = key
         if key is not None:
-            qs = EmailActivation.objects.filter(key_iexact=key)
+            qs = EmailActivation.objects.filter(key__iexact=key)
             confirm_qs = qs.confirmable()
             if confirm_qs.count() == 1:
                 obj = confirm_qs.first()
@@ -73,17 +73,6 @@ class AccountEmailActivateView(FormMixin, View):
         return render(self.request, 'registration/activation-error.html', context)
 
 
-class GuestRegisterView(NextUrlMixin, RequestFormAttachMixin, CreateView):
-    form_class = GuestForm
-    default_next = '/register/'
-
-    def get_success_url(self):
-        return self.get_next_url()
-
-    def form_invalid(self, form):
-        return redirect(self.default_next)
-
-
 class LoginView(NextUrlMixin, RequestFormAttachMixin, FormView):
     form_class = LoginForm
     success_url = '/'
@@ -93,9 +82,6 @@ class LoginView(NextUrlMixin, RequestFormAttachMixin, FormView):
     def form_valid(self, form):
         next_path = self.get_next_url()
         return redirect(next_path)
-
-    def form_invalid(self, form):
-        return super(LoginView, self).form_invalid(form)
 
 
 class RegisterView(CreateView):

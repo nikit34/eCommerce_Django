@@ -19,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'storages',
+
     'accounts',
     'addresses',
     'analytics',
@@ -42,10 +44,10 @@ FORCE_INACTIVE_USER_ENDSESSION = False
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'permikov134@gmail.com'
-EMAIL_HOST_PASSWORD = 'Nikita134permi'
+EMAIL_HOST_PASSWORD = 'takvioacurxuqmmu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'permikov134@mail.ru'
+DEFAULT_FROM_EMAIL = 'permikov134@gmail.com'
 MANAGERS = (
     ('Nikita', "permikov134@gmail.com"),
 )

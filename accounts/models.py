@@ -12,7 +12,7 @@ from django.db.models import Q
 from eCommerce_Django.utils import random_string_generator, unique_key_generator
 
 
-DEFAULT_ACTIVATION_DAYS = (settings, 'DEFAULT_ACTIVATION_DAYS', 7)
+DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
 class UserManager(BaseUserManager):
     def create_user(self, email, full_name=None, password=None, is_active=True, is_staff=False, is_admin=False):
@@ -164,8 +164,8 @@ class EmailActivation(models.Model):
                             txt_,
                             from_email,
                             recipient_list,
-                            fail_silently=False,
                             html_message=html_,
+                            fail_silently=False,
                     )
                 return sent_mail
         return False

@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <div style="margin-left:30%; margin-top:10%;">
-{% load static %}
-<style>
-body {
-  background-image: url('{% static "img/fon1.png"%}');
-}
-</style>
-    <h1>Register</h1>
-    <form method='POST'> {% csrf_token %}
+<div style="margin-left:30%; margin-top:10%;">
+  {% load static %}
+  <style>
+    body {
+      background-image: url('{% static "img/fon1.png"%}');
+    }
+  </style>
+  <h1>Register</h1>
+  <form method='POST'> {% csrf_token %}
     <table>
       {{ form.as_table }}
-      </table>
-      <br>
+    </table>
+    <br>
       <button type='submit' style="margin-left:13em;" class='btn btn-outline-dark'>Submit</button>
-    </form>
-  </div>
+  </form>
+</div>
 
 {% endblock %}

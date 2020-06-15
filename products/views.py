@@ -1,14 +1,14 @@
+import os
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, View
 from django.http import Http404, HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from analytics.mixins import ObjectViewedMixin
-import os
 from wsgiref.util import FileWrapper
 from mimetypes import guess_type
 from django.conf import settings
 
+from analytics.mixins import ObjectViewedMixin
 from carts.models import Cart
 from .models import Product, ProductFile
 from orders.models import ProductPurchase
@@ -56,7 +56,6 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
     def get_object(self, *args, **kwargs):
         request = self.request
         slug = self.kwargs.get('slug')
-        # instance = get_object_or_404(Product, slug=slug, active=True)
         try:
             instance = Product.objects.get(slug=slug, active=True)
         except Product.DoesNotExist:
@@ -77,7 +76,6 @@ class ProductDownloadView(View):
         if downloads_qs.count() != 1:
             raise Http404("Download nor found")
         download_obj = downloads_qs.first()
-        # permission checks
         can_download = False
         user_ready = True
         if download_obj.user_required:

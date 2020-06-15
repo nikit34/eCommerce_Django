@@ -1,12 +1,11 @@
-import datetime
 import random
-from django.shortcuts import render
+import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Count, Sum, Avg
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import TemplateView, View
-from django.db.models import Count, Sum, Avg
-from django.utils import timezone
-
+from django.shortcuts import render
+from django.utils import  timezone
 
 from orders.models import Order
 
@@ -14,7 +13,6 @@ from orders.models import Order
 class SalesAjaxView(View):
     def get(self, request, *args, **kwargs):
         data = {}
-
         if request.user.is_staff:
             qs = Order.objects.all().by_weeks_range(weeks_ago=5, number_of_weeks=5)
             if request.GET.get('type') == 'week':
@@ -28,11 +26,12 @@ class SalesAjaxView(View):
                     datetime_list.append(new_time)
                     labels.append(new_time.strftime("%a"))
                     new_qs = qs.filter(updated__day=new_time.day, updated__month=new_time.month)
-                    day_total = new_qs.totals_day()
+                    day_total = new_qs.totals_data()['total__sum'] or 0
                     salesItems.append(day_total)
+
                 data['labels'] = labels
-                dat['data'] = salesItems
-            if request.GET.get('type') == '4week':
+                data['data'] = salesItems
+            if request.GET.get('type') == '4weeks':
                 data['labels'] = ["Four Weeks Ago", "Three Weeks Ago", "Two Weeks Ago", "Last Week", "This Week"]
                 current = 5
                 data['data'] = []

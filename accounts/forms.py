@@ -100,7 +100,7 @@ class LoginForm(forms.Form):
         if qs.exists():
             not_active = qs.filter(is_active=False)
             if not_active.exists():
-                link = reverse('account:resend_activation')
+                link = reverse('account:resend-activation')
                 reconfirm_msg = """Go to <a href="{resend_link}">resend confirmation email</a>.""".format(resend_link=link)
                 confirm_email = EmailActivation.objects.filter(email=email)
                 is_confirmable = confirm_email.confirmable().exists()
@@ -140,8 +140,6 @@ class RegisterForm(forms.ModelForm):
         user = super(RegisterForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         user.is_active = False
-        obj = EmailActivation.objects.create(user=user)
-        obj.send_activation_email()
         if commit:
             user.save()
         return user
