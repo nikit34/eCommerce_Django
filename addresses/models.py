@@ -29,7 +29,7 @@ class Address(models.Model):
         return str(self.address_line_1)
 
     def get_absolute_url(self):
-        return reverse("address-update", kwargs={"pk":self.pk})
+        return reverse("address-update", kwargs={"pk": self.pk})
 
     def get_short_address(self):
         for_name = self.name
