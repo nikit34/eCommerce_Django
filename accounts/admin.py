@@ -18,7 +18,6 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ('admin', 'staff', 'is_active',)
     fieldsets = (
         (None, {'fields': ('full_name', 'email', 'password')}),
-        # ('Full_name', {'fields': ()}),
         ('Permissions', {'fields': ('admin', 'staff', 'is_active',)}),
     )
     add_fieldsets = (
@@ -35,6 +34,7 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.unregister(Group)
 
+
 class EmailActivationAdmin(admin.ModelAdmin):
     search_fields = ['email']
     class Meta:
@@ -42,6 +42,7 @@ class EmailActivationAdmin(admin.ModelAdmin):
 
 
 admin.site.register(EmailActivation, EmailActivationAdmin)
+
 
 class GuestEmailAdmin(admin.ModelAdmin):
     search_field = ['email']

@@ -11,7 +11,6 @@ from django.db.models import Q
 
 from eCommerce_Django.utils import random_string_generator, unique_key_generator
 
-#send_mail(subject, message, from_email, recipient_list, html_message)
 
 DEFAULT_ACTIVATION_DAYS = (settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
