@@ -40,8 +40,7 @@ def get_month_data_range(month_ago=1, include_this_month=False):
             "year": start.year,
             "month": str(start.strftime("%B"))
         })
-    #dates_.reverse()
-    return dates_ 
+    return dates_
 
 def get_filename(path):
     return os.path.basename(path)
@@ -61,9 +60,6 @@ def unique_order_id_generator(instance):
 
 
 def unique_key_generator(instance):
-    """
-    This is for a Django project with an key field
-    """
     size = random.randint(30, 45)
     key = random_string_generator(size=size)
 
