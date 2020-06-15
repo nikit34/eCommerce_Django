@@ -41,9 +41,6 @@ class AddressCreateView(LoginRequiredMixin, CreateView):
         instance.save()
         return super(AddressCreateView, self).form_valid(form)
 
-    # def get_queryset(self):
-    #     return Address.objects.filter(billing_profile=billing_profile)
-
 
 def checkout_address_create_view(request):
     form = AddressCheckoutForm(request.POST or None)

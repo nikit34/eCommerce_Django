@@ -52,4 +52,4 @@ class Address(models.Model):
                 state = self.state,
                 postal = self.postal_code,
                 country = self.country,
-        )
+            )
