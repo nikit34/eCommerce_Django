@@ -118,7 +118,6 @@ $(document).ready(function(){
     productForm.submit(function(event){
         event.preventDefault();
         var thisForm = $(this)
-        // var actionEndpoint = thisForm.attr('action');
         var actionEndpoint = thisForm.attr('data-endpoint');
         var httpMethod = thisForm.attr('method');
         var formData = thisForm.serialize();
@@ -153,7 +152,6 @@ $(document).ready(function(){
     function refreshCart(){
         var cartTable = $('.cart-table')
         var cartBody = cartTable.find('.cart-body')
-        // cartBody.html('<h1>Changed</h1>')
         var productRows = cartBody.find('.cart-product')
         var correntUrl = window.location.href
 
@@ -172,7 +170,6 @@ $(document).ready(function(){
                     $.each(data.products, function(index, value){
                         var newCartItemRemove = hiddenCartItemRemoveForm.clone()
                         newCartItemRemove.css('display', 'block')
-                        // newCartItemRemove.css('hidden-class')
                         newCartItemRemove.find('.cart-item-product-id').val(value.id)
                         cartBody.prepend('<tr><th scope="row">' + i + '</th><td><a href="' + value.url + '">' + value.name + '</a>' + newCartItemRemove.html() + '</td><td>' + value.price +'</tb></tr>')
                         i --

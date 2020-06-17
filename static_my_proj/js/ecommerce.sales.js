@@ -40,6 +40,7 @@ $(document).ready(function(){
             }
         })
     }
+
     var chartsToRender = $('.cfe-render-chart')
     $.each(chartsToRender, function(index, html){
         var $this = $(this)
