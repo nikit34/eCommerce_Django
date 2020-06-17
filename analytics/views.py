@@ -49,8 +49,6 @@ class SalesView(LoginRequiredMixin, TemplateView):
 
     def dispatch(self, *args, **kwargs):
         user = self.request.user
-        if not user.is_staff:
-            return render(self.request, "400.html", {})
         return super(SalesView, self).dispatch(*args, **kwargs)
 
     def get_context_data(self, *args, **kwargs):
