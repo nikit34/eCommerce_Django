@@ -22,7 +22,7 @@ class ObjectViewedQuerySet(models.query.QuerySet):
         qs = self.filter(content_type=c_type)
         if model_queryset:
             viewed_ids = [x.object_id for x in qs]
-            return model_class.objets.filter(pk__in=viewd_ids)
+            return model_class.objets.filter(pk__in=viewed_ids)
         return qs
 
 

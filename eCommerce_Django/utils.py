@@ -12,7 +12,7 @@ def get_last_month_data(today):
     last_month_start = datetime.datetime(last_month_end.year, last_month_end.month, 1)
     return (last_month_start, last_month_end)
 
-def get_month_data_range(month_ago=1, include_this_month=False):
+def get_month_data_range(months_ago=1, include_this_month=False):
     today = datetime.datetime.now().today()
     dates_ = []
     if include_this_month:
