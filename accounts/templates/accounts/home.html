@@ -10,19 +10,7 @@
 
 <div class='col-12 col-md-3 my-3'>
     <div class="card">
-      <div class="card-body">
-      <h4 class="card-title">Support</h4>
-        <div class='list-group'>
-          <a class='list-group-item' href='{% url "about" %}'>About</a>
-          <a class='list-group-item' href='{% url "contact" %}'>Contact</a>
-        </div>
-      </div>
-    </div>
-</div>
-
-<div class='col-12 col-md-3 my-3' id='billing'>
-    <div class="card">
-      <div class="card-body">
+      <div class="card-body" style="background:red;">
         <h4 class="card-title">Billing</h4>
           <div class='list-group'>
             <a class='list-group-item' href='{% url "orders:list" %}'>Orders</a>
@@ -34,10 +22,32 @@
     </div>
 </div>
 
+<div class='col-12 col-md-3 my-3'>
+    <div class="card">
+      <div class="card-body" style="background:yellow;">
+        <h4 class="card-title">History</h4>
+            <div class='list-group'>
+                <a class='list-group-item' href='{% url "account:user-product-history" %}'>Products</a>
+                <a class='list-group-item' href='{% url "sales-analytics" %}'>Statistics</a>
+            </div>
+      </div>
+    </div>
+</div>
 
 <div class='col-12 col-md-3 my-3'>
     <div class="card">
-      <div class="card-body">
+      <div class="card-body" style="background:green;">
+        <h4 class="card-title">Preferences</h4>
+          <div class='list-group'>
+            <a class='list-group-item' href='{% url "marketing-pref" %}'>Email Marketing</a>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class='col-12 col-md-3 my-3'>
+    <div class="card">
+      <div class="card-body" style="background:blue;">
         <h4 class="card-title">Account Details</h4>
             <div class='list-group'>
                 <a class='list-group-item' href='{% url "account:user-update" %}'>Update Details</a>
@@ -49,23 +59,12 @@
 
 <div class='col-12 col-md-3 my-3'>
     <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Preferences</h4>
-          <div class='list-group'>
-            <a class='list-group-item' href='{% url "marketing-pref" %}'>Email Marketing</a>
-          </div>
-      </div>
-    </div>
-</div>
-
-<div class='col-12 col-md-3 my-3'>
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">History</h4>
-            <div class='list-group'>
-                <a class='list-group-item' href='{% url "account:user-product-history" %}'>Products</a>
-                <a class='list-group-item' href='{% url "sales-analytics" %}'>Statistics</a>
-            </div>
+      <div class="card-body" style="background:violet;">
+      <h4 class="card-title">Support</h4>
+        <div class='list-group'>
+          <a class='list-group-item' href='{% url "about" %}'>About</a>
+          <a class='list-group-item' href='{% url "contact" %}'>Contact</a>
+        </div>
       </div>
     </div>
 </div>

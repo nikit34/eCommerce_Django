@@ -43,6 +43,9 @@
                 <a class="dropdown-item" href="{{ logout_url }}">Logout</a>
               </div>
             </li>
+            {% if user.staff %}
+            <i class="fa fa-star" style="color:yellow; margin-top:12px;"></i>
+            {% endif %}
             {% else %}
             <div class="row col-md-4 offset-md-2">
               <li class="nav-item {% if request.path == register_url %}active{% endif %}">
@@ -53,7 +56,6 @@
               </li>
             </div>
             {% endif %}
-
           </ul>
           {% include 'search/snippets/search-form.html' %}
         </div>
