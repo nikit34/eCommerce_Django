@@ -4,12 +4,13 @@
     <img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title }} logo">
   </a>
 {% endif %}
-    <div class="card-body">
-      <h5 class="card-title">{{ instance.title }}</h5>
-      <div class="text-center">
-        <p class="card-text">{{ instance.description|linebreaks|truncatewords:18 }}</p>
-        <a href="{{ instance.get_absolute_url }}" class="btn btn-primary my-2">view</a>
-        {% include 'products/snippets/update-cart.html' with product=instance cart=cart %}
-      </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ instance.title }}</h5>
+    <p class="card-text">{{ instance.description|linebreaks|truncatewords:18 }}</p>
+    <div class="row" style="margin-left:0.5%;">
+      <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">View</a>
+      {% include 'products/snippets/update-cart.html' with product=instance cart=cart %}
+    <h3 style="margin-right: 5%; margin-left: auto; margin-top: 2px;">{{ instance.price }} &#36;</h3>
     </div>
+  </div>
 </div>
