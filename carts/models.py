@@ -8,7 +8,6 @@ from django.db.models.signals import pre_save, post_save, m2m_changed
 User = settings.AUTH_USER_MODEL
 
 class CartManager(models.Manager):
-
     def new_or_get(self, request):
         cart_id = request.session.get('cart_id', None)
         qs = self.get_queryset().filter(id=cart_id)
