@@ -14,8 +14,6 @@ class OrderListView(LoginRequiredMixin, ListView):
 
 class OrderDetailView(LoginRequiredMixin, DetailView):
     def get_object(self):
-        # return Order.objects.get(id=self.kwargs.get('id'))
-        # return Order.objects.get(slug=self.kwargs.get('slug'))
         qs = Order.objects.by_request(self.request).filter(order_id=self.kwargs.get('order_id'))
         if qs.count() == 1:
             return qs.first()
@@ -38,6 +36,6 @@ class VerifyOwnership(View):
                 product_id = int(product_id)
                 ownership_ids = ProductPurchase.objects.products_by_id(request)
                 if product_id in ownership_ids:
-                    return JsonResponse({'owner':True})
-            return JsonResponse({'owner':False})
+                    return JsonResponse({'owner': True})
+            return JsonResponse({'owner': False})
         raise Http404
