@@ -147,7 +147,7 @@ class EmailActivation(models.Model):
     def send_activation(self):
         if not self.activated and not self.forced_expired:
             if self.key:
-                base_url = getattr(settings, 'BASE_URL', 'https://www.pythonecommerce.com')
+                base_url = getattr(settings, 'BASE_URL', None)
                 key_path = reverse("account:email-activate", kwargs={'key': self.key})
                 path = "{base}{path}".format(base=base_url, path=key_path)
                 context = {

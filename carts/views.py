@@ -12,18 +12,25 @@ from products.models import Product
 from .models import Cart
 
 import stripe
-STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY', 'sk_test_cVUHsbXTYgysOm3s90niWBJO00cak1DxZG')
-STRIPE_PUB_KEY = getattr(settings, 'STRIPE_PUB_KEY', 'pk_test_y8lcongoCYBWmBNKtM3pkK8K00Sf1z0ccU')
+STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY', None)
+STRIPE_PUB_KEY = getattr(settings, 'STRIPE_PUB_KEY', None)
 stripe.api_key = STRIPE_SECRET_KEY
 
 
 def cart_detail_api_view(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
-    products = [{ 'id': x.id, 'url': x.get_absolute_url(), 'name': x.name, 'price': x.price } for x in cart_obj.products.all()]
-    # products_list = []
-    # for x in cart_obj.products.all():
-        # products_list.append({'name': x.name, 'price': x.price })
-    cart_data = {'products': products, 'subtotal': cart_obj.subtotal, 'total': cart_obj.total}
+    products = [{
+            'id': x.id,
+            'url': x.get_absolute_url(),
+            'name': x.name,
+            'price': x.price
+        } for x in cart_obj.products.all()
+    ]
+    cart_data = {
+        'products': products,
+        'subtotal': cart_obj.subtotal,
+        'total': cart_obj.total
+    }
     return JsonResponse(cart_data)
 
 
@@ -118,7 +125,6 @@ def checkout_home(request):
         'publish_key': STRIPE_PUB_KEY,
         'shipping_address_required': shipping_address_required,
     }
-
     return render(request, 'carts/checkout.html', context)
 
 

@@ -4,8 +4,8 @@ from django.http import JsonResponse, HttpResponse
 from django.utils.http import is_safe_url
 
 import stripe
-STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY', 'sk_test_cVUHsbXTYgysOm3s90niWBJO00cak1DxZG')
-STRIPE_PUB_KEY = getattr(settings, 'STRIPE_PUB_KEY', 'pk_test_y8lcongoCYBWmBNKtM3pkK8K00Sf1z0ccU')
+STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY', None)
+STRIPE_PUB_KEY = getattr(settings, 'STRIPE_PUB_KEY', None)
 stripe.api_key = STRIPE_SECRET_KEY
 
 from .models import BillingProfile, Card
