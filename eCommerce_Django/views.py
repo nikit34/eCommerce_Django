@@ -2,6 +2,8 @@ from django.contrib.auth import authenticate, login, get_user_model
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
+from django.core.mail import send_mail, BadHeaderError
+from django.conf import settings
 
 from carts.models import Cart
 from products.models import Product
@@ -42,12 +44,21 @@ def about_page(request):
 
 def contact_page(request):
     contact_form = ContactForm(request.POST or None)
+    support_email = getattr(settings, 'SUPPORT_EMAIL', None)
     context = {
         "title": "Contact",
         "content": "Here you can leave your feedback.",
         "form": contact_form,
     }
     if contact_form.is_valid():
+        fullname = contact_form.cleaned_data['fullname']
+        email = contact_form.cleaned_data['email']
+        content = contact_form.cleaned_data['content']
+        msg_content = 'Send with contact email: ' + email + '\n\n' + content
+        try:
+            send_mail(fullname, msg_content, email, [support_email])
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
         if request.is_ajax():
             return JsonResponse({'message': 'Thank you for your submission'})
 

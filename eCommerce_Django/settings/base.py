@@ -32,6 +32,8 @@ INSTALLED_APPS = [
 ]
 
 
+SUPPORT_EMAIL = 'permikov134@gmail.com'
+
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = '/login/'
 LOGIN_URL_REDIRECT = '/'
