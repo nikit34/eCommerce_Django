@@ -2,14 +2,12 @@
 
 {% block content %}
 
-    <div class="row text-center" style="margin-top:5%;">
-    {% for obj in object_list %}
-        {% if forloop.counter0|divisibleby:2 %} </div><div class="row text-center"> {% endif %}
-            <div class="col my-3">
-                {% include 'products/snippets/card.html' with instance=obj %}
-            </div>
-
-    {% endfor %}
-
+<div class="row text-center" style="margin-top:5%;">
+  {% for obj in object_list %}
+    {% if forloop.counter0|divisibleby:2 %} </div><div class="row text-center"> {% endif %}
+        <div class="col my-3">
+            {% include 'products/snippets/card.html' with instance=obj %}
+        </div>
+  {% endfor %}
 
 {% endblock %}

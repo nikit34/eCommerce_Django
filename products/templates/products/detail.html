@@ -9,8 +9,8 @@
         </div>
         <div class="col">
             <div class="row" style="margin-top: 10px; margin-right:5%;">
-    <h3 style="margin-right: 5%; margin-left: auto; margin-top: 5px;">{{ object.price }} &#36;</h3>
-            {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
+                <h3 style="margin-right: 5%; margin-left: auto; margin-top: 5px;">{{ object.price }} &#36;</h3>
+                {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
             </div>
         </div>
     </div>
@@ -22,8 +22,18 @@
         </div>
         <div class="col">
             {% if object.image %}
-                <img src="{{ object.image.url }}" class="img-fluid" />
+              <img src="{{ object.image.url }}" class="img-fluid" />
+            {% else %}
+                <p style="margin-left:50%; margin-top:50px;">Image not found</p>
             {% endif %}
+            {% for slide in slides %}
+              <img src="{{ slide.file.url }}" class="img-fluid" />
+            {% endfor %}
+
+
+            
+
+
         </div>
     </div>
     <br/>
