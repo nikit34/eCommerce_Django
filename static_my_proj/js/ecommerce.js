@@ -149,6 +149,10 @@ $(document).ready(function(){
         })
     })
 
+    $('.carousel').carousel({
+        interval: 2000
+    })
+
     function refreshCart(){
         var cartTable = $('.cart-table')
         var cartBody = cartTable.find('.cart-body')

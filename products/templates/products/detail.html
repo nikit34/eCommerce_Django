@@ -17,24 +17,54 @@
     <hr/>
     <br/>
     <div class="row">
-        <div class="col">
-            {{ object.description|linebreaks }}
-        </div>
-        <div class="col">
+      <div class="col">
+        {{ object.description|linebreaks }}
+      </div>
+      <div class="col">
+        <div id="carouselAction" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselAction" data-slide-to="0" class="active"></li>
+          {% for slide in slides %}
+            <li data-target="#carouselAction" data-slide-to="{{ forloop.counter }}"></li>
+            {{ forloop.counter1 }}
+          {% endfor %}
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
             {% if object.image %}
-              <img src="{{ object.image.url }}" class="img-fluid" />
+                <img src="{{ object.image.url }}" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{ object.title }}</h5>
+                  <p>{{ object.description }}</p>
+                </div>
             {% else %}
-                <p style="margin-left:50%; margin-top:50px;">Image not found</p>
+              <p style="margin-left:50%; margin-top:50px;">Image not found</p>
             {% endif %}
+            </div>
             {% for slide in slides %}
-              <img src="{{ slide.file.url }}" class="img-fluid" />
+              <div class="carousel-item">
+              {% if slide.file %}
+                <img src="{{ slide.file.url }}" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{ slide.name }}</h5>
+                  <p>{{ slide.description }}</p>
+                </div>
+              {% else %}
+                <p style="margin-left:50%; margin-top:50px;">Image not found</p>
+              {% endif %}
+              </div>
             {% endfor %}
-
-
-            
-
-
+          </div>
+          <a class="carousel-control-prev" href="#carouselAction" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselAction" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+      </div>
     </div>
     <br/>
 

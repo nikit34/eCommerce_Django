@@ -54,27 +54,6 @@ $(document).ready(function () {
       }
     });
 
-    // // Handle form submission.
-    // var form = document.getElementById('payment-form');
-    // form.addEventListener('submit', function(event) {
-    //   event.preventDefault();
-    //   var loadTime = 1500
-    //   var errorHtml = '<i class="fa fa-warning"></i> An error occured'
-    //   var errorClasses = 'btn btn-danger disabled my-3'
-    //   var loadingHtml = '<i class="fa fa-spin fa-spinner"></i> Loading...'
-    //   var loadingClasses = 'btn btn-success disabled my-3'
-    //   stripe.createToken(card).then(function(result) {
-    //     if (result.error) {
-    //       // Inform the user if there was an error.
-    //       var errorElement = document.getElementById('card-errors');
-    //       errorElement.textContent = result.error.message;
-    //     } else {
-    //       // Send the token to your server.
-    //       stripeTokenHandler(nextUrl, result.token);
-    //     }
-    //   });
-    // });
-
     // Handle form submission.
     var form = $("#payment-form");
     var btnLoad = form.find(".btn-load");

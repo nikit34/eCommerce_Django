@@ -32,7 +32,7 @@
             <li class="nav-item {% if request.path == contact_url %}active{% endif %}">
               <a class="nav-link" href="{{ contact_url }}" style="font-family: 'Times New Roman'; font-style: italic;">Contact <i class="fa fa-id-card" aria-hidden="true"></i></a>
             </li>
-            <li class="nav-item right-group dropdown col-md-4 offset-md-2">
+            <li class="nav-item right-group dropdown col-md-3 offset-md-2">
               <a class="nav-link dropdown-toggle" href="#" style="font-family: 'Times New Roman'; font-style: italic;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% if user %} {{ user }} {% else %} Account {% endif %}</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">Home</a>
