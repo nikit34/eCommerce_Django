@@ -33,13 +33,28 @@
               <a class="nav-link" href="{{ contact_url }}" style="font-family: 'Times New Roman'; font-style: italic;">Contact <i class="fa fa-id-card" aria-hidden="true"></i></a>
             </li>
             <li class="nav-item right-group dropdown col-md-3 offset-md-2">
-              <a class="nav-link dropdown-toggle" href="#" style="font-family: 'Times New Roman'; font-style: italic;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% if user %} {{ user }} {% else %} Account {% endif %}</a>
+              {% if user %}
+                {% if user.admin %}
+                  <a class="nav-link dropdown-toggle" href="#" style="font-family: 'Times New Roman'; font-style: italic; color:red;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {% else %}
+                  <a class="nav-link dropdown-toggle" href="#" style="font-family: 'Times New Roman'; font-style: italic;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {% endif %}
+                {{ user }}
+              {% else %}
+                Account
+              {% endif %}
+              </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">Home</a>
-              <a class="dropdown-item" href="{{ cart_url }}">Billing</a>
-              <a class="dropdown-item" href="{% url 'account:user-product-history' %}">History</a>
-              <a class="dropdown-item" href="{% url 'library' %}">Library</a>
-              <div class="dropdown-divider"></div>
+                {% if user %}
+                  {% if user.admin %}
+                    <a class="dropdown-item {% if 'admin:index' in request.path %}active{% endif %}" href="{% url 'admin:index' %}">Admin</a>
+                  {% endif %}
+                {% endif %}
+                <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">Home</a>
+                <a class="dropdown-item {% if request.path == cart_url %}active{% endif %}" href="{{ cart_url }}">Billing</a>
+                <a class="dropdown-item {% if 'history' in request.path %}active{% endif %}" href="{% url 'account:user-product-history' %}">History</a>
+                <a class="dropdown-item {% if 'library' in request.path %}active{% endif %}" href="{% url 'library' %}">Library</a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ logout_url }}">Logout</a>
               </div>
             </li>
