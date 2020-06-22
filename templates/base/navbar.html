@@ -8,6 +8,7 @@
 {% url 'account:user-product-history' as history%}
 {% url 'cart:home' as cart_url %}
 {% url 'library' as library %}
+{% url 'admin:index' as admin %}
 {% load static %}
 
 <nav class="row navbar navbar-expand-lg navbar-dark bg-dark mb-3">
@@ -47,10 +48,8 @@
               {% endif %}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% if user %}
-                  {% if user.admin %}
-                    <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
-                  {% endif %}
+                {% if user.admin %}
+                  <a class="dropdown-item " href="{{ admin }}">Admin</a>
                 {% endif %}
                 <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">Home</a>
                 <a class="dropdown-item {% if request.path == cart_url %}active{% endif %}" href="{{ cart_url }}">Billing</a>
