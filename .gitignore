@@ -1,6 +1,9 @@
 venv/**
 **/*.pyc
 **/__pycache__/**
+**/.vscode/**
+**/.git/**
+
 
 db.sqlite3
 
