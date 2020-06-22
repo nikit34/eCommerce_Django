@@ -48,10 +48,10 @@ class Cart(models.Model):
     @property
     def delivery(self):
         qs = self.products.all()
-        new_qs = qs.filter(delivery=False)
+        new_qs = qs.filter(delivery=True)
         if new_qs.exists():
-            return False
-        return True
+            return True
+        return False
 
 
 def m2m_changed_cart_receiver(sender, instance, action, *args, **kwargs):
