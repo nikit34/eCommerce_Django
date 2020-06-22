@@ -148,7 +148,7 @@ class Order(models.Model):
         return new_total
 
     def check_done(self):
-        shipping_address_required = not self.cart.is_digital
+        shipping_address_required = self.cart.delivery
         shipping_done = False
         if shipping_address_required and self.shipping_address:
             shipping_done = True
@@ -226,8 +226,8 @@ class ProductPurchaseQuerySet(models.query.QuerySet):
     def active(self):
         return self.filter(refunded=False)
 
-    def digital(self):
-        return self.filter(product__is_digital=True)
+    def delivery(self):
+        return self.filter(product__delivery=True)
 
     def by_request(self, request):
         billing_profile, created = BillingProfile.objects.new_or_get(request)
@@ -241,14 +241,14 @@ class ProductPurchaseManager(models.Manager):
     def all(self):
         return self.get_queryset().active()
 
-    def digital(self):
-        return self.get_queryset().active().digital()
+    def delivery(self):
+        return self.get_queryset().active().delivery()
 
     def by_request(self, request):
         return self.get_queryset().by_request(request)
 
     def products_by_id(self, request):
-        qs = self.by_request(request).digital()
+        qs = self.by_request(request).delivery()
         ids_ = [x.product.id for x in qs]
         return ids_
 
@@ -260,8 +260,8 @@ class ProductPurchaseManager(models.Manager):
 
 class ProductPurchase(models.Model):
     order_id = models.CharField(max_length=120)
-    billing_profile = models.ForeignKey(BillingProfile) # billingprofile.productpurchase_set.all()
-    product = models.ForeignKey(Product) # product.productpurchase_set.count()
+    billing_profile = models.ForeignKey(BillingProfile)
+    product = models.ForeignKey(Product)
     refunded = models.BooleanField(default=False)
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)

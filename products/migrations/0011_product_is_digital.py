@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='product',
-            name='is_digital',
+            name='is_delivery',
             field=models.BooleanField(default=False),
         ),
     ]
