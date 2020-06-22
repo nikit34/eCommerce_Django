@@ -18,7 +18,7 @@ from billing.views import payment_method_view, payment_method_createview
 from carts.views import cart_detail_api_view
 from marketing.views import MarketingPreferenceUpdateView, MailchimpWebhookView
 from orders.views import LibraryView
-from .views import ProductListView, about_page, contact_page
+from .views import ProductListView, about_page, contact_page, update
 
 
 urlpatterns = [
@@ -51,6 +51,7 @@ urlpatterns = [
   url(r'^settings/email/$', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
   url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
   url(r'^admin/', admin.site.urls),
+  url(r'^update_server/$', update, name='update'),
 ]
 
 

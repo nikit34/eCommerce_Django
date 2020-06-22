@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+import git
 
 from carts.models import Cart
 from products.models import Product
@@ -68,3 +70,14 @@ def contact_page(request):
             return JsonResponse(errors, status=400, content_type='application/json')
 
     return render(request, "contact/view.html", context)
+
+
+@csrf_exempt
+def update(request):
+    if request.method == 'POST':
+        repo = git.Repo("olyastudio.pythonanywhere.com/")
+        origin = repo.remotes.origin
+        origin.pull()
+        return HttpResponse("Update code on server")
+    else:
+        return HttpResponse("Could`t update the code on server")
