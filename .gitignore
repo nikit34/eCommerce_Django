@@ -4,10 +4,7 @@ venv/**
 **/.vscode/**
 **/.git/**
 
-
+bash
 db.sqlite3
 
 **/settings/base.py
-
-Procfile
-runtime.txt
