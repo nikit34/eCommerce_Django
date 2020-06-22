@@ -8,7 +8,7 @@ SECRET_KEY = 'k$tq!vjmn#tp26s06m++84v$3zrt!*_!1_9v1uo_27et8vm0bo'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['olyalyastudio.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
