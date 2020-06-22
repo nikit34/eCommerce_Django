@@ -54,7 +54,7 @@ MANAGERS = (
 ADMINS = MANAGERS
 
 
-BASE_URL = '127.0.0.1:8000'
+BASE_URL = 'olyastudio.pythonanywhere.com'
 
 
 MAILCHIMP_API_KEY = 'f9ec63009f1db53ac62e0ec518e24527-us10'
