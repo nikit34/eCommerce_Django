@@ -110,7 +110,6 @@ $(document).ready(function () {
       error: function (erorr) {
         console.log(error);
       },
-      delivery,
     });
     return isOwner;
   }
@@ -221,4 +220,3 @@ $(document).ready(function () {
     });
   }
 });
-
