@@ -76,7 +76,7 @@ def contact_page(request):
 def update(request):
     if request.method == 'POST':
         repo = git.Repo("/home/OlyaStudio/")
-        origin = repo.remotes.origin
+        origin = repo.remotes
         origin.pull()
         return HttpResponse("Update code on server")
     else:
