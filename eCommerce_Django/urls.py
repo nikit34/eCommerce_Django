@@ -58,3 +58,8 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header = 'Olyalya Studio'
+admin.site.index_title = 'Olyalya Studio'
+admin.site.site_title = 'Olyalya Studio'

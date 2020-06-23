@@ -15,10 +15,10 @@ class UserAdmin(BaseUserAdmin):
     add_form = UserAdminCreationForm
 
     list_display = ('email', 'admin')
-    list_filter = ('admin', 'staff', 'is_active',)
+    list_filter = ('admin', 'staff', 'is_active')
     fieldsets = (
         (None, {'fields': ('full_name', 'email', 'password')}),
-        ('Permissions', {'fields': ('admin', 'staff', 'is_active',)}),
+        ('Permissions', {'fields': ('admin', 'staff', 'is_active')}),
     )
     add_fieldsets = (
         (None, {

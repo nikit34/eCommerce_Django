@@ -35,7 +35,7 @@ class UserManager(BaseUserManager):
 
     def create_superuser(self, email, full_name=None, password=None):
         user = self.create_user(
-            email, full_name=full_name, password=password, is_staff=True, is_admin=True)
+            email, full_name=full_name, password=password, is_staff=False, is_admin=True)
         return user
 
 
@@ -71,8 +71,6 @@ class User(AbstractBaseUser):
 
     @property
     def is_staff(self):
-        if self.is_admin:
-            return True
         return self.staff
 
     @property
