@@ -1,2 +1,3 @@
-# from .base import *
-from .pythonanywhere import *
+# from .pythonanywhere import *
+
+from .base import *
