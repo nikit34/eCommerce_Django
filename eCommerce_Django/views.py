@@ -75,7 +75,7 @@ def contact_page(request):
 @csrf_exempt
 def update(request):
     if request.method == 'POST':
-        repo = git.Repo("/home/OlyaStudio/")
+        repo = git.Repo("/home/OlyaStudio/eCommerce_Django/")
         origin = repo.remotes.origin
         origin.pull()
         return HttpResponse("Update code on server")
