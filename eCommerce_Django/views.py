@@ -77,7 +77,6 @@ def update(request):
     if request.method == 'POST':
         repo = git.Repo("/home/OlyaStudio/eCommerce_Django/")
         origin = repo.remotes.origin
-        print(origin)
         origin.pull()
         return HttpResponse("Update code on server")
     else:
