@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
 
     def create_staffuser(self, email, full_name=None, password=None):
         user = self.create_user(
-            email, full_name=full_name, password=password, is_staff=True)
+            email, full_name=full_name, password=password, is_staff=True, , is_admin=False)
         return user
 
     def create_superuser(self, email, full_name=None, password=None):
@@ -43,7 +43,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
     full_name = models.CharField(max_length=255, blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    staff = models.BooleanField(default=True)
+    staff = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
 
