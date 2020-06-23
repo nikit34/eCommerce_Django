@@ -75,7 +75,7 @@ def contact_page(request):
 def update(request):
     if request.method == 'POST':
         repo = git.Repo('/home/OlyaStudio/eCommerce_Django/')
-        origin = repo.remotes.origin
+        origin = repo.remotes.origin.commit.tree
         origin.pull()
         return HttpResponse("Update code on server")
     else:
