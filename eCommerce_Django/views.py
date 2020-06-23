@@ -80,4 +80,4 @@ def update(request):
         origin.pull()
         return HttpResponse("Update code on server")
     else:
-        return HttpResponse("Could`t update the code on server")
+        return HttpResponse("ERROR: Could`t update the code on server")
