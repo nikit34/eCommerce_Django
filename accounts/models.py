@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
 
     def create_staffuser(self, email, full_name=None, password=None):
         user = self.create_user(
-            email, full_name=full_name, password=password, is_staff=True, , is_admin=False)
+            email, full_name=full_name, password=password, is_staff=True, is_admin=False)
         return user
 
     def create_superuser(self, email, full_name=None, password=None):
