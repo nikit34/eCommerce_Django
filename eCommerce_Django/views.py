@@ -68,7 +68,6 @@ def contact_page(request):
         errors = contact_form.errors.as_json()
         if request.is_ajax():
             return JsonResponse(errors, status=400, content_type='application/json')
-
     return render(request, "contact/view.html", context)
 
 
