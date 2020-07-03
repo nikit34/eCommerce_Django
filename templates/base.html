@@ -1,31 +1,43 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>OlyalyaStudio</title>
-    {% include 'base/css.html' %}
-</head>
-<body>
-    {% include 'base/navbar.html' with brand_name="Olyalya Studio" %}
-    <div class="container">
-        {% if messages %}
-        <div class="alert alert-success messages">
-            {% for message in messages %}
-            <span {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-                {{ message }}<br/>
-            </span>
-            {% endfor %}
-        </div>
-        {% endif %}
-        {% block content %}{% endblock %}
-    </div>
-    {% include 'base/js.html' %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>OlyalyaStudio</title>
+        {% include 'base/css.html' %}
+    </head>
+    <body>
+        {% include 'base/navbar.html' with brand_name="Olyalya Studio" %}
+        <img src="{% static 'img/fon_main.png'%}">
+        <span class="row">
+            <div class="col-2 left-field">
 
-    {% block javascript %}
+            </div>
+            <div class="col-8">
+                <div class="container-field">
+                    {% if messages %}
+                    <div class="alert alert-success messages">
+                        {% for message in messages %}
+                        <span {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                            {{ message }}<br/>
+                        </span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+            </div>
+            <div class="col-2 right-field">
 
-    {% endblock %}
-</body>
+            </div>
+        </span>
+        {% include 'base/js.html' %}
+
+        {% block javascript %}
+
+        {% endblock %}
+    </body>
 </html>

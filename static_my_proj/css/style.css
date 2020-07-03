@@ -1,10 +1,17 @@
+html {
+    overflow-x:  hidden;
+}
+
 body {
     background-color: whitesmoke;
+    min-height: 700px;
 }
 
 .navbar {
     margin-right:10px;
-    background-color: #ff00001f;
+    border-style: none;
+    border-bottom-style: groove;
+    background: radial-gradient(circle, #ff00001f 50%, rgba(255, 255, 255, 0) 100%);
 }
 
 .navbar .nav-item .nav-link {
@@ -19,6 +26,29 @@ body {
 
 .navbar .nav-item .nav-link:hover{
     background-size: 100% 80%;
+}
+
+.navbar-toggler {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+body img {
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: -1;
+    width: 50%;
+    margin: 5% 25%;
+    border-radius: 30%;
+    filter: blur(2px);
+}
+
+span.row{
+    min-height: 700px;
+}
+
+div.left-field,
+div.right-field {
+    background: linear-gradient(0deg, #ffffff00 0%, #ff00001f 50%, #ffffff00 100%);
 }
 
 .btn-outline-success {
@@ -44,8 +74,4 @@ body {
     border-color:rgba(255, 0, 0, 0.25);
     color:black;
     background-color:white;
-}
-
-.navbar-toggler {
-    background-color: rgba(255, 0, 0, 0.5);
 }

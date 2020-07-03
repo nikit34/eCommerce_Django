@@ -20,11 +20,12 @@ class UserManager(BaseUserManager):
             raise ValueError("Users must have an email address")
         if not password:
             raise ValueError("Users must have a password")
-        user_obj = self.model(email=self.normalize_email(email), full_name=full_name)
+        email = self.normalize_email(email)
+        user_obj = self.model(email=email, full_name=full_name)
         user_obj.set_password(password)
-        user_obj.is_active = is_active
         user_obj.staff = is_staff
         user_obj.admin = is_admin
+        user_obj.is_active = is_active
         user_obj.save(using=self._db)
         return user_obj
 
@@ -35,7 +36,7 @@ class UserManager(BaseUserManager):
 
     def create_superuser(self, email, full_name=None, password=None):
         user = self.create_user(
-            email, full_name=full_name, password=password, is_staff=False, is_admin=True)
+            email, full_name=full_name, password=password, is_staff=True, is_admin=True)
         return user
 
 
@@ -82,7 +83,7 @@ class User(AbstractBaseUser):
     #     return self.active
 
 
-class EmailActivationQuerySet(models.QuerySet):
+class EmailActivationQuerySet(models.query.QuerySet):
     def confirmable(self):
         now = timezone.now()
         start_range = now - timedelta(days=DEFAULT_ACTIVATION_DAYS)
@@ -158,12 +159,12 @@ class EmailActivation(models.Model):
                 from_email = settings.DEFAULT_FROM_EMAIL
                 recipient_list = [self.email]
                 sent_mail = send_mail(
-                            subject,
-                            txt_,
-                            from_email,
-                            recipient_list,
-                            html_message=html_,
-                            fail_silently=False,
+                        subject,
+                        txt_,
+                        from_email,
+                        recipient_list,
+                        html_message=html_,
+                        fail_silently=False,
                     )
                 return sent_mail
         return False

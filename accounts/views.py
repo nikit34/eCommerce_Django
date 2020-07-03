@@ -73,6 +73,17 @@ class AccountEmailActivateView(FormMixin, View):
         return render(self.request, 'registration/activation-error.html', context)
 
 
+class GuestRegisterView(NextUrlMixin,  RequestFormAttachMixin, CreateView):
+    form_class = GuestForm
+    default_next = '/register/'
+
+    def get_success_url(self):
+        return self.get_next_url()
+
+    def form_invalid(self, form):
+        return redirect(self.default_next)
+
+
 class LoginView(NextUrlMixin, RequestFormAttachMixin, FormView):
     form_class = LoginForm
     success_url = '/'
