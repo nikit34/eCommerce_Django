@@ -43,12 +43,14 @@ body img {
 
 div.left-field {
     background: linear-gradient(270deg, #ffffff00 50%, #ff00001f 100%);
-    height: 100vh;
+    top:0.5vh;
+    min-height: 92vh;
 }
 
 div.right-field {
-    /* background: red; */
-    height: 100vh;
+    background: rgba(100, 100, 255, 0.025);
+    top:0.5vh;
+    min-height: 92vh;
 }
 
 .btn-outline-success {
