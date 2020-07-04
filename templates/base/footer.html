@@ -3,11 +3,10 @@
 <footer class="footer">
     <div class="row text-muted">
         <div class="col-4 footer-left">
-            Developed {% if dev_source %}<a href="{{ dev_source }}">GitHub</a>{% endif %}, 2020
+            {% trans "Developed" %} {% if dev_source %}<a href="{{ dev_source }}">GitHub</a>{% endif %}, 2020
         </div>
         <div class="col-8 footer-right">
-            {% get_current_language as LANGUAGE_CODE %}
-            {% trans "тест test" %}
+            {% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}
         </div>
     </div>
 </footer>

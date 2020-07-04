@@ -4,6 +4,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.views.generic import TemplateView, RedirectView
+from django.conf.urls.i18n import i18n_patterns
 
 from addresses.views import (
     AddressCreateView,
@@ -21,7 +22,7 @@ from orders.views import LibraryView
 from .views import ProductListView, about_page, contact_page, update
 
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
   url(r'^$', ProductListView.as_view(), name='home'),
   url(r'^about/$', about_page, name='about'),
   url(r'^accounts/$', RedirectView.as_view(url='/account')),
@@ -52,12 +53,12 @@ urlpatterns = [
   url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
   url(r'^admin/', admin.site.urls),
   url(r'^update_server/$', update, name='update'),
-]
+)
 
 
 if settings.DEBUG:
-    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 admin.site.site_header = 'Olyalya Studio'
