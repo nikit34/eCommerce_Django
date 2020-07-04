@@ -4,6 +4,7 @@ html {
 
 body {
     background-color: whitesmoke;
+    min-height: 700px;
 }
 
 .navbar {
@@ -41,14 +42,13 @@ body img {
     filter: blur(2px);
 }
 
-div.left-field {
-    background: linear-gradient(270deg, #ffffff00 50%, #ff00001f 100%);
-    height: 100vh;
+span.row{
+    min-height: 700px;
 }
 
+div.left-field,
 div.right-field {
-    /* background: red; */
-    height: 100vh;
+    background: linear-gradient(0deg, #ffffff00 0%, #ff00001f 50%, #ffffff00 100%);
 }
 
 .btn-outline-success {
@@ -74,12 +74,4 @@ div.right-field {
     border-color:rgba(255, 0, 0, 0.25);
     color:black;
     background-color:white;
-}
-
-footer.footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
 }
