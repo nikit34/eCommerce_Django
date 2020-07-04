@@ -25,6 +25,7 @@ from .views import ProductListView, about_page, contact_page, update
 urlpatterns = i18n_patterns(
   url(r'^$', ProductListView.as_view(), name='home'),
   url(r'^about/$', about_page, name='about'),
+  url(r'^i18n/', include('django.conf.urls.i18n')),
   url(r'^accounts/$', RedirectView.as_view(url='/account')),
   url(r'^account/', include("accounts.urls", namespace='account')),
   url(r'^accounts/', include("accounts.passwords.urls")),
