@@ -1,5 +1,5 @@
 html {
-    overflow-x:  hidden;
+    overflow-x: hidden;
 }
 
 body {
@@ -40,6 +40,29 @@ body img {
     margin: 5% 25%;
     border-radius: 30%;
     filter: blur(2px);
+}
+
+form.form-reglog{
+    background-color: #ff00001f;
+    border: 2px solid #ff000080;
+    border-radius: 15px;
+    padding: 5px 25px 5px 25px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form.form-reglog h1{
+    font-family: 'Times New Roman';
+    font-style: italic;
+}
+
+form.form-reglog th{
+    background-color: #ff000005;
+}
+
+form.form-reglog td{
+    background-color: #ff000005;
 }
 
 div.left-field {

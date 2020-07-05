@@ -19,8 +19,7 @@ class ReactivateEmailForm(forms.Form):
         qs = EmailActivation.objects.email_exists(email)
         if not qs.exists():
             register_link = reverse('register')
-            msg = gettext_lazy("""This email does not exists, would you like to <a href="{link}">register</a>?
-            """).format(link=register_link)
+            msg = gettext_lazy('This email does not exists, would you like to <a href="%(link)s">register</a>?') % { 'link': register_link }
             raise forms.ValidationError(mark_safe(msg))
         return email
 
@@ -49,7 +48,7 @@ class UserAdminCreationForm(forms.ModelForm):
 
 
 class UserDetailChangeForm(forms.ModelForm):
-    full_name = forms.CharField(label=gettext_lazy('Name'), required=False, widget=forms.TextInput(attrs={"class": gettext_lazy('form-control')}))
+    full_name = forms.CharField(label=gettext_lazy('Name'), required=False, widget=forms.TextInput(attrs={"class": 'form-control'}))
 
     class Meta:
         model = User
@@ -103,7 +102,7 @@ class LoginForm(forms.Form):
             not_active = qs.filter(is_active=False)
             if not_active.exists():
                 link = reverse('account:resend-activation')
-                reconfirm_msg = gettext_lazy("""Go to <a href="{resend_link}">resend confirmation email</a>.""").format(resend_link=link)
+                reconfirm_msg = gettext_lazy('Go to <a href="%(resend_link)s">resend confirmation email</a>.') % { 'resend_link': link }
                 confirm_email = EmailActivation.objects.filter(email=email)
                 is_confirmable = confirm_email.confirmable().exists()
                 if is_confirmable:

@@ -40,7 +40,7 @@
                   <p>{{ object.description }}</p>
                 </div>
             {% else %}
-              <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found" %}</p>
+              <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found :(" %}</p>
             {% endif %}
             </div>
             {% for slide in slides %}
@@ -52,7 +52,7 @@
                   <p>{{ slide.description }}</p>
                 </div>
               {% else %}
-                <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found" %}</p>
+                <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found :(" %}</p>
               {% endif %}
               </div>
             {% endfor %}

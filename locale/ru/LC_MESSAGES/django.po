@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 13:58+0500\n"
+"POT-Creation-Date: 2020-07-05 18:44+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,54 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: accounts/forms.py:22
+#, python-format
+msgid ""
+"This email does not exists, would you like to <a href=\"%(link)s\">register</"
+"a>?"
+msgstr ""
+"Этот email не использован, зарегестрируетесь <a href=\"%(link)s\">register</"
+"a>?"
+
+#: accounts/forms.py:28 accounts/forms.py:126
+msgid "Password"
+msgstr "Сброс пароля"
+
+#: accounts/forms.py:29 accounts/forms.py:127
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
+#: accounts/forms.py:39 accounts/forms.py:137
+msgid "Passwords don't match"
+msgstr "Пароли не совпадают"
+
+#: accounts/forms.py:51
+msgid "Name"
+msgstr "Имя"
+
+#: accounts/forms.py:105
+#, python-format
+msgid "Go to <a href=\"%(resend_link)s\">resend confirmation email</a>."
+msgstr ""
+"Перейдите <a href=\"%(resend_link)s\">для повторной отправки подтверждения "
+"email</a>."
+
+#: accounts/forms.py:109
+msgid "Please check your email to confirm your account or"
+msgstr "Пожалуйста, проверьте вашу электронную почту"
+
+#: accounts/forms.py:113
+msgid "Email not confirmed."
+msgstr "Электронная почта не подтверждена."
+
+#: accounts/forms.py:116
+msgid "This user is inactive."
+msgstr "Пользователь не активирован."
+
+#: accounts/forms.py:119
+msgid "Invalid credentials"
+msgstr "Неверный формат"
 
 #: accounts/templates/accounts/detail-update-view.html:14
 msgid "Cannot change email"
@@ -207,9 +255,7 @@ msgid "Thank you for your order"
 msgstr "Спасибо за Ваш заказ"
 
 #: carts/templates/carts/checkout.html:12
-#, fuzzy
-#| msgid "Continue as Guest"
-msgid "Contine as Guest"
+msgid "Continue as Guest"
 msgstr "Продолжить как гость"
 
 #: carts/templates/carts/checkout.html:22
@@ -318,8 +364,6 @@ msgid "Invalid header found."
 msgstr "Неверный формат"
 
 #: eCommerce_Django/views.py:66
-#, fuzzy
-#| msgid "Thank you for your order"
 msgid "Thank you for your submission"
 msgstr "Спасибо за Ваш заказ"
 
@@ -362,9 +406,7 @@ msgstr "Статус"
 
 #: products/templates/products/detail.html:43
 #: products/templates/products/detail.html:55
-#, fuzzy
-#| msgid "Image not found :("
-msgid "Image not found"
+msgid "Image not found :("
 msgstr "Изображения нет :("
 
 #: products/templates/products/detail.html:62
