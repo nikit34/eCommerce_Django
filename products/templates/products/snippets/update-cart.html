@@ -1,12 +1,18 @@
-<form class="form-product-ajax" method="POST" action="{% url 'cart:update' %}" data-endpoint="{% url 'cart:update' %}" class="form" {% if request.user.is_authenticated %}data-user='abc'{% endif %}>
-{% csrf_token %}
+{% load i18n %}
+<form class="form form-product-ajax" method="POST" action="{% url 'cart:update' %}"
+    data-endpoint="{% url 'cart:update' %}" {% if request.user.is_authenticated %}data-user='abc'{% endif %}
+>
+    {% csrf_token %}
     <input type="hidden" name="product_id" value="{{ product.id }}" {% if product.delivery %} data-is-delivery='true'{% endif %} />
 
     <span class="submit-span" style="margin-left:10px;">
-            {% if product in cart.products.all %}
-                <div class='btn-group'> <a class='btn btn-link' href='/cart/'>In cart</a> <button type="submit" class="btn btn-link">Remove?</button></div>
-            {% else %}
-                <button type="submit" class="btn btn-outline-success">Add to cart</button>
-            {% endif %}
-        </span>
+        {% if product in cart.products.all %}
+            <div class='btn-group'>
+                <a class='btn btn-link' href='/cart/'>{% trans "In cart" %}</a>
+                <button type="submit" class="btn btn-link">{% trans "Remove" %}?</button>
+            </div>
+        {% else %}
+            <button type="submit" class="btn btn-outline-success">{% trans "Add to cart" %}</button>
+        {% endif %}
+    </span>
 </form>

@@ -1,5 +1,5 @@
+{% load i18n %}
 <form method='POST' action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}">
-
     {% csrf_token %}
 
     {% if next_url %}
@@ -7,10 +7,8 @@
     {% endif %}
 
     {% if address_type %}
-            <input type="hidden" name="address_type" value="{{ address_type }}" />
+        <input type="hidden" name="address_type" value="{{ address_type }}" />
     {% endif %}
-
-{{ form.as_p }}
-
-<button type='submit' class='btn btn-outline-dark'>Submit</button>
+    {{ form.as_p }}
+    <button type='submit' class='btn btn-outline-dark'>{% trans "Submit" %}</button>
 </form>

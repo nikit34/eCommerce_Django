@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 
 <div class="row">
     <div class="col text-center">
         <h1 class="my-5">
-            Page not field.
+            {% trans "Page not field" %}.
         </h1>
-        <p>404 Error</p>
+        <p>404 {% trans "Error" %}</p>
     </div>
 </div>
 

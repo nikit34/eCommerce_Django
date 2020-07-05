@@ -1,13 +1,10 @@
 {% extends "base.html" %}
-
-
-
+{% load i18n %}
 {% block content %}
-
 
 <div class='row my-5'>
     <div class='col-12'>
-        <h1>Sales Data</h1>
+        <h1>{% trans "Sales Data" %}</h1>
     </div>
 </div>
 
@@ -15,25 +12,25 @@
 
 <div class='row my-5'>
     <div class='col-4'>
-        <h3>Today's sales</h3>
+        <h3>{% trans "Today's sales" %}</h3>
         <hr/>
-        <p>Recent Total: ${{ today.recent_data.total__sum }}</p>
+        <p>{% trans "Recent Total" %}: ${{ today.recent_data.total__sum }}</p>
         <ul>
         {% for order in today.recent|slice:":5" %}
-            <li class='my-3'>Order #{{ order.order_id }}<br/>
+            <li class='my-3'>{% trans "Order" %} #{{ order.order_id }}<br/>
             ${{ order.total }}<br/>
-            {{ order.updated|timesince }} ago</li>
+            {{ order.updated|timesince }} {% trans "ago" %}</li>
         {% endfor %}
     </ul>
 
-    <h3>This week's sales</h3>
+    <h3>{% trans "This week's sales" %}</h3>
     <hr/>
-        <p>Recent Total: ${{ this_week.recent_data.total__sum }}</p>
+        <p>{% trans "Recent Total" %}: ${{ this_week.recent_data.total__sum }}</p>
         <ul>
         {% for order in this_week.recent|slice:":5" %}
-            <li class='my-3'>Order #{{ order.order_id }}<br/>
+            <li class='my-3'>{% trans "Order" %} #{{ order.order_id }}<br/>
             ${{ order.total }}<br/>
-            {{ order.updated|timesince }} ago</li>
+            {{ order.updated|timesince }} {% trans "ago" %}</li>
         {% endfor %}
     </ul>
     </div>
@@ -49,12 +46,12 @@
 
 <div class='row my-5'>
     <div class='col-12'>
-        <h1>Previous 4 weeks</h1>
+        <h1>{% trans "Previous 4 weeks" %}</h1>
     </div>
     <div class='col'>
-        <p>Orders Total: ${{ last_four_weeks.recent_data.total__sum }}</p>
-        <p>Shipped Total: {% if last_four_weeks.shipped_data.total__sum %}${{ last_four_weeks.shipped_data.total__sum }} {% endif %}</p>
-        <p>Paid Totals: ${{ last_four_weeks.paid_data.total__sum }}</p>
+        <p>{% trans "Orders Total" %}: ${{ last_four_weeks.recent_data.total__sum }}</p>
+        <p>{% trans "Shipped Total" %}: {% if last_four_weeks.shipped_data.total__sum %}${{ last_four_weeks.shipped_data.total__sum }} {% endif %}</p>
+        <p>{% trans "Paid Totals" %}: ${{ last_four_weeks.paid_data.total__sum }}</p>
 
     </div>
      <div class='col'>

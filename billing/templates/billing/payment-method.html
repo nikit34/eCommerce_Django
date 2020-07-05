@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
 
 <div class="col-10 col-md-6 mx-auto">
-<h3>Add Payment Method</h3>
+<h3>{% trans "Add Payment Method" %}</h3>
 <div class="stripe-payment-form" data-token='{{ publish_key }}' data-next-url='{% if next_url %}{{ next_url }}{% endif %}' data-btn-title="Add New Cart"></div>
 </div>
 

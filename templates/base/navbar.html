@@ -9,12 +9,13 @@
 {% url 'cart:home' as cart_url %}
 {% url 'library' as library %}
 {% url 'admin:index' as admin %}
+{% load i18n %}
 {% load static %}
 
 <nav class="row navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="{{ home_url }}">
-          {% if brand_name %} {{ brand_name }} {% else %} Sewing Shop {% endif %}
+          {% if brand_name %} {{ brand_name }} {% else %} {% trans "Sewing Shop" %} {% endif %}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -23,17 +24,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav col-md-9">
             <li class="nav-item {% if request.path == home_url %}active{% endif %}">
-              <a class="nav-link" href="{{ home_url }}">Home <i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ home_url }}">{% trans "Home" %} <i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">({% trans "current"%})</span></a>
             </li>
             <li class="nav-item {% if request.path == product_list_url %}active{% endif %}">
-              <a class="nav-link" href="{{ product_list_url }}">Products <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+              <a class="nav-link" href="{{ product_list_url }}">{% trans "Products" %} <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
             </li>
             {% if user.is_authenticated %}
               <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
-                <a class="nav-link" href="{{ cart_url }}">Cart <span class="navbar-cart-count">{{ request.session.cart_items }}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                <a class="nav-link" href="{{ cart_url }}">{% trans "Cart" %} <span class="navbar-cart-count">{{ request.session.cart_items }}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
               </li>
               <li class="nav-item {% if request.path == contact_url %}active{% endif %}">
-                <a class="nav-link" href="{{ contact_url }}">Contact <i class="fa fa-id-card" aria-hidden="true"></i></a>
+                <a class="nav-link" href="{{ contact_url }}">{% trans "Contact" %} <i class="fa fa-id-card" aria-hidden="true"></i></a>
               </li>
               <li class="nav-item right-group dropdown offset-md-2">
                 {% if user %}
@@ -50,14 +51,14 @@
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   {% if user.admin %}
-                    <a class="dropdown-item " href="{{ admin }}">Admin</a>
+                    <a class="dropdown-item " href="{{ admin }}">{% trans "Admin" %}</a>
                   {% endif %}
-                  <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">Home</a>
-                  <a class="dropdown-item {% if request.path == cart_url %}active{% endif %}" href="{{ cart_url }}">Billing</a>
-                  <a class="dropdown-item {% if request.path == history %}active{% endif %}" href="{{ history }}">History</a>
-                  <a class="dropdown-item {% if request.path ==  library %}active{% endif %}" href="{{ library }}">Library</a>
+                  <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">{% trans "Home" %}</a>
+                  <a class="dropdown-item {% if request.path == cart_url %}active{% endif %}" href="{{ cart_url }}">{% trans "Billing" %}</a>
+                  <a class="dropdown-item {% if request.path == history %}active{% endif %}" href="{{ history }}">{% trans "History" %}</a>
+                  <a class="dropdown-item {% if request.path ==  library %}active{% endif %}" href="{{ library }}">{% trans "Library" %}</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{{ logout_url }}">Logout</a>
+                  <a class="dropdown-item" href="{{ logout_url }}">{% trans "Logout" %}</a>
                 </div>
               </li>
               {% if user.staff %}
@@ -66,10 +67,10 @@
             {% else %}
               <div class="row col-md-4 offset-md-2">
                 <li class="nav-item {% if request.path == register_url %}active{% endif %}">
-                  <a class="nav-link" href="{{ register_url }}">Register <i class="fa fa-key" aria-hidden="true"></i></a>
+                  <a class="nav-link" href="{{ register_url }}">{% trans "Register" %} <i class="fa fa-key" aria-hidden="true"></i></a>
                 </li>
                 <li class="nav-item {% if request.path == login_url %}active{% endif %}">
-                  <a class="nav-link" href="{{ login_url }}">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                  <a class="nav-link" href="{{ login_url }}">{% trans "Login" %} <i class="fa fa-sign-in" aria-hidden="true"></i></a>
                 </li>
               </div>
             {% endif %}

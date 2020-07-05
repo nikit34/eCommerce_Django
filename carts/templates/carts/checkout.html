@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 
 {% if not billing_profile %}
 <div class="row text-center">
     <div class="col-12 col-md-6">
-        <p class="lead">Login</p>
+        <p class="lead">{% trans "Login" %}</p>
         {% include 'accounts/snippets/form.html' with form=login_form next_url=request.build_absolute_uri %}
     </div>
     <div class="col-12 col-md-6">
-        Contine as Guest
+        {% trans "Contine as Guest" %}
         {% url "guest_register" as guest_register_url %}
         {% include 'accounts/snippets/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url %}
     </div>
@@ -19,7 +19,7 @@
 
     <div class="row">
         <div class="col-12">
-            <p class="lead">Shipping Address</p>
+            <p class="lead">{% trans "Shipping Address" %}</p>
             <hr>
         </div>
         <div class="col-6">
@@ -36,7 +36,7 @@
 
     <div class="row">
         <div class="col-12">
-            <p class="lead">Billing Address</p>
+            <p class="lead">{% trans "Billing Address" %}</p>
             <hr>
         </div>
         <div class="col-6">
@@ -53,16 +53,16 @@
         {% if not has_card %}
             <div class="stripe-payment-form" data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title="Add Payment Method"></div>
         {% else %}
-        <h1>Finalize Checkout</h1>
-        <p>Cart Items: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-        <p>Shipping Address: {{ object.shipping_address_final }}</p>
-        <p>Billing Address: {{ object.billing_address_final }}</p>
-        <p>Payment Method: {{ billing_profile.default_card }} (<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">Change</a>)</p>
-        <p>Cart Total: {{ object.cart.total | floatformat:2 }}</p>
-        <p>Shipping Total: {{ object.shipping_total | floatformat:2 }}</p>
-        <p>Order Total: {{ object.total | floatformat:2 }}</p>
+        <h1>{% trans "Finalize Checkout" %}</h1>
+        <p>{% trans "Cart Items" %}: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+        <p>{% trans "Shipping Address" %}: {{ object.shipping_address_final }}</p>
+        <p>{% trans "Billing Address" %}: {{ object.billing_address_final }}</p>
+        <p>{% trans "Payment Method" %}: {{ billing_profile.default_card }} (<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">{% trans "Change" %}</a>)</p>
+        <p>{% trans "Cart Total" %}: {{ object.cart.total | floatformat:2 }}</p>
+        <p>{% trans "Shipping Total" %}: {{ object.shipping_total | floatformat:2 }}</p>
+        <p>{% trans "Order Total" %}: {{ object.total | floatformat:2 }}</p>
         <form class="form" method="POST" action=""> {% csrf_token %}
-            <button type="submit" class="btn btn-outline-success">Checkout</button>
+            <button type="submit" class="btn btn-outline-success">{% trans "Checkout" %}</button>
         </form>
         {% endif %}
     {% endif %}

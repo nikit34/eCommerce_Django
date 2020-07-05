@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -21,13 +22,13 @@
                     <div class="alert alert-success messages">
                     {% for message in messages %}
                         <span {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% trans "Important" %}: {% endif %}
                             {{ message }}<br/>
                         </span>
                     {% endfor %}
                     </div>
                 {% endif %}
-    
+
                 {% block content %}{% endblock %}
                 </div>
             </div>

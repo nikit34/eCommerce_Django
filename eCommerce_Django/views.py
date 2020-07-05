@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
+from django.utils.translation import gettext
 from django.views.decorators.csrf import csrf_exempt
 import git
 
@@ -38,8 +39,8 @@ class ProductListView(ListView):
 
 def about_page(request):
     context = {
-        "title": "About",
-        "content": "Welcome to about page!"
+        "title": gettext("About"),
+        "content": gettext("Welcome to about page!")
     }
     return render(request, "home_page.html", context)
 
@@ -48,21 +49,21 @@ def contact_page(request):
     contact_form = ContactForm(request.POST or None)
     support_email = getattr(settings, 'SUPPORT_EMAIL', None)
     context = {
-        "title": "Contact",
-        "content": "Here you can leave your feedback.",
+        "title": gettext("Contact"),
+        "content": gettext("Here you can leave your feedback."),
         "form": contact_form,
     }
     if contact_form.is_valid():
         fullname = contact_form.cleaned_data['fullname']
         email = contact_form.cleaned_data['email']
         content = contact_form.cleaned_data['content']
-        msg_content = 'Send with contact email: ' + email + '\n\n' + content
+        msg_content = gettext('Send with contact email: ') + email + '\n\n' + content
         try:
             send_mail(fullname, msg_content, email, [support_email])
         except BadHeaderError:
-            return HttpResponse('Invalid header found.')
+            return HttpResponse(gettext('Invalid header found.'))
         if request.is_ajax():
-            return JsonResponse({'message': 'Thank you for your submission'})
+            return JsonResponse({'message': gettext('Thank you for your submission')})
 
     if contact_form.errors:
         errors = contact_form.errors.as_json()
@@ -77,6 +78,6 @@ def update(request):
         repo = git.Repo('/home/OlyaStudio/eCommerce_Django/')
         origin = repo.remotes.origin.commit.tree
         origin.pull()
-        return HttpResponse("Update code on server")
+        return HttpResponse(gettext("Update code on server"))
     else:
-        return HttpResponse("ERROR: Could`t update the code on server")
+        return HttpResponse(gettext("ERROR: Could`t update the code on server"))

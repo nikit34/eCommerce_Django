@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 
 <div style="margin-left:30%; margin-top:10%;">
@@ -9,13 +9,13 @@ body {
   background-image: url('{% static "img/fon_log.png"%}');
 }
 </style>
-<h1>Login</h1>
+<h1>{% trans "Login" %}</h1>
     <form method='POST'> {% csrf_token %}
     <table>
       {{ form.as_table }}
       </table>
       <br>
-      <button type='submit' style="margin-left:8.5em;" class='btn btn-outline-dark'>Submit</button>
+      <button type='submit' style="margin-left:8.5em;" class='btn btn-outline-dark'>{% trans "Submit" %}</button>
     </form>
 </div>
 {% endblock %}

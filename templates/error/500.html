@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 
 <div class="row">
     <div class="col text-center">
         <h1 class="my-5">
-            Ooops, sorry. A server error occured.
+            {% trans "Ooops, sorry. A server error occured" %}.
         </h1>
-        <p>500 Error | We have been notified and are working on a fix.</p>
+        <p>500 {% trans "Error | We have been notified and are working on a fix" %}.</p>
     </div>
 </div>
 

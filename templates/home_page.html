@@ -1,12 +1,14 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
 
-<title>Home page template</title>
+<title>{% trans "Home page" %}</title>
 
 {% block content %}
 
 <div class="text-center">
   <h1>{% if title %}{{ title }}{% endif %}</h1>
-  <h1>Best offers</h1>
+  <h1>{% trans "Best offers" %}</h1>
 </div>
 {% include 'snippets/select_sort.html' %}
 <div class="row">
@@ -23,7 +25,7 @@
 {% if user.staff %}
 <div class="row">
   <div class="col">
-    <h1>Premium</h1>
+    <h1>{% trans "Premium Content" %}</h1>
     {{ premium_content }}
   </div>
 </div>

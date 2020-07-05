@@ -1,8 +1,9 @@
+{% load i18n %}
 <form method='POST' action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}">
     {% csrf_token %}
     {% if next_url %}
     <input type="hidden" name="next" value="{{ next_url }}" />
     {% endif %}
 {{ form }}
-<button type='submit' class='btn btn-outline-dark'>Submit</button>
+<button type='submit' class='btn btn-outline-dark'>{% trans "Submit" %}</button>
 </form>

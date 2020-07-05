@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
     <div class='row text-center'>
         <div class='col-12 my-3'>
-            <h1>Product View History</h1>
+            <h1>{% trans "Product View History" %}</h1>
             <hr/>
         </div>
     </div>
@@ -11,7 +11,7 @@
     {% for obj in object_list %}
         {% if forloop.counter0|divisibleby:2 %} </div><div class="row text-center" style="padding-left:2.5%;">{% endif %}
             <div class='col my-3'>
-                Viewed: {{ forloop.counter }}
+                {% trans "Viewed" %}: {{ forloop.counter }}
                 {% include 'products/snippets/card.html' with instance=obj.content_object %}
             </div>
     {% endfor %}

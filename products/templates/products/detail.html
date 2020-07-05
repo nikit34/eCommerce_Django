@@ -1,15 +1,17 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 
     <div class="row">
         <div class="col-9">
             <h4><b>{{ object.title }}</b></h4>
-            {{ object.timestamp|timesince }} ago
+            {{ object.timestamp|timesince }} {% trans "ago" %}
         </div>
         <div class="col">
             <div class="row" style="margin-top: 10px; margin-right:5%;">
-                <h3 style="margin-right: 5%; margin-left: auto; margin-top: 5px;">{{ object.price }} &#36;</h3>
+                <h3 style="margin-right: 5%; margin-left: auto; margin-top: 5px;">
+                  {{ object.price }} &#36;
+                </h3>
                 {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
             </div>
         </div>
@@ -38,7 +40,7 @@
                   <p>{{ object.description }}</p>
                 </div>
             {% else %}
-              <p style="margin-left:50%; margin-top:50px;">Image not found</p>
+              <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found" %}</p>
             {% endif %}
             </div>
             {% for slide in slides %}
@@ -50,18 +52,18 @@
                   <p>{{ slide.description }}</p>
                 </div>
               {% else %}
-                <p style="margin-left:50%; margin-top:50px;">Image not found</p>
+                <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found" %}</p>
               {% endif %}
               </div>
             {% endfor %}
           </div>
           <a class="carousel-control-prev" href="#carouselAction" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">{% trans "Previous" %}</span>
           </a>
           <a class="carousel-control-next" href="#carouselAction" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">{% trans "Next" %}</span>
           </a>
         </div>
       </div>

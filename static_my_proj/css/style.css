@@ -16,6 +16,7 @@ body {
 .navbar .nav-item .nav-link {
     font-family: 'Times New Roman';
     font-style: italic;
+    font-size: smaller;
     background-image: linear-gradient(0deg, #ff000080 0%, #ff00001f 80%, #ffffff00 100%);
     background-repeat: no-repeat;
     background-size: 100% 0.2em;

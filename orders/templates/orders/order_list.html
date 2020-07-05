@@ -1,18 +1,16 @@
 {% extends "base.html" %}
-
-
+{% load i18n %}
 {% block content %}
-
 
 <div class='row'>
     <div class='col-12'>
-        <h1>Orders</h1>
+        <h1>{% trans "Orders" %}</h1>
     </div>
 </div>
 <div class='row'>
     <div class='col'>
         <table class='table'>
-            <thead><th>Order Id</th><th>Status</th><th>Total</th></thead>
+            <thead><th>{% trans "Order Id" %}</th><th>{% trans "Status" %}</th><th>{% trans "Total" %}</th></thead>
 
             <tbody>
                 {% for object in object_list %}
@@ -22,7 +20,7 @@
                         <td>{{ object.total }}</td>
                     </tr>
                 {% empty %}
-                <tr><td colspan="3"><p class='lead'>No orders yet.</td></tr>
+                <tr><td colspan="3"><p class='lead'>{% trans "No orders yet" %}.</td></tr>
                 {% endfor %}
             </tbody>
 

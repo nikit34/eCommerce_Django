@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
     <div class="row mb-3">
     {% if query %}
         <div class="col-12">
-            Results for <b>{{ query }}</b>
+            {% trans "Results for" %} <b>{{ query }}</b>
             <hr/>
         </div>
     {% else %}
