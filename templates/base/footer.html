@@ -2,26 +2,26 @@
 
 <footer class="footer">
     <div class="row text-muted">
-        <div class="col-4 footer-left">
+        <div class="col-4 footer-left pt-2">
             {% trans "Developed" %} {% if dev_source %}<a href="{{ dev_source }}">GitHub</a>{% endif %}, 2020
         </div>
-        <div class="col-8 footer-right">
-            <form action="{% url 'set_language' %}" method="post">
+        <div class="col-1" style="color:orange;">
+            <i class="fa fa-instagram fa-2x"></i>
+            </div><div class="col-1" style="color:red;">
+            <i class="fa fa-pinterest fa-2x"></i>
+            </div><div class="col-1" style="color:blue;">
+            <i class="fa fa-facebook fa-2x"></i>
+        </div>
+        <div class="col-5 footer-right">
+            <form action="{% url 'set_language' %}" method="post" value="{{ redirect_to }}">
                 {% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}">
-                    <select name="language">
                     {% get_current_language as LANGUAGE_CODE %}
                     {% get_available_languages as LANGUAGES %}
                     {% get_language_info_list for LANGUAGES as languages %}
                     {% for language in languages %}
-                        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                            {{ language.name_local }} ({{ language.code }})
-                        </option>
+                        <input class="btn btn-sm btn-dark mb-1" type="submit" name="language" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
                     {% endfor %}
-                    </select>
-                <input type="submit" value="Go"/>
             </form>
-            {% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}
         </div>
     </div>
 </footer>
