@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 11:43+0500\n"
+"POT-Creation-Date: 2020-07-06 14:32+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,8 +206,7 @@ msgstr ""
 
 #: accounts/views.py:60
 msgid "Activation link sent, please, check your email."
-msgstr ""
-"Ссылка для активации отправлена. Пожалуйста, проверьте Ваш email"
+msgstr "Ссылка для активации отправлена. Пожалуйста, проверьте Ваш email"
 
 #: accounts/views.py:112
 msgid "Change Your Account Details"
