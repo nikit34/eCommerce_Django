@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.db.models.signals import pre_save, post_save
 from accounts.models import GuestEmail
+from django.utils.translation import gettext
 
 
 User = settings.AUTH_USER_MODEL
@@ -140,7 +141,7 @@ class ChargeManager(models.Manager):
             if cards.exists():
                 card_obj = cards.first()
         if card_obj is None:
-            return False, 'No cards available'
+            return False, gettext('No cards available')
         c = stripe.Charge.create(
             amount = int(order_obj.total * 100),
             currency = 'usd',

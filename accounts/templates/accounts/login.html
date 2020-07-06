@@ -4,18 +4,14 @@
 
 <div style="margin-left:30%; margin-top:10%;">
 {% load static %}
-<style>
-body {
-  background-image: url('{% static "img/fon_log.png"%}');
-}
-</style>
+<img class="log" src="{% static 'img/fon_log.png'%}">
     <form class="form-reglog" method='POST'> {% csrf_token %}
     <h1>{% trans "Login" %}</h1>
     <table>
       {{ form.as_table }}
       </table>
       <br>
-      <button type='submit' style="margin-left:8.5em;" class='btn btn-outline-danger'>{% trans "Submit" %}</button>
+      <button type='submit' style="margin-left:8.5em;" class='btn btn-outline-danger'>{% trans "Sign in" %}</button>
     </form>
 </div>
 {% endblock %}

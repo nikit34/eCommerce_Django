@@ -3,6 +3,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponse
 from django.views.generic import UpdateView, View
 from django.shortcuts import render, redirect
+from django.utils.translation import gettext
 
 from .forms import MarketingPreferenceForm
 from .mixins import CsrfExemptMixin
@@ -21,7 +22,7 @@ class MarketingPreferenceUpdateView(SuccessMessageMixin, UpdateView):
     form_class = MarketingPreferenceForm
     template_name = 'subscribe_form.html'
     success_url = '/webhooks/mailchimp/'
-    success_message = 'Your email preferences have been updated. Thank you.'
+    success_message = gettext('Your email preferences have been updated. Thank you.')
 
     def dispatch(self, *args, **kwargs):
         user = self.request.user
@@ -31,7 +32,7 @@ class MarketingPreferenceUpdateView(SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(MarketingPreferenceUpdateView, self).get_context_data(*args, **kwargs)
-        context['title'] = 'Update Email Preferences'
+        context['title'] = gettext('Update Email Preferences')
         context['success_url'] = self.success_url
         context['email'] = self.request.user
         return context

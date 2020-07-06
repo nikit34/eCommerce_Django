@@ -1,4 +1,5 @@
 from .signals import object_viewed_signal
+from django.core.exceptions import ObjectDoesNotExist
 
 
 class ObjectViewedMixin(object):
@@ -14,7 +15,7 @@ class ObjectViewedMixin(object):
     def dispatch(self, request, *args, **kwargs):
         try:
             instance = self.get_object()
-        except DoesNotExist:
+        except object_viewed_signal.DoesNotExist:
             instance = None
         if instance is not None:
             object_viewed_signal.send(instance.__class__, instance=instance, request=request)

@@ -8,6 +8,7 @@ from django.template.loader import get_template
 from django.utils import timezone
 from django.urls import reverse
 from django.db.models import Q
+from django.utils.translation import gettext
 
 from eCommerce_Django.utils import random_string_generator, unique_key_generator
 
@@ -17,9 +18,9 @@ DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 class UserManager(BaseUserManager):
     def create_user(self, email, full_name=None, password=None, is_active=True, is_staff=False, is_admin=False):
         if not email:
-            raise ValueError("Users must have an email address")
+            raise ValueError(gettext("Users must have an email address"))
         if not password:
-            raise ValueError("Users must have a password")
+            raise ValueError(gettext("Users must have a password"))
         email = self.normalize_email(email)
         user_obj = self.model(email=email, full_name=full_name)
         user_obj.set_password(password)
@@ -155,7 +156,7 @@ class EmailActivation(models.Model):
                 }
                 txt_ = get_template("registration/emails/verify.txt").render(context)
                 html_ = get_template("registration/emails/verify.html").render(context)
-                subject = '1-Click Email Verification'
+                subject = gettext('1-Click Email Verification')
                 from_email = settings.DEFAULT_FROM_EMAIL
                 recipient_list = [self.email]
                 sent_mail = send_mail(

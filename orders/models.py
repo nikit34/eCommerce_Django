@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.db.models import Count, Sum, Avg
 from django.conf import settings
 from django.utils import timezone
+from django.utils.translation import gettext_lazy
 
 from addresses.models import Address
 from billing.models import BillingProfile
@@ -15,10 +16,10 @@ from products.models import Product
 
 
 ORDER_STATUS_CHOICES = (
-    ('created','Created'),
-    ('paid','Paid'),
-    ('shipped','Shipped'),
-    ('refunded','Refunded'),
+    ('created', gettext_lazy('Created')),
+    ('paid', gettext_lazy('Paid')),
+    ('shipped', gettext_lazy('Shipped')),
+    ('refunded', gettext_lazy('Refunded')),
 )
 
 

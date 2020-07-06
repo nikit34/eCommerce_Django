@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 22:09+0500\n"
+"POT-Creation-Date: 2020-07-06 11:43+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,18 +47,24 @@ msgstr "Имя"
 
 #: accounts/forms.py:105
 #, python-format
-msgid "Go to <a href=\"%(resend_link)s\">resend confirmation email</a>."
+msgid ""
+"Go to <a href=\"%(resend_link)s\">resend\n"
+" confirmation email</a>."
 msgstr ""
 "Перейдите <a href=\"%(resend_link)s\">для повторной отправки подтверждения "
 "email</a>."
 
 #: accounts/forms.py:109
-msgid "Please check your email to confirm your account or"
-msgstr "Пожалуйста, проверьте вашу электронную почту"
+msgid ""
+"Please check your email to confirm\n"
+" your account or "
+msgstr ""
+"Пожалуйста, проверьте Ваш Email чтобы подтвердить свою учетную\n"
+" запись или "
 
 #: accounts/forms.py:113
 msgid "Email not confirmed."
-msgstr "Электронная почта не подтверждена."
+msgstr "Email не подтвержден."
 
 #: accounts/forms.py:116
 msgid "This user is inactive."
@@ -67,6 +73,18 @@ msgstr "Пользователь не активирован."
 #: accounts/forms.py:119
 msgid "Invalid credentials"
 msgstr "Неверный формат"
+
+#: accounts/models.py:21
+msgid "Users must have an email address"
+msgstr "Пользователи должны иметь email"
+
+#: accounts/models.py:23
+msgid "Users must have a password"
+msgstr "Установить новый пароль"
+
+#: accounts/models.py:159
+msgid "1-Click Email Verification"
+msgstr "1-Клик Email Проверка"
 
 #: accounts/templates/accounts/detail-update-view.html:14
 msgid "Cannot change email"
@@ -150,22 +168,66 @@ msgstr "О себе"
 msgid "Contact"
 msgstr "Контакты"
 
-#: accounts/templates/accounts/login.html:13
+#: accounts/templates/accounts/login.html:9
 #: carts/templates/carts/checkout.html:8 templates/base/navbar.html:73
 #: templates/registration/password_reset_complete.html:7
 msgid "Login"
 msgstr "Авторизация"
 
-#: accounts/templates/accounts/login.html:18
-#: accounts/templates/accounts/register.html:18
+#: accounts/templates/accounts/login.html:14
+msgid "Sign in"
+msgstr "Войти"
+
+#: accounts/templates/accounts/register.html:9 templates/base/navbar.html:70
+msgid "Register"
+msgstr "Регистрация"
+
+#: accounts/templates/accounts/register.html:14
+msgid "Sign up"
+msgstr "Зарегестрироваться"
+
 #: accounts/templates/accounts/snippets/form.html:8
 #: addresses/templates/addresses/form.html:13 templates/contact/view.html:17
 msgid "Submit"
 msgstr "Отправить"
 
-#: accounts/templates/accounts/register.html:13 templates/base/navbar.html:70
-msgid "Register"
-msgstr "Регистрация"
+#: accounts/views.py:40
+msgid "Your email has been confirmed. Please login."
+msgstr "Ваш email был успешно подтвержден. Пожалуйста, войдите."
+
+#: accounts/views.py:46
+#, python-brace-format
+msgid ""
+"Your email has already been confirmed. Do you need to <a href='%{link}"
+"s'>reset you password</a>?"
+msgstr ""
+"Ваш email уже был подтвержден ранее. Вам нужно <a href='%{link}s'>сбросить "
+"пароль</a>?"
+
+#: accounts/views.py:60
+msgid "Activation link sent, please, check your email."
+msgstr ""
+"Ссылка для активации отправлена. Пожалуйста, проверьте Ваш email"
+
+#: accounts/views.py:112
+msgid "Change Your Account Details"
+msgstr "Изменить данные учетной записи"
+
+#: addresses/models.py:9
+msgid "Billing address"
+msgstr "Адрес выставления счета"
+
+#: addresses/models.py:10
+msgid "Shipping address"
+msgstr "Адрес доставки"
+
+#: addresses/models.py:17
+msgid "Shipping to? Who is it for?"
+msgstr "С доставкой? Для кого?"
+
+#: addresses/models.py:18
+msgid "Internal Reference Nickname"
+msgstr "Внутренний Nickname - псевдоним"
 
 #: addresses/templates/addresses/list.html:7
 #: addresses/templates/addresses/list.html:19
@@ -246,9 +308,21 @@ msgstr "Всего отправлено"
 msgid "Paid Totals"
 msgstr "Сумма оплат"
 
+#: billing/models.py:144
+msgid "No cards available"
+msgstr "Нет доступных карт"
+
 #: billing/templates/billing/payment-method.html:6
 msgid "Add Payment Method"
 msgstr "Добавить способ оплаты"
+
+#: billing/views.py:29
+msgid "Cannot find this user"
+msgstr "Пользователь не найден"
+
+#: billing/views.py:33
+msgid "Success! Your card was added."
+msgstr "Успех! Ваша карта была добавлена."
 
 #: carts/templates/carts/checkout-done.html:6
 msgid "Thank you for your order"
@@ -374,6 +448,42 @@ msgstr "Обновить данные на сервере"
 #: eCommerce_Django/views.py:83
 msgid "ERROR: Could`t update the code on server"
 msgstr "ОШИБКА: не удалось обновить код на сервере"
+
+#: marketing/forms.py:7
+msgid "Receive Marketing Email?"
+msgstr "Повторно активируйте свой Email"
+
+#: marketing/utils.py:16
+msgid "String passed is not a valid email address"
+msgstr "Строка не является действительным адресом email"
+
+#: marketing/utils.py:53
+msgid "Not a valid choice for email status"
+msgstr "Недопустимый выбор для статуса email"
+
+#: marketing/views.py:25
+msgid "Your email preferences have been updated. Thank you."
+msgstr "Ваши настройки email были обновлены. Спасибо."
+
+#: marketing/views.py:35
+msgid "Update Email Preferences"
+msgstr "Обновить Email"
+
+#: orders/models.py:19
+msgid "Created"
+msgstr "Создать"
+
+#: orders/models.py:20
+msgid "Paid"
+msgstr "Оплачено"
+
+#: orders/models.py:21
+msgid "Shipped"
+msgstr "Всего отправлено"
+
+#: orders/models.py:22
+msgid "Refunded"
+msgstr "Возвращено"
 
 #: orders/templates/orders/library.html:14
 msgid "Product"
@@ -503,11 +613,11 @@ msgstr "Ошибка | Мы были уведомлены и работаем н
 msgid "Home page"
 msgstr "Главная страница"
 
-#: templates/home_page.html:11
+#: templates/home_page.html:15
 msgid "Best offers"
 msgstr "Лучшие предложения"
 
-#: templates/home_page.html:28
+#: templates/home_page.html:32
 msgid "Premium Content"
 msgstr "Премиум"
 
@@ -545,7 +655,7 @@ msgstr "Инструкции отправлены"
 
 #: templates/registration/password_reset_done.html:7
 msgid "Please check your email"
-msgstr "Пожалуйста, проверьте вашу электронную почту"
+msgstr "Пожалуйста, проверьте вашу email"
 
 #: templates/registration/password_reset_email.html:2
 #, python-format

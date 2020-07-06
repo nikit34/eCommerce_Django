@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.utils.translation import gettext
 import requests
 import re
 import hashlib
@@ -12,7 +13,7 @@ MAILCHIMP_EMAIL_LIST_ID = getattr(settings, 'MAILCHIMP_EMAIL_LIST_ID', None)
 
 def check_email(email):
     if not re.match(r'.+@.+\..+', email):
-        raise ValueError('String passed is not a valid email address')
+        raise ValueError(gettext('String passed is not a valid email address'))
     return email
 
 
@@ -49,7 +50,7 @@ class Mailchimp(object):
     def check_valid_status(self, status):
         choices = ['subscribed', 'unsubscribed', 'cleaned', 'pending']
         if status not in choices:
-            raise ValueError('Not a valid choice for email status')
+            raise ValueError(gettext('Not a valid choice for email status'))
         return status
 
     def add_email(self, email):
