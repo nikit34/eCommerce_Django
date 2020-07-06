@@ -22,9 +22,7 @@ from orders.views import LibraryView
 from .views import ProductListView, about_page, contact_page, update
 
 
-urlpatterns = [url(r'^update_server/$', update, name='update')]
-
-urlpatterns += i18n_patterns(
+urlpatterns = [url(r'^update_server/$', update, name='update')] + i18n_patterns(
   url(r'^$', ProductListView.as_view(), name='home'),
   url(r'^about/$', about_page, name='about'),
   url(r'^i18n/', include('django.conf.urls.i18n')),
