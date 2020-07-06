@@ -22,7 +22,9 @@ from orders.views import LibraryView
 from .views import ProductListView, about_page, contact_page, update
 
 
-urlpatterns = i18n_patterns(
+urlpatterns = [url(r'^update_server/$', update, name='update')]
+
+urlpatterns += i18n_patterns(
   url(r'^$', ProductListView.as_view(), name='home'),
   url(r'^about/$', about_page, name='about'),
   url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -57,7 +59,6 @@ urlpatterns = i18n_patterns(
 
 
 if settings.DEBUG:
-    urlpatterns += url(r'^update_server/$', update, name='update'),
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
