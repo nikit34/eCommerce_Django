@@ -53,11 +53,11 @@ urlpatterns = i18n_patterns(
   url(r'^settings/email/$', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
   url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
   url(r'^admin/', admin.site.urls),
-  url(r'^update_server/$', update, name='update'),
 )
 
 
 if settings.DEBUG:
+    urlpatterns += url(r'^update_server/$', update, name='update'),
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
