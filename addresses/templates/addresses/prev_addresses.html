@@ -11,7 +11,8 @@
         <label for="address={{ address.id }}">
             <input id="address={{ address.id }}" type="radio" name="shipping_address" value="{{ address.id }}"/>
             {{ address.get_short_address }}
-        </label><br/>
+        </label>
+        <br/>
     {% endfor %}
         <button type="submit" class="btn btn-outline-success">{% trans "Use Address" %}</button>
     </form>

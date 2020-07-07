@@ -42,7 +42,7 @@ def about_page(request):
         "title": gettext("About"),
         "content": gettext("Welcome to about page!")
     }
-    return render(request, "home_page.html", context)
+    return render(request, "contact/about.html", context)
 
 
 def contact_page(request):
