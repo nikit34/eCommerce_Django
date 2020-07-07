@@ -139,11 +139,11 @@ $(document).ready(function () {
         var submitSpan = thisForm.find(".submit-span");
         if (data.added) {
           submitSpan.html(
-            "<div class='btn-group'> <a class='btn btn-link' href='/cart/'>In cart</a> <button type='submit' class='btn btn-link'>Remove?</button></div>"
+            "<div class='btn-group'> <a class='btn btn-link' href='/cart/'>{% trans 'In cart' %}</a> <button type='submit' class='btn btn-link'>{% trans 'Remove?' %}</button></div>"
           );
         } else {
           submitSpan.html(
-            '<button type="submit" class="btn btn-success">Add to cart</button>'
+            '<button type="submit" class="btn btn-success">{% trans "Add to cart" %}</button>'
           );
         }
         var navbarCount = $(".navbar-cart-count");
