@@ -6,6 +6,10 @@ body {
     background-color: whitesmoke;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Neucha", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
 .navbar {
     margin-right:10px;
     border-style: none;
@@ -58,11 +62,6 @@ form.form-reglog{
     margin-left: auto;
     margin-right: auto;
     max-width: 500px;
-}
-
-form.form-reglog h1{
-    font-family: 'Times New Roman';
-    font-style: italic;
 }
 
 form.form-reglog th{
@@ -167,6 +166,28 @@ footer.footer #etsy:hover{
 div.about {
     min-height: 600px;
 }
+
+.canvas-cart-table {
+    margin-top: 5%;
+    border: 2px solid #ff000080;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    padding: 5px 25px 5px 25px;
+    display: inline-block;
+    width: 100%;
+}
+
+.canvas-cart-table h1 {
+    text-align: center;
+    margin: 30px 0 30px 0;
+}
+
+table.cart-table td, table.cart-table th {
+    background: whitesmoke;
+    border: none;
+    font-size: x-large;
+}
+
 
 .payments-form-api {
     margin-top: 20%;

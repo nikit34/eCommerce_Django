@@ -11,4 +11,3 @@ bash
 db.sqlite3
 
 **/settings/base.py
-eCommerce_Django/settings/__init__.py
