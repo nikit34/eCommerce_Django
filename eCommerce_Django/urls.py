@@ -46,7 +46,7 @@ urlpatterns = [url(r'^update_server/$', update, name='update')] + i18n_patterns(
   url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
   url(r'^register/$', RegisterView.as_view(), name='register'),
   url(r'^library/$', LibraryView.as_view(), name='library'),
-  url(r'^orders/', include(("orders.urls" 'eCommerce_Django'), namespace='orders'),
+  url(r'^orders/', include(("orders.urls" 'eCommerce_Django'), namespace='orders')),
   url(r'^products/', include(('products.urls', 'eCommerce_Django'), namespace='products')),
   url(r'^search/', include(('search.urls', 'eCommerce_Django'), namespace='search')),
   url(r'^settings/$', RedirectView.as_view(url='/setting')),
