@@ -167,3 +167,33 @@ footer.footer #etsy:hover{
 div.about {
     min-height: 600px;
 }
+
+.payments-form-api {
+    margin-top: 20%;
+    background-color: #ffffff;
+    border: 2px solid #ff000080;
+    border-radius: 15px;
+    padding: 15px 25px 5px 25px;
+    width: 100%;
+    -webkit-box-direction: normal;
+}
+
+.payments-form-api h2{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 675px) {
+    .payments-mobile{
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 675px){
+    .payments-desktop {
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    }
+}

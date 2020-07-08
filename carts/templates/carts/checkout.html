@@ -51,8 +51,16 @@
 
     {% else %}
         {% if not has_card %}
-            <div id="paypal-button-container"></div>
-            <div class="stripe-payment-form" data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title="Add Payment Method"></div>
+          <div class="row payments-form-api payments-desktop payments-mobile">
+            <div class="col">
+                <h2 style="color:blue;">{% trans "PayPal" %}</h2>
+                <div id="paypal-button-container"></div>
+            </div>
+            <div class="col">
+                <h2 style="color:red;">{% trans "Bank card binding" %}</h2>
+                <div class="stripe-payment-form" data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title="Add Payment Method"></div>
+            </div>
+          </div>
         {% else %}
         <h1>{% trans "Finalize Checkout" %}</h1>
         <p>{% trans "Cart Items" %}: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
