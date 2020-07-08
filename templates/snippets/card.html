@@ -10,7 +10,7 @@
     <p class="card-text">{{ instance.description|linebreaks|truncatewords:18 }}</p>
     <div class="row" style="margin-left:0.5%;">
       <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">{% trans "View" %}</a>
-      {% include 'products/snippets/update-cart.html' with product=instance cart=cart %}
+      {% include 'products/update-cart.html' with product=instance cart=cart %}
     <h3 style="margin-right: 5%; margin-left: auto; margin-top: 2px;">{{ instance.price }} &#36;</h3>
     </div>
   </div>

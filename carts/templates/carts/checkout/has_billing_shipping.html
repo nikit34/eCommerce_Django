@@ -1,0 +1,79 @@
+{% load i18n %}
+<div class="row checkout checkout-title">
+    <div class="col">
+        <h1>{% trans "CHECK and CHOOSE" %}<br>{% trans "method of payment for order" %}</h1>
+    </div>
+</div>
+<div class="row checkout checkout-table">
+    <div class="col">
+        <div class="canvas-cell">
+            <h3>{% trans "Cart Items" %}:</h3>
+            <hr>
+            {% for product in object.cart.products.all %}
+                {% if forloop.counter|divisibleby:2 %}<p style="color:rgb(150,0,150);">{% else %}<p style="color:rgb(200,0,200);">{% endif %}{{ forloop.counter }}) {{ product }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col">
+        <div class="canvas-cell">
+            <div class="row">
+                <div class="col">
+                    <h4>{% trans "Shipping Address" %}:</h4>
+                </div>
+                <div class="col">
+                    <p>{{ object.shipping_address_final }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <h4>{% trans "Billing Address" %}:</h4>
+                </div>
+                <div class="col">
+                    <p>{{ object.billing_address_final }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row checkout checkout-total">
+    <div class="col">
+        <div class="canvas-cell">
+            <div class="row">
+                <div class="col">
+                    <h4>{% trans "Cart Total" %}</h4>
+                    <hr>
+                    <h2>{{ object.cart.total | floatformat:2 }}</h2>
+                </div>
+                <div class="col">
+                    <h4>{% trans "Shipping Total" %}</h4>
+                    <hr>
+                    <h2>{{ object.shipping_total | floatformat:2 }}</h2>
+                </div>
+                <div class="col">
+                    <h4>{% trans "Order Total" %}</h4>
+                    <hr>
+                    <h2>{{ object.total | floatformat:2 }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row checkout checkout-title">
+    <div class="col">
+        <h1>{% trans "Choose method of payment" %}</h1>
+    </div>
+</div>
+<div class="row payments-form-api payments-desktop payments-mobile">
+    <div class="col">
+        <h2 style="color:blue;">{% trans "PayPal" %}</h2>
+        <div id="paypal-button-container"></div>
+    </div>
+    <div class="col">
+        <h2 style="color:red;">{% trans "Bank card binding" %}</h2>
+        <div class="stripe-payment-form" data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title="Add Payment Method">
+        </div>
+    </div>
+</div>
