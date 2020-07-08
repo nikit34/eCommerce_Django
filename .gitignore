@@ -4,6 +4,9 @@ venv/**
 **/.vscode/**
 **/.git/**
 
+**/settings/__init__.py
+
+
 bash
 db.sqlite3
 
