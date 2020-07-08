@@ -28,7 +28,7 @@
       <div class="card-body" style="background:yellow;">
         <h4 class="card-title">{% trans "History" %}</h4>
             <div class='list-group'>
-                <a class='list-group-item' href='{% url "account:user-product-history" %}'>{% trans "Products" %}</a>
+                <a class='list-group-item' href='{% url "accounts:user-product-history" %}'>{% trans "Products" %}</a>
                 <a class='list-group-item' href='{% url "sales-analytics" %}'>{% trans "Statistics" %}</a>
             </div>
       </div>
@@ -51,7 +51,7 @@
       <div class="card-body" style="background:blue;">
         <h4 class="card-title">{% trans "Account Details" %}</h4>
             <div class='list-group'>
-                <a class='list-group-item' href='{% url "account:user-update" %}'>{% trans "Update Details" %}</a>
+                <a class='list-group-item' href='{% url "accounts:user-update" %}'>{% trans "Update Details" %}</a>
                 <a class='list-group-item' href='{% url "password_change" %}'>{% trans "Change Password" %}</a>
             </div>
       </div>
