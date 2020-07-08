@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 14:32+0500\n"
+"POT-Creation-Date: 2020-07-08 15:43+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -160,6 +160,7 @@ msgid "Support"
 msgstr "Поддержка"
 
 #: accounts/templates/accounts/home.html:66 eCommerce_Django/views.py:42
+#: templates/contact/about.html:5
 msgid "About"
 msgstr "О себе"
 
@@ -229,7 +230,7 @@ msgid "Internal Reference Nickname"
 msgstr "Внутренний Nickname - псевдоним"
 
 #: addresses/templates/addresses/list.html:7
-#: addresses/templates/addresses/list.html:19
+#: addresses/templates/addresses/list.html:20
 msgid "Address"
 msgstr "Адрес"
 
@@ -238,15 +239,15 @@ msgid "es"
 msgstr "а"
 
 #: addresses/templates/addresses/list.html:7
-#: addresses/templates/addresses/list.html:27
+#: addresses/templates/addresses/list.html:28
 msgid "Create New"
 msgstr "Создать новый"
 
-#: addresses/templates/addresses/list.html:22
+#: addresses/templates/addresses/list.html:23
 msgid "Edit"
 msgstr "Редактировать"
 
-#: addresses/templates/addresses/prev_addresses.html:16
+#: addresses/templates/addresses/prev_addresses.html:17
 msgid "Use Address"
 msgstr "Использовать адрес"
 
@@ -332,50 +333,68 @@ msgid "Continue as Guest"
 msgstr "Продолжить как гость"
 
 #: carts/templates/carts/checkout.html:22
-#: carts/templates/carts/checkout.html:58
+#: carts/templates/carts/checkout.html:56
+#: carts/templates/carts/checkout.html:78
 #: orders/templates/orders/order_detail.html:15
 msgid "Shipping Address"
 msgstr "Адрес доставки"
 
 #: carts/templates/carts/checkout.html:39
-#: carts/templates/carts/checkout.html:59
+#: carts/templates/carts/checkout.html:57
+#: carts/templates/carts/checkout.html:79
 #: orders/templates/orders/order_detail.html:16
 msgid "Billing Address"
 msgstr "Адрес выставления счета"
 
-#: carts/templates/carts/checkout.html:56
+#: carts/templates/carts/checkout.html:54
+#: carts/templates/carts/checkout.html:76
 msgid "Finalize Checkout"
 msgstr "Завершить оформление заказа"
 
-#: carts/templates/carts/checkout.html:57
+#: carts/templates/carts/checkout.html:55
+#: carts/templates/carts/checkout.html:77
 msgid "Cart Items"
 msgstr "Корзина"
 
-#: carts/templates/carts/checkout.html:60
+#: carts/templates/carts/checkout.html:58
+#: carts/templates/carts/checkout.html:80
 msgid "Payment Method"
 msgstr "Способ оплаты"
 
-#: carts/templates/carts/checkout.html:60
+#: carts/templates/carts/checkout.html:58
+#: carts/templates/carts/checkout.html:80
 msgid "Change"
 msgstr "Изменить"
 
-#: carts/templates/carts/checkout.html:61
+#: carts/templates/carts/checkout.html:59
+#: carts/templates/carts/checkout.html:81
 msgid "Cart Total"
-msgstr "Всего в корзине"
+msgstr "Стоимость товаров"
 
-#: carts/templates/carts/checkout.html:62
+#: carts/templates/carts/checkout.html:60
+#: carts/templates/carts/checkout.html:82
 #: orders/templates/orders/order_detail.html:18
 msgid "Shipping Total"
-msgstr "Доставлено всего"
+msgstr "Доставка"
 
-#: carts/templates/carts/checkout.html:63
+#: carts/templates/carts/checkout.html:61
+#: carts/templates/carts/checkout.html:83
 #: orders/templates/orders/order_detail.html:19
 msgid "Order Total"
-msgstr "Заказано всего"
+msgstr "Сумма к оплате"
 
-#: carts/templates/carts/checkout.html:65 carts/templates/carts/home.html:34
+#: carts/templates/carts/checkout.html:63
+#: carts/templates/carts/checkout.html:85 carts/templates/carts/home.html:34
 msgid "Checkout"
 msgstr "Отплатить"
+
+#: carts/templates/carts/checkout.html:67
+msgid "PayPal"
+msgstr "PayPal"
+
+#: carts/templates/carts/checkout.html:71
+msgid "Bank card binding"
+msgstr "Привязка банковской карты"
 
 #: carts/templates/carts/home.html:5 templates/base/navbar.html:34
 msgid "Cart"
@@ -492,7 +511,7 @@ msgstr "Товар"
 msgid "Download"
 msgstr "Скачать"
 
-#: orders/templates/orders/library.html:27
+#: orders/templates/orders/library.html:28
 #: orders/templates/orders/order_list.html:23
 msgid "No orders yet"
 msgstr "Пока нет заказов"
@@ -555,7 +574,7 @@ msgstr "Поиск"
 msgid "Results for"
 msgstr "Результаты поиска"
 
-#: templates/base.html:25
+#: templates/base.html:27
 msgid "Important"
 msgstr "Важно"
 
@@ -582,6 +601,10 @@ msgstr "Администраторская"
 #: templates/base/navbar.html:61
 msgid "Logout"
 msgstr "Выйти"
+
+#: templates/contact/about.html:25 templates/home_page.html:27
+msgid "Premium Content"
+msgstr "Премиум"
 
 #: templates/error/400.html:8
 msgid "Something went wrong"
@@ -612,13 +635,9 @@ msgstr "Ошибка | Мы были уведомлены и работаем н
 msgid "Home page"
 msgstr "Главная страница"
 
-#: templates/home_page.html:15
+#: templates/home_page.html:10
 msgid "Best offers"
 msgstr "Лучшие предложения"
-
-#: templates/home_page.html:32
-msgid "Premium Content"
-msgstr "Премиум"
 
 #: templates/registration/activation-error.html:7
 msgid "Activation Error. Please try again"

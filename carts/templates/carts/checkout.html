@@ -51,6 +51,16 @@
 
     {% else %}
         {% if not has_card %}
+        <h1>{% trans "Finalize Checkout" %}</h1>
+        <p>{% trans "Cart Items" %}: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+        <p>{% trans "Shipping Address" %}: {{ object.shipping_address_final }}</p>
+        <p>{% trans "Billing Address" %}: {{ object.billing_address_final }}</p>
+        <p>{% trans "Cart Total" %}: {{ object.cart.total | floatformat:2 }}</p>
+        <p>{% trans "Shipping Total" %}: {{ object.shipping_total | floatformat:2 }}</p>
+        <p>{% trans "Order Total" %}: {{ object.total | floatformat:2 }}</p>
+        <form class="form" method="POST" action=""> {% csrf_token %}
+            <button type="submit" class="btn btn-outline-success">{% trans "Checkout" %}</button>
+        </form>
           <div class="row payments-form-api payments-desktop payments-mobile">
             <div class="col">
                 <h2 style="color:blue;">{% trans "PayPal" %}</h2>
