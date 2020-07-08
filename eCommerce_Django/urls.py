@@ -27,7 +27,7 @@ urlpatterns = [url(r'^update_server/$', update, name='update')] + i18n_patterns(
   url(r'^about/$', about_page, name='about'),
   url(r'^i18n/', include('django.conf.urls.i18n')),
   url(r'^accounts/$', RedirectView.as_view(url='/account')),
-  url(r'^account/', include("accounts.urls", namespace='account')),
+  url(r'^account/', include("accounts.urls"), namespace='account'),
   url(r'^accounts/', include("accounts.passwords.urls")),
   url(r'^address/$', RedirectView.as_view(url='/addresses')),
   url(r'^addresses/$', AddressListView.as_view(), name='addresses'),
