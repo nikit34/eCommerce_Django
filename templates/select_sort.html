@@ -1,31 +1,34 @@
 {% load i18n %}
-<br>
-<form action="{% url 'home' %}" method="get">
-<div class="row pull-right">
-<div class="dropup">
-  <button class="btn btn-default dropdown-toggle" type="submit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    {% trans "Price" %}
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <button type="submit" name="price" value="descend" class="btn btn-default">{% trans "descending" %}</button>
-    <button type="submit" name="price" value="ascend" class="btn btn-default">{% trans "ascending" %}</button>
-  </ul>
-</div>
- &nbsp;
-<div class="dropup">
-  <button class="btn btn-default dropdown-toggle" type="submit" data-toggle="dropdown">
-    {% trans "Time" %}
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-right">
-    <button type="submit" name="time_update" value="descend" class="btn btn-default">{% trans "update early" %}</button>
-    <button type="submit" name="time_update" value="ascend" class="btn btn-default">{% trans "update last" %}</button>
-  </ul>
-</div>
 
-</div>
+<div class="row">
+    <div class="col-10">
 
-</form>
-<br><br>
-<hr>
+    </div>
+    <div class="col sort-dropup-block">
+        <form action="{% url 'home' %}" method="get">
+            <div class="row">
+                <div class="dropup">
+                    <button class="btn btn-default dropdown-toggle" type="submit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% trans "Price" %}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <button type="submit" name="price" value="descend" class="btn btn-default">{% trans "descending" %}</button>
+                      <button type="submit" name="price" value="ascend" class="btn btn-default">{% trans "ascending" %}</button>
+                    </ul>
+                </div>
+                &nbsp;
+                <div class="dropup">
+                    <button class="btn btn-default dropdown-toggle" type="submit" data-toggle="dropdown">
+                        {% trans "Time" %}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <button type="submit" name="time_update" value="descend" class="btn btn-default">{% trans "update early" %}</button>
+                        <button type="submit" name="time_update" value="ascend" class="btn btn-default">{% trans "update last" %}</button>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

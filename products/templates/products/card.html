@@ -1,20 +1,30 @@
 {% load i18n %}
 
-<div class="card" style="width: 30rem;">
+<div class="card">
     {% if instance.image %}
         <a href="{{ instance.get_absolute_url }}">
             <img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title }} logo">
         </a>
+    {% else %}
+        <p>Image was not uploaded</p>
     {% endif %}
-    <div class="card-body">
-        <h5 class="card-title">{{ instance.title }}</h5>
-        <p class="card-text">{{ instance.description|linebreaks|truncatewords:18 }}</p>
-        <div class="row card-button" style="margin-left:0.5%;">
-            <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">{% trans "View" %}</a>
-
-            {% include 'products/update-cart.html' with product=instance cart=cart %}
-
-            <h3 style="margin-right: 5%; margin-left: auto; margin-top: 2px;">{{ instance.price }} &#36;</h3>
+    <div class="row card-body">
+        <div class="col-6">
+            <h5>{{ instance.title }}</h5>
+            <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>
+        </div>
+        <div class="col-4 card-button">
+            <div class="row">
+                <div class="col-4">
+                    <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">{% trans "View" %}</a>
+                </div>
+                <div class="col">
+                {% include 'products/update-cart.html' with product=instance cart=cart %}
+                </div>
+            </div>
+        </div>
+        <div class="col card-price">
+            <h2>{{ instance.price }} &#36;</h2>
         </div>
     </div>
 </div>
