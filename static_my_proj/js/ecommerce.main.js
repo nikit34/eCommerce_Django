@@ -154,4 +154,16 @@ $(document).ready(function () {
       });
     }
   }
+
+
+  paypal.Buttons({
+
+    style: {
+        color:  'blue',
+        shape:  'pill',
+        label:  'pay',
+        height: 40
+    }
+
+}).render('#paypal-button-container');
 });
