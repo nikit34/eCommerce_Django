@@ -9,12 +9,12 @@
     <div class="row text-center">
         <div class="col-12 col-md-6">
             <p class="lead">{% trans "Login" %}</p>
-            {% include 'accounts/snippets/form.html' with form=login_form next_url=request.build_absolute_uri %}
+            {% include 'accounts/form.html' with form=login_form next_url=request.build_absolute_uri %}
         </div>
         <div class="col-12 col-md-6">
             {% trans "Continue as Guest" %}
             {% url "guest_register" as guest_register_url %}
-            {% include 'accounts/snippets/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url %}
+            {% include 'accounts/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url %}
         </div>
     </div>
 
@@ -59,34 +59,7 @@
     {% else %}
 
         {% if not has_card %}
-
-            <div class="row checkout">
-                <div class="col">
-                    <h1>{% trans "Check and Choose" %}</h1>
-                    <h3>{% trans "method of payment for order" %}</h3>
-                </div>
-            </div>
-            <p>{% trans "Cart Items" %}: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-            <p>{% trans "Shipping Address" %}: {{ object.shipping_address_final }}</p>
-            <p>{% trans "Billing Address" %}: {{ object.billing_address_final }}</p>
-            <p>{% trans "Cart Total" %}: {{ object.cart.total | floatformat:2 }}</p>
-            <p>{% trans "Shipping Total" %}: {{ object.shipping_total | floatformat:2 }}</p>
-            <p>{% trans "Order Total" %}: {{ object.total | floatformat:2 }}</p>
-            <form class="form" method="POST" action=""> {% csrf_token %}
-                <button type="submit" class="btn btn-outline-success">{% trans "Checkout" %}</button>
-            </form>
-            <div class="row payments-form-api payments-desktop payments-mobile">
-                <div class="col">
-                    <h2 style="color:blue;">{% trans "PayPal" %}</h2>
-                    <div id="paypal-button-container"></div>
-                </div>
-                <div class="col">
-                    <h2 style="color:red;">{% trans "Bank card binding" %}</h2>
-                    <div class="stripe-payment-form" data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title="Add Payment Method">
-                    </div>
-                </div>
-            </div>
-
+            {% include "carts/checkout/has_billing_shipping.html" %}
         {% else %}
             {% include "carts/checkout/has_billing_shipping_card.html" %}
         {% endif %}

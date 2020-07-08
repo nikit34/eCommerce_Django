@@ -9,7 +9,7 @@
         </div>
     {% else %}
         <div class="col-12 col-md-6 mx-auto py-4">
-          {% include 'search/snippets/search-form.html' %}
+          {% include 'search/search-form.html' %}
         </div>
         <div class="col-12">
             <hr>
@@ -20,7 +20,7 @@
     {% for obj in object_list %}
     <div class="col">
         {{ forloop.counter }}
-        {% include 'products/snippets/card.html' with instance=obj %}
+        {% include 'products/card.html' with instance=obj %}
         {% if forloop.counter|divisibleby:2 %}
             </div></div><div class="row"><div class="col-12"><hr/></div>
         {% elif forloop.counter|divisibleby:2 %}

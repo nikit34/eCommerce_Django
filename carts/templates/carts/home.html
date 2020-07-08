@@ -19,7 +19,7 @@
                 <tr class="cart-product">
                     <th scope="row">{{ forloop.counter }}</th>
                     <td><a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
-                        {% include 'carts/snippets/remove-product.html' with product_id=product.id %}</td>
+                        {% include 'carts/remove-product.html' with product_id=product.id %}</td>
                     <td>{{ product.price | floatformat:2 }}</td>
                 </tr>
                 {% endfor %}
@@ -39,7 +39,7 @@
         </table>
     </div>
     <div class="cart-item-remove-form" style="display: none">
-        {% include 'carts/snippets/remove-product.html' %}
+        {% include 'carts/remove-product.html' %}
     </div>
 {% else %}
 <p class="lead">{% trans "Cart is empty" %}</p>
