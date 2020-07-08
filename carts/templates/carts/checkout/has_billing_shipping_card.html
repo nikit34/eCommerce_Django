@@ -1,0 +1,80 @@
+{% load i18n %}
+<div class="row checkout checkout-title">
+    <div class="col">
+        <h1>{% trans "Finalize Checkout" %}</h1>
+    </div>
+</div>
+
+<div class="row checkout checkout-table">
+    <div class="col">
+        <div class="canvas-cell">
+            <h3>{% trans "Cart Items" %}:</h3>
+            <hr>
+            {% for product in object.cart.products.all %}
+                {% if forloop.counter|divisibleby:2 %}<p style="color:rgb(150,0,150);">{% else %}<p style="color:rgb(200,0,200);">{% endif %}{{ forloop.counter }}) {{ product }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col">
+        <div class="canvas-cell">
+            <div class="row">
+                <div class="col">
+                    <h4>{% trans "Shipping Address" %}:</h4>
+                </div>
+                <div class="col">
+                    <p>{{ object.shipping_address_final }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <h4>{% trans "Billing Address" %}:</h4>
+                </div>
+                <div class="col">
+                    <p>{{ object.billing_address_final }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <h4>{% trans "Payment Method" %}
+                        (<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">{% trans "Change" %}</a>):
+                    </h4>
+                </div>
+                <div class="col">
+                    <p>{{ billing_profile.default_card }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="row checkout checkout-total">
+    <div class="col">
+        <div class="canvas-cell">
+            <div class="row">
+                <div class="col">
+                    <h4>{% trans "Cart Total" %}</h4>
+                    <hr>
+                    <h2>{{ object.cart.total | floatformat:2 }}</h2>
+                </div>
+                <div class="col">
+                    <h4>{% trans "Shipping Total" %}</h4>
+                    <hr>
+                    <h2>{{ object.shipping_total | floatformat:2 }}</h2>
+                </div>
+                <div class="col">
+                    <h4>{% trans "Order Total" %}</h4>
+                    <hr>
+                    <h2>{{ object.total | floatformat:2 }}</h2>
+                </div>
+                <div class="col">
+                    <form class="form" method="POST" action=""> {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-success">{% trans "Checkout" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
