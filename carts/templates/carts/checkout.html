@@ -60,8 +60,12 @@
 
         {% if not has_card %}
 
-            <h1>{% trans "Check and Choose" %}</h1>
-            <h3>{% trans "method of payment for order" %}</h3>
+            <div class="row checkout">
+                <div class="col">
+                    <h1>{% trans "Check and Choose" %}</h1>
+                    <h3>{% trans "method of payment for order" %}</h3>
+                </div>
+            </div>
             <p>{% trans "Cart Items" %}: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
             <p>{% trans "Shipping Address" %}: {{ object.shipping_address_final }}</p>
             <p>{% trans "Billing Address" %}: {{ object.billing_address_final }}</p>
@@ -78,23 +82,87 @@
                 </div>
                 <div class="col">
                     <h2 style="color:red;">{% trans "Bank card binding" %}</h2>
-                    <div class="stripe-payment-form" data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title="Add Payment Method"></div>
+                    <div class="stripe-payment-form" data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title="Add Payment Method">
+                    </div>
                 </div>
             </div>
 
         {% else %}
 
-            <h1>{% trans "Finalize Checkout" %}</h1>
-            <p>{% trans "Cart Items" %}: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-            <p>{% trans "Shipping Address" %}: {{ object.shipping_address_final }}</p>
-            <p>{% trans "Billing Address" %}: {{ object.billing_address_final }}</p>
-            <p>{% trans "Payment Method" %}: {{ billing_profile.default_card }} (<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">{% trans "Change" %}</a>)</p>
-            <p>{% trans "Cart Total" %}: {{ object.cart.total | floatformat:2 }}</p>
-            <p>{% trans "Shipping Total" %}: {{ object.shipping_total | floatformat:2 }}</p>
-            <p>{% trans "Order Total" %}: {{ object.total | floatformat:2 }}</p>
-            <form class="form" method="POST" action=""> {% csrf_token %}
-                <button type="submit" class="btn btn-outline-success">{% trans "Checkout" %}</button>
-            </form>
+
+            <div class="row checkout checkout-title">
+                <div class="col">
+                    <h1>{% trans "Finalize Checkout" %}</h1>
+                </div>
+            </div>
+            <div class="row checkout checkout-table">
+                <div class="col">
+                    <div class="canvas-cell">
+                        <h3>{% trans "Cart Items" %}:</h3>
+                        <hr>
+                        {% for product in object.cart.products.all %}
+                            {% if forloop.counter|divisibleby:2 %}<p style="color:rgb(100,0,100);">{% else %}<p style="color:rgb(200,0,200);">{% endif %}{{ forloop.counter }}) {{ product }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="canvas-cell">
+                        <div class="row">
+                            <div class="col">
+                                <p>{% trans "Shipping Address" %}:</p>
+                            </div>
+                            <div class="col">
+                                <p>{{ object.shipping_address_final }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <p>{% trans "Billing Address" %}:</p>
+                            </div>
+                            <div class="col">
+                                <p>{{ object.billing_address_final }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <p>{% trans "Payment Method" %}
+                                    (<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">{% trans "Change" %}</a>):
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p>{{ billing_profile.default_card }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row checkout checkout-total">
+                <div class="col">
+                    <div class="canvas-cell">
+                        <div class="row">
+                            <div class="col">
+                                <p>{% trans "Cart Total" %}: {{ object.cart.total | floatformat:2 }}</p>
+                            </div>
+                            <div class="col">
+                                <p>{% trans "Shipping Total" %}: {{ object.shipping_total | floatformat:2 }}</p>
+                            </div>
+                            <div class="col">
+                                <p>{% trans "Order Total" %}: {{ object.total | floatformat:2 }}</p>
+                            </div>
+                            <div class="col">
+                                <form class="form" method="POST" action=""> {% csrf_token %}
+                                    <button type="submit" class="btn btn-outline-success">{% trans "Checkout" %}</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
         {% endif %}
 
