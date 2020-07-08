@@ -1,0 +1,55 @@
+.sort-dropup-block{
+    padding: 0 0 1em 0;
+    min-width: 150px;
+}
+
+.detail-top-panel {
+    margin-top: 2.5%;
+}
+
+.detail-price-update .v-line{
+    border-left: 2px solid rgba(0, 0, 0, 0.25);
+    margin-top: 2.5%;
+    height: 2.5em;
+}
+
+.detail-price-update h2{
+    padding: 3.5% 0 0 5%;
+    min-width: 150px;
+}
+
+.detail-price-update form {
+    padding: 2.5% 0 0 20%;
+    min-width: 300px;
+}
+
+.card {
+    width: 90%;
+    left: 5%;
+}
+
+.card-body{
+    padding: 1.25em 1em 0 1em;
+}
+
+@media only screen and (max-width:1400px) {
+    .card-button {
+        padding: 5em 5em 5em 5em;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width:1400px) {
+    .card-button {
+        padding: 1em 0 1em 5em;
+        -webkit-box-orient: horizontal;
+        flex-direction: row;
+    }
+}
+
+
+.card-price{
+    padding: 1em 0 1em 2.5em;
+    min-width: 100px;
+}

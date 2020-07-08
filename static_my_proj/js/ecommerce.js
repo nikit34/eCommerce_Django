@@ -146,11 +146,11 @@ $(document).ready(function () {
         if (data.added) {
           if(lang == 'en') {
             submitSpan.html(
-              "<div class='btn-group'> <a class='btn btn-link' href='/cart/'>In cart</a> <button type='submit' class='btn btn-link'>Remove?</button></div>"
+              "<div class='btn-group'> <a class='btn btn-success' href='/cart/'>In cart</a> <button type='submit' class='btn btn-link'>Remove?</button></div>"
             );
             } else if(lang == 'ru'){
               submitSpan.html(
-                "<div class='btn-group'> <a class='btn btn-link' href='/cart/'>Корзина</a> <button type='submit' class='btn btn-link'>Удалить?</button></div>"
+                "<div class='btn-group'> <a class='btn btn-success' href='/cart/'>Корзина</a> <button type='submit' class='btn btn-link'>Удалить?</button></div>"
               );
           } else {
             submitSpan.html(
