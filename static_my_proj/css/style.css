@@ -41,7 +41,7 @@ body img.main {
     position: absolute;
     z-index: -2;
     width: 50%;
-    margin: 5% 25%;
+    margin: 5% 5% 5% 20%;
     border-radius: 30%;
     filter: blur(2px);
 }
@@ -201,6 +201,27 @@ table.cart-table td, table.cart-table th {
     font-size: large;
 }
 
+.checkout h1, .checkout h3 {
+    text-align: center;
+    margin: 50px 0 50px 0;
+}
+
+.checkout-table h3{
+    text-align: center;
+    margin: 0.5em 0 0.5em 0;
+}
+
+.checkout-total {
+    
+}
+
+.canvas-cell {
+    background-color: whitesmoke;
+    padding: 2.5% 5% 2.5% 2.5%;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-size: x-large;
+}
 
 .payments-form-api {
     margin-top: 20%;
