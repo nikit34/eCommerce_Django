@@ -96,8 +96,6 @@ $(document).ready(function () {
       method: httpMethod,
       data: data,
       success: function (data) {
-        console.log(data);
-        console.log(data.owner);
         if (data.owner) {
           isOwner = true;
           submitSpan.html(
@@ -131,6 +129,14 @@ $(document).ready(function () {
     var actionEndpoint = thisForm.attr("data-endpoint");
     var httpMethod = thisForm.attr("method");
     var formData = thisForm.serialize();
+    let localizations = document.getElementsByName('language');
+    let i_attr_value, lang;
+    for(let i = 0; i < localizations.length; i++){
+      if(localizations[i].outerHTML.includes('selected')) {
+        i_attr_value = localizations[i].outerHTML.indexOf('value=');
+        lang = localizations[i].outerHTML.slice(i_attr_value + 7, i_attr_value + 9);
+      }
+    }
     $.ajax({
       url: actionEndpoint,
       method: httpMethod,
@@ -138,13 +144,33 @@ $(document).ready(function () {
       success: function (data) {
         var submitSpan = thisForm.find(".submit-span");
         if (data.added) {
-          submitSpan.html(
-            "<div class='btn-group'> <a class='btn btn-link' href='/cart/'>{% trans 'In cart' %}</a> <button type='submit' class='btn btn-link'>{% trans 'Remove?' %}</button></div>"
-          );
+          if(lang == 'en') {
+            submitSpan.html(
+              "<div class='btn-group'> <a class='btn btn-link' href='/cart/'>In cart</a> <button type='submit' class='btn btn-link'>Remove?</button></div>"
+            );
+            } else if(lang == 'ru'){
+              submitSpan.html(
+                "<div class='btn-group'> <a class='btn btn-link' href='/cart/'>Корзина</a> <button type='submit' class='btn btn-link'>Удалить?</button></div>"
+              );
+          } else {
+            submitSpan.html(
+              "<div class='btn-group'>Undefined langueges in js</div>"
+            );
+          }
         } else {
-          submitSpan.html(
-            '<button type="submit" class="btn btn-success">{% trans "Add to cart" %}</button>'
-          );
+          if(lang == 'en') {
+            submitSpan.html(
+              '<button type="submit" class="btn btn-success">Add to cart</button>'
+            );
+            } else if(lang == 'ru'){
+              submitSpan.html(
+                '<button type="submit" class="btn btn-success">Добавить в корзину</button>'
+              );
+          } else {
+            submitSpan.html(
+              "<div class='btn-group'>Undefined langueges in js</div>"
+            );
+          }
         }
         var navbarCount = $(".navbar-cart-count");
         navbarCount.text(data.cartItemCount);

@@ -51,6 +51,7 @@
 
     {% else %}
         {% if not has_card %}
+            <div id="paypal-button-container"></div>
             <div class="stripe-payment-form" data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title="Add Payment Method"></div>
         {% else %}
         <h1>{% trans "Finalize Checkout" %}</h1>
@@ -67,4 +68,5 @@
         {% endif %}
     {% endif %}
 {% endif %}
+
 {% endblock %}
