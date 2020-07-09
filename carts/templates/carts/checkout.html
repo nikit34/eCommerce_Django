@@ -8,15 +8,15 @@
 {% else %}
 
     {% if not object.shipping_address and shipping_address_required %}
-        {% include "carts/checkout/has_billing_shiprequired.html" %}
+        {% include "carts/checkout/has_billingprofile_shiprequired.html" %}
     {% elif not object.billing_address %}
-        {% include "carts/checkout/has_billing.html" %}
+        {% include "carts/checkout/has_billingprofile.html" %}
     {% else %}
 
         {% if not has_card %}
-            {% include "carts/checkout/has_billing_shipping.html" %}
+            {% include "carts/checkout/has_billingprofile_shipping.html" %}
         {% else %}
-            {% include "carts/checkout/has_billing_shipping_card.html" %}
+            {% include "carts/checkout/has_billingprofile_shipping_card.html" %}
         {% endif %}
 
     {% endif %}
