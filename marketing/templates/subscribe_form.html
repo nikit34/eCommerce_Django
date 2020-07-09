@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block content %}
 
-<div class="col-12 col-md-6 mx-auto">
+<div class="col-12 col-md-6 mx-auto base-canvas-cell-2">
 {% if title %}<h1 class="my-3">{{ title }}</h1>{% endif %}
 <form method="POST" action="{{ success_url }}">
     {% csrf_token %}

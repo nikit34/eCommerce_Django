@@ -14,8 +14,12 @@
                 <div class="col-md-6 col-12 mx-auto">
                     <form class="contact-form" method="POST" action="{% url 'contact' %}"> {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-outline-success">{% trans "Submit" %}</button>
                     </form>
+                </div>
+                <div class="row">
+                    <div class="col-9 text-right">
+                        <button type="submit" class="btn btn-success">{% trans "Submit" %}</button>
+                    </div>
                 </div>
             </div>
         </div>

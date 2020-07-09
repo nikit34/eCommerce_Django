@@ -10,7 +10,7 @@
     {% endif %}
     <div class="row card-body">
         <div class="col-6">
-            {% if size == "1" %}
+            {% if descipt == "1" %}
                 <h5>{{ instance.title }}</h5>
                 <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>
             {% else %}
