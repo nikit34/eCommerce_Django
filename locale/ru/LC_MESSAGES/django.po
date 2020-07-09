@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 15:24+0500\n"
+"POT-Creation-Date: 2020-07-09 16:51+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,8 +124,9 @@ msgid "Payment Methods"
 msgstr "Способ оплаты"
 
 #: accounts/templates/accounts/home.html:19
-msgid "Addresses"
-msgstr "Отмеченные адреса"
+#: addresses/templates/addresses/list.html:7
+msgid "Saved addresses"
+msgstr "Сохраненные адреса"
 
 #: accounts/templates/accounts/home.html:20
 #: orders/templates/orders/library.html:8 templates/base/navbar.html:61
@@ -221,31 +222,33 @@ msgstr "Адрес выставления счета"
 msgid "Shipping address"
 msgstr "Адрес доставки"
 
-#: addresses/models.py:17
+#: addresses/models.py:16
 msgid "Shipping to? Who is it for?"
 msgstr "С доставкой? Для кого?"
 
-#: addresses/models.py:18
+#: addresses/models.py:17
 msgid "Internal Reference Nickname"
 msgstr "Внутренний Nickname - псевдоним"
-
-#: addresses/templates/addresses/list.html:7
-#: addresses/templates/addresses/list.html:20
-msgid "Address"
-msgstr "Адрес"
 
 #: addresses/templates/addresses/list.html:7
 msgid "es"
 msgstr "а"
 
 #: addresses/templates/addresses/list.html:7
-#: addresses/templates/addresses/list.html:28
 msgid "Create New"
 msgstr "Создать новый"
+
+#: addresses/templates/addresses/list.html:21
+msgid "Address"
+msgstr "Адрес"
 
 #: addresses/templates/addresses/list.html:23
 msgid "Edit"
 msgstr "Редактировать"
+
+#: addresses/templates/addresses/list.html:32
+msgid "No saved addresses"
+msgstr "Нет сохраненных адресов"
 
 #: addresses/templates/addresses/prev_addresses.html:23
 msgid "Use Address"
@@ -433,7 +436,7 @@ msgstr "Промежуточный итог"
 msgid "Total"
 msgstr "Итог"
 
-#: carts/templates/carts/home.html:46
+#: carts/templates/carts/home.html:47
 msgid "Cart is empty"
 msgstr "Корзина пуста"
 
@@ -730,3 +733,4 @@ msgstr "ранее"
 #: templates/select_sort.html:28
 msgid "update last"
 msgstr "позже"
+

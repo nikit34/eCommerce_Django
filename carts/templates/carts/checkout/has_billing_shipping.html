@@ -7,7 +7,7 @@
 </div>
 <div class="row checkout checkout-table">
     <div class="col">
-        <div class="canvas-cell">
+        <div class="bank-canvas-cell">
             <h3>{% trans "Cart Items" %}:</h3>
             <hr>
             {% for product in object.cart.products.all %}
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="col">
-        <div class="canvas-cell">
+        <div class="bank-canvas-cell">
             <div class="row">
                 <div class="col">
                     <h4>{% trans "Shipping Address" %}:</h4>
@@ -40,7 +40,7 @@
 <br>
 <div class="row checkout checkout-total">
     <div class="col">
-        <div class="canvas-cell">
+        <div class="bank-canvas-cell">
             <div class="row">
                 <div class="col">
                     <h4>{% trans "Cart Total" %}</h4>

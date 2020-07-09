@@ -67,3 +67,37 @@
     height: 100%;
     text-align: justify;
 }
+
+.product-canvas-cell {
+    background-color: whitesmoke;
+    padding: 5%;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-size: x-large;
+}
+
+.product-canvas-cell-2 {
+    background-color: #ffff001f;
+    padding: 1em 2.5em 1em 2.5em;
+    border: 1px solid #ffff0080;
+    border-radius: 15px;
+    font-size: large;
+}
+
+.product-canvas-cell-small {
+    background-color: #ffff001f;
+    padding: 1%;
+    border: 1px solid #ffff0080;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.product-canvas-cell-small-2 {
+    background-color: whitesmoke;
+    padding: 1em;
+    border-left: 1px solid #ffff0080;
+    border-right: 1px solid #ffff0080;
+    margin-top: 0.5em;
+    border-radius: 15px;
+    text-align: center;
+}

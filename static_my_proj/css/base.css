@@ -53,9 +53,9 @@ body img.log {
     left:0;
 }
 
-form.form-reglog{
-    background-color: #ffffff;
-    border: 2px solid #ff000080;
+form.form-reglog {
+    background-color: white;
+    border: 2px solid #0000ff80;
     border-radius: 15px;
     padding: 5px 25px 5px 25px;
     display: inline-block;
@@ -64,12 +64,8 @@ form.form-reglog{
     max-width: 500px;
 }
 
-form.form-reglog th{
-    background-color: #ff000005;
-}
-
-form.form-reglog td{
-    background-color: #ff000005;
+form.form-reglog h1 {
+    color: #17a2b8;
 }
 
 div.left-field {
@@ -84,43 +80,105 @@ div.right-field {
     min-height: 90vh;
 }
 
-.btn-success {
-    border-color:rgba(0, 150, 0, 0.75);
+
+
+/* btn */
+
+.btn-danger {
+    border-color:#ff000080;
     color:black;
-    background-color:rgba(0, 255, 0, 0.25);
-    transition: border-color 1.5s, color 0.5s, background-color 0.5s;
+    background-color:#ff000080;
+    transition: border-color 1.5s, background-color 0.5s;
+}
+.btn-warning {
+    border-color:#ffff0080;
+    color:black;
+    background-color:#ffff0080;
+    transition: border-color 1.5s, background-color 0.5s;
+}
+.btn-success {
+    border-color:#00ff0080;
+    color:black;
+    background-color:#00ff0080;
+    transition: border-color 1.5s, background-color 0.5s;
+}
+.btn-info {
+    border-color:#0000ff80;
+    color:black;
+    background-color:#0000ff80;
+    transition: border-color 1.5s, background-color 0.5s;
 }
 
+/* btn hover */
+
+.btn-danger:hover {
+    border-color:rgb(0, 0, 0);
+    color:black;
+    background-color:#ff000010;
+}
+.btn-warning:hover {
+    border-color:rgb(0, 0, 0);
+    color:black;
+    background-color:#ffff0010;
+}
 .btn-success:hover {
     border-color:rgb(0, 0, 0);
-    color:white;
-    background-color:rgba(0, 150, 0, 0.75);
+    color:black;
+    background-color:#00ff0010;
+}
+.btn-info:hover {
+    border-color:rgb(0, 0, 0);
+    color:black;
+    background-color:#0000ff10;
 }
 
+/* btn outline */
+
+.btn-outline-danger {
+    border-color:#ff000050;
+    color:black;
+    transition: border-color 1.5s, background-color 0.5s;
+}
+.btn-outline-warning {
+    border-color:#ffff0050;
+    color:black;
+    transition: border-color 1.5s, background-color 0.5s;
+}
 .btn-outline-success {
-    border-color:rgba(255, 0, 0, 0.25);
+    border-color:#00ff0050;
+    color:black;
+    transition: border-color 1.5s, background-color 0.5s;
+}
+.btn-outline-info {
+    border-color:#0000ff50;
     color:black;
     transition: border-color 1.5s, background-color 0.5s;
 }
 
+/* btn outline hover */
+
+.btn-outline-danger:hover {
+    border-color:#ff0000;
+    color:black;
+    background-color:#ff000080;
+}
+.btn-outline-warning:hover {
+    border-color:#ffff00;
+    color:black;
+    background-color:#ffff0080;
+}
 .btn-outline-success:hover {
-    border-color:rgba(255, 0, 0, 0.5);
+    border-color:#00ff00;
     color:black;
-    background-color:rgba(255, 0, 0, 0.25);
+    background-color:#00ff0080;
+}
+.btn-outline-info:hover {
+    border-color:#0000ff;
+    color:black;
+    background-color:#0000ff80;
 }
 
-.btn-primary {
-    border-color:rgba(255, 0, 0, 0.5);
-    color:black;
-    background-color:rgba(255, 0, 0, 0.25);
-    transition: border-color 1.5s, background-color 0.5s;
-}
 
-.btn-primary:hover {
-    border-color:rgba(255, 0, 0, 0.25);
-    color:black;
-    background-color:white;
-}
 
 footer.footer{
     position: fixed;

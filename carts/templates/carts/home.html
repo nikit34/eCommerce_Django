@@ -2,10 +2,14 @@
 {% load i18n %}
 {% block content %}
 
-
+<div class='row'>
+    <div class='col'>
+         <h1>{% trans "Cart" %}</h1>
+        <hr/>
+    </div>
+</div>
 {% if cart.products.exists %}
     <div class="canvas-cart-table">
-        <h1>{% trans "Cart" %}</h1>
         <table class="table cart-table">
             <thead>
                 <tr>
@@ -42,9 +46,11 @@
         {% include 'carts/remove-product.html' %}
     </div>
 {% else %}
-    <div class="canvas-cell-small">
-        <h1>{% trans "Cart is empty" %}</h1>
-    </div>
+    <a href='{% url "products:list" %}'>
+        <div class="bank-canvas-cell-small">
+            <h1>{% trans "Cart is empty" %}</h1>
+        </div>
+    </a>
 {% endif %}
 
 {% endblock %}

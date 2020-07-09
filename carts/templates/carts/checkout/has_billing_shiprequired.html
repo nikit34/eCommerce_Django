@@ -8,13 +8,13 @@
 </div>
 <div class="row checkout checkout-table">
     <div class="col-8">
-        <div class="canvas-cell-2">
+        <div class="bank-canvas-cell-2">
             {% url "checkout_address_create" as checkout_address_create %}
             {% include 'addresses/form.html' with form=address_form next_url=request.build_absolute_uri action_url=checkout_address_create address_type='shipping'  %}
         </div>
     </div>
     <div class="col-4">
-        <div class="canvas-cell-2">
+        <div class="bank-canvas-cell-2">
             {% url "checkout_address_reuse" as checkout_address_reuse %}
             {% include 'addresses/prev_addresses.html' with address_qs=address_qs next_url=request.build_absolute_uri address_type='shipping' action_url=checkout_address_reuse %}
         </div>

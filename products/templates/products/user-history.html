@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-    <div class='row text-center'>
-        <div class='col-12 my-3'>
+
+    <div class='row'>
+        <div class='col'>
             <h1>{% trans "Product View History" %}</h1>
             <hr/>
         </div>
     </div>
+{% if object_list.exists %}
     <div class="row text-center">
     {% for obj in object_list %}
         {% if forloop.counter0|divisibleby:2 %} </div><div class="row text-center" style="padding-left:2.5%;">{% endif %}
@@ -16,4 +18,11 @@
             </div>
     {% endfor %}
     </div>
+{% else %}
+    <a href='{% url "products:list" %}'>
+        <div class="product-canvas-cell-small">
+            <h1>{% trans "History missing" %}</h1>
+        </div>
+    </a>
+{% endif %}
 {% endblock %}

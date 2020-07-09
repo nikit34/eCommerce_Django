@@ -21,7 +21,7 @@
             <div class="col-4 card-button">
                 <div class="row">
                     <div class="col-4">
-                        <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">{% trans "View" %}</a>
+                        <a href="{{ instance.get_absolute_url }}" class="btn btn-danger">{% trans "View" %}</a>
                     </div>
                     <div class="col text-right">
                         {% include 'products/update-cart.html' with product=instance cart=cart %}
@@ -32,7 +32,7 @@
             <div class="col-3 card-button">
                 <div class="row">
                     <div class="col text-right">
-                        <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">{% trans "View" %}</a>
+                        <a href="{{ instance.get_absolute_url }}" class="btn btn-danger">{% trans "View" %}</a>
                     </div>
                 </div>
             </div>

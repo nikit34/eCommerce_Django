@@ -37,7 +37,7 @@ table.cart-table a {
     text-align: center;
 }
 
-.checkout-total .canvas-cell {
+.checkout-total .bank-canvas-cell {
     text-align: center;
     padding: 2.5% 2% 2.5% 2%;
 }
@@ -46,7 +46,7 @@ table.cart-table a {
     color:rgb(100, 0, 100);
 }
 
-.canvas-cell {
+.bank-canvas-cell {
     background-color: whitesmoke;
     padding: 5%;
     border: 2px solid black;
@@ -54,7 +54,7 @@ table.cart-table a {
     font-size: x-large;
 }
 
-.canvas-cell-2 {
+.bank-canvas-cell-2 {
     background-color: #ff00001f;
     padding: 1em 2.5em 1em 2.5em;
     border: 1px solid #ff000080;
@@ -62,7 +62,7 @@ table.cart-table a {
     font-size: large;
 }
 
-.canvas-cell-small {
+.bank-canvas-cell-small {
     background-color: #ff00001f;
     padding: 1%;
     border: 1px solid #ff000080;
@@ -70,11 +70,10 @@ table.cart-table a {
     text-align: center;
 }
 
-.canvas-cell-small-2 {
+.bank-canvas-cell-small-2 {
     background-color: whitesmoke;
     padding: 1em;
     border-left: 1px solid #ff000080;
-    border-right: 1px solid #ff000080;
     margin-top: 0.5em;
     border-radius: 15px;
     text-align: center;
