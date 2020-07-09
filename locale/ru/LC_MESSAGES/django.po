@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 12:01+0500\n"
+"POT-Creation-Date: 2020-07-09 12:40+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,11 +101,12 @@ msgstr "Сохранить"
 msgid "Change Password"
 msgstr "Сменить пароль"
 
-#: accounts/templates/accounts/form.html:8 templates/contact/view.html:17
+#: accounts/templates/accounts/form.html:8
+#: addresses/templates/addresses/form.html:75 templates/contact/view.html:17
 msgid "Submit"
 msgstr "Отправить"
 
-#: accounts/templates/accounts/home.html:8
+#: accounts/templates/accounts/home.html:8 templates/base/navbar.html:56
 msgid "Account"
 msgstr "Личный кабинет"
 
@@ -330,8 +331,8 @@ msgid ""
 "for your order</div>"
 msgstr ""
 "<div id=\"blue\">С</div><div id=\"red\">п</div><div id=\"yellow\">а</"
-"div><div id=\"green\">с</div><div id=\"red\">и</div><div id=\"yellow\">б</div><div id=\"green\">о</div>, "
-"<div id=\"blue\">за Ваш заказ</div>"
+"div><div id=\"green\">с</div><div id=\"red\">и</div><div id=\"yellow\">б</"
+"div><div id=\"green\">о</div>, <div id=\"blue\">за Ваш заказ</div>"
 
 #: carts/templates/carts/checkout.html:15
 msgid "Continue as Guest"
@@ -600,7 +601,7 @@ msgstr "Разработано"
 msgid "Sewing Shop"
 msgstr "Швейный магазин"
 
-#: templates/base/navbar.html:27 templates/base/navbar.html:56
+#: templates/base/navbar.html:27
 msgid "Home"
 msgstr "Главная"
 
