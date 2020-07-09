@@ -8,7 +8,7 @@
     not billing_profile
     <div class="row text-center">
         <div class="col-12 col-md-6">
-            <p class="lead">{% trans "Login" %}</p>
+            <p>{% trans "Login" %}</p>
             {% include 'accounts/form.html' with form=login_form next_url=request.build_absolute_uri %}
         </div>
         <div class="col-12 col-md-6">
@@ -21,29 +21,13 @@
 {% else %}
 
     {% if not object.shipping_address and shipping_address_required %}
-
-        billing_profile and not object.shipping_address and shipping_address_required
-        <div class="row">
-            <div class="col-12">
-                <p class="lead">{% trans "Shipping Address" %}</p>
-                <hr>
-            </div>
-            <div class="col-6">
-                {% url "checkout_address_create" as checkout_address_create %}
-                {% include 'addresses/form.html' with form=address_form next_url=request.build_absolute_uri action_url=checkout_address_create address_type='shipping'  %}
-            </div>
-            <div class="col-6">
-                {% url "checkout_address_reuse" as checkout_address_reuse %}
-                {% include 'addresses/prev_addresses.html' with address_qs=address_qs next_url=request.build_absolute_uri address_type='shipping' action_url=checkout_address_reuse %}
-            </div>
-        </div>
-
+        {% include "carts/checkout/has_billing_shiprequired.html" %}
     {% elif not object.billing_address %}
 
         billing_profile and not object.billing_address
         <div class="row">
             <div class="col-12">
-                <p class="lead">{% trans "Billing Address" %}</p>
+                <p>{% trans "Billing Address" %}</p>
                 <hr>
             </div>
             <div class="col-6">
