@@ -48,8 +48,22 @@
     }
 }
 
-
 .card-price{
     padding-top: 1em;
-    padding-bottom: 1em;    
+    padding-bottom: 1em;
+}
+
+.detail-content {
+    padding: 1em 0 0 0;
+}
+
+.detail-description {
+    background-color: whitesmoke;
+    padding: 2.5%;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-size: x-large;
+    font-weight: lighter;
+    height: 100%;
+    text-align: justify;
 }
