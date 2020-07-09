@@ -34,7 +34,7 @@
                 <a class="nav-link" href="{{ cart_url }}">{% trans "Cart" %} <span class="navbar-cart-count">{{ request.session.cart_items }}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
               </li>
               <li class="nav-item {% if request.path == contact_url %}active{% endif %}">
-                <a class="nav-link" href="{{ contact_url }}">{% trans "Contact" %} <i class="fa fa-id-card" aria-hidden="true"></i></a>
+                <a class="nav-link" href="{{ account_url }}">{% trans "Account" %} <i class="fa fa-id-card" aria-hidden="true"></i></a>
               </li>
               <li class="nav-item right-group dropdown offset-md-2">
                 {% if user %}
@@ -53,7 +53,7 @@
                   {% if user.admin %}
                     <a class="dropdown-item " href="{{ admin }}">{% trans "Admin" %}</a>
                   {% endif %}
-                  <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">{% trans "Home" %}</a>
+                  <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ contact_url }}">{% trans "Contact" %}</a>
                   <a class="dropdown-item {% if request.path == cart_url %}active{% endif %}" href="{{ cart_url }}">{% trans "Billing" %}</a>
                   <a class="dropdown-item {% if request.path == history %}active{% endif %}" href="{{ history }}">{% trans "History" %}</a>
                   <a class="dropdown-item {% if request.path ==  library %}active{% endif %}" href="{{ library }}">{% trans "Library" %}</a>

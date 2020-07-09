@@ -29,7 +29,7 @@
 }
 
 .card-body{
-    padding: 1.25em 1em 0 1em;
+    padding: 1.25em 1em 1em 1em;
 }
 
 @media only screen and (max-width:1400px) {
