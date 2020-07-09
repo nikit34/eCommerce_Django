@@ -3,60 +3,27 @@
     min-width: 150px;
 }
 
+
+
 .detail-top-panel {
     margin-top: 2.5%;
 }
-
 .detail-price-update .v-line{
     border-left: 2px solid rgba(0, 0, 0, 0.25);
     margin-top: 2.5%;
     height: 2.5em;
 }
-
 .detail-price-update h2{
     padding: 3.5% 0 0 5%;
     min-width: 150px;
 }
-
 .detail-price-update form {
     padding: 2.5% 0 0 20%;
     min-width: 300px;
 }
-
-.card {
-    width: 90%;
-    left: 5%;
-}
-
-.card-body{
-    padding: 1.25em 1em 1em 1em;
-}
-
-@media only screen and (max-width:1400px) {
-    .card-button {
-        padding: 5em 5em 5em 5em;
-        -webkit-box-orient: vertical;
-        flex-direction: column;
-    }
-}
-
-@media only screen and (min-width:1400px) {
-    .card-button {
-        padding: 1em 0 1em 2.5em;
-        -webkit-box-orient: horizontal;
-        flex-direction: row;
-    }
-}
-
-.card-price{
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
 .detail-content {
     padding: 1em 0 0 0;
 }
-
 .detail-description {
     background-color: whitesmoke;
     padding: 2.5%;
@@ -68,36 +35,63 @@
     text-align: justify;
 }
 
+
+
+.card {
+    width: 90%;
+    left: 5%;
+}
+.card-body{
+    padding: 1.25em 1em 1em 1em;
+}
+.card-price{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+@media only screen and (max-width:1400px) {
+    .card-button {
+        padding: 5em 5em 5em 5em;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+    }
+}
+@media only screen and (min-width:1400px) {
+    .card-button {
+        padding: 1em 0 1em 2.5em;
+        -webkit-box-orient: horizontal;
+        flex-direction: row;
+    }
+}
+
+
+
+/* canvas yellow */
 .product-canvas-cell {
     background-color: whitesmoke;
     padding: 5%;
-    border: 2px solid black;
+    border: 2px solid #ffff0080;
     border-radius: 15px;
     font-size: x-large;
 }
-
 .product-canvas-cell-2 {
-    background-color: #ffff001f;
+    background-color: #ffff0010;
     padding: 1em 2.5em 1em 2.5em;
     border: 1px solid #ffff0080;
     border-radius: 15px;
     font-size: large;
 }
-
 .product-canvas-cell-small {
-    background-color: #ffff001f;
+    background-color: whitesmoke;
     padding: 1%;
     border: 1px solid #ffff0080;
     border-radius: 15px;
     text-align: center;
 }
-
 .product-canvas-cell-small-2 {
-    background-color: whitesmoke;
+    background-color: #ffff0010;
     padding: 1em;
     border-left: 1px solid #ffff0080;
     border-right: 1px solid #ffff0080;
-    margin-top: 0.5em;
     border-radius: 15px;
     text-align: center;
 }

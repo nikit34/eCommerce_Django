@@ -2,13 +2,34 @@ html {
     overflow-x: hidden;
 }
 
+
+
 body {
     background-color: whitesmoke;
 }
+body img.main {
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: -2;
+    width: 50%;
+    margin: 5% 5% 5% 20%;
+    border-radius: 30%;
+    filter: blur(2px);
+}
+body img.log {
+    position: fixed;
+    z-index: -1;
+    top:0;
+    left:0;
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Neucha", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+
 
 .navbar {
     margin-right:10px;
@@ -16,7 +37,6 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom-style: groove;
     background: radial-gradient(circle, #ff00001f 50%, rgba(255, 255, 255, 0) 100%);
 }
-
 .navbar .nav-item .nav-link {
     font-family: 'Times New Roman';
     font-style: italic;
@@ -27,31 +47,14 @@ h1, h2, h3, h4, h5, h6 {
     background-position: 0 80%;
     transition: background-size 0.25s ease-out;
 }
-
 .navbar .nav-item .nav-link:hover{
     background-size: 100% 80%;
 }
-
 .navbar-toggler {
     background-color: rgba(255, 0, 0, 0.5);
 }
 
-body img.main {
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: -2;
-    width: 50%;
-    margin: 5% 5% 5% 20%;
-    border-radius: 30%;
-    filter: blur(2px);
-}
 
-body img.log {
-    position: fixed;
-    z-index: -1;
-    top:0;
-    left:0;
-}
 
 form.form-reglog {
     background-color: white;
@@ -63,17 +66,17 @@ form.form-reglog {
     margin-right: auto;
     max-width: 500px;
 }
-
 form.form-reglog h1 {
-    color: #17a2b8;
+    color: #0000ff80;
 }
+
+
 
 div.left-field {
     background: linear-gradient(270deg, #ffffff00 50%, #ff00001f 100%);
     top:0.5vh;
     min-height: 90vh;
 }
-
 div.right-field {
     background: rgba(100, 100, 255, 0.025);
     top:0.5vh;
@@ -83,7 +86,6 @@ div.right-field {
 
 
 /* btn */
-
 .btn-danger {
     border-color:#ff000080;
     color:black;
@@ -110,7 +112,6 @@ div.right-field {
 }
 
 /* btn hover */
-
 .btn-danger:hover {
     border-color:rgb(0, 0, 0);
     color:black;
@@ -133,7 +134,6 @@ div.right-field {
 }
 
 /* btn outline */
-
 .btn-outline-danger {
     border-color:#ff000050;
     color:black;
@@ -156,7 +156,6 @@ div.right-field {
 }
 
 /* btn outline hover */
-
 .btn-outline-danger:hover {
     border-color:#ff0000;
     color:black;
@@ -180,6 +179,39 @@ div.right-field {
 
 
 
+/* canvas blue */
+.base-canvas-cell {
+    background-color: whitesmoke;
+    padding: 5%;
+    border: 2px solid #0000ff80;
+    border-radius: 15px;
+    font-size: x-large;
+}
+.base-canvas-cell-2 {
+    background-color: #0000ff10;
+    padding: 1em 2.5em 1em 2.5em;
+    border: 1px solid #0000ff80;
+    border-radius: 15px;
+    font-size: large;
+}
+.base-canvas-cell-small {
+    background-color: whitesmoke;
+    padding: 1%;
+    border: 1px solid #0000ff80;
+    border-radius: 15px;
+    text-align: center;
+}
+.base-canvas-cell-small-2 {
+    background-color: #0000ff10;
+    padding: 1em;
+    border-left: 1px solid #0000ff80;
+    border-right: 1px solid #0000ff80;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+
 footer.footer{
     position: fixed;
     bottom: 0;
@@ -188,51 +220,44 @@ footer.footer{
     text-align: center;
     transition: all 0.8s;
 }
-
 footer.footer:hover{
     background: #ff00001f;
 }
-
 footer.footer #instagram{
     font-size: 1.2em;
     transition: all 0.8s;
     background-color: rgba(128, 0, 128, 0.5);
 }
-
 footer.footer #instagram:hover{
     background-color: purple;
 }
-
 footer.footer #pinterest{
     font-size: 1.2em;
     transition: all 0.8s;
     background-color: rgba(112, 128, 144, 0.5);
 }
-
 footer.footer #pinterest:hover{
     background-color: slategray;
 }
-
 footer.footer #facebook{
     padding-top: 0.3em;
     transition: all 0.8s;
     background-color: rgba(90, 181, 255, 0.5);
 }
-
 footer.footer #facebook:hover{
     background-color: white;
 }
-
 footer.footer #etsy{
     font-size: 0.8em;
     padding-top: 0.5em;
     transition: all 0.8s;
     background-color: rgba(255, 255, 0, 0.5);
 }
-
 footer.footer #etsy:hover{
     background-color: yellow;
 }
+
+
 
 div.about {
     min-height: 600px;
