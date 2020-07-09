@@ -3,7 +3,11 @@
 {% block content %}
 
 <div class="col-6 mx-auto py-5 text-center">
-    <h1 class="display-1">{% trans "Thank you for your order" %}!</h1>
+    <h1 class="display-1">
+    <div class="row">
+        {% trans '<div id="blue">T</div><div id="red">h</div><div id="yellow">a</div><div id="green">n</div><div id="red">k</div>, <div id="blue">you for your order</div>' %}<div id="red">!</div>
+    </div>
+    </h1>
 </div>
 
 {% endblock %}

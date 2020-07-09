@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-08 15:43+0500\n"
+"POT-Creation-Date: 2020-07-09 12:01+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,6 +101,10 @@ msgstr "Сохранить"
 msgid "Change Password"
 msgstr "Сменить пароль"
 
+#: accounts/templates/accounts/form.html:8 templates/contact/view.html:17
+msgid "Submit"
+msgstr "Отправить"
+
 #: accounts/templates/accounts/home.html:8
 msgid "Account"
 msgstr "Личный кабинет"
@@ -170,7 +174,7 @@ msgid "Contact"
 msgstr "Контакты"
 
 #: accounts/templates/accounts/login.html:9
-#: carts/templates/carts/checkout.html:8 templates/base/navbar.html:73
+#: carts/templates/carts/checkout.html:11 templates/base/navbar.html:73
 #: templates/registration/password_reset_complete.html:7
 msgid "Login"
 msgstr "Авторизация"
@@ -186,11 +190,6 @@ msgstr "Регистрация"
 #: accounts/templates/accounts/register.html:14
 msgid "Sign up"
 msgstr "Зарегестрироваться"
-
-#: accounts/templates/accounts/snippets/form.html:8
-#: addresses/templates/addresses/form.html:13 templates/contact/view.html:17
-msgid "Submit"
-msgstr "Отправить"
 
 #: accounts/views.py:40
 msgid "Your email has been confirmed. Please login."
@@ -247,7 +246,7 @@ msgstr "Создать новый"
 msgid "Edit"
 msgstr "Редактировать"
 
-#: addresses/templates/addresses/prev_addresses.html:17
+#: addresses/templates/addresses/prev_addresses.html:23
 msgid "Use Address"
 msgstr "Использовать адрес"
 
@@ -312,7 +311,7 @@ msgstr "Сумма оплат"
 msgid "No cards available"
 msgstr "Нет доступных карт"
 
-#: billing/templates/billing/payment-method.html:6
+#: billing/templates/billing/payment-method.html:7
 msgid "Add Payment Method"
 msgstr "Добавить способ оплаты"
 
@@ -324,106 +323,121 @@ msgstr "Пользователь не найден"
 msgid "Success! Your card was added."
 msgstr "Успех! Ваша карта была добавлена."
 
-#: carts/templates/carts/checkout-done.html:6
-msgid "Thank you for your order"
-msgstr "Спасибо за Ваш заказ"
+#: carts/templates/carts/checkout-done.html:8
+msgid ""
+"<div id=\"blue\">T</div><div id=\"red\">h</div><div id=\"yellow\">a</"
+"div><div id=\"green\">n</div><div id=\"red\">k</div>, <div id=\"blue\">you "
+"for your order</div>"
+msgstr ""
+"<div id=\"blue\">С</div><div id=\"red\">п</div><div id=\"yellow\">а</"
+"div><div id=\"green\">с</div><div id=\"red\">и</div><div id=\"yellow\">б</div><div id=\"green\">о</div>, "
+"<div id=\"blue\">за Ваш заказ</div>"
 
-#: carts/templates/carts/checkout.html:12
+#: carts/templates/carts/checkout.html:15
 msgid "Continue as Guest"
 msgstr "Продолжить как гость"
 
-#: carts/templates/carts/checkout.html:22
-#: carts/templates/carts/checkout.html:56
-#: carts/templates/carts/checkout.html:78
-#: orders/templates/orders/order_detail.html:15
-msgid "Shipping Address"
-msgstr "Адрес доставки"
-
-#: carts/templates/carts/checkout.html:39
-#: carts/templates/carts/checkout.html:57
-#: carts/templates/carts/checkout.html:79
+#: carts/templates/carts/checkout/has_billing.html:5
+#: carts/templates/carts/checkout/has_billing_shipping.html:31
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:32
 #: orders/templates/orders/order_detail.html:16
 msgid "Billing Address"
 msgstr "Адрес выставления счета"
 
-#: carts/templates/carts/checkout.html:54
-#: carts/templates/carts/checkout.html:76
-msgid "Finalize Checkout"
-msgstr "Завершить оформление заказа"
+#: carts/templates/carts/checkout/has_billing_shipping.html:5
+msgid "CHECK and CHOOSE"
+msgstr "ПРОВЕРИТЬ и ВЫБРАТЬ"
 
-#: carts/templates/carts/checkout.html:55
-#: carts/templates/carts/checkout.html:77
+#: carts/templates/carts/checkout/has_billing_shipping.html:5
+msgid "method of payment for order"
+msgstr "способ оплаты заказа"
+
+#: carts/templates/carts/checkout/has_billing_shipping.html:11
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:12
 msgid "Cart Items"
 msgstr "Корзина"
 
-#: carts/templates/carts/checkout.html:58
-#: carts/templates/carts/checkout.html:80
-msgid "Payment Method"
-msgstr "Способ оплаты"
+#: carts/templates/carts/checkout/has_billing_shipping.html:22
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:23
+#: carts/templates/carts/checkout/has_billing_shiprequired.html:5
+#: orders/templates/orders/order_detail.html:15
+msgid "Shipping Address"
+msgstr "Адрес доставки"
 
-#: carts/templates/carts/checkout.html:58
-#: carts/templates/carts/checkout.html:80
-msgid "Change"
-msgstr "Изменить"
-
-#: carts/templates/carts/checkout.html:59
-#: carts/templates/carts/checkout.html:81
+#: carts/templates/carts/checkout/has_billing_shipping.html:46
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:59
 msgid "Cart Total"
 msgstr "Стоимость товаров"
 
-#: carts/templates/carts/checkout.html:60
-#: carts/templates/carts/checkout.html:82
+#: carts/templates/carts/checkout/has_billing_shipping.html:51
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:64
 #: orders/templates/orders/order_detail.html:18
 msgid "Shipping Total"
 msgstr "Доставка"
 
-#: carts/templates/carts/checkout.html:61
-#: carts/templates/carts/checkout.html:83
+#: carts/templates/carts/checkout/has_billing_shipping.html:56
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:69
 #: orders/templates/orders/order_detail.html:19
 msgid "Order Total"
 msgstr "Сумма к оплате"
 
-#: carts/templates/carts/checkout.html:63
-#: carts/templates/carts/checkout.html:85 carts/templates/carts/home.html:34
-msgid "Checkout"
-msgstr "Отплатить"
+#: carts/templates/carts/checkout/has_billing_shipping.html:67
+msgid "Choose method of payment"
+msgstr "Выберите способ оплаты"
 
-#: carts/templates/carts/checkout.html:67
+#: carts/templates/carts/checkout/has_billing_shipping.html:72
 msgid "PayPal"
 msgstr "PayPal"
 
-#: carts/templates/carts/checkout.html:71
+#: carts/templates/carts/checkout/has_billing_shipping.html:76
 msgid "Bank card binding"
 msgstr "Привязка банковской карты"
 
-#: carts/templates/carts/home.html:5 templates/base/navbar.html:34
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:5
+msgid "Finalize Checkout"
+msgstr "Завершить оформление заказа"
+
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:41
+msgid "Payment Method"
+msgstr "Способ оплаты"
+
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:42
+msgid "Change"
+msgstr "Изменить"
+
+#: carts/templates/carts/checkout/has_billing_shipping_card.html:75
+#: carts/templates/carts/home.html:36
+msgid "Checkout"
+msgstr "Отплатить"
+
+#: carts/templates/carts/home.html:8 templates/base/navbar.html:34
 msgid "Cart"
 msgstr "Корзина"
 
-#: carts/templates/carts/home.html:11
+#: carts/templates/carts/home.html:13
 msgid "Product Name"
 msgstr "Наименование товара"
 
-#: carts/templates/carts/home.html:12 templates/snippets/select_sort.html:7
+#: carts/templates/carts/home.html:14 templates/select_sort.html:12
 msgid "Price"
 msgstr "Цена"
 
-#: carts/templates/carts/home.html:26
+#: carts/templates/carts/home.html:28
 #: orders/templates/orders/order_detail.html:17
 msgid "Subtotal"
 msgstr "Промежуточный итог"
 
-#: carts/templates/carts/home.html:30
+#: carts/templates/carts/home.html:32
 #: orders/templates/orders/order_list.html:13
 msgid "Total"
 msgstr "Итог"
 
-#: carts/templates/carts/home.html:42
+#: carts/templates/carts/home.html:46
 msgid "Cart is empty"
 msgstr "Корзина пуста"
 
-#: carts/templates/carts/snippets/remove-product.html:4
-#: products/templates/products/snippets/update-cart.html:12
+#: carts/templates/carts/remove-product.html:5
+#: products/templates/products/update-cart.html:12
 msgid "Remove"
 msgstr "Удалить"
 
@@ -532,6 +546,11 @@ msgstr "ID заказа"
 msgid "Status"
 msgstr "Статус"
 
+#: products/templates/products/card.html:24
+#: products/templates/products/card.html:35
+msgid "View"
+msgstr "Посмотреть"
+
 #: products/templates/products/detail.html:43
 #: products/templates/products/detail.html:55
 msgid "Image not found :("
@@ -545,16 +564,11 @@ msgstr "Предыдущий"
 msgid "Next"
 msgstr "Следующий"
 
-#: products/templates/products/snippets/card.html:12
-#: templates/snippets/card.html:12
-msgid "View"
-msgstr "Посмотреть"
-
-#: products/templates/products/snippets/update-cart.html:11
+#: products/templates/products/update-cart.html:11
 msgid "In cart"
 msgstr "В корзине"
 
-#: products/templates/products/snippets/update-cart.html:15
+#: products/templates/products/update-cart.html:15
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
@@ -566,7 +580,7 @@ msgstr "История товаров"
 msgid "Viewed"
 msgstr "Просмотрено"
 
-#: search/templates/search/snippets/search-form.html:6
+#: search/templates/search/search-form.html:6
 msgid "Search"
 msgstr "Поиск"
 
@@ -696,22 +710,22 @@ msgstr "Сбросить свой пароль"
 msgid "Reset Password"
 msgstr "Сброс пароля"
 
-#: templates/snippets/select_sort.html:11
+#: templates/select_sort.html:16
 msgid "descending"
 msgstr "по убыванию"
 
-#: templates/snippets/select_sort.html:12
+#: templates/select_sort.html:17
 msgid "ascending"
 msgstr "по возростанию"
 
-#: templates/snippets/select_sort.html:18
+#: templates/select_sort.html:23
 msgid "Time"
 msgstr "Время"
 
-#: templates/snippets/select_sort.html:22
+#: templates/select_sort.html:27
 msgid "update early"
 msgstr "ранее"
 
-#: templates/snippets/select_sort.html:23
+#: templates/select_sort.html:28
 msgid "update last"
 msgstr "позже"
