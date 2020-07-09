@@ -42,7 +42,9 @@
         {% include 'carts/remove-product.html' %}
     </div>
 {% else %}
-<p class="lead">{% trans "Cart is empty" %}</p>
+    <div class="canvas-cell-small">
+        <h1>{% trans "Cart is empty" %}</h1>
+    </div>
 {% endif %}
 
 {% endblock %}
