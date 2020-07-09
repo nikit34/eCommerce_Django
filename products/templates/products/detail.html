@@ -45,8 +45,8 @@
             </div>
             {% for slide in slides %}
               <div class="carousel-item">
-              {% if slide.file %}
-                <img src="{{ slide.file.url }}" class="d-block w-100">
+              {% if slide.image %}
+                <img src="{{ slide.image.url }}" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>{{ slide.name }}</h5>
                   <p>{{ slide.description }}</p>

@@ -9,6 +9,7 @@
 {% url 'cart:home' as cart_url %}
 {% url 'library' as library %}
 {% url 'admin:index' as admin %}
+{% url 'sales-analytics' as analys %}
 {% load i18n %}
 {% load static %}
 
@@ -22,7 +23,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav col-md-9">
+          <ul class="navbar-nav col-md-10">
             <li class="nav-item {% if request.path == home_url %}active{% endif %}">
               <a class="nav-link" href="{{ home_url }}">{% trans "Home" %} <i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">({% trans "current"%})</span></a>
             </li>
@@ -33,7 +34,7 @@
               <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
                 <a class="nav-link" href="{{ cart_url }}">{% trans "Cart" %} <span class="navbar-cart-count">{{ request.session.cart_items }}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
               </li>
-              <li class="nav-item {% if request.path == contact_url %}active{% endif %}">
+              <li class="nav-item {% if request.path == account_url %}active{% endif %}">
                 <a class="nav-link" href="{{ account_url }}">{% trans "Account" %} <i class="fa fa-id-card" aria-hidden="true"></i></a>
               </li>
               <li class="nav-item right-group dropdown offset-md-2">
@@ -53,7 +54,8 @@
                   {% if user.admin %}
                     <a class="dropdown-item " href="{{ admin }}">{% trans "Admin" %}</a>
                   {% endif %}
-                  <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ contact_url }}">{% trans "Contact" %}</a>
+                  <a class="dropdown-item {% if request.path == analys %}active{% endif %}" href="{{ analys }}">{% trans "Statistics" %}</a>
+                  <a class="dropdown-item {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url }}">{% trans "Contact" %}</a>
                   <a class="dropdown-item {% if request.path == cart_url %}active{% endif %}" href="{{ cart_url }}">{% trans "Billing" %}</a>
                   <a class="dropdown-item {% if request.path == history %}active{% endif %}" href="{{ history }}">{% trans "History" %}</a>
                   <a class="dropdown-item {% if request.path ==  library %}active{% endif %}" href="{{ library }}">{% trans "Library" %}</a>
