@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 12:40+0500\n"
+"POT-Creation-Date: 2020-07-09 15:24+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: accounts/forms.py:28 accounts/forms.py:126
 msgid "Password"
-msgstr "Сброс пароля"
+msgstr "Пароль"
 
 #: accounts/forms.py:29 accounts/forms.py:127
 msgid "Password confirmation"
@@ -106,11 +106,11 @@ msgstr "Сменить пароль"
 msgid "Submit"
 msgstr "Отправить"
 
-#: accounts/templates/accounts/home.html:8 templates/base/navbar.html:56
+#: accounts/templates/accounts/home.html:8 templates/base/navbar.html:38
 msgid "Account"
 msgstr "Личный кабинет"
 
-#: accounts/templates/accounts/home.html:15 templates/base/navbar.html:57
+#: accounts/templates/accounts/home.html:15 templates/base/navbar.html:59
 msgid "Billing"
 msgstr "Выставление счета (Billing)"
 
@@ -128,19 +128,19 @@ msgid "Addresses"
 msgstr "Отмеченные адреса"
 
 #: accounts/templates/accounts/home.html:20
-#: orders/templates/orders/library.html:8 templates/base/navbar.html:59
+#: orders/templates/orders/library.html:8 templates/base/navbar.html:61
 msgid "Library"
 msgstr "Коллекция"
 
-#: accounts/templates/accounts/home.html:29 templates/base/navbar.html:58
+#: accounts/templates/accounts/home.html:29 templates/base/navbar.html:60
 msgid "History"
 msgstr "История заказов"
 
-#: accounts/templates/accounts/home.html:31 templates/base/navbar.html:30
+#: accounts/templates/accounts/home.html:31 templates/base/navbar.html:31
 msgid "Products"
 msgstr "Товары"
 
-#: accounts/templates/accounts/home.html:32
+#: accounts/templates/accounts/home.html:32 templates/base/navbar.html:57
 msgid "Statistics"
 msgstr "Статистика"
 
@@ -170,12 +170,12 @@ msgid "About"
 msgstr "О себе"
 
 #: accounts/templates/accounts/home.html:67 eCommerce_Django/views.py:52
-#: templates/base/navbar.html:37
+#: templates/base/navbar.html:58
 msgid "Contact"
 msgstr "Контакты"
 
 #: accounts/templates/accounts/login.html:9
-#: carts/templates/carts/checkout.html:11 templates/base/navbar.html:73
+#: carts/templates/carts/checkout.html:11 templates/base/navbar.html:75
 #: templates/registration/password_reset_complete.html:7
 msgid "Login"
 msgstr "Авторизация"
@@ -184,7 +184,7 @@ msgstr "Авторизация"
 msgid "Sign in"
 msgstr "Войти"
 
-#: accounts/templates/accounts/register.html:9 templates/base/navbar.html:70
+#: accounts/templates/accounts/register.html:9 templates/base/navbar.html:72
 msgid "Register"
 msgstr "Регистрация"
 
@@ -411,7 +411,7 @@ msgstr "Изменить"
 msgid "Checkout"
 msgstr "Отплатить"
 
-#: carts/templates/carts/home.html:8 templates/base/navbar.html:34
+#: carts/templates/carts/home.html:8 templates/base/navbar.html:35
 msgid "Cart"
 msgstr "Корзина"
 
@@ -597,23 +597,23 @@ msgstr "Важно"
 msgid "Developed"
 msgstr "Разработано"
 
-#: templates/base/navbar.html:18
+#: templates/base/navbar.html:19
 msgid "Sewing Shop"
 msgstr "Швейный магазин"
 
-#: templates/base/navbar.html:27
+#: templates/base/navbar.html:28
 msgid "Home"
 msgstr "Главная"
 
-#: templates/base/navbar.html:27
+#: templates/base/navbar.html:28
 msgid "current"
 msgstr "текущий"
 
-#: templates/base/navbar.html:54
+#: templates/base/navbar.html:55
 msgid "Admin"
 msgstr "Администраторская"
 
-#: templates/base/navbar.html:61
+#: templates/base/navbar.html:63
 msgid "Logout"
 msgstr "Выйти"
 

@@ -7,8 +7,7 @@ from billing.models import BillingProfile
 
 ADDRESS_TYPES = (
     ('billing', gettext_lazy('Billing address')),
-    ('shipping' , gettext_lazy('Shipping address')),
-    ('','')
+    ('shipping' , gettext_lazy('Shipping address'))
 )
 
 

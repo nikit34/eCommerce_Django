@@ -3,7 +3,7 @@ venv/**
 **/__pycache__/**
 **/.vscode/**
 **/.git/**
-
+**/migrations/**
 **/settings/__init__.py
 
 
