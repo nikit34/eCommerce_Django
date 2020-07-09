@@ -108,3 +108,47 @@ table.cart-table a {
     flex-direction: row;
     }
 }
+
+#blue {
+  color: rgb(0, 0, 255);
+  transition: 0.5s all;
+}
+#blue:hover {
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75);
+  margin-top: -2%;
+  color: rgba(0, 0, 255, 0.5);
+  transform: rotate(-15deg);
+}
+#red {
+  color: rgb(255, 0, 0);
+  transition: 0.5s all;
+}
+#red:hover {
+  color: rgba(255, 0, 0, 0.5);
+  margin-top: -2%;
+  transform: rotate(15deg);
+}
+#yellow {
+  color: rgb(220, 255, 0);
+  transition: 0.5s all;
+}
+#yellow:hover {
+  color: rgba(220, 255, 0, 0.5);
+  margin-top: -2%;
+  transform: rotate(180deg);
+}
+#green {
+  color: rgb(0, 255, 0);
+  transition: 0.1s all;
+}
+#green:hover {
+  color: rgba(0, 255, 0, 0.5);
+  margin-top: 1.5%;
+  transform: rotate(10deg);
+}
+#blink:hover {
+  -webkit-animation: blink 0.5s 0.7s ease infinite;
+  -moz-animation: blink 0.5s 0.7s ease infinite;
+  -o-animation: blink 0.5s 0.7s ease infinite;
+  animation: blink 0.5s 0.7s ease infinite;
+}
