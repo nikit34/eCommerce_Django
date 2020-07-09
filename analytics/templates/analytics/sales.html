@@ -10,8 +10,8 @@
 
 <hr/>
 
-<div class='row my-5'>
-    <div class='col-4'>
+<div class='row my-5 product-canvas-cell'>
+    <div class='col-4 product-canvas-cell-2'>
         <h3>{% trans "Today's sales" %}</h3>
         <hr/>
         <p>{% trans "Recent Total" %}: ${{ today.recent_data.total__sum }}</p>
@@ -44,11 +44,10 @@
 
 <hr/>
 
-<div class='row my-5'>
-    <div class='col-12'>
+<div class='row my-5 product-canvas-cell'>
+    <div class='col product-canvas-cell-2'>
         <h1>{% trans "Previous 4 weeks" %}</h1>
-    </div>
-    <div class='col'>
+
         <p>{% trans "Orders Total" %}: ${{ last_four_weeks.recent_data.total__sum }}</p>
         <p>{% trans "Shipped Total" %}: {% if last_four_weeks.shipped_data.total__sum %}${{ last_four_weeks.shipped_data.total__sum }} {% endif %}</p>
         <p>{% trans "Paid Totals" %}: ${{ last_four_weeks.paid_data.total__sum }}</p>

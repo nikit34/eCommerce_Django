@@ -14,13 +14,13 @@
         {% if forloop.counter0|divisibleby:2 %} </div><div class="row text-center" style="padding-left:2.5%;">{% endif %}
             <div class='col my-3'>
                 {% trans "Viewed" %}: {{ forloop.counter }}
-                {% include 'products/card.html' with instance=obj.content_object size="2" %}
+                {% include 'products/card.html' with instance=obj.content_object descipt="0" %}
             </div>
     {% endfor %}
     </div>
 {% else %}
     <a href='{% url "products:list" %}'>
-        <div class="product-canvas-cell-small">
+        <div class="product-canvas-cell-small-2">
             <h1>{% trans "History missing" %}</h1>
         </div>
     </a>
