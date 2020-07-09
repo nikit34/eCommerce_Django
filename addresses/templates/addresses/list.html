@@ -3,12 +3,13 @@
 {% block content %}
 
 <div class='row'>
-    <div class='col-12'>
-        <h1>{% trans "Address" %}{% if object_list.count > 1 %}{% trans "es" %}{% endif %} <small><a href='{% url "address-create" %}'>{% trans "Create New" %}</a></small></h1>
+    <div class='col'>
+        <h1>{% trans "Saved addresses" %}{% if object_list.count > 1 %}{% trans "es" %}{% endif %} <small><a href='{% url "address-create" %}'>{% trans "Create New" %}</a></small></h1>
         <hr/>
     </div>
 </div>
-<div class='row'>
+{% if object_list.exists %}
+    <div class='row'>
         {% for obj in object_list %}
             <div class='col-12 col-md-3 my-3'>
                 <div class="card">
@@ -19,13 +20,17 @@
                      <br/>
                      <h5>{% trans "Address" %}</h5>
                      {{ obj.get_address|linebreaks }}
-
                     <a href='{{ obj.get_absolute_url }}' class='btn btn-default'>{% trans "Edit" %}</a>
                   </div>
                 </div>
             </div>
-            {% empty %}
-         <p class='text-center'><a href='{% url "address-create" %}'>{% trans "Create New" %}</a></p>
         {% endfor %}
-</div>
+    </div>
+{% else %}
+    <a href='{% url "address-create" %}'>
+        <div class="bank-canvas-cell-small">
+            <h1>{% trans "No saved addresses" %}</h1>
+        </div>
+    </a>
+{% endif %}
 {% endblock %}

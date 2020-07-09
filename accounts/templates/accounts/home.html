@@ -11,12 +11,12 @@
 
 <div class='col-12 col-md-3 my-3'>
     <div class="card">
-      <div class="card-body" style="background:red;">
+      <div class="card-body" style="background:#ff000080;">
         <h4 class="card-title">{% trans "Billing" %}</h4>
           <div class='list-group'>
             <a class='list-group-item' href='{% url "orders:list" %}'>{% trans "Orders" %}</a>
             <a class='list-group-item' href='{% url "billing-payment-method" %}'>{% trans "Payment Methods" %}</a>
-            <a class='list-group-item' href='{% url "addresses" %}'>{% trans "Addresses" %}</a>
+            <a class='list-group-item' href='{% url "addresses" %}'>{% trans "Saved addresses" %}</a>
             <a class='list-group-item' href='{% url "library" %}'>{% trans "Library" %}</a>
           </div>
       </div>
@@ -25,7 +25,7 @@
 
 <div class='col-12 col-md-3 my-3'>
     <div class="card">
-      <div class="card-body" style="background:yellow;">
+      <div class="card-body" style="background:#ffff0080;">
         <h4 class="card-title">{% trans "History" %}</h4>
             <div class='list-group'>
                 <a class='list-group-item' href='{% url "accounts:user-product-history" %}'>{% trans "Products" %}</a>
@@ -37,30 +37,7 @@
 
 <div class='col-12 col-md-3 my-3'>
     <div class="card">
-      <div class="card-body" style="background:green;">
-        <h4 class="card-title">{% trans "Preferences" %}</h4>
-          <div class='list-group'>
-            <a class='list-group-item' href='{% url "marketing-pref" %}'>{% trans "Email Marketing" %}</a>
-          </div>
-      </div>
-    </div>
-</div>
-
-<div class='col-12 col-md-3 my-3'>
-    <div class="card">
-      <div class="card-body" style="background:blue;">
-        <h4 class="card-title">{% trans "Account Details" %}</h4>
-            <div class='list-group'>
-                <a class='list-group-item' href='{% url "accounts:user-update" %}'>{% trans "Update Details" %}</a>
-                <a class='list-group-item' href='{% url "password_change" %}'>{% trans "Change Password" %}</a>
-            </div>
-      </div>
-    </div>
-</div>
-
-<div class='col-12 col-md-3 my-3'>
-    <div class="card">
-      <div class="card-body" style="background:violet;">
+      <div class="card-body" style="background:#00ff0080">
       <h4 class="card-title">{% trans "Support" %}</h4>
         <div class='list-group'>
           <a class='list-group-item' href='{% url "about" %}'>{% trans "About" %}</a>
@@ -69,6 +46,20 @@
       </div>
     </div>
 </div>
+
+<div class='col-12 col-md-3 my-3'>
+    <div class="card">
+      <div class="card-body" style="background:#0000ff80;">
+        <h4 class="card-title">{% trans "Account Details" %}</h4>
+            <div class='list-group'>
+                <a class='list-group-item' href='{% url "marketing-pref" %}'>{% trans "Email Marketing" %}</a>
+                <a class='list-group-item' href='{% url "accounts:user-update" %}'>{% trans "Update Details" %}</a>
+                <a class='list-group-item' href='{% url "password_change" %}'>{% trans "Change Password" %}</a>
+            </div>
+      </div>
+    </div>
+</div>
+
 </div>
 
 {% endblock %}
