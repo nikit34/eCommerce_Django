@@ -6,7 +6,7 @@
   {% for obj in object_list %}
     {% if forloop.counter0|divisibleby:2 %}</div><div class="row text-center">{% endif %}
         <div class="col my-3">
-            {% include 'products/card.html' with instance=obj %}
+            {% include 'products/card.html' with instance=obj size="2" %}
         </div>
   {% endfor %}
 

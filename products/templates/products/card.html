@@ -10,20 +10,34 @@
     {% endif %}
     <div class="row card-body">
         <div class="col-6">
-            <h5>{{ instance.title }}</h5>
-            <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>
+            {% if size == "1" %}
+                <h5>{{ instance.title }}</h5>
+                <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>
+            {% else %}
+                <h5>{{ instance.title }}</h5>
+            {% endif %}
         </div>
-        <div class="col-4 card-button">
-            <div class="row">
-                <div class="col-4">
-                    <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">{% trans "View" %}</a>
-                </div>
-                <div class="col">
-                {% include 'products/update-cart.html' with product=instance cart=cart %}
+        {% if size == "1" %}
+            <div class="col-4 card-button">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">{% trans "View" %}</a>
+                    </div>
+                    <div class="col text-right">
+                        {% include 'products/update-cart.html' with product=instance cart=cart %}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col card-price">
+        {% else %}
+            <div class="col-3 card-button">
+                <div class="row">
+                    <div class="col text-right">
+                        <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">{% trans "View" %}</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="col card-price text-right">
             <h2>{{ instance.price }} &#36;</h2>
         </div>
     </div>
