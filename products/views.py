@@ -82,6 +82,30 @@ class ProductFeaturedDetailView(ObjectViewedMixin, DetailView):
     queryset = Product.objects.all().featured()
     template_name = 'products/featured-detail.html'
 
-    # def get_queryset(self, *args, **kwargs):
-    #     request = self.request
-    #     return Product.objects.featured()
+    def get_queryset(self, *args, **kwargs):
+        request = self.request
+        return Product.objects.featured()
+
+
+class ProductDownloadView(View):
+    def get(self, request, *args, **kwargs):
+        file_root = settings.PROTECTED_ROOT
+        slug = kwargs.get('slug')
+        pk = kwargs.get('pk')
+        downloads_qs = ProductFile.objects.filter(pk=pk, product__slug=slug)
+        if downloads_qs.count() != 1:
+            raise Http404("Download not found")
+        download_obj = downloads_qs.first()
+        filepath = download_obj.file.path
+        final_filepath = os.path.join(file_root, filepath)
+        with open(final_filepath, 'rb') as f:
+            wrapper = FileWrapper(f)
+            mimetype = 'application/force-download'
+            gussed_mimetype = guess_type(filepath)[0]
+            if gussed_mimetype:
+                mimetype = gussed_mimetype
+            response = HttpResponse(wrapper, content_type=mimetype)
+            response['Content-Disposition'] = "attachment;filename=%s" %(download_obj.name)
+            response["X-SendFile"] = str(download_obj.name)
+            return response
+        return redirect(download_obj.get_default_url())

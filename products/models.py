@@ -4,8 +4,10 @@ from django.db.models import Q
 from django.db.models.signals import pre_save, post_save
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
-from eCommerce_Django.utils import unique_slug_generator
+from eCommerce_Django.utils import unique_slug_generator, get_filename
 
 
 def get_filename_ext(filepath):
@@ -112,7 +114,27 @@ class ProductFile(models.Model):
     product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=120, null=True, blank=True)
     description = models.TextField()
-    file = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    file = models.FileField(upload_to=upload_product_file_loc, storage=FileSystemStorage(location=settings.PROTECTED_ROOT))
 
     def __str__(self):
         return str(self.file)
+
+    @property
+    def display_name(self):
+        if self.name:
+            return self.name
+        og_name = get_filename(self.file.name)
+        return og_name
+
+    def get_default_url(self):
+        return self.product.get_absolute_url()
+
+    def get_download_url(self):
+        return reverse(
+            "products:download",
+            kwargs={
+                "slug": self.product.slug,
+                "pk": self.pk
+            }
+        )
