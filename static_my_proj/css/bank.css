@@ -37,7 +37,7 @@ table.cart-table a {
     text-align: center;
     padding: 1em 0.75em 1em 0.75em;
 }
-.checkout-total h2 {
+.checkout-total h1 {
     color:rgb(100, 0, 100);
 }
 
