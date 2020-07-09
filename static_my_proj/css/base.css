@@ -182,21 +182,21 @@ div.right-field {
 /* canvas blue */
 .base-canvas-cell {
     background-color: whitesmoke;
-    padding: 5%;
+    padding: 1.5em;
     border: 2px solid #0000ff80;
     border-radius: 15px;
     font-size: x-large;
 }
 .base-canvas-cell-2 {
     background-color: #0000ff10;
-    padding: 1em 2.5em 1em 2.5em;
+    padding: 1em 2em 1em 2em;
     border: 1px solid #0000ff80;
     border-radius: 15px;
     font-size: large;
 }
 .base-canvas-cell-small {
     background-color: whitesmoke;
-    padding: 1%;
+    padding: 1em;
     border: 1px solid #0000ff80;
     border-radius: 15px;
     text-align: center;
