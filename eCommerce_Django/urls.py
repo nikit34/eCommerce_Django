@@ -21,7 +21,7 @@ from marketing.views import MarketingPreferenceUpdateView, MailchimpWebhookView
 from orders.views import LibraryView
 from .views import ProductListView, about_page, contact_page, update
 
-h
+
 urlpatterns = [
     url(r'^update_server/$', update, name='update'),
     url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
