@@ -5,11 +5,12 @@
 {% url 'logout' as logout_url %}
 {% url 'register' as register_url %}
 {% url 'accounts:home' as account_url %}
-{% url 'accounts:user-product-history' as history%}
+{% url 'accounts:user-product-history' as history %}
 {% url 'cart:home' as cart_url %}
 {% url 'library' as library %}
 {% url 'admin:index' as admin %}
 {% url 'sales-analytics' as analys %}
+{% url 'billing-payment-method' as billing_payment %}
 {% load i18n %}
 {% load static %}
 
@@ -56,9 +57,8 @@
                   {% endif %}
                   <a class="dropdown-item {% if request.path == analys %}active{% endif %}" href="{{ analys }}">{% trans "Statistics" %}</a>
                   <a class="dropdown-item {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url }}">{% trans "Contact" %}</a>
-                  <a class="dropdown-item {% if request.path == cart_url %}active{% endif %}" href="{{ cart_url }}">{% trans "Billing" %}</a>
-                  <a class="dropdown-item {% if request.path == history %}active{% endif %}" href="{{ history }}">{% trans "History" %}</a>
                   <a class="dropdown-item {% if request.path ==  library %}active{% endif %}" href="{{ library }}">{% trans "Library" %}</a>
+                  <a class="dropdown-item {% if request.path ==  billing_payment %}active{% endif %}" href="{{ billing_payment }}">{% trans "Payment" %}</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ logout_url }}">{% trans "Logout" %}</a>
                 </div>

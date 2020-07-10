@@ -2,15 +2,16 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.db.models.signals import pre_save, post_save
-from accounts.models import GuestEmail
 from django.utils.translation import gettext
+import stripe
+
+from accounts.models import GuestEmail
+
+
+stripe.api_key = 'sk_test_cVUHsbXTYgysOm3s90niWBJO00cak1DxZG'
 
 
 User = settings.AUTH_USER_MODEL
-
-
-import stripe
-stripe.api_key = 'sk_test_cVUHsbXTYgysOm3s90niWBJO00cak1DxZG'
 
 
 class BillingProfileManager(models.Manager):

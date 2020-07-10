@@ -14,7 +14,7 @@
         {% if forloop.counter0|divisibleby:2 %} </div><div class="row text-center" style="padding-left:2.5%;">{% endif %}
             <div class='col my-3'>
                 {% trans "Viewed" %}: {{ forloop.counter }}
-                {% include 'products/card.html' with instance=obj.content_object descipt="0" %}
+                {% include 'products/card.html' with instance=obj.content_object complet="0" %}
             </div>
     {% endfor %}
     </div>

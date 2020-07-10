@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 'k$tq!vjmn#tp26s06m++84v$3zrt!*_!1_9v1uo_27et8vm0bo'
 
 DEBUG = False
-ALLOWED_HOSTS = ['OlyaStudio.pythonanywhere.com']
+ALLOWED_HOSTS = ['olyastudio.pythonanywhere.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',

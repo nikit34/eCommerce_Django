@@ -35,17 +35,6 @@
                     <p>{{ object.billing_address_final }}</p>
                 </div>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col">
-                    <h4>{% trans "Payment Method" %}
-                        (<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">{% trans "Change" %}</a>):
-                    </h4>
-                </div>
-                <div class="col">
-                    <p>{{ billing_profile.default_card }}</p>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -55,25 +44,47 @@
     <div class="col">
         <div class="bank-canvas-cell">
             <div class="row">
-                <div class="col">
+                <div class="col mt-5">
                     <h4>{% trans "Cart Total" %}</h4>
                     <hr>
-                    <h2>{{ object.cart.total | floatformat:2 }}</h2>
+                    <h1>{{ object.cart.total | floatformat:2 }}</h1>
                 </div>
-                <div class="col">
+                <div class="col mt-5">
                     <h4>{% trans "Shipping Total" %}</h4>
                     <hr>
-                    <h2>{{ object.shipping_total | floatformat:2 }}</h2>
+                    <h1>{{ object.shipping_total | floatformat:2 }}</h1>
                 </div>
-                <div class="col">
+                <div class="col mt-5">
                     <h4>{% trans "Order Total" %}</h4>
                     <hr>
-                    <h2>{{ object.total | floatformat:2 }}</h2>
+                    <h1>{{ object.total | floatformat:2 }}</h1>
                 </div>
-                <div class="col">
-                    <form class="form" method="POST" action=""> {% csrf_token %}
-                        <button type="submit" class="btn btn-outline-success">{% trans "Checkout" %}</button>
-                    </form>
+                <div class="col-3">
+                    <div class="bank-canvas-cell-small">
+                        <h2 style="color:red;">{% trans "Default Payment" %}</h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h4>{% trans "Payment Method" %}
+                                    (<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">{% trans "Change" %}</a>):
+                                </h4>
+                            </div>
+                            <div class="col">
+                                <p>{{ billing_profile.default_card }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <form class="form" method="POST" action=""> {% csrf_token %}
+                            <button type="submit" class="btn btn-block btn-success">{% trans "Pay" %}</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="bank-canvas-cell-small">
+                        <h2 style="color:blue;">{% trans "PayPal" %}</h2>
+                        <hr>
+                        <div id="paypal-button-container"></div>
+                    </div>
                 </div>
             </div>
         </div>

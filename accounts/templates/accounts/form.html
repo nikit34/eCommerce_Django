@@ -1,9 +1,22 @@
 {% load i18n %}
 <form method='POST' action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}">
     {% csrf_token %}
+
     {% if next_url %}
-    <input type="hidden" name="next" value="{{ next_url }}" />
+        <input type="hidden" name="next" value="{{ next_url }}" />
     {% endif %}
-{{ form }}
-<button type='submit' class='btn btn-outline-info'>{% trans "Submit" %}</button>
+
+    <div class="row">
+        <div class="col">
+            <label for="id_email">Email:</label> <input type="email" name="email" required="" id="id_email">
+        </div>
+        <div class="col">
+            <label for="id_password">Password:</label> <input type="password" name="password" required="" id="id_password">
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col text-right">
+            <button type='submit' class="btn btn-outline-warning">{% trans "Submit" %}</button>
+        </div>
+    </div>
 </form>

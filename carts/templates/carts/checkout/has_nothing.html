@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<div class="row checkout checkout-title">
+    <div class="col">
+        <h2>{% trans "Choose" %}</h2>
+    </div>
+</div>
+<hr>
+<div class="row checkout checkout-table">
+    <div class="col-5 base-canvas-cell-2">
+        <h3>{% trans "Login" %}</h3>
+        <hr>
+        {% include 'accounts/form.html' with form=login_form next_url=request.build_absolute_uri %}
+    </div>
+    <div class="col"></div>
+    <div class="col-5 bank-canvas-cell-2">
+        <h3>{% trans "Continue as Guest" %}</h3>
+        <hr>
+        {% url "guest_register" as guest_register_url %}
+        {% include 'accounts/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url %}
+    </div>
+</div>
