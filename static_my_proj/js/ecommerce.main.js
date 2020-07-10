@@ -174,7 +174,7 @@ $(document).ready(function () {
 
   var csrftoken = getCookie("csrftoken");
   var orderID = "{{ order.id }}";
-  var amount = "{{ order.get_total }}";
+  var amount = "{{ order.total }}";
   var url = "{% url 'payment-paypal' %}"; // TODO: -> new paypal_complete(request): -> PaymentView(View):
 
   paypal.Buttons({

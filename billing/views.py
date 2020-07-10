@@ -22,6 +22,7 @@ def payment_method_view(request):
         next_url = next_
     return render(request, 'billing/payment-method.html', {'publish_key': STRIPE_PUB_KEY, 'next_url': next_url})
 
+
 def payment_method_createview(request):
     if request.method == 'POST' and request.is_ajax():
         billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
