@@ -190,17 +190,30 @@ $(document).ready(function () {
       return actions.order.create({
         purchase_units: [{
           amount: {
-            value: '0.02'
-          }
-        }]
+            value: amount,
+          },
+        },],
       });
     },
     onApprove: function(data, actions) {
       return actions.order.capture().then(function(details) {
-
+          sendData();
+          function sendData(){
+            fetch(url, {
+              method:"POST",
+              headers: {
+                "Content-type":"application/json",
+                "X-CSRToken": csrftoken,
+              },
+              body: JSON.stringify({
+                orderID: orderID,
+                payID: details.id
+              }),
+            });
+          }
           alert('Transaction completed by ' + details.payer.name.given_name + '!');
       });
-    }
+    },
   }).render('#paypal-button-container');
 
 
