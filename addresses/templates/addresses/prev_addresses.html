@@ -11,13 +11,14 @@
         {% endif %}
 
         {% for address in address_qs %}
-            <div class="row bank-canvas-cell-small-2">
-                <div class="col">
-                    <label for="address={{ address.id }}">
-                    <input id="address={{ address.id }}" type="radio" name="shipping_address" value="{{ address.id }}"/>
-                    {{ address.get_short_address }}</label>
+            <label for="address={{ address.id }}">
+                <div class="row bank-canvas-cell-small-2">
+                    <div class="col">
+                        <input id="address={{ address.id }}" type="radio" name="shipping_address" value="{{ address.id }}"/>
+                        {{ address.get_short_address }}
+                    </div>
                 </div>
-            </div>
+            </label>
             <br/>
         {% endfor %}
         <button type="submit" class="btn btn-danger">{% trans "Use Address" %}</button>
