@@ -149,7 +149,7 @@ class ChargeManager(models.Manager):
             customer = billing_profile.customer_id,
             source = card_obj.stripe_id,
             metadata = {'order_id': order_obj.order_id}
-            )
+        )
         new_charge_obj = self.model(
             billing_profile = billing_profile,
             stripe_id = c.id,

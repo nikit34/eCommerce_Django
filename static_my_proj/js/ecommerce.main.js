@@ -19,12 +19,9 @@ $(document).ready(function () {
   } else if (paymentForm.length == 1) {
     var pubKey = paymentForm.attr("data-token");
     var nextUrl = paymentForm.attr("data-next-url");
-    // Create a Stripe client.
+
     var stripe = Stripe(pubKey);
-    // Create an instance of Elements.
     var elements = stripe.elements();
-    // Custom styling can be passed to options when creating an Element.
-    // (Note that this demo uses a wider set of styles than the guide below.)
     var style = {
       base: {
         color: "#32325d",
@@ -40,21 +37,16 @@ $(document).ready(function () {
         iconColor: "#fa755a",
       },
     };
-    // Create an instance of the card Element.
     var card = elements.create("card", { style: style });
-    // Add an instance of the card Element into the `card-element` <div>.
     card.mount("#card-element");
-    // Handle real-time validation errors from the card Element.
     card.addEventListener("change", function (event) {
-      var displayError = document.getElementById("card-errors");
       if (event.error) {
-        displayError.textContent = event.error.message;
+        document.getElementById("card-errors").textContent = event.error.message;
       } else {
-        displayError.textContent = "";
+        document.getElementById("card-errors").textContent = "";
       }
     });
 
-    // Handle form submission.
     var form = $("#payment-form");
     var btnLoad = form.find(".btn-load");
     var btnLoadDefaultHtml = btnLoad.html();
@@ -71,7 +63,6 @@ $(document).ready(function () {
       var loadingClasses = "btn btn-success disabled my-3";
       stripe.createToken(card).then(function (result) {
         if (result.error) {
-          // Inform the user if there was an error.
           var errorElement = $("#card-errors");
           errorElement.textContent = result.error.message;
           currentTimeout = displayBtnStatus(
@@ -82,7 +73,6 @@ $(document).ready(function () {
             currentTimeout
           );
         } else {
-          // Send the token to your server.
           currentTimeout = displayBtnStatus(
             btnLoad,
             loadingHtml,
@@ -95,7 +85,7 @@ $(document).ready(function () {
       });
     });
 
-    function displayBtnStatus(element, newHtml, newClasses, loadTime, timeout) {
+    function displayBtnStatus(element, newHtml, newClasses, loadTime) {
       if (!loadTime) {
         loadTime = 1500;
       }
@@ -154,67 +144,4 @@ $(document).ready(function () {
       });
     }
   }
-
-
-  // PayPal
-  function getCookie(name){
-    let cookieValue = null;
-    if(document.cookie && document.cookie !== ""){
-      let cookies = document.cookie.split(";");
-      for(let i = 0; i < cookies.length; i++){
-        let cookie_name = cookies[i].trim().substring(name.length + 1);
-        if(cookie_name === (name + "=")){
-          cookieValue = decodeURIComponent(cookie_name);
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
-
-  var csrftoken = getCookie("csrftoken");
-  var orderID = "{{ order.id }}";
-  var amount = "{{ order.total }}";
-  var url = "{% url 'payment-paypal' %}"; // TODO: -> new paypal_complete(request): -> PaymentView(View):
-
-  paypal.Buttons({
-
-
-    style: {
-      color:  'blue',
-      shape:  'pill',
-      label:  'pay',
-      height: 40
-    },
-    createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: amount,
-          },
-        },],
-      });
-    },
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-          sendData();
-          function sendData(){
-            fetch(url, {
-              method:"POST",
-              headers: {
-                "Content-type":"application/json",
-                "X-CSRToken": csrftoken,
-              },
-              body: JSON.stringify({
-                orderID: orderID,
-                payID: details.id
-              }),
-            });
-          }
-          alert('Transaction completed by ' + details.payer.name.given_name + '!');
-      });
-    },
-  }).render('#paypal-button-container');
-
-
 });

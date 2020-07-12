@@ -150,15 +150,15 @@ class Order(models.Model):
 
     def check_done(self):
         shipping_address_required = self.cart.delivery
+        shipping_address = self.shipping_address
         shipping_done = False
-        if shipping_address_required and self.shipping_address:
+        if shipping_address_required and shipping_address:
             shipping_done = True
-        elif shipping_address_required and not self.shipping_address:
+        elif shipping_address_required and not shipping_address:
             shipping_done = False
         else:
             shipping_done = True
         billing_profile = self.billing_profile
-        shipping_address = self.shipping_address
         billing_address = self.billing_address
         total = self.total
         if billing_profile and shipping_done and billing_address and total > 0:
