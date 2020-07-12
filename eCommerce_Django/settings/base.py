@@ -1,7 +1,10 @@
 import os
+from eCommerce_Django.utils import get_secret_key
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-SECRET_KEY = 'k$tq!vjmn#tp26s06m++84v$3zrt!*_!1_9v1uo_27et8vm0bo'
+SECRET_KEY = get_secret_key(BASE_DIR, 'SECRET_KEY')
 
 DEBUG = True
 ALLOWED_HOSTS = []
@@ -27,7 +30,7 @@ INSTALLED_APPS = [
 ]
 
 
-SUPPORT_EMAIL = 'permikov134@gmail.com'
+SUPPORT_EMAIL = get_secret_key(BASE_DIR, 'SUPPORT_EMAIL')
 
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = '/login/'
@@ -38,13 +41,13 @@ FORCE_SESSION_TO_ONE = False
 FORCE_INACTIVE_USER_ENDSESSION = False
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'permikov134@gmail.com'
+EMAIL_HOST_USER = SUPPORT_EMAIL
 EMAIL_HOST_PASSWORD = 'takvioacurxuqmmu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'permikov134@gmail.com'
+DEFAULT_FROM_EMAIL = SUPPORT_EMAIL
 MANAGERS = (
-    ('Nikita', "permikov134@gmail.com"),
+    ('Nikita', SUPPORT_EMAIL),
 )
 ADMINS = MANAGERS
 
@@ -52,13 +55,13 @@ ADMINS = MANAGERS
 BASE_URL = '127.0.0.1:8000'
 
 
-MAILCHIMP_API_KEY = 'f9ec63009f1db53ac62e0ec518e24527-us10'
+MAILCHIMP_API_KEY = get_secret_key(BASE_DIR, 'MAILCHIMP_API_KEY')
 MAILCHIMP_DATA_CENTER = 'us10'
-MAILCHIMP_EMAIL_LIST_ID = '84b34b1b4b'
-MAILCHIMP_EMAIL_ADMIN = 'permikov134@mail.ru'
+MAILCHIMP_EMAIL_LIST_ID = get_secret_key(BASE_DIR, 'MAILCHIMP_EMAIL_LIST_ID')
+MAILCHIMP_EMAIL_ADMIN = get_secret_key(BASE_DIR, 'MAILCHIMP_EMAIL_ADMIN')
 
-STRIPE_SECRET_KEY = 'sk_test_cVUHsbXTYgysOm3s90niWBJO00cak1DxZG'
-STRIPE_PUB_KEY = 'pk_test_y8lcongoCYBWmBNKtM3pkK8K00Sf1z0ccU'
+STRIPE_SECRET_KEY = get_secret_key(BASE_DIR, 'STRIPE_SECRET_KEY')
+STRIPE_PUB_KEY = get_secret_key(BASE_DIR, 'STRIPE_PUB_KEY')
 
 
 MIDDLEWARE = [
