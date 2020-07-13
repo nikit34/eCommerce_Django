@@ -14,6 +14,15 @@
             {% for product in object.cart.products.all %}
                 {% if forloop.counter|divisibleby:2 %}<p style="color:rgb(150,0,150);">{% else %}<p style="color:rgb(200,0,200);">{% endif %}{{ forloop.counter }}) {{ product }}</p>
             {% endfor %}
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <h4>{% trans "Order number: " %}</h4>
+                </div>
+                <div class="col">
+                    <p id="order-id">{{ object.order_id }}</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col">
@@ -57,7 +66,7 @@
                 <div class="col mt-5">
                     <h4>{% trans "Order Total" %}</h4>
                     <hr>
-                    <h1>{{ object.total | floatformat:2 }}</h1>
+                    <h1 id="order-total">{{ object.total | floatformat:2 }}</h1>
                 </div>
                 <div class="col-3">
                     <div class="bank-canvas-cell-small">

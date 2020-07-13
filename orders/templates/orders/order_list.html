@@ -17,7 +17,7 @@
                     <tr>
                         <td><a href='{{ object.get_absolute_url }}'>{{ object.order_id }}</a></td>
                         <td>{{ object.get_status }}</td>
-                        <td>{{ object.total }}</td>
+                        <td>{{ object.total | floatformat:2 }}</td>
                     </tr>
                 {% empty %}
                     <tr><td colspan="3">{% trans "No orders yet" %}.</td></tr>
