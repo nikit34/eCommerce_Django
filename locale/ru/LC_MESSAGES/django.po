@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 05:11+0500\n"
+"POT-Creation-Date: 2020-07-13 17:34+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -335,8 +335,8 @@ msgstr ""
 "div><div id=\"green\">о</div>, <div id=\"blue\">за Ваш заказ</div>"
 
 #: carts/templates/carts/checkout/has_billingprofile.html:5
-#: carts/templates/carts/checkout/has_billingprofile_shipping.html:31
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:32
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:40
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:41
 #: orders/templates/orders/order_detail.html:16
 msgid "Billing Address"
 msgstr "Адрес выставления счета"
@@ -354,40 +354,45 @@ msgstr "способ оплаты заказа"
 msgid "Cart Items"
 msgstr "Корзина"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping.html:22
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:23
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:19
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:20
+msgid "Order number: "
+msgstr "Номер заказа: "
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:31
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:32
 #: carts/templates/carts/checkout/has_billingprofile_shiprequired.html:5
 #: orders/templates/orders/order_detail.html:15
 msgid "Shipping Address"
 msgstr "Адрес доставки"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping.html:46
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:48
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:55
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:57
 msgid "Cart Total"
 msgstr "Стоимость товаров"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping.html:51
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:53
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:60
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:62
 #: orders/templates/orders/order_detail.html:18
 msgid "Shipping Total"
 msgstr "Доставка"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping.html:56
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:58
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:65
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:67
 #: orders/templates/orders/order_detail.html:19
 msgid "Order Total"
 msgstr "Сумма к оплате"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping.html:67
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:76
 msgid "Choose method of payment"
 msgstr "Выберите способ оплаты"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping.html:72
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:84
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:81
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:93
 msgid "PayPal"
 msgstr "PayPal"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping.html:76
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:85
 msgid "Bank card binding"
 msgstr "Привязка банковской карты"
 
@@ -395,19 +400,19 @@ msgstr "Привязка банковской карты"
 msgid "Finalize Checkout"
 msgstr "Завершить оформление заказа"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:64
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:73
 msgid "Default Payment"
 msgstr "Способ оплаты"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:68
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:77
 msgid "Payment Method"
 msgstr "Способ оплаты"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:69
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:78
 msgid "Change"
 msgstr "Изменить"
 
-#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:78
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:87
 msgid "Pay"
 msgstr "Оплатить"
 
