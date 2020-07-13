@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function(){
   var stripeFormModule = $(".stripe-payment-form");
   var stripeModuleToken = stripeFormModule.attr("data-token");
   var stripeModuleNextUrl = stripeFormModule.attr("data-next-url");

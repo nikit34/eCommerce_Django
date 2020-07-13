@@ -111,7 +111,6 @@ def checkout_home(request):
                     billing_profile.set_cards_inactive()
                 return redirect('cart:success')
             else:
-                print(crg_msg)
                 return redirect('cart:checkout')
 
     context = {

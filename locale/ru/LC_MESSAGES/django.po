@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-10 01:46+0500\n"
+"POT-Creation-Date: 2020-07-13 05:11+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -247,7 +247,7 @@ msgstr "Редактировать"
 msgid "No saved addresses"
 msgstr "Нет сохраненных адресов"
 
-#: addresses/templates/addresses/prev_addresses.html:23
+#: addresses/templates/addresses/prev_addresses.html:24
 msgid "Use Address"
 msgstr "Использовать адрес"
 
@@ -308,7 +308,7 @@ msgstr "Всего отправлено"
 msgid "Paid Totals"
 msgstr "Сумма оплат"
 
-#: billing/models.py:144
+#: billing/models.py:145
 msgid "No cards available"
 msgstr "Нет доступных карт"
 
@@ -316,11 +316,11 @@ msgstr "Нет доступных карт"
 msgid "Add Payment Method"
 msgstr "Добавить способ оплаты"
 
-#: billing/views.py:29
+#: billing/views.py:30
 msgid "Cannot find this user"
 msgstr "Пользователь не найден"
 
-#: billing/views.py:33
+#: billing/views.py:34
 msgid "Success! Your card was added."
 msgstr "Успех! Ваша карта была добавлена."
 
