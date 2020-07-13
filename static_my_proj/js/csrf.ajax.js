@@ -1,13 +1,13 @@
 $(document).ready(function(){
-    function getCookie(name){
-        let cookieValue = null;
-        if(document.cookie && document.cookie !== ""){
-          let cookies = document.cookie.split(";");
-          for(let i = 0; i < cookies.length; i++){
-            let cookie_name = cookies[i].trim().substring(name.length + 1);
-            if(cookie_name === (name + "=")){
-              cookieValue = decodeURIComponent(cookie_name);
-              break;
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
             }
           }
         }
@@ -28,59 +28,44 @@ $(document).ready(function(){
     });
 
 
-  var orderID = "{{ object.order_id }}";
-  var amount = "{{ object.total }}";
-  var url = "{{ url 'checkout' }}";
+  // var orderID = document.getElementById('order-id').textContent;
+  // var amount = document.getElementById('order-total').textContent.replace(",", ".");;
+  // var url = "/cart/paypal/checkout/";
 
-  paypal.Buttons({
-    style: {
-      color:  'blue',
-      shape:  'pill',
-      label:  'pay',
-      height: 40
-    },
-    // createOrder: function(data, actions) {
-    //   return actions.order.create({
-    //     purchase_units: [{
-    //       amount: {
-    //         value: amount,
-    //       },
-    //     },],
-    //   });
-    // },
-    // onApprove: function(data, actions) {
-    //   return actions.order.capture().then(function(details) {
-    //       sendData();
-    //       function sendData(){
-    //         console.log(1);
-    //         fetch(url, {
-    //           method:"POST",
-    //           headers: {
-    //             "Content-type":"application/json",
-    //             "X-CSRToken": csrftoken,
-    //           },
-    //           body: JSON.stringify({
-    //             orderID: orderID,
-    //             payID: details.id
-    //           }),
-    //         });
-    //       }
-    //   });
-    // },
-    createOrder: function(data, actions) {
-      return actions.order.create({
-          purchase_units: [{
-              amount: {
-                  value: '0.01'
-              }
-          }]
-      });
-  },
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-          // Show a success message to the buyer
-          alert('Transaction completed by ' + details.payer.name.given_name + '!');
-      });
-  }
-  }).render('#paypal-button-container');
+  // paypal.Buttons({
+  //   style: {
+  //     color:  'blue',
+  //     shape:  'pill',
+  //     label:  'pay',
+  //     height: 40
+  //   },
+  //   createOrder: function (data, actions) {
+  //     return actions.order.create({
+  //       purchase_units: [{
+  //           amount: {
+  //             value: amount,
+  //           },
+  //         },
+  //       ],
+  //     });
+  //   },
+  //   onApprove: function(data, actions) {
+  //     return actions.order.capture().then(function(details) {
+  //         sendData();
+  //         function sendData() {
+  //           fetch(url, {
+  //             method:"POST",
+  //             headers: {
+  //               "Content-type": "application/json",
+  //               "X-CSRToken": csrftoken,
+  //             },
+  //             body: JSON.stringify({
+  //               orderID: orderID,
+  //               payID: details.id
+  //             }),
+  //           });
+  //         }
+  //     });
+  //   },
+  // }).render('#paypal-button-container');
 })
