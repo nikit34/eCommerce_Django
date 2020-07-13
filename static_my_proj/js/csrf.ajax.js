@@ -27,45 +27,24 @@ $(document).ready(function(){
         }
     });
 
+  var amount = document.getElementById('order-total').textContent.replace(",", ".");;
 
-  // var orderID = document.getElementById('order-id').textContent;
-  // var amount = document.getElementById('order-total').textContent.replace(",", ".");;
-  // var url = "/cart/paypal/checkout/";
-
-  // paypal.Buttons({
-  //   style: {
-  //     color:  'blue',
-  //     shape:  'pill',
-  //     label:  'pay',
-  //     height: 40
-  //   },
-  //   createOrder: function (data, actions) {
-  //     return actions.order.create({
-  //       purchase_units: [{
-  //           amount: {
-  //             value: amount,
-  //           },
-  //         },
-  //       ],
-  //     });
-  //   },
-  //   onApprove: function(data, actions) {
-  //     return actions.order.capture().then(function(details) {
-  //         sendData();
-  //         function sendData() {
-  //           fetch(url, {
-  //             method:"POST",
-  //             headers: {
-  //               "Content-type": "application/json",
-  //               "X-CSRToken": csrftoken,
-  //             },
-  //             body: JSON.stringify({
-  //               orderID: orderID,
-  //               payID: details.id
-  //             }),
-  //           });
-  //         }
-  //     });
-  //   },
-  // }).render('#paypal-button-container');
+  paypal.Buttons({
+    style: {
+      color:  'blue',
+      shape:  'pill',
+      label:  'pay',
+      height: 40
+    },
+    createOrder: function (data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+            amount: {
+              value: amount,
+            },
+          },
+        ],
+      });
+    },
+  }).render('#paypal-button-container');
 })
