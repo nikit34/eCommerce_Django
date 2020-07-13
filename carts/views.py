@@ -71,8 +71,9 @@ def cart_update(request):
 def checkout_home(request):
     cart_obj, cart_created = Cart.objects.new_or_get(request)
     order_obj = None
-
+    print(request)
     if cart_created or cart_obj.products.count() == 0:
+        print(request)
         return redirect('cart:home')
 
     login_form = LoginForm(request=request)
@@ -99,16 +100,22 @@ def checkout_home(request):
             order_obj.save()
         has_card = billing_profile.has_card
 
+    print(request)
     if request.method == 'POST':
+        print("post done")
         is_prepared = order_obj.check_done()
         if is_prepared:
+            print("prepared done")
             did_charge, crg_msg = billing_profile.charge(order_obj)
             if did_charge:
+                print("charge done")
                 order_obj.mark_paid() # sort signal
                 request.session['cart_items'] = 0
                 del request.session['cart_id']
                 if not billing_profile.user:
+                    print("billing done")
                     billing_profile.set_cards_inactive()
+                print("success done")
                 return redirect('cart:success')
             else:
                 return redirect('cart:checkout')
