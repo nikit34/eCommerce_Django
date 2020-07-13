@@ -25,8 +25,6 @@ from .views import ProductListView, about_page, contact_page, update
 urlpatterns = [
     url(r'^update_server/$', update, name='update'),
     url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
-    url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
-    url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
 
   ] + i18n_patterns(
 
@@ -46,6 +44,7 @@ urlpatterns = [
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
     url(r'^checkout/address/reuse/$', checkout_address_reuse_view, name='checkout_address_reuse'),
+    url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
     url(r'^cart/', include(('carts.urls','eCommerce_Django'), namespace='cart')),
     url(r'^billing/payment-method/$', payment_method_view, name='billing-payment-method'),
@@ -56,6 +55,7 @@ urlpatterns = [
     url(r'^search/', include(('search.urls', 'eCommerce_Django'), namespace='search')),
     url(r'^settings/$', RedirectView.as_view(url='/setting')),
     url(r'^settings/email/$', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
+    url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
     url(r'^admin/', admin.site.urls),
 )
 
