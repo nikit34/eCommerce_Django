@@ -7,6 +7,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = get_secret_key(BASE_DIR, 'SECRET_KEY')
 
 DEBUG = True
+
+DJANGO_TEST_PROCESSES = 4
+
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
