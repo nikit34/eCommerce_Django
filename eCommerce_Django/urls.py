@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^accounts/$', RedirectView.as_view(url='/account')),
     url(r'^account/', include(('accounts.urls', 'eCommerce_Django'), namespace='accounts')),
-    url(r'^accounts/', include("accounts.passwords.urls")),
+    url(r'^accounts/', include('accounts.passwords.urls')),
     url(r'^address/$', RedirectView.as_view(url='/addresses')),
     url(r'^addresses/$', AddressListView.as_view(), name='addresses'),
     url(r'^addresses/create/$', AddressCreateView.as_view(), name='address-create'),
