@@ -79,6 +79,12 @@ form.form-reglog h1 {
     padding: 1.25em 1em 1em 1em;
     border-radius: 5%;
 }
+.list-group-item{
+    transition: background-color 0.5s;
+}
+.list-group-item:hover {
+    background-color: wheat;
+}
 
 
 div.left-field {
@@ -216,6 +222,10 @@ div.right-field {
     border-left: 1px solid #0000ff80;
     border-right: 1px solid #0000ff80;
     border-radius: 15px;
+    text-align: center;
+}
+.base-canvas-cell-empty {
+    padding: 2em 1em 0 1em;
     text-align: center;
 }
 

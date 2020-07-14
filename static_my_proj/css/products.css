@@ -99,3 +99,7 @@
     border-radius: 15px;
     text-align: center;
 }
+.product-canvas-cell-empty {
+    padding: 2em 1em 0 1em;
+    text-align: center;
+}

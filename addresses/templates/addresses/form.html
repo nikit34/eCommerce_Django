@@ -11,7 +11,7 @@
         <input type="hidden" name="address_type" value="{{ address_type }}" />
     {% endif %}
 
-    <div class="row bank-canvas-cell-small-2">
+    <div class="row bank-canvas-cell-empty">
         <div class="col">
             <label for="id_nickname">Nickname:</label>
         </div>
@@ -27,7 +27,7 @@
             <span class="helptext">Shipping to? Who is it for?</span>
         </div>
     </div>
-    <div class="row bank-canvas-cell-small-2">
+    <div class="row bank-canvas-cell-empty">
         <div class="col">
             <label for="id_address_line_1">Street:</label>
         </div>
@@ -41,7 +41,7 @@
             <input type="text" name="address_line_2" maxlength="120" id="id_address_line_2">
         </div>
     </div>
-    <div class="row bank-canvas-cell-small-2">
+    <div class="row bank-canvas-cell-empty">
         <div class="col">
             <label for="id_city">City:</label>
         </div>
@@ -55,7 +55,7 @@
             <input type="text" name="country" value="Russia" maxlength="120" required="" id="id_country">
         </div>
     </div>
-    <div class="row bank-canvas-cell-small-2">
+    <div class="row bank-canvas-cell-empty">
         <div class="col">
             <label for="id_state">State:</label>
         </div>
@@ -70,7 +70,7 @@
         </div>
     </div>
     <br>
-    <div class="row">
+    <div class="row bank-canvas-cell-empty">
         <div class="col text-right">
             <button type="submit" class="btn btn-danger">{% trans "Submit" %}</button>
         </div>
