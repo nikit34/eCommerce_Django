@@ -38,8 +38,13 @@
 
 
 .card {
-    width: 90%;
-    left: 5%;
+    width: 40vw;
+    /* text-align: center; */
+    margin: auto;
+}
+.card-img-top{
+    height: 80vh;
+    object-fit: cover;
 }
 .card-body{
     padding: 1.25em 1em 1em 1em;
