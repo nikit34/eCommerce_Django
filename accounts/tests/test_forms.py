@@ -1,7 +1,10 @@
 from django.test import TestCase
 from django import forms
 
-from accounts.forms import LoginForm, RegisterForm, UserAdminCreationForm, UserDetailChangeForm
+from accounts.forms import (
+    LoginForm, RegisterForm,
+    UserAdminCreationForm, UserDetailChangeForm
+)
 from accounts.views import LoginView
 from accounts.models import User
 
@@ -16,7 +19,7 @@ class LoginFormTest(TestCase):
         request = LoginView.as_view()
         form = LoginForm(request)
         self.assertEqual(form.fields['password'].label, 'Password')
-        
+
 
 class RegisterFormTest(TestCase):
     def test_password_label(self):
