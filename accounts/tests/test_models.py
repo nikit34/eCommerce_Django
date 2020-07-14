@@ -1,6 +1,7 @@
 from django.test import TestCase
+from django.core import mail
 
-from .models import User, EmailActivation, GuestEmail
+from ..models import User, EmailActivation, GuestEmail
 
 class UserModelTest(TestCase):
     @classmethod
@@ -40,7 +41,7 @@ class UserModelTest(TestCase):
         user = User.objects.get(id=1)
         self.assertEqual(user.get_full_name(), 'Test')
 
-    def test_short_name(self):
+    def test_get_short_name(self):
         user = User.objects.get(id=1)
         self.assertEqual(user.get_short_name(), 'usermodeltest@gmail.com')
 
@@ -83,3 +84,20 @@ class EmailActivationModelTest(TestCase):
         email_activation = EmailActivation.objects.get(id=1)
         field_label = email_activation._meta.get_field('email').verbose_name
         self.assertEqual(field_label, 'email')
+
+    def test_object_name_is_email(self):
+        email_activation = EmailActivation.objects.get(id=1)
+        expected_object_name = f'{email_activation.email}'
+        self.assertEqual(expected_object_name, str(email_activation))
+
+    def test_activate(self):
+        email_activation = EmailActivation.objects.get(id=1)
+        self.assertTrue(email_activation.activate())
+
+    def test_regenerate(self):
+        email_activation = EmailActivation.objects.get(id=1)
+        self.assertTrue(email_activation.regenerate())
+
+    def test_send_activation(self):
+        email_activation = EmailActivation.objects.get(id=1)
+        self.assertEqual(email_activation.send_activation(), 1)

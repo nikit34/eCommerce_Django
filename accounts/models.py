@@ -140,7 +140,7 @@ class EmailActivation(models.Model):
     def regenerate(self):
         self.key = None
         self.save()
-        if key is not None:
+        if self.key is not None:
             return True
         return False
 
