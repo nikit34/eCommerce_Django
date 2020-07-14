@@ -27,7 +27,9 @@ $(document).ready(function(){
         }
     });
 
-  var amount = document.getElementById('order-total').textContent.replace(",", ".");;
+  var amount = document.getElementById('order-total').textContent.replace(",", ".");
+  // var orderID = document.getElementById('order-id').textContent;
+  // var url = "/cart/checkout/";
 
   paypal.Buttons({
     style: {
@@ -44,6 +46,11 @@ $(document).ready(function(){
             },
           },
         ],
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+
       });
     },
   }).render('#paypal-button-container');
