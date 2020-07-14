@@ -72,6 +72,15 @@ form.form-reglog h1 {
 
 
 
+.card-home {
+    width: 100%;
+}
+.card-home-body {
+    padding: 1.25em 1em 1em 1em;
+    border-radius: 5%;
+}
+
+
 div.left-field {
     background: linear-gradient(270deg, #ffffff00 50%, #ff00001f 100%);
     top:0.5vh;

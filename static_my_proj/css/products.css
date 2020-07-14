@@ -38,18 +38,17 @@
 
 
 .card {
-    width: 40vw;
-    /* text-align: center; */
+    max-width: 40vw;
     margin: auto;
 }
-.card-img-top{
-    height: 80vh;
+.card-img-top {
+    max-height: 80vh;
     object-fit: cover;
 }
-.card-body{
+.card-body {
     padding: 1.25em 1em 1em 1em;
 }
-.card-price{
+.card-price {
     padding-top: 1em;
     padding-bottom: 1em;
 }

@@ -10,9 +10,9 @@
 </div>
 
 <div class='col-12 col-md-3 my-3'>
-    <div class="card">
-      <div class="card-body" style="background:#ff000080;">
-        <h4 class="card-title">{% trans "Billing" %}</h4>
+    <div class="card-home">
+      <div class="card-home-body" style="background:#ff000080;">
+        <h4 class="card-home-title">{% trans "Billing" %}</h4>
           <div class='list-group'>
             <a class='list-group-item' href='{% url "orders:list" %}'>{% trans "Orders" %}</a>
             <a class='list-group-item' href='{% url "billing-payment-method" %}'>{% trans "Payment Methods" %}</a>
@@ -24,9 +24,9 @@
 </div>
 
 <div class='col-12 col-md-3 my-3'>
-    <div class="card">
-      <div class="card-body" style="background:#ffff0080;">
-        <h4 class="card-title">{% trans "History" %}</h4>
+    <div class="card-home">
+      <div class="card-home-body" style="background:#ffff0080;">
+        <h4 class="card-home-title">{% trans "History" %}</h4>
             <div class='list-group'>
                 <a class='list-group-item' href='{% url "accounts:user-product-history" %}'>{% trans "Products" %}</a>
                 <a class='list-group-item' href='{% url "sales-analytics" %}'>{% trans "Statistics" %}</a>
@@ -36,9 +36,9 @@
 </div>
 
 <div class='col-12 col-md-3 my-3'>
-    <div class="card">
-      <div class="card-body" style="background:#00ff0080">
-      <h4 class="card-title">{% trans "Support" %}</h4>
+    <div class="card-home">
+      <div class="card-home-body" style="background:#00ff0080">
+      <h4 class="card-home-title">{% trans "Support" %}</h4>
         <div class='list-group'>
           <a class='list-group-item' href='{% url "about" %}'>{% trans "About" %}</a>
           <a class='list-group-item' href='{% url "contact" %}'>{% trans "Contact" %}</a>
@@ -48,9 +48,9 @@
 </div>
 
 <div class='col-12 col-md-3 my-3'>
-    <div class="card">
-      <div class="card-body" style="background:#0000ff80;">
-        <h4 class="card-title">{% trans "Account Details" %}</h4>
+    <div class="card-home">
+      <div class="card-home-body" style="background:#0000ff80;">
+        <h4 class="card-home-title">{% trans "Account Details" %}</h4>
             <div class='list-group'>
                 <a class='list-group-item' href='{% url "marketing-pref" %}'>{% trans "Email Marketing" %}</a>
                 <a class='list-group-item' href='{% url "accounts:user-update" %}'>{% trans "Update Details" %}</a>
