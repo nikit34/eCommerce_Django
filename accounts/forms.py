@@ -63,7 +63,7 @@ class UserAdminChangeForm(forms.ModelForm):
         fields = ('full_name', 'email', 'password', 'is_active', 'admin')
 
     def clean_password(self):
-        return self.initial["password"]
+        return self.initial['password']
 
 
 class GuestForm(forms.ModelForm):
@@ -86,7 +86,7 @@ class GuestForm(forms.ModelForm):
 
 class LoginForm(forms.Form):
     email = forms.EmailField(label='Email')
-    password = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(label=gettext_lazy('Password'), widget=forms.PasswordInput)
 
     def __init__(self, request, *args, **kwargs):
         self.request = request
