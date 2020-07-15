@@ -2,7 +2,6 @@ import sys
 from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
 from paypalcheckoutsdk.orders import OrdersCreateRequest
 
-
 from django.conf import settings
 
 
@@ -43,12 +42,12 @@ class PayPalClient:
 
 
 class CreateOrder(PayPalClient):
-    def create_order(self, debug=False):
+    def create_order(self):
         request = OrdersCreateRequest()
         request.prefer('return=representation')
         request.request_body(self.build_request_body())
         response = self.client.execute(request)
-        if debug:
+        if settings.DEBUG:
             print('Status Code: ', response.status_code)
             print('Status: ', response.result.status)
             print('Order ID: ', response.result.id)

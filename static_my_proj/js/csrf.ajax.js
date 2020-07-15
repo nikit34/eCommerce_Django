@@ -30,6 +30,8 @@ $(document).ready(function(){
 
   // PayPal
   var url = "/cart/paypal/checkout/";
+  var amount = document.getElementById('order-total').textContent.replace(",", ".");
+  var orderID = document.getElementById('order-id').textContent;
 
   paypal.Buttons({
     style: {
@@ -49,10 +51,11 @@ $(document).ready(function(){
         }
       }).then(function(res) {
         console.log(2, res);
-        return res.json();
-      }).then(function(data) {
-        console.log(3, data);
-        return data.orderID;
+        return JSON.stringify(res);
+      }).then(function() {
+        console.log(3, amount, orderID);
+        data = {'amount': amount, 'orderID': orderID}
+        return data;
       });
     },
   }).render('#paypal-button-container');
