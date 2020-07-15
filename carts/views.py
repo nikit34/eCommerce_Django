@@ -16,9 +16,7 @@ STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY', None)
 STRIPE_PUB_KEY = getattr(settings, 'STRIPE_PUB_KEY', None)
 stripe.api_key = STRIPE_SECRET_KEY
 
-from .paypal import PayPalClient
-from paypalcheckoutsdk.orders import OrdersCaptureRequest
-
+from .paypal import CreateOrder
 
 
 def cart_detail_api_view(request):
@@ -131,7 +129,9 @@ def checkout_home(request):
 
 
 def paypal_checkout_home(request):
+    print(1)
     cart_obj, cart_created = Cart.objects.new_or_get(request)
+    print(cart_obj, cart_created)
     order_obj = None
     if cart_created or cart_obj.products.count() == 0:
         return redirect('cart:home')
@@ -146,43 +146,43 @@ def paypal_checkout_home(request):
     address_qs = None
     has_card = False
 
+    print(2)
     if billing_profile is not None:
         if request.user.is_authenticated:
             address_qs = Address.objects.filter(billing_profile=billing_profile)
+            print(3, address_qs)
         order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
+        print(4, order_obj, order_obj_created)
         if shipping_address_id:
             order_obj.shipping_address = Address.objects.get(id=shipping_address_id)
             del request.session['shipping_address_id']
+            print(5, order_obj.shipping_address)
         if billing_address_id:
             order_obj.billing_address = Address.objects.get(id=billing_address_id)
             del request.session['billing_address_id']
+            print(6, order_obj.billibg_address)
         if billing_address_id or shipping_address_id:
             order_obj.save()
+            print(7, order_obj)
         has_card = billing_profile.has_card
+        print(8, has_card)
 
-    if order_obj is not None:
-        order_id = order_obj.order_id
-    else:
-        return redirect('cart:home')
+    context = {
+        'object': order_obj,
+        'billing_profile': billing_profile,
+        'login_form': login_form,
+        'guest_form': guest_form,
+        'address_form': address_form,
+        'address_qs': address_qs,
+        'has_card': has_card,
+        'publish_key': STRIPE_PUB_KEY,
+        'shipping_address_required': shipping_address_required,
+    }
+    print(9, context)
+    CreateOrder().build_request_body(context)
+    CreateOrder().create_order(debug=True)
 
-    request = OrdersCaptureRequest(order_id)
-    response = PayPalClient().client.execute(request)
-    if settings.DEBUG:
-      print(response.status_code)
-      print('Status: ', response.result.status)
-      print('Order ID: ', response.result.id)
-      print('Links: ')
-      for link in response.result.links:
-        print('\t{}: {}\tCall Type: {}'.format(link.rel, link.href, link.method))
-      print('Capture Ids: ')
-      for purchase_unit in response.result.purchase_units:
-        for capture in purchase_unit.payments.captures:
-          print('\t', capture.id)
-      print("Buyer:")
-      print("\tEmail Address: {}\n\tName: {}\n\tPhone Number: {}".format(response.result.payer.email_address,
-        response.result.payer.name.given_name + " " + response.result.payer.name.surname,
-        response.result.payer.phone.phone_number.national_number))
-    return response
+    return render(request, 'carts/checkout.html', context)
 
 
 def checkout_done_view(request):

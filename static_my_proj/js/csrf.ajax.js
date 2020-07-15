@@ -27,7 +27,8 @@ $(document).ready(function(){
         }
     });
 
-  var amount = document.getElementById('order-total').textContent.replace(",", ".");
+
+  // PayPal
   var url = "/cart/paypal/checkout/";
 
   paypal.Buttons({
@@ -37,27 +38,20 @@ $(document).ready(function(){
       label:  'pay',
       height: 40
     },
-    createOrder: function (data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-            amount: {
-              value: amount,
-            },
-          },
-        ],
-      });
-    },
-    onApprove: function(data) {
+    createOrder: function() {
+      console.log(1);
       return fetch(url, {
+        method: 'post',
         headers: {
           'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          orderID: data.orderID
-        })
+        }
       }).then(function(res) {
+        console.log(2, res);
         return res.json();
-      })
+      }).then(function(data) {
+        console.log(3, data);
+        return data.orderID;
+      });
     },
   }).render('#paypal-button-container');
 })
