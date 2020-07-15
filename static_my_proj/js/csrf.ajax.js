@@ -40,10 +40,12 @@ $(document).ready(function(){
     },
     createOrder: function() {
       console.log(1);
+      let csrftoken = getCookie('csrftoken');
       return fetch(url, {
         method: 'post',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          "X-CSRFToken": csrftoken,
         }
       }).then(function(res) {
         console.log(2, res);
