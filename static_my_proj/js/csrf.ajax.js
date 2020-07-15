@@ -28,8 +28,7 @@ $(document).ready(function(){
     });
 
   var amount = document.getElementById('order-total').textContent.replace(",", ".");
-  // var orderID = document.getElementById('order-id').textContent;
-  // var url = "/cart/checkout/";
+  var url = "/cart/paypal/checkout/";
 
   paypal.Buttons({
     style: {
@@ -48,10 +47,17 @@ $(document).ready(function(){
         ],
       });
     },
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-
-      });
+    onApprove: function(data) {
+      return fetch(url, {
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          orderID: data.orderID
+        })
+      }).then(function(res) {
+        return res.json();
+      })
     },
   }).render('#paypal-button-container');
 })
