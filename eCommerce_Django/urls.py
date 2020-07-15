@@ -16,7 +16,7 @@ from addresses.views import (
 from analytics.views import SalesView, SalesAjaxView
 from accounts.views import LoginView, RegisterView
 from billing.views import payment_method_view, payment_method_createview
-from carts.views import cart_detail_api_view
+from carts.views import cart_detail_api_view, paypal_checkout_home
 from marketing.views import MarketingPreferenceUpdateView, MailchimpWebhookView
 from orders.views import LibraryView
 from .views import ProductListView, about_page, contact_page, update
@@ -25,6 +25,7 @@ from .views import ProductListView, about_page, contact_page, update
 urlpatterns = [
     url(r'^update_server/$', update, name='update'),
     url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
+    url(r'^cart/paypal/checkout/$', paypal_checkout_home, name='paypal-checkout'),
 
   ] + i18n_patterns(
 
