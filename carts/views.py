@@ -170,7 +170,6 @@ def paypal_checkout_home(request):
         'has_card': has_card,
         'shipping_address_required': shipping_address_required,
     }
-    print(9, context)
     CreateOrder().build_request_body(context)
     CreateOrder().create_order(debug=True)
     print(context)
