@@ -1,8 +1,10 @@
 from django.conf import settings
 from django.db import models
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.db.models.signals import pre_save, post_save
 from django.utils.translation import gettext
+from django.contrib import messages
 import stripe
 
 from accounts.models import GuestEmail
@@ -143,26 +145,47 @@ class ChargeManager(models.Manager):
                 card_obj = cards.first()
         if card_obj is None:
             return False, gettext('No cards available')
-        c = stripe.Charge.create(
-            amount = int(order_obj.total * 100),
-            currency = 'usd',
-            customer = billing_profile.customer_id,
-            source = card_obj.stripe_id,
-            metadata = {'order_id': order_obj.order_id}
-        )
-        new_charge_obj = self.model(
-            billing_profile = billing_profile,
-            stripe_id = c.id,
-            paid = c.paid,
-            refunded = c.refunded,
-            outcome = c.outcome,
-            outcome_type = c.outcome['type'],
-            seller_message = c.outcome.get('seller_message'),
-            risk_level = c.outcome.get('risk_level')
-        )
-        new_charge_obj.save()
-        return new_charge_obj.paid, new_charge_obj.seller_message
+        try:
+            c = stripe.Charge.create(
+                amount = int(order_obj.total * 100),
+                currency = 'usd',
+                customer = billing_profile.customer_id,
+                source = card_obj.stripe_id,
+                metadata = {'order_id': order_obj.order_id}
+            )
+            new_charge_obj = self.model(
+                billing_profile = billing_profile,
+                stripe_id = c.id,
+                paid = c.paid,
+                refunded = c.refunded,
+                outcome = c.outcome,
+                outcome_type = c.outcome['type'],
+                seller_message = c.outcome.get('seller_message'),
+                risk_level = c.outcome.get('risk_level')
+            )
+            new_charge_obj.save()
+            return new_charge_obj.paid, new_charge_obj.seller_message
 
+        except stripe.error.CardError as e:
+            messages.info(self.request, f"{e.error.message}")
+            return redirect('cart:home')
+        except stripe.error.InvalidRequestError as e:
+            messages.success(self.request, "Invalid request")
+            return redirect('cart:home')
+        except stripe.error.AuthenticationError as e:
+            messages.success(self.request, "Authentication error")
+            return redirect('cart:home')
+        except stripe.error.APIConnectionError as e:
+            messages.success(self.request, "Check your connection")
+            return redirect('cart:home')
+        except stripe.error.StripeError as e:
+            messages.success(
+                self.request, "There was an error please try again")
+            return redirect('cart:home')
+        except Exception as e:
+            messages.success(
+                self.request, "A serious error occured we were notified")
+            return redirect('cart:home')
 
 class Charge(models.Model):
     billing_profile = models.ForeignKey(BillingProfile, on_delete=models.DO_NOTHING)
