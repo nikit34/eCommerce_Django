@@ -129,7 +129,6 @@ def checkout_home(request):
 
 
 def paypal_checkout_home(request):
-    print(1)
     cart_obj, cart_created = Cart.objects.new_or_get(request)
     print(cart_obj, cart_created)
     order_obj = None
@@ -146,26 +145,20 @@ def paypal_checkout_home(request):
     address_qs = None
     has_card = False
 
-    print(2)
     if billing_profile is not None:
         if request.user.is_authenticated:
             address_qs = Address.objects.filter(billing_profile=billing_profile)
-            print(3, address_qs)
         order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
-        print(4, order_obj, order_obj_created)
         if shipping_address_id:
             order_obj.shipping_address = Address.objects.get(id=shipping_address_id)
             del request.session['shipping_address_id']
-            print(5, order_obj.shipping_address)
         if billing_address_id:
             order_obj.billing_address = Address.objects.get(id=billing_address_id)
             del request.session['billing_address_id']
-            print(6, order_obj.billibg_address)
         if billing_address_id or shipping_address_id:
             order_obj.save()
-            print(7, order_obj)
         has_card = billing_profile.has_card
-        print(8, has_card)
+
 
     context = {
         'object': order_obj,
@@ -175,12 +168,12 @@ def paypal_checkout_home(request):
         'address_form': address_form,
         'address_qs': address_qs,
         'has_card': has_card,
-        'publish_key': STRIPE_PUB_KEY,
         'shipping_address_required': shipping_address_required,
     }
     print(9, context)
     CreateOrder().build_request_body(context)
     CreateOrder().create_order(debug=True)
+    print(context)
 
     return render(request, 'carts/checkout.html', context)
 
