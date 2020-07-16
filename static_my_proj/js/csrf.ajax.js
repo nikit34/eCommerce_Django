@@ -30,8 +30,8 @@ $(document).ready(function(){
 
   // PayPal
   var url = "/cart/paypal/checkout/";
-  var amount = document.getElementById('order-total').textContent.replace(",", ".");
   var orderID = document.getElementById('order-id').textContent;
+  var amount = document.getElementById('order-total').textContent.replace(",", ".");
 
   paypal.Buttons({
     style: {
@@ -41,7 +41,6 @@ $(document).ready(function(){
       height: 40
     },
     createOrder: function() {
-      console.log(1);
       let csrftoken = getCookie('csrftoken');
       return fetch(url, {
         method: 'post',
@@ -50,12 +49,10 @@ $(document).ready(function(){
           "X-CSRFToken": csrftoken,
         }
       }).then(function(res) {
-        console.log(2, res);
-        return JSON.stringify(res);
-      }).then(function() {
-        console.log(3, amount, orderID);
-        data = {'amount': amount, 'orderID': orderID}
-        return data;
+        console.log(res);
+        return res;
+      }).catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
       });
     },
   }).render('#paypal-button-container');
