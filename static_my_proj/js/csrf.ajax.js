@@ -29,19 +29,16 @@ $(document).ready(function(){
 
 
   // PayPal
-  var url = "/cart/paypal/checkout/";
-  var orderID = document.getElementById('order-id').textContent;
-  var amount = document.getElementById('order-total').textContent.replace(",", ".");
-
   paypal.Buttons({
     style: {
       color:  'blue',
       shape:  'pill',
       label:  'pay',
-      height: 40
+      height: 50
     },
     createOrder: function() {
       let csrftoken = getCookie('csrftoken');
+      let url = "/cart/paypal/checkout/";
       return fetch(url, {
         method: 'post',
         headers: {
@@ -49,10 +46,11 @@ $(document).ready(function(){
           "X-CSRFToken": csrftoken,
         }
       }).then(function(res) {
-        console.log(res);
-        return res;
-      }).catch(error => {
-        console.error('There has been a problem with your fetch operation:', error);
+        console.log(1);
+        return res.json();
+      }).then(function(data) {
+        console.log(2, data.orderID);
+        return data.orderID;
       });
     },
   }).render('#paypal-button-container');

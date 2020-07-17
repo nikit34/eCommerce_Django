@@ -53,7 +53,6 @@ class BillingProfile(models.Model):
         else:
             raise KeyError("Invalid type payment")
 
-
     def get_cards(self):
         return self.card_set.all()
 

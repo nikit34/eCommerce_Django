@@ -168,10 +168,9 @@ def paypal_checkout_home(request):
                 did_charge, crg_msg = billing_profile.charge('P', order_obj, response)
             if did_charge:
                 order_obj.mark_paid() # sort signal
+                print('!!!!!!!!', order_obj.mark_paid())
                 request.session['cart_items'] = 0
                 del request.session['cart_id']
-                if not billing_profile.user:
-                    billing_profile.set_cards_inactive()
                 return redirect('cart:success')
             else:
                 return redirect('cart:checkout')
@@ -186,8 +185,6 @@ def paypal_checkout_home(request):
         'has_card': has_card,
         'shipping_address_required': shipping_address_required,
     }
-
-    # print('!!! context    ', context)
 
     return render(request, 'carts/checkout.html', context)
 
