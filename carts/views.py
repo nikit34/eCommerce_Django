@@ -166,14 +166,13 @@ def paypal_checkout_home(request):
             response = order_done.get_response()
             if response.status_code == 201 and response.result.status == 'CREATED':
                 did_charge, crg_msg = billing_profile.charge('P', order_obj, response)
-            if did_charge:
-                order_obj.mark_paid() # sort signal
-                print('!!!!!!!!', order_obj.mark_paid())
-                request.session['cart_items'] = 0
-                del request.session['cart_id']
-                return redirect('cart:success')
-            else:
-                return redirect('cart:checkout')
+                if did_charge:
+                    order_obj.mark_paid() # sort signal
+                    request.session['cart_items'] = 0
+                    del request.session['cart_id']
+                    return redirect('cart:success')
+                else:
+                    return redirect('cart:checkout')
 
     context = {
         'object': order_obj,
@@ -185,7 +184,6 @@ def paypal_checkout_home(request):
         'has_card': has_card,
         'shipping_address_required': shipping_address_required,
     }
-
     return render(request, 'carts/checkout.html', context)
 
 

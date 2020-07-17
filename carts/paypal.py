@@ -121,7 +121,7 @@ def build_request_body(prepared_data_order):
         "application_context": {
             "brand_name": "OlyalyaStudio",
             "landing_page": "NO_PREFERENCE",
-            "shipping_preference": "GET_FROM_FILE",
+            "shipping_preference": "NO_SHIPPING",
             "user_action": "PAY_NOW"
         },
         "purchase_units": [
