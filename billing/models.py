@@ -45,11 +45,11 @@ class BillingProfile(models.Model):
     def __str__(self):
         return self.email
 
-    def charge(self, payment_type, order_obj, card=None):
+    def charge(self, payment_type, order_obj, *args):
         if payment_type == 'S':
-            return Charge.objects.do(self, order_obj, card)
+            return Charge.objects.do(self, order_obj, args[0])
         elif payment_type == 'P':
-            return PaypalCharge.objects.do(self, order_obj)
+            return PaypalCharge.objects.do(self, order_obj, args[0])
         else:
             raise KeyError("Invalid type payment")
 
@@ -164,33 +164,6 @@ class PaypalCardManager(models.Manager):
         return None
 
 
-class PaypalCard(models.Model):
-    billing_profile = models.ForeignKey(BillingProfile, on_delete=models.DO_NOTHING)
-    stripe_id = models.CharField(max_length=120)
-    brand = models.CharField(max_length=120, null=True, blank=True)
-    country = models.CharField(max_length=20, null=True, blank=True)
-    exp_month = models.IntegerField(null=True, blank=True)
-    exp_year = models.IntegerField(null=True, blank=True)
-    last4 = models.CharField(max_length=4, null=True, blank=True)
-    default = models.BooleanField(default=True)
-    active = models.BooleanField(default=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    objects = PaypalCardManager()
-
-    def __str__(self):
-        return '{} {}'.format(self.brand, self.last4)
-
-
-def new_card_post_save_receiver(sender, instance, created, *args, **kwargs):
-    if created or instance.default:
-        billing_profile = instance.billing_profile
-        qs = PaypalCard.objects.filter(billing_profile=billing_profile).exclude(pk=instance.pk)
-        qs.update(default=False)
-
-post_save.connect(new_card_post_save_receiver, sender=PaypalCard)
-
-
 class ChargeManager(models.Manager):
     def do(self, billing_profile, order_obj, card=None):
         card_obj = card
@@ -256,44 +229,18 @@ class Charge(models.Model):
 
 
 class PaypalChargeManager(models.Manager):
-    def do(self, billing_profile, order_obj, card=None):
-        card_obj = card
-        if card_obj is None:
-            cards = billing_profile.card_set.filter(default=True)
-            if cards.exists():
-                card_obj = cards.first()
-        if card_obj is None:
-            return False, gettext('No cards available')
+    def do(self, billing_profile, order_obj, paypal_response):
         try:
             new_charge_obj = self.model(
                 billing_profile = billing_profile,
-                stripe_id = c.id,
+                paypal_id = paypal_response.result.id,
                 paid = True,
-                refunded = c.refunded,
-                outcome = c.outcome,
-                outcome_type = c.outcome['type'],
-                seller_message = c.outcome.get('seller_message'),
-                risk_level = c.outcome.get('risk_level')
+                intent = paypal_response.result.intent,
+                status = paypal_response.result.status,
+                create_time = paypal_response.result.create_time
             )
             new_charge_obj.save()
-            return new_charge_obj.paid, new_charge_obj.seller_message
-
-        except stripe.error.CardError as e:
-            messages.info(self.request, f"{e.error.message}")
-            return redirect('cart:home')
-        except stripe.error.InvalidRequestError as e:
-            messages.success(self.request, "Invalid request")
-            return redirect('cart:home')
-        except stripe.error.AuthenticationError as e:
-            messages.success(self.request, "Authentication error")
-            return redirect('cart:home')
-        except stripe.error.APIConnectionError as e:
-            messages.success(self.request, "Check your connection")
-            return redirect('cart:home')
-        except stripe.error.StripeError as e:
-            messages.success(
-                self.request, "There was an error please try again")
-            return redirect('cart:home')
+            return new_charge_obj.paid, 'paid with help PayPal'
         except Exception as e:
             messages.success(
                 self.request, "A serious error occured we were notified")
@@ -301,12 +248,10 @@ class PaypalChargeManager(models.Manager):
 
 class PaypalCharge(models.Model):
     billing_profile = models.ForeignKey(BillingProfile, on_delete=models.DO_NOTHING)
-    stripe_id = models.CharField(max_length=120)
+    paypal_id = models.CharField(max_length=120)
     paid = models.BooleanField(default=False)
-    refunded = models.BooleanField(default=False)
-    outcome = models.TextField(null=True, blank=True)
-    outcome_type = models.CharField(max_length=120, null=True, blank=True)
-    seller_message = models.CharField(max_length=120, null=True, blank=True)
-    risk_level = models.CharField(max_length=120, null=True, blank=True)
+    intent = models.CharField(max_length=60)
+    status = models.CharField(max_length=60)
+    create_time = models.DateTimeField()
 
     objects = PaypalChargeManager()

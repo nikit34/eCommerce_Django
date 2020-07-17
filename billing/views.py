@@ -9,7 +9,7 @@ STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY', None)
 STRIPE_PUB_KEY = getattr(settings, 'STRIPE_PUB_KEY', None)
 stripe.api_key = STRIPE_SECRET_KEY
 
-from .models import BillingProfile, Card, PaypalCard
+from .models import BillingProfile, Card
 
 
 def payment_method_view(request):
