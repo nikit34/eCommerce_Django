@@ -70,7 +70,7 @@ m2m_changed.connect(m2m_changed_cart_receiver, sender=Cart.products.through)
 
 def product_pre_save_receiver(sender, instance, *args, **kwargs):
     if instance.subtotal > 0:
-        instance.total = Decimal(instance.subtotal) * Decimal(1.08)
+        instance.total = Decimal(instance.subtotal)  # here can change final cost
     else:
         instance.total = 0.00
 
