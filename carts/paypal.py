@@ -42,12 +42,15 @@ class PayPalClient:
 
 
 class CreateOrder(PayPalClient):
-    def create_order(self, data):
+    def __init__(self, order_obj, cart_obj):
+        super(CreateOrder, self).__init__()
+        _body = structurng_input(order_obj, cart_obj)
+        self._res = self.create_order(_body)
+
+    def create_order(self, body):
         request = OrdersCreateRequest()
         request.prefer('return=representation')
-        d = self.build_request_body(data)
-        print(d)
-        request.request_body(d)
+        request.request_body(body)
         response = self.client.execute(request)
         if settings.DEBUG:
             print('Status Code: ', response.status_code)
@@ -65,26 +68,70 @@ class CreateOrder(PayPalClient):
             )
         return response
 
-    @staticmethod
-    def build_request_body(data):
-        structure = {
-            "intent": "CAPTURE",
-            "application_context": {
-                "brand_name": "OlyalyaStudio",
-                "landing_page": "NO_PREFERENCE",
-                "shipping_preference": "GET_FROM_FILE",
-                "user_action": "PAY_NOW"
+    def get_response(self):
+        return self._res
+
+
+def structurng_input(order_obj, cart_obj):
+    items = []
+    for item in cart_obj.products.all():
+        items.append({
+            'name': item.title,
+            'description': item.description,
+            'unit_amount': {
+                'currency_code': 'USD',
+                'value': str(item.price)
             },
-            "purchase_units": [
-                {
-                    "reference_id": "PUHF",
-                    "description": "PayPal deal",
-
-                    "custom_id": "CUST-HighFashions",
-                    "soft_descriptor": "HighFashions",
+            'quantity': '1',
+            'category': 'PHYSICAL_GOODS' if item.delivery else 'DIGITAL_GOODS'
+        })
+    prepared_data_order = {
+        'amount': {
+            'currency_code': 'USD',
+            'value': str(order_obj.total),
+            'breakdown': {
+                'item_total': {
+                    'currency_code': 'USD',
+                    'value': str(cart_obj.total)
                 },
-
-            ]
+                'shipping': {
+                    'currency_code': 'USD',
+                    'value': str(order_obj.shipping_total)
+                }
+            }
+        },
+        'items': items,
+        'shipping': {
+            'address': {
+                'address_line_1': order_obj.billing_address.address_line_1,
+                'address_line_2': order_obj.billing_address.address_line_2,
+                'admin_area_2': order_obj.billing_address.city,
+                'admin_area_1': order_obj.billing_address.country,
+                'postal_code': order_obj.billing_address.postal_code,
+                'country_code': 'US'
+            }
         }
-        structure['purchase_units'][0].update(data)
-        return structure
+    }
+    return build_request_body(prepared_data_order)
+
+
+def build_request_body(prepared_data_order):
+    response_structure = {
+        "intent": "CAPTURE",
+        "application_context": {
+            "brand_name": "OlyalyaStudio",
+            "landing_page": "NO_PREFERENCE",
+            "shipping_preference": "GET_FROM_FILE",
+            "user_action": "PAY_NOW"
+        },
+        "purchase_units": [
+            {
+                "reference_id": "PUHF",
+                "description": "PayPal deal",
+                "custom_id": "CUST-HighFashions",
+                "soft_descriptor": "HighFashions",
+            },
+        ]
+    }
+    response_structure['purchase_units'][0].update(prepared_data_order)
+    return response_structure

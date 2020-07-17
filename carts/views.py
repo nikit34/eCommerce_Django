@@ -162,58 +162,19 @@ def paypal_checkout_home(request):
     if request.method == 'POST':
         is_prepared = order_obj.check_done()
         if is_prepared:
-
-            items = []
-            for item in cart_obj.products.all():
-                items.append({
-                    'name': item.title,
-                    'description': item.description,
-                    'unit_amount': {
-                        'currency_code': 'USD',
-                        'value': str(item.price)
-                    },
-                    'quantity': '1',
-                    'category': 'PHYSICAL_GOODS' if item.delivery else 'DIGITAL_GOODS'
-                })
-            data = {
-                'amount': {
-                    'currency_code': 'USD',
-                    'value': str(order_obj.total),
-                    'breakdown': {
-                        'item_total': {
-                            'currency_code': 'USD',
-                            'value': str(cart_obj.total),
-                        },
-                        'shipping': {
-                            'currency_code': 'USD',
-                            'value': str(order_obj.shipping_total),
-                        }
-                    }
-                },
-                'items': items,
-                'shipping': {
-                    'address': {
-                        'address_line_1': order_obj.billing_address.address_line_1,
-                        'address_line_2': order_obj.billing_address.address_line_2,
-                        'admin_area_2': order_obj.billing_address.city,
-                        'admin_area_1': order_obj.billing_address.country,
-                        'postal_code': order_obj.billing_address.postal_code,
-                        'country_code': 'US'
-                    }
-                }
-            }
-            response = CreateOrder().create_order(data)
-            # if response.status_code == 201:
-                # did_charge, crg_msg = billing_profile.charge('P', order_obj)
-            # if did_charge:
-            #     order_obj.mark_paid() # sort signal
-            #     request.session['cart_items'] = 0
-            #     del request.session['cart_id']
-            #     if not billing_profile.user:
-            #         billing_profile.set_cards_inactive()
-            #     return redirect('cart:success')
-            # else:
-            #     return redirect('cart:checkout')
+            order_done = CreateOrder(order_obj, cart_obj)
+            response = order_done.get_response()
+            if response.status_code == 201 and response.result.status == 'CREATED':
+                did_charge, crg_msg = billing_profile.charge('P', order_obj, response)
+            if did_charge:
+                order_obj.mark_paid() # sort signal
+                request.session['cart_items'] = 0
+                del request.session['cart_id']
+                if not billing_profile.user:
+                    billing_profile.set_cards_inactive()
+                return redirect('cart:success')
+            else:
+                return redirect('cart:checkout')
 
     context = {
         'object': order_obj,
