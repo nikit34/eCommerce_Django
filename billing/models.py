@@ -46,7 +46,7 @@ class BillingProfile(models.Model):
 
     def charge(self, payment_type, order_obj, *args):
         if payment_type == 'S':
-            return Charge.objects.do(self, order_obj, args[0])
+            return Charge.objects.do(self, order_obj)
         elif payment_type == 'P':
             return PaypalCharge.objects.do(self, order_obj, args[0])
         else:
