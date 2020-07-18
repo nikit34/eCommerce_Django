@@ -29,6 +29,9 @@ $(document).ready(function(){
 
   // PayPal
   if (window.location.href.includes("/cart/checkout/")) {
+    let csrftoken = getCookie('csrftoken');
+    let url = "/cart/create-paypal-transaction/";
+
     paypal.Buttons({
       style: {
         color:  'blue',
@@ -37,20 +40,14 @@ $(document).ready(function(){
         height: 50
       },
       createOrder: function() {
-        let csrftoken = getCookie('csrftoken');
-        let url = "/cart/paypal/checkout/";
         return fetch(url, {
           method: 'post',
           headers: {
             'content-type': 'application/json',
             "X-CSRFToken": csrftoken,
           }
-        // }).then(function(res) {
-        //   console.log(1);
-        //   return res.json();
-        // }).then(function(data) {
-        //   console.log(2, data.orderID);
-        //   return data.orderID;
+        }).then(function() {
+          return '7FH64333LK2853225'
         });
       },
     }).render('#paypal-button-container');

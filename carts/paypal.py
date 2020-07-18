@@ -7,8 +7,8 @@ from django.conf import settings
 
 class PayPalClient:
     def __init__(self):
-        self.client_id = "AQv95Gz28-ghtMCMN24EgeseG7GEfQulcJzlexHd9cDrsZfbdbwixzcU7z05dsgfyIh-kDuDuhqQftYJ"  # getattr(settings, 'PAYPAL_CLIENT_ID', None)
-        self.client_secret = "EDKIu2nkYFXZdeAcqlAIY_0NGhgTIHdAC4jjjLdtnO6EyYZ1y_jdRf5pSeGAYrZFLPtIzbOqo6wzsmzE"  # getattr(settings, 'PAYPAL_CLIENT_SECRET', None)
+        self.client_id = "AdSUj13CFedFQelvN3DEjoSYcdSoLmZYrqaByA_A_Jky9SFcRF4jhJoQ5DqDG7rrhX0-0wwzyqGVKG_m"  # getattr(settings, 'PAYPAL_CLIENT_ID', None)
+        self.client_secret = "EC3glbGJFaD9cnd5asNhdC4qN9eiXmxwiFRk03oI6vpfMGsW0EAX2Q2ZJXPJXVsP3OiU1-_bwOqbuWur"  # getattr(settings, 'PAYPAL_CLIENT_SECRET', None)
         self.environment = SandboxEnvironment(client_id=self.client_id, client_secret=self.client_secret)
         self.client = PayPalHttpClient(self.environment)
 

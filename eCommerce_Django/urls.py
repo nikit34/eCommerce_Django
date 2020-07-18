@@ -25,7 +25,7 @@ from .views import ProductListView, about_page, contact_page, update
 urlpatterns = [
     url(r'^update_server/$', update, name='update'),
     url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
-    url(r'^cart/paypal/checkout/$', paypal_checkout_home, name='paypal-checkout'),
+    url(r'^cart/create-paypal-transaction/$', paypal_checkout_home, name='paypal-checkout'),
 
   ] + i18n_patterns(
 
