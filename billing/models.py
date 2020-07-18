@@ -5,13 +5,12 @@ from django.urls import reverse
 from django.db.models.signals import pre_save, post_save
 from django.utils.translation import gettext
 from django.contrib import messages
-import stripe
 
 from accounts.models import GuestEmail
 
-
-stripe.api_key = 'sk_test_cVUHsbXTYgysOm3s90niWBJO00cak1DxZG'
-
+import stripe
+STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY', None)
+stripe.api_key = STRIPE_SECRET_KEY
 
 User = settings.AUTH_USER_MODEL
 
