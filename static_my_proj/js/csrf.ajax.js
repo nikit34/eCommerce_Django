@@ -46,8 +46,10 @@ $(document).ready(function(){
             'content-type': 'application/json',
             "X-CSRFToken": csrftoken,
           }
-        }).then(function() {
-          return '7FH64333LK2853225'
+        }).then(function(data) {
+          let orderID = data.url.split('/')[7];
+          location.replace(data.url);
+          return orderID;
         });
       },
     }).render('#paypal-button-container');

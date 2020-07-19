@@ -2,6 +2,7 @@ import json
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from accounts.forms import LoginForm, GuestForm
 from accounts.models import GuestEmail
@@ -170,7 +171,7 @@ def paypal_checkout_home(request):
                     order_obj.mark_paid() # sort signal
                     request.session['cart_items'] = 0
                     del request.session['cart_id']
-                    return redirect('cart:success')
+                    return redirect(reverse('cart:success', kwargs={ 'orderID': response.result.id }))
                 else:
                     return redirect('cart:checkout')
 
@@ -187,5 +188,5 @@ def paypal_checkout_home(request):
     return render(request, 'carts/checkout.html', context)
 
 
-def checkout_done_view(request):
-    return render(request, 'carts/checkout-done.html', {})
+def checkout_done_view(request, orderID=None):
+    return render(request, 'carts/checkout-done.html', { 'orderID': orderID })
