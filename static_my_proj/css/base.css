@@ -54,6 +54,13 @@ h1, h2, h3, h4, h5, h6 {
 .navbar .nav-item .nav-link:hover{
     background-size: 100% 80%;
 }
+.navbar .nav-item .dropdown-item.active {
+    color: #ff000080;
+    background-color: #0000001f;
+}
+.navbar .nav-item .dropdown-item:hover{
+    background-color: #ff000080;
+}
 .navbar-toggler {
     background-color: rgba(255, 0, 0, 0.5);
 }
