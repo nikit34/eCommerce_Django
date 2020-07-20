@@ -15,10 +15,6 @@ table.cart-table td, table.cart-table th {
     background: whitesmoke;
     border: none;
     font-size: large;
-    transition: background 0.5s;
-}
-table.cart-table td:hover , table.cart-table th:hover {
-  background: white;
 }
 table.cart-table a {
     width: 50%;

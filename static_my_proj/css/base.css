@@ -23,7 +23,11 @@ body img.log {
     left:0;
 }
 
-
+h1 {
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Neucha", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -79,11 +83,19 @@ form.form-reglog h1 {
     padding: 1.25em 1em 1em 1em;
     border-radius: 5%;
 }
-.list-group-item{
+.card-home-title {
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+}
+.list-group-item {
+    font-size: large;
+    text-align: center;
     transition: background-color 0.5s;
 }
 .list-group-item:hover {
-    background-color: wheat;
+    text-decoration: none;
+    background-color: rgb(255, 200,200);
 }
 
 
