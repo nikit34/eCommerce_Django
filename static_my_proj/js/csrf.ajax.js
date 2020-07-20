@@ -55,12 +55,15 @@ $(document).ready(function(){
         });
       },
 
-      onCancel: function(data, actions) {
-        console.log("You are a bummer!");
+      onError: function(err) {
+        order_done = false;
+        location.replace('/cart/');
+        console.log(err);
       },
 
-      onError: function(err) {
-        console.log("PayPal is a bummer!");
+      onCancel: function() {
+        order_done = false;
+        location.replace('/');
       }
     }).render('#paypal-button-container');
 

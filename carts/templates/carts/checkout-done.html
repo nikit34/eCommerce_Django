@@ -8,8 +8,10 @@
         {% trans '<div id="blue">T</div><div id="red">h</div><div id="yellow">a</div><div id="green">n</div><div id="red">k</div>, <div id="blue">you for your order</div>' %}<div id="red">!</div>
     </div>
     </h1>
-    <div class="row">
-    <p>Your PayPal order ID: {{ orderID }}</p>
+    <div class="row mt-5">
+
+        <h4>Your {% if orderID|length == 17 %} PayPal {% else %} Stripe {% endif %} order ID: <div class="mt-4" id="red">{{ orderID }}</div></h4>
+
     </div>
 </div>
 

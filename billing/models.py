@@ -190,7 +190,7 @@ class ChargeManager(models.Manager):
                 risk_level = c.outcome.get('risk_level')
             )
             new_charge_obj.save()
-            return new_charge_obj.paid, new_charge_obj.seller_message
+            return new_charge_obj.paid, new_charge_obj.stripe_id
 
         except stripe.error.CardError as e:
             messages.info(self.request, f"{e.error.message}")
@@ -238,7 +238,7 @@ class PaypalChargeManager(models.Manager):
                 create_time = paypal_response.result.create_time
             )
             new_charge_obj.save()
-            return new_charge_obj.paid, 'paid with help PayPal'
+            return new_charge_obj.paid, new_charge_obj.paypal_id
         except Exception as e:
             messages.success(
                 self.request, "A serious error occured we were notified")

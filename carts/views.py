@@ -105,14 +105,14 @@ def checkout_home(request):
     if request.method == 'POST':
         is_prepared = order_obj.check_done()
         if is_prepared:
-            did_charge, crg_msg = billing_profile.charge('S', order_obj)
+            did_charge, orderID = billing_profile.charge('S', order_obj)
             if did_charge:
                 order_obj.mark_paid() # sort signal
                 request.session['cart_items'] = 0
                 del request.session['cart_id']
                 if not billing_profile.user:
                     billing_profile.set_cards_inactive()
-                return redirect('cart:success')
+                return redirect(reverse('cart:success', kwargs={ 'orderID': orderID }))
             else:
                 return redirect('cart:checkout')
 
@@ -166,12 +166,12 @@ def paypal_checkout_home(request):
             order_done = CreateOrder(order_obj, cart_obj)
             response = order_done.get_response()
             if response.status_code == 201 and response.result.status == 'CREATED':
-                did_charge, crg_msg = billing_profile.charge('P', order_obj, response)
+                did_charge, orderID = billing_profile.charge('P', order_obj, response)
                 if did_charge:
                     order_obj.mark_paid() # sort signal
                     request.session['cart_items'] = 0
                     del request.session['cart_id']
-                    return redirect(reverse('cart:success', kwargs={ 'orderID': response.result.id }))
+                    return redirect(reverse('cart:success', kwargs={ 'orderID': orderID }))
                 else:
                     return redirect('cart:checkout')
 
