@@ -16,10 +16,10 @@ from products.models import Product
 
 
 ORDER_STATUS_CHOICES = (
-    ('created', gettext_lazy('Created')),
-    ('paid', gettext_lazy('Paid')),
-    ('shipped', gettext_lazy('Shipped')),
-    ('refunded', gettext_lazy('Refunded')),
+    ('created', 'Created'),
+    ('paid', 'Paid'),
+    ('shipped', 'Shipped'),
+    ('refunded', 'Refunded'),
 )
 
 
@@ -37,7 +37,7 @@ class OrderManagerQuerySet(models.query.QuerySet):
         paid_data = paid.totals_data()
         data = {
             'recent': recent,
-            'recent_data':recent_data,
+            'recent_data': recent_data,
             'recent_cart_data': recent_cart_data,
             'shipped': shipped,
             'shipped_data': shipped_data,
@@ -49,8 +49,8 @@ class OrderManagerQuerySet(models.query.QuerySet):
     def by_weeks_range(self, weeks_ago=7, number_of_weeks=2):
         if number_of_weeks > weeks_ago:
             number_of_weeks = weeks_ago
-        days_ago_start = weeks_ago * 7  # days_ago_start = 49
-        days_ago_end = days_ago_start - (number_of_weeks * 7) #days_ago_end = 49 - 14 = 35
+        days_ago_start = weeks_ago * 7
+        days_ago_end = days_ago_start - (number_of_weeks * 7)
         start_date = timezone.now() - datetime.timedelta(days=days_ago_start)
         end_date = timezone.now() - datetime.timedelta(days=days_ago_end)
         return self.by_range(start_date, end_date=end_date)
@@ -97,7 +97,7 @@ class OrderManager(models.Manager):
 
     def new_or_get(self, billing_profile, cart_obj):
         created = False
-        qs = self.get_queryset().filter(billing_profile=billing_profile, cart=cart_obj, active=True).exclude(status='paid')
+        qs = self.get_queryset().filter(billing_profile=billing_profile, cart=cart_obj, active=True, status='created')
         if qs.count() == 1:
             obj = qs.first()
         else:
@@ -214,7 +214,6 @@ post_save.connect(post_save_cart_total, sender=Cart)
 
 
 def post_save_order(sender, instance, created, *args, **kwargs):
-    print('running')
     if created:
         print('Updating.. first')
         instance.update_total()
