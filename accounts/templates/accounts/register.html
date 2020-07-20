@@ -3,8 +3,6 @@
 {% block content %}
 
 <div style="margin-left:30%; margin-top:10%;">
-  {% load static %}
-  <img class="log" src="{% static 'img/fon_log.png'%}">
   <form class="form-reglog" method='POST'> {% csrf_token %}
   <h1>{% trans "Register" %}</h1>
     <table>

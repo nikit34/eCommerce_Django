@@ -63,27 +63,12 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0);
 }
 .search-form button {
-    border: none !important;
+    border: none;
     transition: all 0.5s;
 }
 .search-form button:hover {
     color:red;
     background: rgba(255, 255, 255, 0);
-}
-
-
-form.form-reglog {
-    background-color: white;
-    border: 2px solid #0000ff80;
-    border-radius: 15px;
-    padding: 5px 25px 5px 25px;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
-}
-form.form-reglog h1 {
-    color: #0000ff80;
 }
 
 
