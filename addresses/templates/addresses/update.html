@@ -3,19 +3,94 @@
 {% block content %}
 
 <div class='row'>
-    <div class='col-10 mx-auto col-md-6 '>
-        {% if form.instance.address_line_1  %}
-        <h3 class='my-5'>{% trans "Update Address" %}</h3>
-        {% else %}
-        <h3 class='my-5'>{% trans "Create Address" %}</h3>
-        {% endif %}
-        <hr>
-    <form method='POST' action=''> {% csrf_token %}
-      {{ form.as_p }}
-      <button type='submit' class='btn btn-outline-success'>{% trans "Save Address" %}</button>
-    </form>
+    <div class='col-10 mx-auto col-md-6'>
+        <div class="bank-canvas-cell-2">
+            {% if form.instance.address_line_1  %}
+                <h3 class='my-5'>{% trans "Update Address" %}</h3>
+            {% else %}
+                <h3 class='my-5'>{% trans "Create Address" %}</h3>
+            {% endif %}
+            <hr>
+            <form method="POST" action="">
+                <div class="row bank-canvas-cell-empty">
+                    <div class="col">
+                        <label for="id_nickname">{% trans "Nickname" %}:</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="nickname" maxlength="120" id="id_nickname"><br>
+                        <span class="helptext">({% trans "Internal Reference" %})</span>
+                    </div>
+                    <div class="col">
+                        <label for="id_name">{% trans "Name" %}:</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="name" maxlength="120" id="id_name"><br>
+                        <span class="helptext">{% trans "Shipping to? Who is it for" %}?</span>
+                    </div>
+                </div>
+                <div class="row bank-canvas-cell-empty">
+                    <div class="col-2">
+                        <label for="id_address_type">{% trans "Type" %}: </label>
+                    </div>
+                    <div class="col">
+                        <select name="address_type" class="form-control" required="" id="id_address_type">
+                            <option value="">---------</option>
+                            <option value="billing" selected="">{% trans "Billing address" %}</option>
+                            <option value="shipping">{% trans "Shipping address" %}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row bank-canvas-cell-empty">
+                    <div class="col">
+                        <label for="id_address_line_1">{% trans "Address" %} 1:</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="address_line_1" value="Коммуны 139-120" maxlength="120" required="" id="id_address_line_1">
+                    </div>
+                    <div class="col">
+                        <label for="id_address_line_2">{% trans "Address" %} 2:</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="address_line_2" maxlength="120" id="id_address_line_2">
+                    </div>
+                </div>
+                <div class="row bank-canvas-cell-empty">
+                    <div class="col">
+                        <label for="id_city">{% trans "City" %}:</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="city" maxlength="120" required="" id="id_city">
+                    </div>
+                    <div class="col">
+                        <label for="id_country">{% trans "Country" %}:</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="country" value="Russia" maxlength="120" required="" id="id_country">
+                    </div>
+                </div>
+                <div class="row bank-canvas-cell-empty">
+                    <div class="col">
+                        <label for="id_state">{% trans "State" %}:</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="state" maxlength="120" required="" id="id_state">
+                    </div>
+                    <div class="col">
+                        <label for="id_postal_code">{% trans "Postal code" %}:</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="postal_code" maxlength="120" required="" id="id_postal_code">
+                    </div>
+                </div>
+                <br>
+                <div class="row bank-canvas-cell-empty">
+                    <div class="col text-right">
+                        <button type="submit" class="btn btn-danger">{% trans "Save Address" %}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-
 </div>
 
 {% endblock %}

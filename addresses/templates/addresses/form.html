@@ -13,29 +13,29 @@
 
     <div class="row bank-canvas-cell-empty">
         <div class="col">
-            <label for="id_nickname">Nickname:</label>
+            <label for="id_nickname">{% trans "Nickname" %}:</label>
         </div>
         <div class="col-4">
             <input type="text" name="nickname" maxlength="120" id="id_nickname"><br>
-            <span class="helptext">(Internal Reference)</span>
+            <span class="helptext">({% trans "Internal Reference" %})</span>
         </div>
         <div class="col">
-            <label for="id_name">Name:</label>
+            <label for="id_name">{% trans "Name" %}:</label>
         </div>
         <div class="col-4">
             <input type="text" name="name" maxlength="120" id="id_name"><br>
-            <span class="helptext">Shipping to? Who is it for?</span>
+            <span class="helptext">{% trans "Shipping to? Who is it for" %}?</span>
         </div>
     </div>
     <div class="row bank-canvas-cell-empty">
         <div class="col">
-            <label for="id_address_line_1">Street:</label>
+            <label for="id_address_line_1">{% trans "Street" %}:</label>
         </div>
         <div class="col-4">
             <input type="text" name="address_line_1" maxlength="120" required="" id="id_address_line_1">
         </div>
         <div class="col">
-            <label for="id_address_line_2">Apartment:</label>
+            <label for="id_address_line_2">{% trans "Apartment" %}:</label>
         </div>
         <div class="col-4">
             <input type="text" name="address_line_2" maxlength="120" id="id_address_line_2">
@@ -43,13 +43,13 @@
     </div>
     <div class="row bank-canvas-cell-empty">
         <div class="col">
-            <label for="id_city">City:</label>
+            <label for="id_city">{% trans "City" %}:</label>
         </div>
         <div class="col-4">
             <input type="text" name="city" maxlength="120" required="" id="id_city">
         </div>
         <div class="col">
-            <label for="id_country">Country:</label>
+            <label for="id_country">{% trans "Country" %}:</label>
         </div>
         <div class="col-4">
             <input type="text" name="country" value="Russia" maxlength="120" required="" id="id_country">
@@ -57,13 +57,13 @@
     </div>
     <div class="row bank-canvas-cell-empty">
         <div class="col">
-            <label for="id_state">State:</label>
+            <label for="id_state">{% trans "State" %}:</label>
         </div>
         <div class="col-4">
             <input type="text" name="state" maxlength="120" required="" id="id_state">
         </div>
         <div class="col">
-            <label for="id_postal_code">Postal code:</label>
+            <label for="id_postal_code">{% trans "Postal code" %}:</label>
         </div>
         <div class="col-4">
             <input type="text" name="postal_code" maxlength="120" required="" id="id_postal_code">
