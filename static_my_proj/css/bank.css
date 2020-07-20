@@ -1,6 +1,6 @@
 .canvas-cart-table {
     margin-top: 5%;
-    border: 2px solid #ff000080;
+    border: 1px solid #ff000080;
     background-color: whitesmoke;
     border-radius: 15px;
     padding: 5px 25px 5px 25px;
@@ -14,7 +14,21 @@
 table.cart-table td, table.cart-table th {
     background: whitesmoke;
     border: none;
-    font-size: large;
+    font-weight: normal;
+    font-size: x-large;
+}
+table.cart-table td a {
+  text-decoration-color: #00ff0080;
+}
+table.cart-table td a:hover {
+  text-decoration-color: #00ff0010;
+}
+table.cart-table td button{
+  transition: color 0.5s;
+}
+table.cart-table td button:hover {
+  text-decoration: none;
+  color:red;
 }
 table.cart-table a {
     width: 50%;

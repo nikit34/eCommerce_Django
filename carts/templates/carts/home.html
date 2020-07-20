@@ -29,11 +29,29 @@
                 {% endfor %}
                 <tr>
                     <td colspan="2"></td>
-                    <td><b>{% trans "Subtotal" %}:  </b>$<span class="cart-subtotal">{{ cart.subtotal | floatformat:2 }}</span></td>
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                {% trans "Subtotal" %}:
+                            </div>
+                            <div class="col">
+                                $<span class="cart-subtotal">{{ cart.subtotal | floatformat:2 }}</span>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2"></td>
-                    <td><b>{% trans "Total" %}:  </b>$<span class="cart-total">{{ cart.total | floatformat:2 }}</span></td>
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                {% trans "Total" %}:
+                            </div>
+                            <div class="col">
+                                $<span class="cart-total">{{ cart.total | floatformat:2 }}</span>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2"></td>
