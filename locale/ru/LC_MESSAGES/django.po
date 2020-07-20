@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 11:51+0000\n"
+"POT-Creation-Date: 2020-07-20 18:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,8 @@ msgstr "Подтверждение пароля"
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-#: accounts/forms.py:51
+#: accounts/forms.py:51 addresses/templates/addresses/form.html:23
+#: addresses/templates/addresses/update.html:24
 msgid "Name"
 msgstr "Имя"
 
@@ -171,22 +172,22 @@ msgstr "Рекламная рассылка"
 msgid "Update Details"
 msgstr "Обновить настройки"
 
-#: accounts/templates/accounts/login.html:9
+#: accounts/templates/accounts/login.html:10
 #: carts/templates/carts/checkout/has_nothing.html:11
 #: templates/base/navbar.html:75
 #: templates/registration/password_reset_complete.html:7
 msgid "Login"
 msgstr "Авторизация"
 
-#: accounts/templates/accounts/login.html:15
+#: accounts/templates/accounts/login.html:34
 msgid "Sign in"
 msgstr "Войти"
 
-#: accounts/templates/accounts/register.html:9 templates/base/navbar.html:72
+#: accounts/templates/accounts/register.html:10 templates/base/navbar.html:72
 msgid "Register"
 msgstr "Регистрация"
 
-#: accounts/templates/accounts/register.html:14
+#: accounts/templates/accounts/register.html:46
 msgid "Sign up"
 msgstr "Зарегестрироваться"
 
@@ -211,11 +212,11 @@ msgstr "Ссылка для активации отправлена. Пожал�
 msgid "Change Your Account Details"
 msgstr "Изменить данные учетной записи"
 
-#: addresses/models.py:9
+#: addresses/models.py:9 addresses/templates/addresses/update.html:38
 msgid "Billing address"
 msgstr "Адрес выставления счета"
 
-#: addresses/models.py:10
+#: addresses/models.py:10 addresses/templates/addresses/update.html:39
 msgid "Shipping address"
 msgstr "Адрес доставки"
 
@@ -225,7 +226,50 @@ msgstr "С доставкой? Для кого?"
 
 #: addresses/models.py:17
 msgid "Internal Reference Nickname"
-msgstr "Внутренний Nickname - псевдоним"
+msgstr "Внутренний Логин"
+
+#: addresses/templates/addresses/form.html:16
+#: addresses/templates/addresses/update.html:17
+msgid "Nickname"
+msgstr "Логин"
+
+#: addresses/templates/addresses/form.html:20
+#: addresses/templates/addresses/update.html:21
+msgid "Internal Reference"
+msgstr "Внутренний Логин"
+
+#: addresses/templates/addresses/form.html:27
+#: addresses/templates/addresses/update.html:28
+msgid "Shipping to? Who is it for"
+msgstr "С доставкой? Для кого"
+
+#: addresses/templates/addresses/form.html:32
+msgid "Street"
+msgstr "Улица"
+
+#: addresses/templates/addresses/form.html:38
+msgid "Apartment"
+msgstr "Квартира"
+
+#: addresses/templates/addresses/form.html:46
+#: addresses/templates/addresses/update.html:59
+msgid "City"
+msgstr "Город"
+
+#: addresses/templates/addresses/form.html:52
+#: addresses/templates/addresses/update.html:65
+msgid "Country"
+msgstr "Страна"
+
+#: addresses/templates/addresses/form.html:60
+#: addresses/templates/addresses/update.html:73
+msgid "State"
+msgstr "Статус"
+
+#: addresses/templates/addresses/form.html:66
+#: addresses/templates/addresses/update.html:79
+msgid "Postal code"
+msgstr "Почтовый индекс"
 
 #: addresses/templates/addresses/list.html:7
 msgid "es"
@@ -236,6 +280,8 @@ msgid "Create New"
 msgstr "Создать новый"
 
 #: addresses/templates/addresses/list.html:21
+#: addresses/templates/addresses/update.html:45
+#: addresses/templates/addresses/update.html:51
 msgid "Address"
 msgstr "Адрес"
 
@@ -251,15 +297,19 @@ msgstr "Нет сохраненных адресов"
 msgid "Use Address"
 msgstr "Использовать адрес"
 
-#: addresses/templates/addresses/update.html:8
+#: addresses/templates/addresses/update.html:9
 msgid "Update Address"
 msgstr "Обновить адрес"
 
-#: addresses/templates/addresses/update.html:10
+#: addresses/templates/addresses/update.html:11
 msgid "Create Address"
 msgstr "Создать новый"
 
-#: addresses/templates/addresses/update.html:15
+#: addresses/templates/addresses/update.html:33
+msgid "Type"
+msgstr "Тип"
+
+#: addresses/templates/addresses/update.html:88
 msgid "Save Address"
 msgstr "Сохранить адрес"
 
@@ -308,7 +358,7 @@ msgstr "Всего отправлено"
 msgid "Paid Totals"
 msgstr "Сумма оплат"
 
-#: billing/models.py:145
+#: billing/models.py:173
 msgid "No cards available"
 msgstr "Нет доступных карт"
 
@@ -473,7 +523,7 @@ msgstr "Ваше сообщение"
 
 #: eCommerce_Django/views.py:43
 msgid "Welcome to about page!"
-msgstr "Добро пожаловать на описание"
+msgstr "Добро пожаловать на описание!"
 
 #: eCommerce_Django/views.py:53
 msgid "Here you can leave your feedback."
@@ -481,11 +531,11 @@ msgstr "Здесь Вы можете отправить отзыв или пре
 
 #: eCommerce_Django/views.py:60
 msgid "Send with contact email: "
-msgstr "Отправить с контактным email"
+msgstr "Отправить с контактным email: "
 
 #: eCommerce_Django/views.py:64
 msgid "Invalid header found."
-msgstr "Неверный формат"
+msgstr "Неверный формат."
 
 #: eCommerce_Django/views.py:66
 msgid "Thank you for your submission"
@@ -501,7 +551,7 @@ msgstr "ОШИБКА: не удалось обновить код на серв�
 
 #: marketing/forms.py:7
 msgid "Receive Marketing Email?"
-msgstr "Повторно активируйте свой Email"
+msgstr "Повторно активируйте свой Email?"
 
 #: marketing/utils.py:16
 msgid "String passed is not a valid email address"
@@ -518,22 +568,6 @@ msgstr "Ваши настройки email были обновлены. Спас�
 #: marketing/views.py:35
 msgid "Update Email Preferences"
 msgstr "Обновить Email"
-
-#: orders/models.py:19
-msgid "Created"
-msgstr "Создать"
-
-#: orders/models.py:20
-msgid "Paid"
-msgstr "Оплачено"
-
-#: orders/models.py:21
-msgid "Shipped"
-msgstr "Всего отправлено"
-
-#: orders/models.py:22
-msgid "Refunded"
-msgstr "Возвращено"
 
 #: orders/templates/orders/library.html:14
 msgid "Product"
@@ -611,7 +645,7 @@ msgstr "Поиск"
 msgid "Results for"
 msgstr "Результаты поиска"
 
-#: templates/base.html:27
+#: templates/base.html:26
 msgid "Important"
 msgstr "Важно"
 

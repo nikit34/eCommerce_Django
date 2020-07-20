@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 01:10+0500\n"
+"POT-Creation-Date: 2020-07-20 18:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,723 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: accounts/forms.py:22
+#, python-format
+msgid ""
+"This email does not exists, would you like to <a href=\"%(link)s\">register</"
+"a>?"
+msgstr ""
+
+#: accounts/forms.py:28 accounts/forms.py:89 accounts/forms.py:126
+msgid "Password"
+msgstr ""
+
+#: accounts/forms.py:29 accounts/forms.py:127
+msgid "Password confirmation"
+msgstr ""
+
+#: accounts/forms.py:39 accounts/forms.py:137
+msgid "Passwords don't match"
+msgstr ""
+
+#: accounts/forms.py:51 addresses/templates/addresses/form.html:23
+#: addresses/templates/addresses/update.html:24
+msgid "Name"
+msgstr ""
+
+#: accounts/forms.py:105
+#, python-format
+msgid ""
+"Go to <a href=\"%(resend_link)s\">resend\n"
+" confirmation email</a>."
+msgstr ""
+
+#: accounts/forms.py:109
+msgid ""
+"Please check your email to confirm\n"
+" your account or "
+msgstr ""
+
+#: accounts/forms.py:113
+msgid "Email not confirmed."
+msgstr ""
+
+#: accounts/forms.py:116
+msgid "This user is inactive."
+msgstr ""
+
+#: accounts/forms.py:119
+msgid "Invalid credentials"
+msgstr ""
+
+#: accounts/models.py:21
+msgid "Users must have an email address"
+msgstr ""
+
+#: accounts/models.py:23
+msgid "Users must have a password"
+msgstr ""
+
+#: accounts/models.py:159
+msgid "1-Click Email Verification"
+msgstr ""
+
+#: accounts/templates/accounts/detail-update-view.html:14
+msgid "Cannot change email"
+msgstr ""
+
+#: accounts/templates/accounts/detail-update-view.html:17
+#: marketing/templates/subscribe_form.html:14 templates/base/forms.html:17
+#: templates/registration/password_change_form.html:11
+msgid "Save"
+msgstr ""
+
+#: accounts/templates/accounts/detail-update-view.html:18
+#: accounts/templates/accounts/home.html:57
+msgid "Change Password"
+msgstr ""
+
+#: accounts/templates/accounts/form.html:19
+#: addresses/templates/addresses/form.html:75 templates/contact/view.html:21
+msgid "Submit"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:8 templates/base/navbar.html:39
+msgid "Account"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:15
+msgid "Billing"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:17
+#: orders/templates/orders/order_list.html:7
+msgid "Orders"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:18
+msgid "Payment Methods"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:19
+#: addresses/templates/addresses/list.html:7
+msgid "Saved addresses"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:20
+#: orders/templates/orders/library.html:8 templates/base/navbar.html:60
+msgid "Library"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:29
+msgid "History"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:31 templates/base/navbar.html:32
+msgid "Products"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:32 templates/base/navbar.html:58
+msgid "Statistics"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:41
+msgid "Support"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:43 eCommerce_Django/views.py:42
+#: templates/contact/about.html:5
+msgid "About"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:44 eCommerce_Django/views.py:52
+#: templates/base/navbar.html:59
+msgid "Contact"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:53
+msgid "Account Details"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:55
+msgid "Email Marketing"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:56
+msgid "Update Details"
+msgstr ""
+
+#: accounts/templates/accounts/login.html:10
+#: carts/templates/carts/checkout/has_nothing.html:11
+#: templates/base/navbar.html:75
+#: templates/registration/password_reset_complete.html:7
+msgid "Login"
+msgstr ""
+
+#: accounts/templates/accounts/login.html:34
+msgid "Sign in"
+msgstr ""
+
+#: accounts/templates/accounts/register.html:10 templates/base/navbar.html:72
+msgid "Register"
+msgstr ""
+
+#: accounts/templates/accounts/register.html:46
+msgid "Sign up"
+msgstr ""
+
+#: accounts/views.py:40
+msgid "Your email has been confirmed. Please login."
+msgstr ""
+
+#: accounts/views.py:46
+#, python-brace-format
+msgid ""
+"Your email has already been confirmed. Do you need to <a href='%{link}"
+"s'>reset you password</a>?"
+msgstr ""
+
+#: accounts/views.py:60
+msgid "Activation link sent, please, check your email."
+msgstr ""
+
+#: accounts/views.py:112
+msgid "Change Your Account Details"
+msgstr ""
+
+#: addresses/models.py:9 addresses/templates/addresses/update.html:38
+msgid "Billing address"
+msgstr ""
+
+#: addresses/models.py:10 addresses/templates/addresses/update.html:39
+msgid "Shipping address"
+msgstr ""
+
+#: addresses/models.py:16
+msgid "Shipping to? Who is it for?"
+msgstr ""
+
+#: addresses/models.py:17
+msgid "Internal Reference Nickname"
+msgstr ""
+
+#: addresses/templates/addresses/form.html:16
+#: addresses/templates/addresses/update.html:17
+msgid "Nickname"
+msgstr ""
+
+#: addresses/templates/addresses/form.html:20
+#: addresses/templates/addresses/update.html:21
+msgid "Internal Reference"
+msgstr ""
+
+#: addresses/templates/addresses/form.html:27
+#: addresses/templates/addresses/update.html:28
+msgid "Shipping to? Who is it for"
+msgstr ""
+
+#: addresses/templates/addresses/form.html:32
+msgid "Street"
+msgstr ""
+
+#: addresses/templates/addresses/form.html:38
+msgid "Apartment"
+msgstr ""
+
+#: addresses/templates/addresses/form.html:46
+#: addresses/templates/addresses/update.html:59
+msgid "City"
+msgstr ""
+
+#: addresses/templates/addresses/form.html:52
+#: addresses/templates/addresses/update.html:65
+msgid "Country"
+msgstr ""
+
+#: addresses/templates/addresses/form.html:60
+#: addresses/templates/addresses/update.html:73
+msgid "State"
+msgstr ""
+
+#: addresses/templates/addresses/form.html:66
+#: addresses/templates/addresses/update.html:79
+msgid "Postal code"
+msgstr ""
+
+#: addresses/templates/addresses/list.html:7
+msgid "es"
+msgstr ""
+
+#: addresses/templates/addresses/list.html:7
+msgid "Create New"
+msgstr ""
+
+#: addresses/templates/addresses/list.html:21
+#: addresses/templates/addresses/update.html:45
+#: addresses/templates/addresses/update.html:51
+msgid "Address"
+msgstr ""
+
+#: addresses/templates/addresses/list.html:23
+msgid "Edit"
+msgstr ""
+
+#: addresses/templates/addresses/list.html:32
+msgid "No saved addresses"
+msgstr ""
+
+#: addresses/templates/addresses/prev_addresses.html:24
+msgid "Use Address"
+msgstr ""
+
+#: addresses/templates/addresses/update.html:9
+msgid "Update Address"
+msgstr ""
+
+#: addresses/templates/addresses/update.html:11
+msgid "Create Address"
+msgstr ""
+
+#: addresses/templates/addresses/update.html:33
+msgid "Type"
+msgstr ""
+
+#: addresses/templates/addresses/update.html:88
+msgid "Save Address"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:7
+msgid "Sales Data"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:15
+msgid "Today's sales"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:17
+#: analytics/templates/analytics/sales.html:28
+msgid "Recent Total"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:20
+#: analytics/templates/analytics/sales.html:31
+#: orders/templates/orders/order_detail.html:7
+msgid "Order"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:22
+#: analytics/templates/analytics/sales.html:33
+#: products/templates/products/detail.html:8
+msgid "ago"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:26
+msgid "This week's sales"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:49
+msgid "Previous 4 weeks"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:51
+msgid "Orders Total"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:52
+msgid "Shipped Total"
+msgstr ""
+
+#: analytics/templates/analytics/sales.html:53
+msgid "Paid Totals"
+msgstr ""
+
+#: billing/models.py:173
+msgid "No cards available"
+msgstr ""
+
+#: billing/templates/billing/payment-method.html:7
+msgid "Add Payment Method"
+msgstr ""
+
+#: billing/views.py:30
+msgid "Cannot find this user"
+msgstr ""
+
+#: billing/views.py:34
+msgid "Success! Your card was added."
+msgstr ""
+
+#: carts/templates/carts/checkout-done.html:8
+msgid ""
+"<div id=\"blue\">T</div><div id=\"red\">h</div><div id=\"yellow\">a</"
+"div><div id=\"green\">n</div><div id=\"red\">k</div>, <div id=\"blue\">you "
+"for your order</div>"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile.html:5
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:40
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:41
+#: orders/templates/orders/order_detail.html:16
+msgid "Billing Address"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:5
+msgid "CHECK and CHOOSE"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:5
+msgid "method of payment for order"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:11
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:12
+msgid "Cart Items"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:19
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:20
+msgid "Order number: "
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:31
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:32
+#: carts/templates/carts/checkout/has_billingprofile_shiprequired.html:5
+#: orders/templates/orders/order_detail.html:15
+msgid "Shipping Address"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:55
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:57
+msgid "Cart Total"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:60
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:62
+#: orders/templates/orders/order_detail.html:18
+msgid "Shipping Total"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:65
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:67
+#: orders/templates/orders/order_detail.html:19
+msgid "Order Total"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:76
+msgid "Choose method of payment"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:81
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:93
+msgid "PayPal"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping.html:85
+msgid "Bank card binding"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:5
+msgid "Finalize Checkout"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:73
+msgid "Default Payment"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:77
+msgid "Payment Method"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:78
+msgid "Change"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:87
+msgid "Pay"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_nothing.html:5
+msgid "Choose"
+msgstr ""
+
+#: carts/templates/carts/checkout/has_nothing.html:17
+msgid "Continue as Guest"
+msgstr ""
+
+#: carts/templates/carts/home.html:7 templates/base/navbar.html:36
+msgid "Cart"
+msgstr ""
+
+#: carts/templates/carts/home.html:17
+msgid "Product Name"
+msgstr ""
+
+#: carts/templates/carts/home.html:18 templates/select_sort.html:12
+msgid "Price"
+msgstr ""
+
+#: carts/templates/carts/home.html:32
+#: orders/templates/orders/order_detail.html:17
+msgid "Subtotal"
+msgstr ""
+
+#: carts/templates/carts/home.html:36
+#: orders/templates/orders/order_list.html:13
+msgid "Total"
+msgstr ""
+
+#: carts/templates/carts/home.html:40
+msgid "Checkout"
+msgstr ""
+
+#: carts/templates/carts/home.html:51
+msgid "Cart is empty"
+msgstr ""
+
+#: carts/templates/carts/remove-product.html:5
+#: products/templates/products/update-cart.html:12
+msgid "Remove"
+msgstr ""
+
+#: eCommerce_Django/forms.py:6
+msgid "Your full name"
+msgstr ""
+
+#: eCommerce_Django/forms.py:7
+msgid "Your contact email"
+msgstr ""
+
+#: eCommerce_Django/forms.py:8
+msgid "Your message"
+msgstr ""
+
+#: eCommerce_Django/views.py:43
+msgid "Welcome to about page!"
+msgstr ""
+
+#: eCommerce_Django/views.py:53
+msgid "Here you can leave your feedback."
+msgstr ""
+
+#: eCommerce_Django/views.py:60
+msgid "Send with contact email: "
+msgstr ""
+
+#: eCommerce_Django/views.py:64
+msgid "Invalid header found."
+msgstr ""
+
+#: eCommerce_Django/views.py:66
+msgid "Thank you for your submission"
+msgstr ""
+
+#: eCommerce_Django/views.py:81
+msgid "Update code on server"
+msgstr ""
+
+#: eCommerce_Django/views.py:83
+msgid "ERROR: Could`t update the code on server"
+msgstr ""
+
+#: marketing/forms.py:7
+msgid "Receive Marketing Email?"
+msgstr ""
+
+#: marketing/utils.py:16
+msgid "String passed is not a valid email address"
+msgstr ""
+
+#: marketing/utils.py:53
+msgid "Not a valid choice for email status"
+msgstr ""
+
+#: marketing/views.py:25
+msgid "Your email preferences have been updated. Thank you."
+msgstr ""
+
+#: marketing/views.py:35
+msgid "Update Email Preferences"
+msgstr ""
+
+#: orders/templates/orders/library.html:14
+msgid "Product"
+msgstr ""
+
+#: orders/templates/orders/library.html:14
+msgid "Download"
+msgstr ""
+
+#: orders/templates/orders/library.html:28
+#: orders/templates/orders/order_list.html:23
+msgid "No orders yet"
+msgstr ""
+
+#: orders/templates/orders/order_detail.html:14
+msgid "Items"
+msgstr ""
+
+#: orders/templates/orders/order_detail.html:20
+msgid "Order Status"
+msgstr ""
+
+#: orders/templates/orders/order_list.html:13
+msgid "Order Id"
+msgstr ""
+
+#: orders/templates/orders/order_list.html:13
+msgid "Status"
+msgstr ""
+
+#: products/templates/products/card.html:9
+#: products/templates/products/detail.html:43
+#: products/templates/products/detail.html:55
+msgid "Image not found :("
+msgstr ""
+
+#: products/templates/products/card.html:24
+#: products/templates/products/card.html:35
+msgid "View"
+msgstr ""
+
+#: products/templates/products/detail.html:62
+msgid "Previous"
+msgstr ""
+
+#: products/templates/products/detail.html:66
+msgid "Next"
+msgstr ""
+
+#: products/templates/products/update-cart.html:11
+msgid "In cart"
+msgstr ""
+
+#: products/templates/products/update-cart.html:15
+msgid "Add to cart"
+msgstr ""
+
+#: products/templates/products/user-history.html:7
+msgid "Product View History"
+msgstr ""
+
+#: products/templates/products/user-history.html:16
+msgid "Viewed"
+msgstr ""
+
+#: products/templates/products/user-history.html:24
+msgid "History missing"
+msgstr ""
+
+#: search/templates/search/search-form.html:6
+msgid "Search"
+msgstr ""
+
+#: search/templates/search/view.html:7
+msgid "Results for"
+msgstr ""
+
+#: templates/base.html:26
+msgid "Important"
+msgstr ""
+
 #: templates/base/footer.html:6
 msgid "Developed"
+msgstr ""
+
+#: templates/base/navbar.html:20
+msgid "Sewing Shop"
+msgstr ""
+
+#: templates/base/navbar.html:29
+msgid "Home"
+msgstr ""
+
+#: templates/base/navbar.html:29
+msgid "current"
+msgstr ""
+
+#: templates/base/navbar.html:56
+msgid "Admin"
+msgstr ""
+
+#: templates/base/navbar.html:61
+msgid "Payment"
+msgstr ""
+
+#: templates/base/navbar.html:63
+msgid "Logout"
+msgstr ""
+
+#: templates/contact/about.html:25 templates/home_page.html:29
+msgid "Premium Content"
+msgstr ""
+
+#: templates/error/400.html:8
+msgid "Something went wrong"
+msgstr ""
+
+#: templates/error/400.html:10 templates/error/403.html:10
+#: templates/error/404.html:10
+msgid "Error"
+msgstr ""
+
+#: templates/error/403.html:8
+msgid "Permission Denied"
+msgstr ""
+
+#: templates/error/404.html:8
+msgid "Page not field"
+msgstr ""
+
+#: templates/error/500.html:8
+msgid "Ooops, sorry. A server error occured"
+msgstr ""
+
+#: templates/error/500.html:10
+msgid "Error | We have been notified and are working on a fix"
+msgstr ""
+
+#: templates/home_page.html:5
+msgid "Home page"
+msgstr ""
+
+#: templates/home_page.html:10
+msgid "Best offers"
+msgstr ""
+
+#: templates/registration/activation-error.html:7
+msgid "Activation Error. Please try again"
+msgstr ""
+
+#: templates/registration/activation-error.html:9
+msgid "Re-activate your Email"
+msgstr ""
+
+#: templates/registration/password_change_done.html:6
+msgid "Password successfully changed"
+msgstr ""
+
+#: templates/registration/password_change_form.html:6
+msgid "Change your Password"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:6
+msgid "Password reset complete"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:6
+msgid "Set your Password"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:10
+msgid "Set new password"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:6
+msgid "Rest Instructions Sent"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:7
+msgid "Please check your email"
 msgstr ""
 
 #: templates/registration/password_reset_email.html:2
@@ -28,4 +743,32 @@ msgid ""
 "Hello,\n"
 "\n"
 "Reset your password on %(domain)s for %(user)s:\n"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:6
+msgid "Reset your Password"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:10
+msgid "Reset Password"
+msgstr ""
+
+#: templates/select_sort.html:16
+msgid "descending"
+msgstr ""
+
+#: templates/select_sort.html:17
+msgid "ascending"
+msgstr ""
+
+#: templates/select_sort.html:23
+msgid "Time"
+msgstr ""
+
+#: templates/select_sort.html:27
+msgid "update early"
+msgstr ""
+
+#: templates/select_sort.html:28
+msgid "update last"
 msgstr ""
