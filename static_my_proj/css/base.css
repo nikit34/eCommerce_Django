@@ -1,5 +1,10 @@
 html {
     overflow-x: hidden;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 
