@@ -3,16 +3,30 @@
 {% block content %}
 
 <div class="col-12 col-md-6 mx-auto base-canvas-cell-2">
-{% if title %}<h1 class="my-3">{{ title }}</h1>{% endif %}
-<form method="POST" action="{{ success_url }}">
-    {% csrf_token %}
+    {% if title %}
+        <h1 class="my-3">{{ title }}</h1>
+    {% endif %}
+    <form method="POST" action="{{ success_url }}">
+        {% csrf_token %}
 
-    {{ form.as_p }}
-    {{ email }}
-    <style> #id_subscribed { margin-left:19em; } </style>
-
-    <button type='submit' class='btn btn-info' style="margin-left:25em;">{% trans "Save" %}</button>
-</form>
+        <div class="row">
+            <div class="col-10">
+                <label for="id_subscribed">Receive Marketing Email?</label>
+            </div>
+            <div class="col">
+                <input type="checkbox" name="subscribed" id="id_subscribed">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-9">
+                {{ email }}
+            </div>
+            <div class="col">
+                <button type='submit' class='btn btn-info'>{% trans "Save" %}</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 {% endblock %}
