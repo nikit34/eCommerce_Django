@@ -57,7 +57,19 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-toggler {
     background-color: rgba(255, 0, 0, 0.5);
 }
-
+.search-form .form-control {
+    border: none;
+    border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0);
+}
+.search-form button {
+    border: none !important;
+    transition: all 0.5s;
+}
+.search-form button:hover {
+    color:red;
+    background: rgba(255, 255, 255, 0);
+}
 
 
 form.form-reglog {
