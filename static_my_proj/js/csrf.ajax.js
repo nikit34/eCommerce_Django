@@ -28,9 +28,10 @@ $(document).ready(function(){
     });
 
   // PayPal
-  if (window.location.href.includes("/cart/checkout/")) {
+  if ( !! document.getElementById('paypal-block')) {
     let csrftoken = getCookie('csrftoken');
     let url = "/cart/create-paypal-transaction/";
+    let order_done = false;
 
     paypal.Buttons({
       style: {
@@ -39,6 +40,7 @@ $(document).ready(function(){
         label:  'pay',
         height: 50
       },
+
       createOrder: function() {
         return fetch(url, {
           method: 'post',
@@ -48,10 +50,26 @@ $(document).ready(function(){
           }
         }).then(function(data) {
           let orderID = data.url.split('/')[7];
-          location.replace(data.url);
+          order_done = data.url;
           return orderID;
         });
       },
+
+      onCancel: function(data, actions) {
+        console.log("You are a bummer!");
+      },
+
+      onError: function(err) {
+        console.log("PayPal is a bummer!");
+      }
     }).render('#paypal-button-container');
+
+    setInterval(function(){
+      if(order_done){
+        if(! document.querySelector("[id^='paypal-overlay-']")) {
+          location.replace(order_done);
+        }
+      }
+    }, 1000);
   }
 })
