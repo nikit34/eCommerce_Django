@@ -2,19 +2,41 @@
 {% load i18n %}
 {% block content %}
 
-<div style="margin-left:30%; margin-top:10%;">
-{% load static %}
-<img class="log" src="{% static 'img/fon_log.png'%}">
-    <form class="form-reglog" method='POST'> {% csrf_token %}
-        <h1>{% trans "Login" %}</h1>
-        <table>
-            {{ form.as_p }}
-        </table>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-outline-info">{% trans "Sign in" %}</button>
+<div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-5">
+        <form class="base-canvas-cell" method='POST'> {% csrf_token %}
+            <h1>{% trans "Login" %}</h1>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <label for="id_email">Email:</label>
+                    </div>
+                    <div class="row">
+                        <label for="id_password">Password:</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <input type="email" name="email" required="" id="id_email">
+                    </div>
+                    <div class="row">
+                        <input type="password" name="password" required="" id="id_password">
+                    </div>
+                </div>
             </div>
+            <br>
+            <div class="row">
+                <div class="col-9">
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-outline-info">{% trans "Sign in" %}</button>
+                </div>
+            </div>
+        </form>
         </div>
-    </form>
+    <div class="col-4">
+    </div>
 </div>
 {% endblock %}
