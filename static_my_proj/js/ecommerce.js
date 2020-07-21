@@ -91,6 +91,14 @@ $(document).ready(function(){
     var httpMethod = "GET";
     var data = { product_id: productId };
     var isOwner;
+    let localizations = document.getElementsByName('language');
+    let i_attr_value, lang;
+    for(let i = 0; i < localizations.length; i++){
+      if(localizations[i].outerHTML.includes('selected')) {
+        i_attr_value = localizations[i].outerHTML.indexOf('value=');
+        lang = localizations[i].outerHTML.slice(i_attr_value + 7, i_attr_value + 9);
+      }
+    }
     $.ajax({
       url: actionEndpoint,
       method: httpMethod,
@@ -98,9 +106,19 @@ $(document).ready(function(){
       success: function (data) {
         if (data.owner) {
           isOwner = true;
-          submitSpan.html(
-            "<a class='btn btn-warning' href='/library/'>In Library</a>"
-          );
+          if(lang == 'en') {
+            submitSpan.html(
+              "<a class='btn btn-warning' href='/library/'>In Collection</a>"
+            );
+            } else if(lang == 'ru'){
+              submitSpan.html(
+                "<a class='btn btn-warning' href='/library/'>Приобретено</a>"
+              );
+          } else {
+            submitSpan.html(
+              "<div class='btn-group'>Undefined langueges in js</div>"
+            );
+          }
         } else {
           isOwner = false;
         }
