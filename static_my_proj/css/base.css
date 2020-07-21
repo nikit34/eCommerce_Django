@@ -228,6 +228,7 @@ div.right-field {
     border: 2px solid #0000ff80;
     border-radius: 15px;
     font-size: x-large;
+    min-width: 25em;
 }
 .base-canvas-cell-2 {
     background-color: #0000ff10;
@@ -235,6 +236,7 @@ div.right-field {
     border: 1px solid #0000ff80;
     border-radius: 15px;
     font-size: large;
+    min-width: 25em;
 }
 .base-canvas-cell-small {
     background-color: whitesmoke;
@@ -242,6 +244,7 @@ div.right-field {
     border: 1px solid #0000ff80;
     border-radius: 15px;
     text-align: center;
+    min-width: 25em;
 }
 .base-canvas-cell-small-2 {
     background-color: #0000ff50;
@@ -250,6 +253,7 @@ div.right-field {
     border-right: 1px solid #0000ff80;
     border-radius: 15px;
     text-align: center;
+    min-width: 25em;
 }
 .base-canvas-cell-empty {
     padding: 2em 1em 0 1em;
