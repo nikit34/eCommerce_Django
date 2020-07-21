@@ -10,7 +10,7 @@
             <h1>{% trans "Register" %}</h1>
             <div class="row">
                 <div class="col">
-                    <label for="{{ form.full_name.id_for_label }}">Full name:</label>
+                    <label for="{{ form.full_name.id_for_label }}">{% trans "Full name" %}:</label>
                 </div>
                 <div class="col">
                     {{ form.full_name }}
@@ -32,7 +32,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="{{ form.password1.id_for_label }}">Password:</label>
+                    <label for="{{ form.password1.id_for_label }}">{% trans "Password" %}:</label>
                 </div>
                 <div class="col">
                     {{ form.password1 }}
@@ -43,7 +43,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="{{ form.password2.id_for_label }}">Password confirmation:</label>
+                    <label for="{{ form.password2.id_for_label }}">{% trans "Password confirmation" %}:</label>
                 </div>
                 <div class="col">
                     {{ form.password2 }}
