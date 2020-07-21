@@ -125,8 +125,8 @@ msgid "Saved addresses"
 msgstr ""
 
 #: accounts/templates/accounts/home.html:20
-#: orders/templates/orders/library.html:8 templates/base/navbar.html:60
-msgid "Library"
+#: orders/templates/orders/collection.html:8 templates/base/navbar.html:60
+msgid "Collection"
 msgstr ""
 
 #: accounts/templates/accounts/home.html:29
@@ -575,15 +575,15 @@ msgstr ""
 msgid "Update Email Preferences"
 msgstr ""
 
-#: orders/templates/orders/library.html:14
+#: orders/templates/orders/collection.html:14
 msgid "Product"
 msgstr ""
 
-#: orders/templates/orders/library.html:14
+#: orders/templates/orders/collection.html:14
 msgid "Download"
 msgstr ""
 
-#: orders/templates/orders/library.html:28
+#: orders/templates/orders/collection.html:28
 #: orders/templates/orders/order_list.html:23
 msgid "No orders yet"
 msgstr ""

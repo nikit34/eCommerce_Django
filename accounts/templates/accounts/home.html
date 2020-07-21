@@ -28,7 +28,7 @@
         <h3 class="card-home-title">{% trans "History" %}</h3>
             <div class='list-group'>
                 <a class='list-group-item' href='{% url "accounts:user-product-history" %}'>{% trans "Products" %}</a>
-                <a class='list-group-item' href='{% url "library" %}'>{% trans "Library" %}</a>
+                <a class='list-group-item' href='{% url "collection" %}'>{% trans "Collection" %}</a>
                 {% if user.staff %}
                   <a class='list-group-item' href='{% url "sales-analytics" %}'>{% trans "Statistics" %}</a>
                 {% endif %}

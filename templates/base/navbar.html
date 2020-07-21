@@ -7,7 +7,7 @@
 {% url 'accounts:account-home' as account_url %}
 {% url 'accounts:user-product-history' as history %}
 {% url 'cart:home' as cart_url %}
-{% url 'library' as library %}
+{% url 'collection' as collection %}
 {% url 'admin:index' as admin %}
 {% url 'sales-analytics' as analys %}
 {% url 'billing-payment-method' as billing_payment %}
@@ -57,7 +57,7 @@
                   {% endif %}
                   <a class="dropdown-item {% if request.path == analys %}active{% endif %}" href="{{ analys }}">{% trans "Statistics" %}</a>
                   <a class="dropdown-item {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url }}">{% trans "Contact" %}</a>
-                  <a class="dropdown-item {% if request.path ==  library %}active{% endif %}" href="{{ library }}">{% trans "Library" %}</a>
+                  <a class="dropdown-item {% if request.path ==  collection %}active{% endif %}" href="{{ collection }}">{% trans "Collection" %}</a>
                   <a class="dropdown-item {% if request.path ==  billing_payment %}active{% endif %}" href="{{ billing_payment }}">{% trans "Payment" %}</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ logout_url }}">{% trans "Logout" %}</a>

@@ -20,8 +20,8 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
         return Http404
 
 
-class LibraryView(LoginRequiredMixin, ListView):
-    template_name = 'orders/library.html'
+class CollectionView(LoginRequiredMixin, ListView):
+    template_name = 'orders/collection.html'
 
     def get_queryset(self):
         return ProductPurchase.objects.products_by_request(self.request)

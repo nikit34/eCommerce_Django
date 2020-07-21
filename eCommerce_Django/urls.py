@@ -18,7 +18,7 @@ from accounts.views import LoginView, RegisterView
 from billing.views import payment_method_view, payment_method_createview
 from carts.views import cart_detail_api_view, paypal_checkout_home
 from marketing.views import MarketingPreferenceUpdateView, MailchimpWebhookView
-from orders.views import LibraryView
+from orders.views import CollectionView
 from .views import ProductListView, about_page, contact_page, update
 
 
@@ -39,7 +39,7 @@ urlpatterns = [
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
     url(r'^register/$', RegisterView.as_view(), name='register'),
-    url(r'^library/$', LibraryView.as_view(), name='library'),
+    url(r'^collection/$', CollectionView.as_view(), name='collection'),
     url(r'^search/', include(('search.urls', 'eCommerce_Django'), namespace='search')),
     url(r'^settings/email/$', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
 
