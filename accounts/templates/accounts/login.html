@@ -10,25 +10,30 @@
             <h1>{% trans "Login" %}</h1>
             <div class="row">
                 <div class="col">
-                    <div class="row">
-                        <label for="id_email">Email:</label>
-                    </div>
-                    <div class="row">
-                        <label for="id_password">Password:</label>
-                    </div>
+                    <label for="{{ form.email.id_for_label }}">Email:</label>
                 </div>
                 <div class="col">
-                    <div class="row">
-                        <input type="email" name="email" required="" id="id_email">
-                    </div>
-                    <div class="row">
-                        <input type="password" name="password" required="" id="id_password">
-                    </div>
+                    {{ form.email }}
                 </div>
             </div>
-            <br>
+            <div class="row form-errors">
+                {{ form.email.errors }}
+            </div>
             <div class="row">
-                <div class="col-9">
+                <div class="col">
+                    <label for="{{ form.password.id_for_label }}">Password:</label>
+                </div>
+                <div class="col">
+                    {{ form.password }}
+                </div>
+            </div>
+            <div class="row form-errors">
+                {{ form.password.errors }}
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-9 form-errors">
+                    {{ form.non_field_errors }}
                 </div>
                 <div class="col">
                     <button type="submit" class="btn btn-outline-info">{% trans "Sign in" %}</button>
