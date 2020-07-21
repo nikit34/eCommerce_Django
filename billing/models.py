@@ -140,28 +140,6 @@ def new_card_post_save_receiver(sender, instance, created, *args, **kwargs):
 post_save.connect(new_card_post_save_receiver, sender=Card)
 
 
-class PaypalCardManager(models.Manager):
-    def all(self, *args, **kwargs):
-        return self.get_queryset().filter(active=True)
-
-    def add_new(self, billing_profile, token):
-        if token:
-            customer = stripe.Customer.retrieve(billing_profile.customer_id)
-            stripe_card_response = customer.sources.create(source=token)
-            new_card = self.model(
-                billing_profile = billing_profile,
-                stripe_id = stripe_card_response.id,
-                brand = stripe_card_response.brand,
-                country = stripe_card_response.country,
-                exp_month = stripe_card_response.exp_month,
-                exp_year = stripe_card_response.exp_year,
-                last4 = stripe_card_response.last4
-            )
-            new_card.save()
-            return new_card
-        return None
-
-
 class ChargeManager(models.Manager):
     def do(self, billing_profile, order_obj, card=None):
         card_obj = card
