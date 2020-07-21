@@ -17,6 +17,7 @@ gunicorn==19.7.1
 idna==2.6
 jmespath==0.9.3
 olefile==0.44
+paypal-checkout-serversdk==1.0.1
 paypalhttp==1.0.0
 Pillow==7.2.0
 pkg-resources==0.0.0
@@ -29,4 +30,5 @@ s3transfer==0.1.11
 six==1.11.0
 smmap2==2.0.3
 stripe==1.68.0
+tblib==1.6.0
 urllib3==1.25.9
