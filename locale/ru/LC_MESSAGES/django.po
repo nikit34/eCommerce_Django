@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-21 14:59+0000\n"
+"POT-Creation-Date: 2020-07-21 20:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -220,6 +220,10 @@ msgstr "Ссылка для активации отправлена. Пожал�
 msgid "Change Your Account Details"
 msgstr "Изменить данные учетной записи"
 
+#: addresses/forms.py:16
+msgid "Country code is not valid"
+msgstr "Код страны недействителен"
+
 #: addresses/models.py:10 addresses/templates/addresses/update.html:46
 msgid "Billing address"
 msgstr "Адрес выставления счета"
@@ -270,8 +274,10 @@ msgstr "Город"
 
 #: addresses/templates/addresses/form.html:64
 #: addresses/templates/addresses/update.html:81
-msgid "Country"
-msgstr "Страна"
+#, fuzzy
+#| msgid "Country"
+msgid "Country code"
+msgstr "Код страны"
 
 #: addresses/templates/addresses/form.html:80
 #: addresses/templates/addresses/update.html:97
@@ -669,7 +675,7 @@ msgstr "Поиск"
 msgid "Results for"
 msgstr "Результаты поиска"
 
-#: templates/base.html:26
+#: templates/base.html:36
 msgid "Important"
 msgstr "Важно"
 

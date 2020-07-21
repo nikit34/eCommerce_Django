@@ -13,7 +13,7 @@
 
     <div class="row bank-canvas-cell-empty">
         <div class="col">
-            <label for="{{ form.nickname.id_for_label }}">{% trans "Nickname" %}:</label>
+            <label for="{{ form.nickname.id_for_label }}">{% trans "Nickname" %} (Email):</label>
         </div>
         <div class="col-4">
             {{ form.nickname }}<br>
@@ -61,7 +61,7 @@
             {{ form.city }}
         </div>
         <div class="col">
-            <label for="{{ form.country.id_for_label }}">{% trans "Country" %}:</label>
+            <label for="{{ form.country.id_for_label }}">{% trans "Country code" %}:</label>
         </div>
         <div class="col-4">
             {{ form.country }}
