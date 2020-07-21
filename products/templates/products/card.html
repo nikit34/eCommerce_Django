@@ -9,7 +9,7 @@
         <p class="text-center mt-2 mb-2">{% trans "Image not found :(" %}</p>
     {% endif %}
     <div class="row card-body">
-        <div class="col-6">
+        <div class="col-5">
             {% if complet == "1" %}
                 <h5>{{ instance.title }}</h5>
                 <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>
@@ -18,7 +18,7 @@
             {% endif %}
         </div>
         {% if complet == "1" %}
-            <div class="col-4 card-button">
+            <div class="col-5 card-button">
                 <div class="row">
                     <div class="col-4">
                         <a href="{{ instance.get_absolute_url }}" class="btn btn-danger">{% trans "View" %}</a>
