@@ -10,37 +10,52 @@
             <h1>{% trans "Register" %}</h1>
             <div class="row">
                 <div class="col">
-                    <div class="row">
-                        <label for="id_full_name">Full name:</label>
-                    </div>
-                    <div class="row">
-                        <label for="id_email">Email:</label>
-                    </div>
-                    <div class="row">
-                        <label for="id_password1">Password:</label>
-                    </div>
-                    <div class="row">
-                        <label for="id_password2">Password confirmation:</label>
-                    </div>
+                    <label for="{{ form.full_name.id_for_label }}">Full name:</label>
                 </div>
                 <div class="col">
-                    <div class="row">
-                        <input type="text" name="full_name" maxlength="255" id="id_full_name">
-                    </div>
-                    <div class="row">
-                        <input type="email" name="email" maxlength="255" required="" id="id_email">
-                    </div>
-                    <div class="row">
-                        <input type="password" name="password1" required="" id="id_password1">
-                    </div>
-                    <div class="row">
-                        <input type="password" name="password2" required="" id="id_password2">
-                    </div>
+                    {{ form.full_name }}
                 </div>
             </div>
-            <br>
+            <div class="row form-errors">
+                {{ form.full_name.errors }}
+            </div>
             <div class="row">
-                <div class="col-9">
+                <div class="col">
+                    <label for="{{ form.email.id_for_label }}">Email:</label>
+                </div>
+                <div class="col">
+                    {{ form.email }}
+                </div>
+            </div>
+            <div class="row form-errors">
+                {{ form.email.errors }}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="{{ form.password1.id_for_label }}">Password:</label>
+                </div>
+                <div class="col">
+                    {{ form.password1 }}
+                </div>
+            </div>
+            <div class="row form-errors">
+                {{ form.password1.errors }}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="{{ form.password2.id_for_label }}">Password confirmation:</label>
+                </div>
+                <div class="col">
+                    {{ form.password2 }}
+                </div>
+            </div>
+            <div class="row form-errors">
+                {{ form.password2.errors }}
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-8 form-errors">
+                    {{ form.non_field_errors }}
                 </div>
                 <div class="col">
                     <button type='submit' class='btn btn-outline-info'>{% trans "Sign up" %}</button>

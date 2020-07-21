@@ -215,6 +215,12 @@ div.right-field {
 
 
 
+.form-errors {
+    color:#ff0000;
+}
+
+
+
 /* canvas blue */
 .base-canvas-cell {
     background-color: whitesmoke;
