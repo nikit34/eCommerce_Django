@@ -17,7 +17,6 @@
             <a class='list-group-item' href='{% url "orders:list" %}'>{% trans "Orders" %}</a>
             <a class='list-group-item' href='{% url "billing-payment-method" %}'>{% trans "Payment Methods" %}</a>
             <a class='list-group-item' href='{% url "addresses" %}'>{% trans "Saved addresses" %}</a>
-            <a class='list-group-item' href='{% url "library" %}'>{% trans "Library" %}</a>
           </div>
       </div>
     </div>
@@ -29,7 +28,10 @@
         <h3 class="card-home-title">{% trans "History" %}</h3>
             <div class='list-group'>
                 <a class='list-group-item' href='{% url "accounts:user-product-history" %}'>{% trans "Products" %}</a>
-                <a class='list-group-item' href='{% url "sales-analytics" %}'>{% trans "Statistics" %}</a>
+                <a class='list-group-item' href='{% url "library" %}'>{% trans "Library" %}</a>
+                {% if user.staff %}
+                  <a class='list-group-item' href='{% url "sales-analytics" %}'>{% trans "Statistics" %}</a>
+                {% endif %}
             </div>
       </div>
     </div>
