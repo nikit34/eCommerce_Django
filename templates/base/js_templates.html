@@ -1,6 +1,6 @@
 {% verbatim %}
 <script id="stripeTemplate" type="text/x-jsrender">
-    <form class='payment-form' action="" method="post" id="payment-form" data-token='{{:publishKey}}' data-next-url='{{:nextUrl}}'>
+    <form class='payment-form' action="" method="POST" id="payment-form" data-token='{{:publishKey}}' data-next-url='{{:nextUrl}}'>{% csrf_token %}
   <div class="form-row">
     <!-- <label for="card-element">
       Credit or debit card

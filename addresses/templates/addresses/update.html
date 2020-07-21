@@ -11,7 +11,7 @@
                 <h3 class='my-5'>{% trans "Create Address" %}</h3>
             {% endif %}
             <hr>
-            <form method="POST" action="">
+            <form method="POST" action="">{% csrf_token %}
                 <div class="row bank-canvas-cell-empty">
                     <div class="col">
                         <label for="{{ form.nickname.id_for_label }}">{% trans "Nickname" %}:</label>

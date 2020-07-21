@@ -18,7 +18,7 @@
             <a href="http://www.etsy.com/shop/StudioOlyalya"><i class="fa fa-etsy fa-2x"  style="color:brown;"></i></a>
         </div>
         <div class="col-4 footer-right">
-            <form action="{% url 'set_language' %}" method="post" value="{{ redirect_to }}">
+            <form action="{% url 'set_language' %}" method="POST" value="{{ redirect_to }}">
                 {% csrf_token %}
                     {% get_current_language as LANGUAGE_CODE %}
                     {% get_available_languages as LANGUAGES %}
