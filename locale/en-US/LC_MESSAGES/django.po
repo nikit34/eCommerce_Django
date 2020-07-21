@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-21 08:38+0000\n"
+"POT-Creation-Date: 2020-07-21 14:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,7 +93,7 @@ msgid "Save"
 msgstr ""
 
 #: accounts/templates/accounts/detail-update-view.html:18
-#: accounts/templates/accounts/home.html:57
+#: accounts/templates/accounts/home.html:59
 msgid "Change Password"
 msgstr ""
 
@@ -124,46 +124,46 @@ msgstr ""
 msgid "Saved addresses"
 msgstr ""
 
-#: accounts/templates/accounts/home.html:20
+#: accounts/templates/accounts/home.html:28
+msgid "History"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:30 templates/base/navbar.html:32
+msgid "Products"
+msgstr ""
+
+#: accounts/templates/accounts/home.html:31
 #: orders/templates/orders/collection.html:8 templates/base/navbar.html:60
 msgid "Collection"
 msgstr ""
 
-#: accounts/templates/accounts/home.html:29
-msgid "History"
-msgstr ""
-
-#: accounts/templates/accounts/home.html:31 templates/base/navbar.html:32
-msgid "Products"
-msgstr ""
-
-#: accounts/templates/accounts/home.html:32 templates/base/navbar.html:58
+#: accounts/templates/accounts/home.html:33 templates/base/navbar.html:58
 msgid "Statistics"
 msgstr ""
 
-#: accounts/templates/accounts/home.html:41
+#: accounts/templates/accounts/home.html:43
 msgid "Support"
 msgstr ""
 
-#: accounts/templates/accounts/home.html:43 eCommerce_Django/views.py:42
+#: accounts/templates/accounts/home.html:45 eCommerce_Django/views.py:42
 #: templates/contact/about.html:5
 msgid "About"
 msgstr ""
 
-#: accounts/templates/accounts/home.html:44 eCommerce_Django/views.py:52
+#: accounts/templates/accounts/home.html:46 eCommerce_Django/views.py:52
 #: templates/base/navbar.html:59
 msgid "Contact"
 msgstr ""
 
-#: accounts/templates/accounts/home.html:53
+#: accounts/templates/accounts/home.html:55
 msgid "Account Details"
 msgstr ""
 
-#: accounts/templates/accounts/home.html:55
+#: accounts/templates/accounts/home.html:57
 msgid "Email Marketing"
 msgstr ""
 
-#: accounts/templates/accounts/home.html:56
+#: accounts/templates/accounts/home.html:58
 msgid "Update Details"
 msgstr ""
 
@@ -209,20 +209,24 @@ msgstr ""
 msgid "Change Your Account Details"
 msgstr ""
 
-#: addresses/models.py:9 addresses/templates/addresses/update.html:46
+#: addresses/models.py:10 addresses/templates/addresses/update.html:46
 msgid "Billing address"
 msgstr ""
 
-#: addresses/models.py:10 addresses/templates/addresses/update.html:47
+#: addresses/models.py:11 addresses/templates/addresses/update.html:47
 msgid "Shipping address"
 msgstr ""
 
-#: addresses/models.py:16
+#: addresses/models.py:17
 msgid "Shipping to? Who is it for?"
 msgstr ""
 
-#: addresses/models.py:17
+#: addresses/models.py:18
 msgid "Internal Reference Nickname"
+msgstr ""
+
+#: addresses/models.py:22
+msgid "Only uppercase letters and length has be 2"
 msgstr ""
 
 #: addresses/templates/addresses/form.html:16
@@ -355,7 +359,7 @@ msgstr ""
 msgid "Paid Totals"
 msgstr ""
 
-#: billing/models.py:173
+#: billing/models.py:151
 msgid "No cards available"
 msgstr ""
 
@@ -389,7 +393,7 @@ msgstr ""
 #: carts/templates/carts/checkout/has_billingprofile.html:5
 #: carts/templates/carts/checkout/has_billingprofile_shipping.html:40
 #: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:41
-#: orders/templates/orders/order_detail.html:16
+#: orders/templates/orders/order_detail.html:34
 msgid "Billing Address"
 msgstr ""
 
@@ -414,7 +418,7 @@ msgstr ""
 #: carts/templates/carts/checkout/has_billingprofile_shipping.html:31
 #: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:32
 #: carts/templates/carts/checkout/has_billingprofile_shiprequired.html:5
-#: orders/templates/orders/order_detail.html:15
+#: orders/templates/orders/order_detail.html:25
 msgid "Shipping Address"
 msgstr ""
 
@@ -425,13 +429,13 @@ msgstr ""
 
 #: carts/templates/carts/checkout/has_billingprofile_shipping.html:60
 #: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:62
-#: orders/templates/orders/order_detail.html:18
+#: orders/templates/orders/order_detail.html:52
 msgid "Shipping Total"
 msgstr ""
 
 #: carts/templates/carts/checkout/has_billingprofile_shipping.html:65
 #: carts/templates/carts/checkout/has_billingprofile_shipping_card.html:67
-#: orders/templates/orders/order_detail.html:19
+#: orders/templates/orders/order_detail.html:61
 msgid "Order Total"
 msgstr ""
 
@@ -489,7 +493,7 @@ msgid "Price"
 msgstr ""
 
 #: carts/templates/carts/home.html:35
-#: orders/templates/orders/order_detail.html:17
+#: orders/templates/orders/order_detail.html:43
 msgid "Subtotal"
 msgstr ""
 
@@ -588,11 +592,11 @@ msgstr ""
 msgid "No orders yet"
 msgstr ""
 
-#: orders/templates/orders/order_detail.html:14
+#: orders/templates/orders/order_detail.html:16
 msgid "Items"
 msgstr ""
 
-#: orders/templates/orders/order_detail.html:20
+#: orders/templates/orders/order_detail.html:70
 msgid "Order Status"
 msgstr ""
 
