@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-20 18:10+0000\n"
+"POT-Creation-Date: 2020-07-21 08:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,10 +25,14 @@ msgid ""
 msgstr ""
 
 #: accounts/forms.py:28 accounts/forms.py:89 accounts/forms.py:126
+#: accounts/templates/accounts/form.html:22
+#: accounts/templates/accounts/login.html:24
+#: accounts/templates/accounts/register.html:35
 msgid "Password"
 msgstr ""
 
 #: accounts/forms.py:29 accounts/forms.py:127
+#: accounts/templates/accounts/register.html:46
 msgid "Password confirmation"
 msgstr ""
 
@@ -83,8 +87,8 @@ msgid "Cannot change email"
 msgstr ""
 
 #: accounts/templates/accounts/detail-update-view.html:17
-#: marketing/templates/subscribe_form.html:14 templates/base/forms.html:17
-#: templates/registration/password_change_form.html:11
+#: marketing/templates/subscribe_form.html:26
+#: templates/registration/password_change_form.html:65
 msgid "Save"
 msgstr ""
 
@@ -93,8 +97,8 @@ msgstr ""
 msgid "Change Password"
 msgstr ""
 
-#: accounts/templates/accounts/form.html:19
-#: addresses/templates/addresses/form.html:75 templates/contact/view.html:21
+#: accounts/templates/accounts/form.html:37
+#: addresses/templates/addresses/form.html:106 templates/contact/view.html:21
 msgid "Submit"
 msgstr ""
 
@@ -170,7 +174,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: accounts/templates/accounts/login.html:34
+#: accounts/templates/accounts/login.html:39
 msgid "Sign in"
 msgstr ""
 
@@ -178,7 +182,11 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: accounts/templates/accounts/register.html:46
+#: accounts/templates/accounts/register.html:13
+msgid "Full name"
+msgstr ""
+
+#: accounts/templates/accounts/register.html:61
 msgid "Sign up"
 msgstr ""
 
@@ -201,11 +209,11 @@ msgstr ""
 msgid "Change Your Account Details"
 msgstr ""
 
-#: addresses/models.py:9 addresses/templates/addresses/update.html:38
+#: addresses/models.py:9 addresses/templates/addresses/update.html:46
 msgid "Billing address"
 msgstr ""
 
-#: addresses/models.py:10 addresses/templates/addresses/update.html:39
+#: addresses/models.py:10 addresses/templates/addresses/update.html:47
 msgid "Shipping address"
 msgstr ""
 
@@ -232,31 +240,31 @@ msgstr ""
 msgid "Shipping to? Who is it for"
 msgstr ""
 
-#: addresses/templates/addresses/form.html:32
+#: addresses/templates/addresses/form.html:40
 msgid "Street"
 msgstr ""
 
-#: addresses/templates/addresses/form.html:38
+#: addresses/templates/addresses/form.html:46
 msgid "Apartment"
 msgstr ""
 
-#: addresses/templates/addresses/form.html:46
-#: addresses/templates/addresses/update.html:59
+#: addresses/templates/addresses/form.html:58
+#: addresses/templates/addresses/update.html:75
 msgid "City"
 msgstr ""
 
-#: addresses/templates/addresses/form.html:52
-#: addresses/templates/addresses/update.html:65
+#: addresses/templates/addresses/form.html:64
+#: addresses/templates/addresses/update.html:81
 msgid "Country"
 msgstr ""
 
-#: addresses/templates/addresses/form.html:60
-#: addresses/templates/addresses/update.html:73
+#: addresses/templates/addresses/form.html:80
+#: addresses/templates/addresses/update.html:97
 msgid "State"
 msgstr ""
 
-#: addresses/templates/addresses/form.html:66
-#: addresses/templates/addresses/update.html:79
+#: addresses/templates/addresses/form.html:86
+#: addresses/templates/addresses/update.html:103
 msgid "Postal code"
 msgstr ""
 
@@ -269,8 +277,8 @@ msgid "Create New"
 msgstr ""
 
 #: addresses/templates/addresses/list.html:21
-#: addresses/templates/addresses/update.html:45
-#: addresses/templates/addresses/update.html:51
+#: addresses/templates/addresses/update.html:53
+#: addresses/templates/addresses/update.html:59
 msgid "Address"
 msgstr ""
 
@@ -294,11 +302,11 @@ msgstr ""
 msgid "Create Address"
 msgstr ""
 
-#: addresses/templates/addresses/update.html:33
+#: addresses/templates/addresses/update.html:41
 msgid "Type"
 msgstr ""
 
-#: addresses/templates/addresses/update.html:88
+#: addresses/templates/addresses/update.html:123
 msgid "Save Address"
 msgstr ""
 
@@ -368,6 +376,14 @@ msgid ""
 "<div id=\"blue\">T</div><div id=\"red\">h</div><div id=\"yellow\">a</"
 "div><div id=\"green\">n</div><div id=\"red\">k</div>, <div id=\"blue\">you "
 "for your order</div>"
+msgstr ""
+
+#: carts/templates/carts/checkout-done.html:13
+msgid "Your"
+msgstr ""
+
+#: carts/templates/carts/checkout-done.html:13
+msgid "order ID"
 msgstr ""
 
 #: carts/templates/carts/checkout/has_billingprofile.html:5
@@ -472,21 +488,21 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: carts/templates/carts/home.html:32
+#: carts/templates/carts/home.html:35
 #: orders/templates/orders/order_detail.html:17
 msgid "Subtotal"
 msgstr ""
 
-#: carts/templates/carts/home.html:36
+#: carts/templates/carts/home.html:48
 #: orders/templates/orders/order_list.html:13
 msgid "Total"
 msgstr ""
 
-#: carts/templates/carts/home.html:40
+#: carts/templates/carts/home.html:58
 msgid "Checkout"
 msgstr ""
 
-#: carts/templates/carts/home.html:51
+#: carts/templates/carts/home.html:69
 msgid "Cart is empty"
 msgstr ""
 
@@ -537,6 +553,10 @@ msgstr ""
 
 #: marketing/forms.py:7
 msgid "Receive Marketing Email?"
+msgstr ""
+
+#: marketing/templates/subscribe_form.html:14
+msgid "Receive Marketing Email"
 msgstr ""
 
 #: marketing/utils.py:16
@@ -714,6 +734,34 @@ msgstr ""
 
 #: templates/registration/password_change_form.html:6
 msgid "Change your Password"
+msgstr ""
+
+#: templates/registration/password_change_form.html:12
+msgid "Old password"
+msgstr ""
+
+#: templates/registration/password_change_form.html:25
+msgid "New password"
+msgstr ""
+
+#: templates/registration/password_change_form.html:38
+msgid "Your password can't be too similar to your other personal information"
+msgstr ""
+
+#: templates/registration/password_change_form.html:39
+msgid "Your password must contain at least 8 characters"
+msgstr ""
+
+#: templates/registration/password_change_form.html:40
+msgid "Your password can't be a commonly used password"
+msgstr ""
+
+#: templates/registration/password_change_form.html:41
+msgid "Your password can't be entirely numeric"
+msgstr ""
+
+#: templates/registration/password_change_form.html:50
+msgid "New password confirmation"
 msgstr ""
 
 #: templates/registration/password_reset_complete.html:6

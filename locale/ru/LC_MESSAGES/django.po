@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-20 18:10+0000\n"
+"POT-Creation-Date: 2020-07-21 08:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,10 +30,14 @@ msgstr ""
 "a>?"
 
 #: accounts/forms.py:28 accounts/forms.py:89 accounts/forms.py:126
+#: accounts/templates/accounts/form.html:22
+#: accounts/templates/accounts/login.html:24
+#: accounts/templates/accounts/register.html:35
 msgid "Password"
 msgstr "Пароль"
 
 #: accounts/forms.py:29 accounts/forms.py:127
+#: accounts/templates/accounts/register.html:46
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
@@ -92,8 +96,8 @@ msgid "Cannot change email"
 msgstr "Нельзя сменить email"
 
 #: accounts/templates/accounts/detail-update-view.html:17
-#: marketing/templates/subscribe_form.html:14 templates/base/forms.html:17
-#: templates/registration/password_change_form.html:11
+#: marketing/templates/subscribe_form.html:26
+#: templates/registration/password_change_form.html:65
 msgid "Save"
 msgstr "Сохранить"
 
@@ -102,8 +106,8 @@ msgstr "Сохранить"
 msgid "Change Password"
 msgstr "Сменить пароль"
 
-#: accounts/templates/accounts/form.html:19
-#: addresses/templates/addresses/form.html:75 templates/contact/view.html:21
+#: accounts/templates/accounts/form.html:37
+#: addresses/templates/addresses/form.html:106 templates/contact/view.html:21
 msgid "Submit"
 msgstr "Отправить"
 
@@ -179,7 +183,7 @@ msgstr "Обновить настройки"
 msgid "Login"
 msgstr "Авторизация"
 
-#: accounts/templates/accounts/login.html:34
+#: accounts/templates/accounts/login.html:39
 msgid "Sign in"
 msgstr "Войти"
 
@@ -187,7 +191,11 @@ msgstr "Войти"
 msgid "Register"
 msgstr "Регистрация"
 
-#: accounts/templates/accounts/register.html:46
+#: accounts/templates/accounts/register.html:13
+msgid "Full name"
+msgstr "Ваше полное имя"
+
+#: accounts/templates/accounts/register.html:61
 msgid "Sign up"
 msgstr "Зарегестрироваться"
 
@@ -212,11 +220,11 @@ msgstr "Ссылка для активации отправлена. Пожал�
 msgid "Change Your Account Details"
 msgstr "Изменить данные учетной записи"
 
-#: addresses/models.py:9 addresses/templates/addresses/update.html:38
+#: addresses/models.py:9 addresses/templates/addresses/update.html:46
 msgid "Billing address"
 msgstr "Адрес выставления счета"
 
-#: addresses/models.py:10 addresses/templates/addresses/update.html:39
+#: addresses/models.py:10 addresses/templates/addresses/update.html:47
 msgid "Shipping address"
 msgstr "Адрес доставки"
 
@@ -243,31 +251,31 @@ msgstr "Внутренний Логин"
 msgid "Shipping to? Who is it for"
 msgstr "С доставкой? Для кого"
 
-#: addresses/templates/addresses/form.html:32
+#: addresses/templates/addresses/form.html:40
 msgid "Street"
 msgstr "Улица"
 
-#: addresses/templates/addresses/form.html:38
+#: addresses/templates/addresses/form.html:46
 msgid "Apartment"
 msgstr "Квартира"
 
-#: addresses/templates/addresses/form.html:46
-#: addresses/templates/addresses/update.html:59
+#: addresses/templates/addresses/form.html:58
+#: addresses/templates/addresses/update.html:75
 msgid "City"
 msgstr "Город"
 
-#: addresses/templates/addresses/form.html:52
-#: addresses/templates/addresses/update.html:65
+#: addresses/templates/addresses/form.html:64
+#: addresses/templates/addresses/update.html:81
 msgid "Country"
 msgstr "Страна"
 
-#: addresses/templates/addresses/form.html:60
-#: addresses/templates/addresses/update.html:73
+#: addresses/templates/addresses/form.html:80
+#: addresses/templates/addresses/update.html:97
 msgid "State"
 msgstr "Статус"
 
-#: addresses/templates/addresses/form.html:66
-#: addresses/templates/addresses/update.html:79
+#: addresses/templates/addresses/form.html:86
+#: addresses/templates/addresses/update.html:103
 msgid "Postal code"
 msgstr "Почтовый индекс"
 
@@ -280,8 +288,8 @@ msgid "Create New"
 msgstr "Создать новый"
 
 #: addresses/templates/addresses/list.html:21
-#: addresses/templates/addresses/update.html:45
-#: addresses/templates/addresses/update.html:51
+#: addresses/templates/addresses/update.html:53
+#: addresses/templates/addresses/update.html:59
 msgid "Address"
 msgstr "Адрес"
 
@@ -305,11 +313,11 @@ msgstr "Обновить адрес"
 msgid "Create Address"
 msgstr "Создать новый"
 
-#: addresses/templates/addresses/update.html:33
+#: addresses/templates/addresses/update.html:41
 msgid "Type"
 msgstr "Тип"
 
-#: addresses/templates/addresses/update.html:88
+#: addresses/templates/addresses/update.html:123
 msgid "Save Address"
 msgstr "Сохранить адрес"
 
@@ -383,6 +391,14 @@ msgstr ""
 "<div id=\"blue\">С</div><div id=\"red\">п</div><div id=\"yellow\">а</"
 "div><div id=\"green\">с</div><div id=\"red\">и</div><div id=\"yellow\">б</"
 "div><div id=\"green\">о</div>, <div id=\"blue\">за Ваш заказ</div>"
+
+#: carts/templates/carts/checkout-done.html:13
+msgid "Your"
+msgstr "Ваш"
+
+#: carts/templates/carts/checkout-done.html:13
+msgid "order ID"
+msgstr "ID заказа"
 
 #: carts/templates/carts/checkout/has_billingprofile.html:5
 #: carts/templates/carts/checkout/has_billingprofile_shipping.html:40
@@ -486,21 +502,21 @@ msgstr "Наименование товара"
 msgid "Price"
 msgstr "Цена"
 
-#: carts/templates/carts/home.html:32
+#: carts/templates/carts/home.html:35
 #: orders/templates/orders/order_detail.html:17
 msgid "Subtotal"
 msgstr "Промежуточный итог"
 
-#: carts/templates/carts/home.html:36
+#: carts/templates/carts/home.html:48
 #: orders/templates/orders/order_list.html:13
 msgid "Total"
 msgstr "Итог"
 
-#: carts/templates/carts/home.html:40
+#: carts/templates/carts/home.html:58
 msgid "Checkout"
 msgstr "Отплатить"
 
-#: carts/templates/carts/home.html:51
+#: carts/templates/carts/home.html:69
 msgid "Cart is empty"
 msgstr "Корзина пуста"
 
@@ -552,6 +568,10 @@ msgstr "ОШИБКА: не удалось обновить код на серв�
 #: marketing/forms.py:7
 msgid "Receive Marketing Email?"
 msgstr "Повторно активируйте свой Email?"
+
+#: marketing/templates/subscribe_form.html:14
+msgid "Receive Marketing Email"
+msgstr "Повторно активируйте свой Email"
 
 #: marketing/utils.py:16
 msgid "String passed is not a valid email address"
@@ -729,6 +749,34 @@ msgstr "Пароль успешно изменен"
 #: templates/registration/password_change_form.html:6
 msgid "Change your Password"
 msgstr "Изменить пароль"
+
+#: templates/registration/password_change_form.html:12
+msgid "Old password"
+msgstr "Старый пароль"
+
+#: templates/registration/password_change_form.html:25
+msgid "New password"
+msgstr "Новый пароль"
+
+#: templates/registration/password_change_form.html:38
+msgid "Your password can't be too similar to your other personal information"
+msgstr "Ваш пароль не может быть похож на Вашу личную информацию"
+
+#: templates/registration/password_change_form.html:39
+msgid "Your password must contain at least 8 characters"
+msgstr "Ваш пароль должен содержать не менее 8 символов"
+
+#: templates/registration/password_change_form.html:40
+msgid "Your password can't be a commonly used password"
+msgstr "Ваш пароль не может быть часто используемым паролем"
+
+#: templates/registration/password_change_form.html:41
+msgid "Your password can't be entirely numeric"
+msgstr "Ваш пароль не может быть полностью цифровым"
+
+#: templates/registration/password_change_form.html:50
+msgid "New password confirmation"
+msgstr "Подтверждение нового пароля"
 
 #: templates/registration/password_reset_complete.html:6
 msgid "Password reset complete"
