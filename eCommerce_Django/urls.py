@@ -26,37 +26,45 @@ urlpatterns = [
     url(r'^update_server/$', update, name='update'),
     url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
     url(r'^cart/create-paypal-transaction/$', paypal_checkout_home, name='paypal-checkout'),
+    url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
+    url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
 
   ] + i18n_patterns(
 
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+
     url(r'^$', ProductListView.as_view(), name='home'),
     url(r'^about/$', about_page, name='about'),
-    url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^contact/$', contact_page, name='contact'),
+    url(r'^login/$', LoginView.as_view(), name='login'),
+    url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^register/$', RegisterView.as_view(), name='register'),
+    url(r'^library/$', LibraryView.as_view(), name='library'),
+    url(r'^search/', include(('search.urls', 'eCommerce_Django'), namespace='search')),
+    url(r'^settings/email/$', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
+
     url(r'^accounts/$', RedirectView.as_view(url='/account')),
     url(r'^account/', include(('accounts.urls', 'eCommerce_Django'), namespace='accounts')),
     url(r'^accounts/', include('accounts.passwords.urls')),
+    url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
+    url(r'^checkout/address/reuse/$', checkout_address_reuse_view, name='checkout_address_reuse'),
+
     url(r'^address/$', RedirectView.as_view(url='/addresses')),
     url(r'^addresses/$', AddressListView.as_view(), name='addresses'),
     url(r'^addresses/create/$', AddressCreateView.as_view(), name='address-create'),
     url(r'^addresses/(?P<pk>\d+)/$', AddressUpdateView.as_view(), name='address-update'),
+
     url(r'^analytics/sales/$', SalesView.as_view(), name='sales-analytics'),
     url(r'^analytics/sales/data/$', SalesAjaxView.as_view(), name='sales-analytics-data'),
-    url(r'^contact/$', contact_page, name='contact'),
-    url(r'^login/$', LoginView.as_view(), name='login'),
-    url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
-    url(r'^checkout/address/reuse/$', checkout_address_reuse_view, name='checkout_address_reuse'),
-    url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
-    url(r'^logout/$', LogoutView.as_view(), name='logout'),
+
     url(r'^cart/', include(('carts.urls','eCommerce_Django'), namespace='cart')),
+
     url(r'^billing/payment-method/$', payment_method_view, name='billing-payment-method'),
-    url(r'^register/$', RegisterView.as_view(), name='register'),
-    url(r'^library/$', LibraryView.as_view(), name='library'),
+
     url(r'^orders/', include(('orders.urls', 'eCommerce_Django'), namespace='orders')),
+
     url(r'^products/', include(('products.urls', 'eCommerce_Django'), namespace='products')),
-    url(r'^search/', include(('search.urls', 'eCommerce_Django'), namespace='search')),
-    url(r'^settings/$', RedirectView.as_view(url='/setting')),
-    url(r'^settings/email/$', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
-    url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
+
     url(r'^admin/', admin.site.urls),
 )
 
