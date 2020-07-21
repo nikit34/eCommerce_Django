@@ -8,13 +8,31 @@
 
     <div class="row">
         <div class="col">
-            <label for="id_email">Email:</label> <input type="email" name="email" required="" id="id_email">
+            <label for="{{ form.email.id_for_label }}">{% trans "Email" %}:</label>
         </div>
         <div class="col">
-            <label for="id_password">Password:</label> <input type="password" name="password" required="" id="id_password">
+            {{ form.email }}
         </div>
     </div>
-    <div class="row mt-2">
+    <div class="row form-errors">
+        {{ form.email.errors }}
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="{{ form.password.id_for_label }}">{% trans "Password" %}:</label>
+        </div>
+        <div class="col">
+            {{ form.password }}
+        </div>
+    </div>
+    <div class="row form-errors">
+        {{ form.password.errors }}
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-8 form-errors">
+            {{ form.non_field_errors }}
+        </div>
         <div class="col text-right">
             <button type='submit' class="btn btn-outline-warning">{% trans "Submit" %}</button>
         </div>

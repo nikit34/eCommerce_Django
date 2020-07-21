@@ -14,23 +14,31 @@
             <form method="POST" action="">
                 <div class="row bank-canvas-cell-empty">
                     <div class="col">
-                        <label for="id_nickname">{% trans "Nickname" %}:</label>
+                        <label for="{{ form.nickname.id_for_label }}">{% trans "Nickname" %}:</label>
                     </div>
                     <div class="col-4">
-                        <input type="text" name="nickname" maxlength="120" id="id_nickname"><br>
+                        {{ form.nickname }}<br>
                         <span class="helptext">({% trans "Internal Reference" %})</span>
                     </div>
                     <div class="col">
-                        <label for="id_name">{% trans "Name" %}:</label>
+                        <label for="{{ form.name.id_for_label }}">{% trans "Name" %}:</label>
                     </div>
                     <div class="col-4">
-                        <input type="text" name="name" maxlength="120" id="id_name"><br>
+                        {{ form.name }}<br>
                         <span class="helptext">{% trans "Shipping to? Who is it for" %}?</span>
+                    </div>
+                </div>
+                <div class="row form-errors">
+                    <div class="col">
+                        {{ form.nickname.errors }}
+                    </div>
+                    <div class="col">
+                        {{ form.name.errors }}
                     </div>
                 </div>
                 <div class="row bank-canvas-cell-empty">
                     <div class="col-2">
-                        <label for="id_address_type">{% trans "Type" %}: </label>
+                        <label for="{{ form.address_type.id_for_label }}">{% trans "Type" %}: </label>
                     </div>
                     <div class="col">
                         <select name="address_type" class="form-control" required="" id="id_address_type">
@@ -42,48 +50,75 @@
                 </div>
                 <div class="row bank-canvas-cell-empty">
                     <div class="col">
-                        <label for="id_address_line_1">{% trans "Address" %} 1:</label>
+                        <label for="{{ form.address_line_1.id_for_label }}">{% trans "Address" %} 1:</label>
                     </div>
                     <div class="col-4">
-                        <input type="text" name="address_line_1" value="Коммуны 139-120" maxlength="120" required="" id="id_address_line_1">
+                        {{ form.address_line_1 }}
                     </div>
                     <div class="col">
-                        <label for="id_address_line_2">{% trans "Address" %} 2:</label>
+                        <label for="{{ form.address_line_2.id_for_label }}">{% trans "Address" %} 2:</label>
                     </div>
                     <div class="col-4">
-                        <input type="text" name="address_line_2" maxlength="120" id="id_address_line_2">
+                        {{ form.address_line_2 }}
+                    </div>
+                </div>
+                <div class="row form-errors">
+                    <div class="col">
+                        {{ form.address_line_1.errors }}
+                    </div>
+                    <div class="col">
+                        {{ form.address_line_2.errors }}
                     </div>
                 </div>
                 <div class="row bank-canvas-cell-empty">
                     <div class="col">
-                        <label for="id_city">{% trans "City" %}:</label>
+                        <label for="{{ form.city.id_for_label }}">{% trans "City" %}:</label>
                     </div>
                     <div class="col-4">
-                        <input type="text" name="city" maxlength="120" required="" id="id_city">
+                        {{ form.city }}
                     </div>
                     <div class="col">
-                        <label for="id_country">{% trans "Country" %}:</label>
+                        <label for="{{ form.country.id_for_label }}">{% trans "Country" %}:</label>
                     </div>
                     <div class="col-4">
-                        <input type="text" name="country" value="Russia" maxlength="120" required="" id="id_country">
+                        {{ form.country }}
+                    </div>
+                </div>
+                <div class="row form-errors">
+                    <div class="col">
+                        {{ form.city.errors }}
+                    </div>
+                    <div class="col">
+                        {{ form.country.errors }}
                     </div>
                 </div>
                 <div class="row bank-canvas-cell-empty">
                     <div class="col">
-                        <label for="id_state">{% trans "State" %}:</label>
+                        <label for="{{ form.state.id_for_label }}">{% trans "State" %}:</label>
                     </div>
                     <div class="col-4">
-                        <input type="text" name="state" maxlength="120" required="" id="id_state">
+                        {{ form.state }}
                     </div>
                     <div class="col">
-                        <label for="id_postal_code">{% trans "Postal code" %}:</label>
+                        <label for="{{ form.postal_code.id_for_label }}">{% trans "Postal code" %}:</label>
                     </div>
                     <div class="col-4">
-                        <input type="text" name="postal_code" maxlength="120" required="" id="id_postal_code">
+                        {{ form.postal_code }}
                     </div>
                 </div>
-                <br>
+                <div class="row form-errors">
+                    <div class="col">
+                        {{ form.state.errors }}
+                    </div>
+                    <div class="col">
+                        {{ form.postal_code.errors }}
+                    </div>
+                </div>
+                <hr>
                 <div class="row bank-canvas-cell-empty">
+                    <div class="col-9 form-errors">
+                        {{ form.non_field_errors }}
+                    </div>
                     <div class="col text-right">
                         <button type="submit" class="btn btn-danger">{% trans "Save Address" %}</button>
                     </div>
