@@ -10,15 +10,71 @@
 </div>
 
 <div class='row'>
-  <div class='col-12 col-md-6 mx-auto'>
-<p>{% trans "Items" %}: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-<p>{% trans "Shipping Address" %}: {{ object.shipping_address_final }}</p>
-<p>{% trans "Billing Address" %}: {{ object.billing_address_final }}</p>
-<p>{% trans "Subtotal" %}: {{ object.cart.total }}</p>
-<p>{% trans "Shipping Total" %}: {{ object.shipping_total }}</p>
-<p>{% trans "Order Total" %}: {{ object.total }}</p>
-<p>{% trans "Order Status" %}: {{ object.get_status }}</p>
+    <div class='col-12 col-md-6 mx-auto'>
+        <div class='row'>
+            <div class="col">
+                <h4>{% trans "Items" %}:</h4>
+            </div>
+            <div class="col">
+                <h4>{% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</h4>
+            </div>
+        </div>
+        <hr>
+        <div class='row'>
+            <div class="col">
+                <h4>{% trans "Shipping Address" %}</h4>
+            </div>
+            <div class="col">
+                <h4>{{ object.shipping_address_final }}</h4>
+            </div>
+        </div>
+        <hr>
+        <div class='row'>
+            <div class="col">
+                <h4>{% trans "Billing Address" %}</h4>
+            </div>
+            <div class="col">
+                <h4>{{ object.billing_address_final }}</h4>
+            </div>
+        </div>
+        <hr>
+        <div class='row'>
+            <div class="col">
+                <h4>{% trans "Subtotal" %}</h4>
+            </div>
+            <div class="col">
+                <h4>{{ object.cart.total }}</h4>
+            </div>
+        </div>
+        <hr>
+        <div class='row'>
+            <div class="col">
+                <h4>{% trans "Shipping Total" %}</h4>
+            </div>
+            <div class="col">
+                <h4>{{ object.shipping_total }}</h4>
+            </div>
+        </div>
+        <hr>
+        <div class='row'>
+            <div class="col">
+                <h4>{% trans "Order Total" %}</h4>
+            </div>
+            <div class="col">
+                <h4>{{ object.total }}</h4>
+            </div>
+        </div>
+        <hr>
+        <div class='row'>
+            <div class="col">
+                <h4>{% trans "Order Status" %}</h4>
+            </div>
+            <div class="col">
+                <h4>{{ object.get_status }}</h4>
+            </div>
+        </div>
+        <hr>
+    </div>
 </div>
-
 
 {% endblock %}
