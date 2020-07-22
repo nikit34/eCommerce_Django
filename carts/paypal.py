@@ -108,7 +108,7 @@ def structurng_input(order_obj, cart_obj):
                 'admin_area_2': order_obj.billing_address.city,
                 'admin_area_1': order_obj.billing_address.country,
                 'postal_code': order_obj.billing_address.postal_code,
-                'country_code': order_obj.billing_address.country,
+                'country_code': 'US',
             }
         }
     }
