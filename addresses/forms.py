@@ -10,7 +10,7 @@ class AddressForm(forms.ModelForm):
         country_code = self.cleaned_data.get('country')
         valid_code = False
         for country_union in countries_dict:
-            if country_code is country_union['code']:
+            if country_code == country_union['code']:
                 valid_code = True
         if not valid_code:
             raise forms.ValidationError(gettext('Country code is not valid'))
