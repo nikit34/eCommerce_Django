@@ -16,31 +16,30 @@
         <hr/>
         <p>{% trans "Recent Total" %}: ${{ today.recent_data.total__sum }}</p>
         <ul>
-            {% for order in today.recent|slice:":5" %}
+        {% for order in today.recent|slice:":5" %}
             <li class='my-3'>{% trans "Order" %} #{{ order.order_id }}<br/>
-                ${{ order.total }}<br/>
-                {{ order.updated|timesince }} {% trans "ago" %}
-            </li>
-            {% endfor %}
-        </ul>
+            ${{ order.total }}<br/>
+            {{ order.updated|timesince }} {% trans "ago" %}</li>
+        {% endfor %}
+    </ul>
 
-        <h3>{% trans "This week's sales" %}</h3>
-        <hr/>
+    <h3>{% trans "This week's sales" %}</h3>
+    <hr/>
         <p>{% trans "Recent Total" %}: ${{ this_week.recent_data.total__sum }}</p>
         <ul>
-            {% for order in this_week.recent|slice:":5" %}
+        {% for order in this_week.recent|slice:":5" %}
             <li class='my-3'>{% trans "Order" %} #{{ order.order_id }}<br/>
-                ${{ order.total }}<br/>
-                {{ order.updated|timesince }} {% trans "ago" %}
-            </li>
-            {% endfor %}
-        </ul>
+            ${{ order.total }}<br/>
+            {{ order.updated|timesince }} {% trans "ago" %}</li>
+        {% endfor %}
+    </ul>
     </div>
 
     <div class='col'>
-        <canvas class='cfe-render-chart' id="thisWeekSales" data-type='week' width="400" height="400"></canvas>
+       <canvas class='cfe-render-chart' id="thisWeekSales" data-type='week' width="400" height="400"></canvas>
     </div>
 </div>
+
 
 
 <hr/>
@@ -50,13 +49,12 @@
         <h1>{% trans "Previous 4 weeks" %}</h1>
 
         <p>{% trans "Orders Total" %}: ${{ last_four_weeks.recent_data.total__sum }}</p>
-        <p>{% trans "Shipped Total" %}: {% if last_four_weeks.shipped_data.total__sum %}${{
-            last_four_weeks.shipped_data.total__sum }} {% endif %}</p>
+        <p>{% trans "Shipped Total" %}: {% if last_four_weeks.shipped_data.total__sum %}${{ last_four_weeks.shipped_data.total__sum }} {% endif %}</p>
         <p>{% trans "Paid Totals" %}: ${{ last_four_weeks.paid_data.total__sum }}</p>
 
     </div>
-    <div class='col'>
-        <canvas class='cfe-render-chart' id="fourWeekSales" data-type='4weeks' width="400" height="400"></canvas>
+     <div class='col'>
+       <canvas class='cfe-render-chart' id="fourWeekSales" data-type='4weeks' width="400" height="400"></canvas>
     </div>
 </div>
 

@@ -5,7 +5,7 @@ from django.db.models import Count, Sum, Avg
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import TemplateView, View
 from django.shortcuts import render
-from django.utils import timezone
+from django.utils import  timezone
 
 from orders.models import Order
 
@@ -17,7 +17,7 @@ class SalesAjaxView(View):
             qs = Order.objects.all().by_weeks_range(weeks_ago=5, number_of_weeks=5)
             if request.GET.get('type') == 'week':
                 days = 7
-                start_date = timezone.now().today() - datetime.timedelta(days=days - 1)
+                start_date = timezone.now().today() - datetime.timedelta(days=days-1)
                 datetime_list = []
                 labels = []
                 salesItems = []
@@ -41,6 +41,7 @@ class SalesAjaxView(View):
                     data['data'].append(sales_total)
                     current -= 1
         return JsonResponse(data)
+
 
 
 class SalesView(LoginRequiredMixin, TemplateView):

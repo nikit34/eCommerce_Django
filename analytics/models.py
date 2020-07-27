@@ -45,7 +45,7 @@ class ObjectViewed(models.Model):
     objects = ObjectViewedManager()
 
     def __str__(self):
-        return '%s viewed on %s' % (self.content_object, self.timestamp)
+        return '%s viewed on %s' %(self.content_object, self.timestamp)
 
     class Meta:
         ordering = ['-timestamp']
@@ -59,10 +59,10 @@ def object_viewed_receiver(sender, instance, request, *args, **kwargs):
     if request.user.is_authenticated():
         user = request.user
     new_view_obj = ObjectViewed.objects.create(
-        user=user,
-        content_type=c_type,
-        object_id=instance.id,
-        ip_address=get_client_ip(request)
+        user = user,
+        content_type = c_type,
+        object_id = instance.id,
+        ip_address = get_client_ip(request)
     )
 
 
@@ -98,7 +98,6 @@ def post_save_session_receiver(sender, instance, created, *args, **kwargs):
     if not instance.active and not instance.ended:
         instance.end_session()
 
-
 if FORCE_SESSION_TO_ONE:
     post_save.connect(post_save_session_receiver, sender=UserSession)
 
@@ -109,7 +108,6 @@ def post_save_user_changed_receiver(sender, instance, created, *args, **kwargs):
             qs = UserSession.objects.filter(user=instance.user, ended=False, active=False)
             for i in qs:
                 i.end_session()
-
 
 if FORCE_INACTIVE_USER_ENDSESSION:
     post_save.connect(post_save_user_changed_receiver, sender=User)

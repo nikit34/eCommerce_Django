@@ -6,6 +6,7 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
         ('addresses', '0001_initial'),
     ]
@@ -24,7 +25,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='address',
             name='address_type',
-            field=models.CharField(choices=[('billing', 'Billing address'), ('shipping', 'Shipping address'), ('', '')],
-                                   max_length=120),
+            field=models.CharField(choices=[('billing', 'Billing address'), ('shipping', 'Shipping address'), ('', '')], max_length=120),
         ),
     ]

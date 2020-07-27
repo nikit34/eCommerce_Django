@@ -17,81 +17,67 @@
 <nav class="row navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="{{ home_url }}">
-            {% if brand_name %} {{ brand_name }} {% else %} {% trans "Sewing Shop" %} {% endif %}
+          {% if brand_name %} {{ brand_name }} {% else %} {% trans "Sewing Shop" %} {% endif %}
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav col-md-10">
-                <li class="nav-item {% if request.path == home_url %}active{% endif %}">
-                    <a class="nav-link" href="{{ home_url }}">{% trans "Home" %} <i class="fa fa-home"
-                                                                                    aria-hidden="true"></i><span
-                            class="sr-only">({% trans "current"%})</span></a>
-                </li>
-                <li class="nav-item {% if request.path == product_list_url %}active{% endif %}">
-                    <a class="nav-link" href="{{ product_list_url }}">{% trans "Products" %} <i
-                            class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
-                    <a class="nav-link" href="{{ cart_url }}">{% trans "Cart" %} <span class="navbar-cart-count">{{ request.session.cart_items }}</span>
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                </li>
-                <li class="nav-item {% if request.path == account_url %}active{% endif %}">
-                    <a class="nav-link" href="{{ account_url }}">{% trans "Account" %} <i class="fa fa-id-card"
-                                                                                          aria-hidden="true"></i></a>
-                </li>
-                <li class="nav-item right-group dropdown offset-md-2">
-                    {% if user %}
-                    {% if user.admin %}
-                    <a class="nav-link dropdown-toggle" href="#" style="color:red;" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {% else %}
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {% endif %}
-                            {{ user }}
-                        </a>
-                        {% else %}
-                        Account
-                        {% endif %}
-
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% if user.admin %}
-                            <a class="dropdown-item " href="{{ admin }}">{% trans "Admin" %}</a>
-                            {% endif %}
-                            <a class="dropdown-item {% if request.path == analys %}active{% endif %}"
-                               href="{{ analys }}">{% trans "Statistics" %}</a>
-                            <a class="dropdown-item {% if request.path == contact_url %}active{% endif %}"
-                               href="{{ contact_url }}">{% trans "Contact" %}</a>
-                            <a class="dropdown-item {% if request.path ==  collection %}active{% endif %}"
-                               href="{{ collection }}">{% trans "Collection" %}</a>
-                            <a class="dropdown-item {% if request.path ==  billing_payment %}active{% endif %}"
-                               href="{{ billing_payment }}">{% trans "Payment" %}</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ logout_url }}">{% trans "Logout" %}</a>
-                        </div>
-                </li>
-                {% if user.staff %}
-                <i class="fa fa-star" style="color:rgba(255, 0, 0, 0.75); margin-top:12px; margin-left:50px;"></i>
-                {% endif %}
+          <ul class="navbar-nav col-md-10">
+            <li class="nav-item {% if request.path == home_url %}active{% endif %}">
+              <a class="nav-link" href="{{ home_url }}">{% trans "Home" %} <i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">({% trans "current"%})</span></a>
+            </li>
+            <li class="nav-item {% if request.path == product_list_url %}active{% endif %}">
+              <a class="nav-link" href="{{ product_list_url }}">{% trans "Products" %} <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
+                <a class="nav-link" href="{{ cart_url }}">{% trans "Cart" %} <span class="navbar-cart-count">{{ request.session.cart_items }}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+              </li>
+              <li class="nav-item {% if request.path == account_url %}active{% endif %}">
+                <a class="nav-link" href="{{ account_url }}">{% trans "Account" %} <i class="fa fa-id-card" aria-hidden="true"></i></a>
+              </li>
+              <li class="nav-item right-group dropdown offset-md-2">
+                {% if user %}
+                  {% if user.admin %}
+                    <a class="nav-link dropdown-toggle" href="#" style="color:red;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {% else %}
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {% endif %}
+                  {{ user }}
+                  </a>
                 {% else %}
-                <div class="row col-md-5 offset-md-2">
-                    <li class="nav-item {% if request.path == register_url %}active{% endif %}">
-                        <a class="nav-link" href="{{ register_url }}">{% trans "Register" %} <i class="fa fa-key"
-                                                                                                aria-hidden="true"></i></a>
-                    </li>
-                    <li class="nav-item {% if request.path == login_url %}active{% endif %}">
-                        <a class="nav-link" href="{{ login_url }}">{% trans "Login" %} <i class="fa fa-sign-in"
-                                                                                          aria-hidden="true"></i></a>
-                    </li>
-                </div>
+                  Account
                 {% endif %}
-            </ul>
-            {% include 'search/search-form.html' %}
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% if user.admin %}
+                    <a class="dropdown-item " href="{{ admin }}">{% trans "Admin" %}</a>
+                  {% endif %}
+                  <a class="dropdown-item {% if request.path == analys %}active{% endif %}" href="{{ analys }}">{% trans "Statistics" %}</a>
+                  <a class="dropdown-item {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url }}">{% trans "Contact" %}</a>
+                  <a class="dropdown-item {% if request.path ==  collection %}active{% endif %}" href="{{ collection }}">{% trans "Collection" %}</a>
+                  <a class="dropdown-item {% if request.path ==  billing_payment %}active{% endif %}" href="{{ billing_payment }}">{% trans "Payment" %}</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{ logout_url }}">{% trans "Logout" %}</a>
+                </div>
+              </li>
+              {% if user.staff %}
+              <i class="fa fa-star" style="color:rgba(255, 0, 0, 0.75); margin-top:12px; margin-left:50px;"></i>
+              {% endif %}
+            {% else %}
+              <div class="row col-md-5 offset-md-2">
+                <li class="nav-item {% if request.path == register_url %}active{% endif %}">
+                  <a class="nav-link" href="{{ register_url }}">{% trans "Register" %} <i class="fa fa-key" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item {% if request.path == login_url %}active{% endif %}">
+                  <a class="nav-link" href="{{ login_url }}">{% trans "Login" %} <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                </li>
+              </div>
+            {% endif %}
+          </ul>
+          {% include 'search/search-form.html' %}
         </div>
     </div>
 </nav>

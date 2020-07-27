@@ -1,6 +1,7 @@
 import os
 from eCommerce_Django.utils import get_secret_key
 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 SECRET_KEY = get_secret_key(BASE_DIR, 'SECRET_KEY')
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     'tags',
 ]
 
+
 SUPPORT_EMAIL = get_secret_key(BASE_DIR, 'SUPPORT_EMAIL')
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -52,7 +54,9 @@ MANAGERS = (
 )
 ADMINS = MANAGERS
 
+
 BASE_URL = '127.0.0.1:8000'
+
 
 MAILCHIMP_API_KEY = get_secret_key(BASE_DIR, 'MAILCHIMP_API_KEY')
 MAILCHIMP_DATA_CENTER = 'us10'
@@ -65,6 +69,7 @@ STRIPE_PUB_KEY = get_secret_key(BASE_DIR, 'STRIPE_PUB_KEY')
 PAYPAL_CLIENT_ID = get_secret_key(BASE_DIR, 'PAYPAL_CLIENT_ID')
 PAYPAL_CLIENT_SECRET = get_secret_key(BASE_DIR, 'PAYPAL_CLIENT_SECRET')
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -76,8 +81,10 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 ]
 
+
 LOGOUT_REDIRECT_URL = '/login/'
 ROOT_URLCONF = 'eCommerce_Django.urls'
+
 
 TEMPLATES = [
     {
@@ -97,12 +104,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'eCommerce_Django.wsgi.application'
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -121,12 +130,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 SESSION_COOKIE_SAMESITE = 'Lax'
 
-LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale'), ]
+LOCALE_PATHS = [ os.path.join(BASE_DIR, 'locale'), ]
 
 LANGUAGE_CODE = 'en-us'
 # LANGUAGE_CODE = 'ru'
 
-LANGUAGES = [('en', 'English'), ('ru', 'Russian'), ]
+LANGUAGES = [ ('en', 'English'), ('ru', 'Russian'), ]
 
 TIME_ZONE = 'UTC'
 
@@ -136,9 +145,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static_my_proj"), ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static_my_proj"),]
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "static_root")
+
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "media_root")

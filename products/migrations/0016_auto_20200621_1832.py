@@ -7,6 +7,7 @@ import products.models
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
         ('products', '0015_auto_20200621_1814'),
     ]

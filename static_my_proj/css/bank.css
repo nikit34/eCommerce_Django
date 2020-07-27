@@ -7,62 +7,52 @@
     display: inline-block;
     width: 100%;
 }
-
 .canvas-cart-table h1 {
     text-align: center;
     margin: 30px 0 30px 0;
 }
-
 table.cart-table td, table.cart-table th {
     background: whitesmoke;
     border: none;
     font-weight: normal;
     font-size: x-large;
 }
-
 table.cart-table td a {
-    text-decoration-color: #00ff0080;
+  text-decoration-color: #00ff0080;
 }
-
 table.cart-table td a:hover {
-    text-decoration-color: #00ff0010;
+  text-decoration-color: #00ff0010;
 }
-
-table.cart-table td button {
-    transition: color 0.5s;
+table.cart-table td button{
+  transition: color 0.5s;
 }
-
 table.cart-table td button:hover {
-    text-decoration: none;
-    color: red;
+  text-decoration: none;
+  color:red;
 }
-
 table.cart-table a {
     width: 50%;
 }
+
 
 
 .checkout-title h1 {
     text-align: center;
     margin: 1em 0 1em 0;
 }
-
 .checkout-title h2 {
     text-align: center;
     margin: 1em 0 1em 0;
 }
-
 .checkout-table h3 {
     text-align: center;
 }
-
 .checkout-total .bank-canvas-cell {
     text-align: center;
     padding: 1em 0.75em 1em 0.75em;
 }
-
 .checkout-total h1 {
-    color: rgb(100, 0, 100);
+    color:rgb(100, 0, 100);
 }
 
 /* canvas red */
@@ -81,7 +71,6 @@ table.cart-table a {
     border-radius: 15px;
     font-size: large;
 }
-
 .bank-canvas-cell-small {
     background-color: whitesmoke;
     padding: 1em;
@@ -89,7 +78,6 @@ table.cart-table a {
     border-radius: 15px;
     text-align: center;
 }
-
 .bank-canvas-cell-small-2 {
     background-color: #ff000050;
     padding: 1em;
@@ -98,11 +86,11 @@ table.cart-table a {
     border-radius: 15px;
     text-align: center;
 }
-
 .bank-canvas-cell-empty {
-    padding: 2em 1em 0 1em;
-    text-align: center;
+  padding: 2em 1em 0 1em;
+  text-align: center;
 }
+
 
 
 .payments-form-api {
@@ -113,76 +101,66 @@ table.cart-table a {
     width: 100%;
     -webkit-box-direction: normal;
 }
-
-.payments-form-api h2 {
+.payments-form-api h2{
     text-align: center;
     margin-top: 0;
     margin-bottom: 1em;
 }
-
 @media only screen and (max-width: 675px) {
-    .payments-mobile {
+    .payments-mobile{
         -webkit-box-orient: vertical;
         flex-direction: column;
     }
 }
-
-@media only screen and (min-width: 675px) {
+@media only screen and (min-width: 675px){
     .payments-desktop {
-        -webkit-box-orient: horizontal;
-        flex-direction: row;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
     }
 }
 
 
+
 #blue {
-    color: rgb(0, 0, 255);
-    transition: 0.5s all;
+  color: rgb(0, 0, 255);
+  transition: 0.5s all;
 }
-
 #blue:hover {
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75);
-    margin-top: -2%;
-    color: rgba(0, 0, 255, 0.5);
-    transform: rotate(-15deg);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75);
+  margin-top: -2%;
+  color: rgba(0, 0, 255, 0.5);
+  transform: rotate(-15deg);
 }
-
 #red {
-    color: rgb(255, 0, 0);
-    transition: 0.5s all;
+  color: rgb(255, 0, 0);
+  transition: 0.5s all;
 }
-
 #red:hover {
-    color: rgba(255, 0, 0, 0.5);
-    margin-top: -2%;
-    transform: rotate(15deg);
+  color: rgba(255, 0, 0, 0.5);
+  margin-top: -2%;
+  transform: rotate(15deg);
 }
-
 #yellow {
-    color: rgb(220, 255, 0);
-    transition: 0.5s all;
+  color: rgb(220, 255, 0);
+  transition: 0.5s all;
 }
-
 #yellow:hover {
-    color: rgba(220, 255, 0, 0.5);
-    margin-top: -2%;
-    transform: rotate(180deg);
+  color: rgba(220, 255, 0, 0.5);
+  margin-top: -2%;
+  transform: rotate(180deg);
 }
-
 #green {
-    color: rgb(0, 255, 0);
-    transition: 0.1s all;
+  color: rgb(0, 255, 0);
+  transition: 0.1s all;
 }
-
 #green:hover {
-    color: rgba(0, 255, 0, 0.5);
-    margin-top: 1.5%;
-    transform: rotate(10deg);
+  color: rgba(0, 255, 0, 0.5);
+  margin-top: 1.5%;
+  transform: rotate(10deg);
 }
-
 #blink:hover {
-    -webkit-animation: blink 0.5s 0.7s ease infinite;
-    -moz-animation: blink 0.5s 0.7s ease infinite;
-    -o-animation: blink 0.5s 0.7s ease infinite;
-    animation: blink 0.5s 0.7s ease infinite;
+  -webkit-animation: blink 0.5s 0.7s ease infinite;
+  -moz-animation: blink 0.5s 0.7s ease infinite;
+  -o-animation: blink 0.5s 0.7s ease infinite;
+  animation: blink 0.5s 0.7s ease infinite;
 }

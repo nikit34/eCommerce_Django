@@ -12,7 +12,6 @@ def get_last_month_data(today):
     last_month_start = datetime.datetime(last_month_end.year, last_month_end.month, 1)
     return (last_month_start, last_month_end)
 
-
 def get_month_data_range(months_ago=1, include_this_month=False):
     today = datetime.datetime.now().today()
     dates_ = []
@@ -28,7 +27,7 @@ def get_month_data_range(months_ago=1, include_this_month=False):
             "timesince": 0,
             "year": start.year,
             "month": str(start.strftime("%B")),
-        })
+            })
     for x in range(0, months_ago):
         start, end = get_last_month_data(today)
         today = start
@@ -42,7 +41,6 @@ def get_month_data_range(months_ago=1, include_this_month=False):
             "month": str(start.strftime("%B"))
         })
     return dates_
-
 
 def get_filename(path):
     return os.path.basename(path)
@@ -82,9 +80,9 @@ def unique_slug_generator(instance, new_slug=None):
     qs_exists = Klass.objects.filter(slug=slug).exists()
     if qs_exists:
         new_slug = '{slug}-{randstr}'.format(
-            slug=slug,
-            randstr=random_string_generator(size=4)
-        )
+                    slug=slug,
+                    randstr=random_string_generator(size=4)
+                )
         return unique_slug_generator(instance, new_slug=new_slug)
     return slug
 

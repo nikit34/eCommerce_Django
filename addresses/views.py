@@ -44,7 +44,7 @@ class AddressCreateView(LoginRequiredMixin, CreateView):
 
 def checkout_address_create_view(request):
     form = AddressCheckoutForm(request.POST or None)
-    context = {'form': form}
+    context = { 'form': form }
     next_ = request.GET.get('next')
     next_post = request.POST.get('next')
     redirect_path = next_ or next_post or None

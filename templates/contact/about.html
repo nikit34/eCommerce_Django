@@ -7,21 +7,23 @@
 {% block content %}
 
 <div class="text-center">
-    <h1>{% if title %}{{ title }}{% endif %}</h1>
+  <h1>{% if title %}{{ title }}{% endif %}</h1>
 
-    <div class="about">
+  <div class="about">
 
 
-    </div>
 
-    <hr>
+
+  </div>
+
+  <hr>
 </div>
 
 {% if user.staff %}
 <div class="row">
-    <div class="col">
-        <h1>{% trans "Premium Content" %}</h1>
-        {{ premium_content }}
-    </div>
+  <div class="col">
+    <h1>{% trans "Premium Content" %}</h1>
+    {{ premium_content }}
+  </div>
 </div>
 {% endif %} {% endblock %}

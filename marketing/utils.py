@@ -5,6 +5,7 @@ import re
 import hashlib
 import json
 
+
 MAILCHIMP_API_KEY = getattr(settings, 'MAILCHIMP_API_KEY', None)
 MAILCHIMP_DATA_CENTER = getattr(settings, 'MAILCHIMP_DATA_CENTER', None)
 MAILCHIMP_EMAIL_LIST_ID = getattr(settings, 'MAILCHIMP_EMAIL_LIST_ID', None)
@@ -36,7 +37,7 @@ class Mailchimp(object):
     def change_substription_status(self, email, status='unsubscribed'):
         hashed_email = get_subscriber_hash(email)
         endpoint = self.get_members_endpoint() + '/' + hashed_email
-        data = {'status': self.check_valid_status(status)}
+        data = { 'status': self.check_valid_status(status) }
         r = requests.put(endpoint, auth=('', MAILCHIMP_API_KEY), data=json.dumps(data))
         return r.status_code, r.json()
 

@@ -4,34 +4,33 @@
 
 <div class='row'>
     <div class='col'>
-        <h1>{% trans "Saved addresses" %}{% if object_list.count > 1 %}{% trans "es" %}{% endif %} <small><a
-                href='{% url "address-create" %}'>{% trans "Create New" %}</a></small></h1>
+        <h1>{% trans "Saved addresses" %}{% if object_list.count > 1 %}{% trans "es" %}{% endif %} <small><a href='{% url "address-create" %}'>{% trans "Create New" %}</a></small></h1>
         <hr/>
     </div>
 </div>
 {% if object_list.exists %}
-<div class='row'>
-    {% for obj in object_list %}
-    <div class='col-12 col-md-3 my-3'>
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">{{ obj }}</h4>
-                <small>{{ obj.get_address_type_display }}</small>
-                <br/>
-                <br/>
-                <h5>{% trans "Address" %}</h5>
-                {{ obj.get_address|linebreaks }}
-                <a href='{{ obj.get_absolute_url }}' class='btn btn-default'>{% trans "Edit" %}</a>
+    <div class='row'>
+        {% for obj in object_list %}
+            <div class='col-12 col-md-3 my-3'>
+                <div class="card">
+                  <div class="card-body">
+                     <h4 class="card-title">{{ obj }}</h4>
+                     <small>{{ obj.get_address_type_display }}</small>
+                     <br/>
+                     <br/>
+                     <h5>{% trans "Address" %}</h5>
+                     {{ obj.get_address|linebreaks }}
+                    <a href='{{ obj.get_absolute_url }}' class='btn btn-default'>{% trans "Edit" %}</a>
+                  </div>
+                </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
 {% else %}
-<a href='{% url "address-create" %}'>
-    <div class="bank-canvas-cell-small-2">
-        <h1>{% trans "No saved addresses" %}</h1>
-    </div>
-</a>
+    <a href='{% url "address-create" %}'>
+        <div class="bank-canvas-cell-small-2">
+            <h1>{% trans "No saved addresses" %}</h1>
+        </div>
+    </a>
 {% endif %}
 {% endblock %}
