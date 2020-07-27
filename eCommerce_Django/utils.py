@@ -91,7 +91,10 @@ def get_secret_key(root_path, name):
     with open(root_path + "/../secret", "r") as f:
         for line in f.readlines():
             if name in line:
-                key = line.replace(name + '="', '').replace('"\n', '')
+                if '\n' in line:
+                    key = line.replace(name + '="', '').replace('"\n', '')
+                else:
+                    key = line.replace(name + '="', '')[:-1]
                 f.close()
                 return key
         f.close()
