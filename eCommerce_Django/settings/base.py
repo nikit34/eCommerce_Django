@@ -66,6 +66,9 @@ MAILCHIMP_EMAIL_ADMIN = get_secret_key(BASE_DIR, 'MAILCHIMP_EMAIL_ADMIN')
 STRIPE_SECRET_KEY = get_secret_key(BASE_DIR, 'STRIPE_SECRET_KEY')
 STRIPE_PUB_KEY = get_secret_key(BASE_DIR, 'STRIPE_PUB_KEY')
 
+PAYPAL_CLIENT_ID = get_secret_key(BASE_DIR, 'PAYPAL_CLIENT_ID')
+PAYPAL_CLIENT_SECRET = get_secret_key(BASE_DIR, 'PAYPAL_CLIENT_SECRET')
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
