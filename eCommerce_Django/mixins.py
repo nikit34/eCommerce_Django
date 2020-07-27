@@ -10,6 +10,7 @@ class RequestFormAttachMixin(object):
 
 class NextUrlMixin(object):
     default_next = '/'
+
     def get_next_url(self):
         request = self.request
         next_ = request.GET.get('next')

@@ -11,7 +11,6 @@ from .models import MarketingPreference
 from .utils import Mailchimp
 from accounts.models import User
 
-
 MAILCHIMP_API_KEY = getattr(settings, "MAILCHIMP_API_KEY", None)
 MAILCHIMP_DATA_CENTER = getattr(settings, "MAILCHIMP_DATA_CENTER", None)
 MAILCHIMP_EMAIL_LIST_ID = getattr(settings, "MAILCHIMP_EMAIL_LIST_ID", None)
@@ -56,10 +55,10 @@ class MailchimpWebhookView(CsrfExemptMixin, View):
                 is_subbed = None
                 mailchimp_subbed = None
                 if sub_status == "subscribed":
-                    is_subbed, mailchimp_subbed  = (False, False)
+                    is_subbed, mailchimp_subbed = (False, False)
                     sub_status = "unsubscribed"
                 elif sub_status == "unsubscribed":
-                    is_subbed, mailchimp_subbed  = (True, True)
+                    is_subbed, mailchimp_subbed = (True, True)
                     sub_status = "subscribed"
                 if is_subbed is not None and mailchimp_subbed is not None:
                     qs = MarketingPreference.objects.filter(user__email__iexact=email)

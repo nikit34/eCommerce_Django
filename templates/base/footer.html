@@ -6,26 +6,30 @@
             {% trans "Developed" %} {% if dev_source %}<a href="{{ dev_source }}">GitHub</a>{% endif %}, 2020
         </div>
         <div class="col-1" id="instagram">
-            <a href="https://www.instagram.com/olyalya_sew"><i class="fa fa-instagram fa-2x" style="color:gold;"></i></a>
+            <a href="https://www.instagram.com/olyalya_sew"><i class="fa fa-instagram fa-2x"
+                                                               style="color:gold;"></i></a>
         </div>
         <div class="col-1" id="pinterest">
-            <a href="https://www.pinterest.ru/studioolyalya"><i class="fa fa-pinterest fa-2x" style="color:red;"></i></a>
+            <a href="https://www.pinterest.ru/studioolyalya"><i class="fa fa-pinterest fa-2x"
+                                                                style="color:red;"></i></a>
         </div>
         <div class="col-1" id="facebook">
-            <a href="https://www.facebook.com/profile.php?id=100032897610134"><i class="fa fa-facebook fa-2x" style="color:blue;"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100032897610134"><i class="fa fa-facebook fa-2x"
+                                                                                 style="color:blue;"></i></a>
         </div>
         <div class="col-1" id="etsy">
-            <a href="http://www.etsy.com/shop/StudioOlyalya"><i class="fa fa-etsy fa-2x"  style="color:brown;"></i></a>
+            <a href="http://www.etsy.com/shop/StudioOlyalya"><i class="fa fa-etsy fa-2x" style="color:brown;"></i></a>
         </div>
         <div class="col-4 footer-right">
             <form action="{% url 'set_language' %}" method="POST" value="{{ redirect_to }}">
                 {% csrf_token %}
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    {% for language in languages %}
-                        <input class="btn btn-sm btn-outline-danger mt-1" type="submit" name="language" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                    {% endfor %}
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                <input class="btn btn-sm btn-outline-danger mt-1" type="submit" name="language"
+                       value="{{ language.code }}" {% if language.code== LANGUAGE_CODE %}selected{% endif %}>
+                {% endfor %}
             </form>
         </div>
     </div>

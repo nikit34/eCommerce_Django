@@ -8,7 +8,6 @@ import products.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('products', '0014_productfile_name'),
     ]
@@ -25,6 +24,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='productfile',
             name='file',
-            field=models.ImageField(storage=django.core.files.storage.FileSystemStorage(location='/mnt/c/Users/permi/source/repos/draft/2/static_cdn/protected_media'), upload_to=products.models.upload_product_file_loc),
+            field=models.ImageField(storage=django.core.files.storage.FileSystemStorage(
+                location='/mnt/c/Users/permi/source/repos/draft/2/static_cdn/protected_media'),
+                                    upload_to=products.models.upload_product_file_loc),
         ),
     ]

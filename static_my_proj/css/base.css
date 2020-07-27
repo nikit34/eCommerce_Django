@@ -8,10 +8,10 @@ html {
 }
 
 
-
 body {
     background-color: whitesmoke;
 }
+
 body img.main {
     background-repeat: no-repeat;
     position: absolute;
@@ -21,11 +21,12 @@ body img.main {
     border-radius: 30%;
     filter: blur(2px);
 }
+
 body img.log {
     position: fixed;
     z-index: -1;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 }
 
 h1 {
@@ -39,13 +40,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
 .navbar {
-    margin-right:10px;
+    margin-right: 10px;
     border-style: none;
     border-bottom-style: groove;
     background: radial-gradient(circle, #ff00001f 50%, rgba(255, 255, 255, 0) 100%);
 }
+
 .navbar .nav-item .nav-link {
     font-family: 'Times New Roman';
     font-style: italic;
@@ -56,169 +57,189 @@ h1, h2, h3, h4, h5, h6 {
     background-position: 0 80%;
     transition: background-size 0.25s ease-out;
 }
-.navbar .nav-item .nav-link:hover{
+
+.navbar .nav-item .nav-link:hover {
     background-size: 100% 80%;
 }
+
 .navbar .nav-item .dropdown-item.active {
     color: #ff000080;
     background-color: #0000001f;
 }
-.navbar .nav-item .dropdown-item:hover{
+
+.navbar .nav-item .dropdown-item:hover {
     background-color: #ff000080;
 }
+
 .navbar-toggler {
     background-color: rgba(255, 0, 0, 0.5);
 }
+
 .search-form .form-control {
     border: none;
     border-bottom: 2px solid rgba(255, 0, 0, 0.5);
     background: rgba(255, 255, 255, 0);
 }
+
 .search-form button {
     border: none;
     transition: all 0.5s;
 }
+
 .search-form button:hover {
-    color:red;
+    color: red;
     background: rgba(255, 255, 255, 0);
 }
-
 
 
 .card-home {
     width: 100%;
 }
+
 .card-home-body {
     padding: 1.25em 1em 1em 1em;
     border-radius: 5%;
 }
+
 .card-home-title {
     text-align: center;
     padding-top: 0.5em;
     padding-bottom: 1em;
 }
+
 .list-group-item {
     font-size: large;
     text-align: center;
     transition: background-color 0.5s;
 }
+
 .list-group-item:hover {
     text-decoration: none;
-    background-color: rgb(255, 200,200);
+    background-color: rgb(255, 200, 200);
 }
 
 
 div.left-field {
     background: linear-gradient(270deg, #ffffff00 50%, #ff00001f 100%);
-    top:0.5vh;
-    min-height: 90vh;
-}
-div.right-field {
-    background: rgba(100, 100, 255, 0.025);
-    top:0.5vh;
+    top: 0.5vh;
     min-height: 90vh;
 }
 
+div.right-field {
+    background: rgba(100, 100, 255, 0.025);
+    top: 0.5vh;
+    min-height: 90vh;
+}
 
 
 /* btn */
 .btn-danger {
-    border-color:rgb(0, 0, 0);
-    color:black;
-    background-color:#ff000010;
+    border-color: rgb(0, 0, 0);
+    color: black;
+    background-color: #ff000010;
     transition: border-color 1.5s, background-color 0.5s;
 }
+
 .btn-warning {
-    border-color:rgb(0, 0, 0);
-    color:black;
-    background-color:#ffff0010;
+    border-color: rgb(0, 0, 0);
+    color: black;
+    background-color: #ffff0010;
     transition: border-color 1.5s, background-color 0.5s;
 }
+
 .btn-success {
-    border-color:rgb(0, 0, 0);
-    color:black;
-    background-color:#00ff0010;
+    border-color: rgb(0, 0, 0);
+    color: black;
+    background-color: #00ff0010;
     transition: border-color 1.5s, background-color 0.5s;
 }
+
 .btn-info {
-    border-color:rgb(0, 0, 0);
-    color:black;
-    background-color:#0000ff10;
+    border-color: rgb(0, 0, 0);
+    color: black;
+    background-color: #0000ff10;
     transition: border-color 1.5s, background-color 0.5s;
 }
 
 /* btn hover */
 .btn-danger:hover {
-    border-color:#ff000080;
-    color:black;
-    background-color:#ff000080;
+    border-color: #ff000080;
+    color: black;
+    background-color: #ff000080;
 }
+
 .btn-warning:hover {
-    border-color:#ffff0080;
-    color:black;
-    background-color:#ffff0080;
+    border-color: #ffff0080;
+    color: black;
+    background-color: #ffff0080;
 }
+
 .btn-success:hover {
-    border-color:#00ff0080;
-    color:black;
-    background-color:#00ff0080;
+    border-color: #00ff0080;
+    color: black;
+    background-color: #00ff0080;
 }
+
 .btn-info:hover {
-    border-color:#0000ff80;
-    color:black;
-    background-color:#0000ff80;
+    border-color: #0000ff80;
+    color: black;
+    background-color: #0000ff80;
 }
 
 /* btn outline */
 .btn-outline-danger {
-    border-color:#ff000050;
-    color:black;
+    border-color: #ff000050;
+    color: black;
     transition: border-color 1.5s, background-color 0.5s;
 }
+
 .btn-outline-warning {
-    border-color:#ffff0050;
-    color:black;
+    border-color: #ffff0050;
+    color: black;
     transition: border-color 1.5s, background-color 0.5s;
 }
+
 .btn-outline-success {
-    border-color:#00ff0050;
-    color:black;
+    border-color: #00ff0050;
+    color: black;
     transition: border-color 1.5s, background-color 0.5s;
 }
+
 .btn-outline-info {
-    border-color:#0000ff50;
-    color:black;
+    border-color: #0000ff50;
+    color: black;
     transition: border-color 1.5s, background-color 0.5s;
 }
 
 /* btn outline hover */
 .btn-outline-danger:hover {
-    border-color:#ff0000;
-    color:black;
-    background-color:#ff000080;
-}
-.btn-outline-warning:hover {
-    border-color:#ffff00;
-    color:black;
-    background-color:#ffff0080;
-}
-.btn-outline-success:hover {
-    border-color:#00ff00;
-    color:black;
-    background-color:#00ff0080;
-}
-.btn-outline-info:hover {
-    border-color:#0000ff;
-    color:black;
-    background-color:#0000ff80;
+    border-color: #ff0000;
+    color: black;
+    background-color: #ff000080;
 }
 
+.btn-outline-warning:hover {
+    border-color: #ffff00;
+    color: black;
+    background-color: #ffff0080;
+}
+
+.btn-outline-success:hover {
+    border-color: #00ff00;
+    color: black;
+    background-color: #00ff0080;
+}
+
+.btn-outline-info:hover {
+    border-color: #0000ff;
+    color: black;
+    background-color: #0000ff80;
+}
 
 
 .form-errors {
-    color:#ff0000;
+    color: #ff0000;
 }
-
 
 
 /* canvas blue */
@@ -230,6 +251,7 @@ div.right-field {
     font-size: x-large;
     min-width: 25em;
 }
+
 .base-canvas-cell-2 {
     background-color: #0000ff10;
     padding: 1em 2em 1em 2em;
@@ -238,6 +260,7 @@ div.right-field {
     font-size: large;
     min-width: 25em;
 }
+
 .base-canvas-cell-small {
     background-color: whitesmoke;
     padding: 1em;
@@ -246,6 +269,7 @@ div.right-field {
     text-align: center;
     min-width: 25em;
 }
+
 .base-canvas-cell-small-2 {
     background-color: #0000ff50;
     padding: 1em;
@@ -255,14 +279,14 @@ div.right-field {
     text-align: center;
     min-width: 25em;
 }
+
 .base-canvas-cell-empty {
     padding: 2em 1em 0 1em;
     text-align: center;
 }
 
 
-
-footer.footer{
+footer.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -270,43 +294,51 @@ footer.footer{
     text-align: center;
     transition: all 0.8s;
 }
-footer.footer:hover{
+
+footer.footer:hover {
     background: #ff00001f;
 }
-footer.footer #instagram{
+
+footer.footer #instagram {
     font-size: 1.2em;
     transition: all 0.8s;
     background-color: rgba(128, 0, 128, 0.5);
 }
-footer.footer #instagram:hover{
+
+footer.footer #instagram:hover {
     background-color: purple;
 }
-footer.footer #pinterest{
+
+footer.footer #pinterest {
     font-size: 1.2em;
     transition: all 0.8s;
     background-color: rgba(112, 128, 144, 0.5);
 }
-footer.footer #pinterest:hover{
+
+footer.footer #pinterest:hover {
     background-color: slategray;
 }
-footer.footer #facebook{
+
+footer.footer #facebook {
     padding-top: 0.3em;
     transition: all 0.8s;
     background-color: rgba(90, 181, 255, 0.5);
 }
-footer.footer #facebook:hover{
+
+footer.footer #facebook:hover {
     background-color: white;
 }
-footer.footer #etsy{
+
+footer.footer #etsy {
     font-size: 0.8em;
     padding-top: 0.5em;
     transition: all 0.8s;
     background-color: rgba(255, 255, 0, 0.5);
 }
-footer.footer #etsy:hover{
+
+footer.footer #etsy:hover {
     background-color: yellow;
 }
-
 
 
 div.about {

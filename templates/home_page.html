@@ -6,30 +6,30 @@
 
 {% block content %}
 
-    <div class="text-center">
-        <h1>{% trans "Best offers" %}</h1>
+<div class="text-center">
+    <h1>{% trans "Best offers" %}</h1>
+</div>
+{% include 'select_sort.html' %}
+<div class="row">
+    {% for obj in object_list %}
+    <div class="col">
+        {% include 'products/card.html' with instance=obj complet="1" %}
     </div>
-    {% include 'select_sort.html' %}
-    <div class="row">
-        {% for obj in object_list %}
-            <div class="col">
-                {% include 'products/card.html' with instance=obj complet="1" %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <br>
-            </div>
-        {% endfor %}
+</div>
+<div class="row">
+    <div class="col-12">
+        <br>
     </div>
+    {% endfor %}
+</div>
 
-    {% if user.staff %}
-        <div class="row">
-            <div class="col">
-                <h1>{% trans "Premium Content" %}</h1>
-                {{ premium_content }}
-            </div>
-        </div>
-    {% endif %}
+{% if user.staff %}
+<div class="row">
+    <div class="col">
+        <h1>{% trans "Premium Content" %}</h1>
+        {{ premium_content }}
+    </div>
+</div>
+{% endif %}
 
 {% endblock %}

@@ -12,7 +12,7 @@ from addresses.views import (
     AddressUpdateView,
     checkout_address_create_view,
     checkout_address_reuse_view
-  )
+)
 from analytics.views import SalesView, SalesAjaxView
 from accounts.views import LoginView, RegisterView
 from billing.views import payment_method_view, payment_method_createview
@@ -21,15 +21,15 @@ from marketing.views import MarketingPreferenceUpdateView, MailchimpWebhookView
 from orders.views import CollectionView
 from .views import ProductListView, about_page, contact_page, update
 
-
 urlpatterns = [
-    url(r'^update_server/$', update, name='update'),
-    url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
-    url(r'^cart/create-paypal-transaction/$', paypal_checkout_home, name='paypal-checkout'),
-    url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
-    url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
+                  url(r'^update_server/$', update, name='update'),
+                  url(r'^billing/payment-method/create/$', payment_method_createview,
+                      name='billing-payment-method-endpoint'),
+                  url(r'^cart/create-paypal-transaction/$', paypal_checkout_home, name='paypal-checkout'),
+                  url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
+                  url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
 
-  ] + i18n_patterns(
+              ] + i18n_patterns(
 
     url(r'^i18n/', include('django.conf.urls.i18n')),
 
@@ -57,7 +57,7 @@ urlpatterns = [
     url(r'^analytics/sales/$', SalesView.as_view(), name='sales-analytics'),
     url(r'^analytics/sales/data/$', SalesAjaxView.as_view(), name='sales-analytics-data'),
 
-    url(r'^cart/', include(('carts.urls','eCommerce_Django'), namespace='cart')),
+    url(r'^cart/', include(('carts.urls', 'eCommerce_Django'), namespace='cart')),
 
     url(r'^billing/payment-method/$', payment_method_view, name='billing-payment-method'),
 
@@ -68,11 +68,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 )
 
-
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 
 admin.site.site_header = 'Olyalya Studio'
 admin.site.index_title = 'Olyalya Studio'

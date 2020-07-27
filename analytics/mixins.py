@@ -11,7 +11,6 @@ class ObjectViewedMixin(object):
             object_viewed_signal.send(instance.__class__, instance=instance, request=request)
         return context
 
-
     def dispatch(self, request, *args, **kwargs):
         try:
             instance = self.get_object()
