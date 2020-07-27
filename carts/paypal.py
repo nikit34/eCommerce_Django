@@ -77,7 +77,6 @@ def structurng_input(order_obj, cart_obj):
     for item in cart_obj.products.all():
         items.append({
             'name': item.title,
-            'description': item.description,
             'unit_amount': {
                 'currency_code': 'USD',
                 'value': str(item.price)
