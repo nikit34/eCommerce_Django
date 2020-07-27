@@ -1,8 +1,8 @@
 {% load i18n %}
 <form method="GET" action="{% url 'search:query' %}" class="form search-form">
     <div class="input-group">
-        <input class="form-control" type="text" name="q" aria-label="Search" value="{{ request.GET.q }}">
-        <span class="input-group-btn">
+    <input class="form-control" type="text" name="q" aria-label="Search" value="{{ request.GET.q }}">
+    <span class="input-group-btn">
     <button class="btn btn-outline-danger" type="submit">{% trans "Search" %}</button>
     </span>
     </div>

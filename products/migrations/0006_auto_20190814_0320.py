@@ -5,6 +5,7 @@ import products.models
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
         ('products', '0005_product_featured'),
     ]

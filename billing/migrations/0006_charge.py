@@ -5,6 +5,7 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
         ('billing', '0005_card_default'),
     ]
@@ -21,8 +22,7 @@ class Migration(migrations.Migration):
                 ('outcame_type', models.CharField(blank=True, max_length=120, null=True)),
                 ('seller_message', models.CharField(blank=True, max_length=120, null=True)),
                 ('risk_level', models.CharField(blank=True, max_length=120, null=True)),
-                ('billing_profile',
-                 models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='billing.BillingProfile')),
+                ('billing_profile', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='billing.BillingProfile')),
             ],
         ),
     ]

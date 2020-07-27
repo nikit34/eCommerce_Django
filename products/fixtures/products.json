@@ -1,72 +1,72 @@
 [
-  {
+{
     "model": "products.product",
     "pk": 5,
     "fields": {
-      "title": "Hello kitty dress for LittleFee and Volks yosd",
-      "slug": "hello_kitty",
-      "description": "Hello kitty dress for LittleFee, Volks yosd and or the same size doll.\r\n\r\nDress are made of American cotton. \r\nAll seams are processed on overlock, fastened on the back with snaps.\r\n\r\nDoll and props are not included!\r\n\r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n\r\nThank you for looking)))",
-      "price": "23.00",
-      "image": "products/2954991648/2954991648.jpg",
-      "featured": true,
-      "active": true,
-      "timestamp": "2019-08-22T13:25:45.095Z"
+        "title": "Hello kitty dress for LittleFee and Volks yosd",
+        "slug": "hello_kitty",
+        "description": "Hello kitty dress for LittleFee, Volks yosd and or the same size doll.\r\n\r\nDress are made of American cotton. \r\nAll seams are processed on overlock, fastened on the back with snaps.\r\n\r\nDoll and props are not included!\r\n\r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n\r\nThank you for looking)))",
+        "price": "23.00",
+        "image": "products/2954991648/2954991648.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-08-22T13:25:45.095Z"
     }
-  },
-  {
+},
+{
     "model": "products.product",
     "pk": 6,
     "fields": {
-      "title": "Dress with a lush skirt of lace for LittleFee and Volks yosd",
-      "slug": "lush_skirt",
-      "description": "Cute dress with a lush skirt of lace for LittleFee, Volks yosd and or the same size doll.\r\n\r\nDress are made of cotton, cotton lace and silk ribbon.\r\nAll seams are processed on overlock.\r\n\r\nDoll and props are not included!\r\n\r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n\r\nThank you for looking)))",
-      "price": "27.00",
-      "image": "products/173052725/173052725.jpg",
-      "featured": true,
-      "active": true,
-      "timestamp": "2019-08-22T13:59:09.424Z"
+        "title": "Dress with a lush skirt of lace for LittleFee and Volks yosd",
+        "slug": "lush_skirt",
+        "description": "Cute dress with a lush skirt of lace for LittleFee, Volks yosd and or the same size doll.\r\n\r\nDress are made of cotton, cotton lace and silk ribbon.\r\nAll seams are processed on overlock.\r\n\r\nDoll and props are not included!\r\n\r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n\r\nThank you for looking)))",
+        "price": "27.00",
+        "image": "products/173052725/173052725.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-08-22T13:59:09.424Z"
     }
-  },
-  {
+},
+{
     "model": "products.product",
     "pk": 7,
     "fields": {
-      "title": "Set for LittleFee and Volks yosd",
-      "slug": "hoodie_bloomers_socks",
-      "description": "Cute set for LittleFee, Volks yosd and or the same size doll.\r\n\r\nThe set is sewn from cotton Jersey. Hoodie with a hood and a snaps closure (Snaps on the back).\r\nStriped socks made of cotton jersey.\r\nBloomers are made of American cotton.\r\n\r\nIn the set is included: \r\n- Hoodie\r\n- Bloomers \r\n- Striped socks\r\n\r\nDoll and props are not included!\r\n\r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n\r\nThank you for looking)))",
-      "price": "32.50",
-      "image": "products/1165082762/1165082762.jpg",
-      "featured": true,
-      "active": true,
-      "timestamp": "2019-08-22T14:02:45.845Z"
+        "title": "Set for LittleFee and Volks yosd",
+        "slug": "hoodie_bloomers_socks",
+        "description": "Cute set for LittleFee, Volks yosd and or the same size doll.\r\n\r\nThe set is sewn from cotton Jersey. Hoodie with a hood and a snaps closure (Snaps on the back).\r\nStriped socks made of cotton jersey.\r\nBloomers are made of American cotton.\r\n\r\nIn the set is included: \r\n- Hoodie\r\n- Bloomers \r\n- Striped socks\r\n\r\nDoll and props are not included!\r\n\r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n\r\nThank you for looking)))",
+        "price": "32.50",
+        "image": "products/1165082762/1165082762.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-08-22T14:02:45.845Z"
     }
-  },
-  {
+},
+{
     "model": "products.product",
     "pk": 8,
     "fields": {
-      "title": "Pink dress set for LittleFee",
-      "slug": "pink_dress",
-      "description": "Pink dress set for LittleFee and or the same size doll.\r\n\r\nDress are made of American cotton. Socks and pants made of cotton jersey.\r\n\r\nIn the set is included: \r\n- Dress (Snaps on back)\r\n- White socks\r\n- Pants\r\n\r\nDoll and props are not included!\r\n\r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n\r\nThank you for looking)))",
-      "price": "28.00",
-      "image": "products/106187558/106187558.jpg",
-      "featured": true,
-      "active": true,
-      "timestamp": "2019-08-22T14:03:57.790Z"
+        "title": "Pink dress set for LittleFee",
+        "slug": "pink_dress",
+        "description": "Pink dress set for LittleFee and or the same size doll.\r\n\r\nDress are made of American cotton. Socks and pants made of cotton jersey.\r\n\r\nIn the set is included: \r\n- Dress (Snaps on back)\r\n- White socks\r\n- Pants\r\n\r\nDoll and props are not included!\r\n\r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n\r\nThank you for looking)))",
+        "price": "28.00",
+        "image": "products/106187558/106187558.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-08-22T14:03:57.790Z"
     }
-  },
-  {
+},
+{
     "model": "products.product",
     "pk": 9,
     "fields": {
-      "title": "Christmas dress set for LittleFee",
-      "slug": "christmas_dress",
-      "description": "Christmas dress set for LittleFee and or the same size doll.\r\n \r\nDress are made of American cotton. Socks made of cotton jersey.\r\n \r\nIn the set is included: \r\n- Dress (Snaps on back)\r\n- Striped socks\r\n \r\nDoll and props are not included!\r\n \r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n \r\nThank you for looking)))",
-      "price": "27.00",
-      "image": "products/1843341275/1843341275.jpg",
-      "featured": true,
-      "active": true,
-      "timestamp": "2019-08-22T14:05:18.394Z"
+        "title": "Christmas dress set for LittleFee",
+        "slug": "christmas_dress",
+        "description": "Christmas dress set for LittleFee and or the same size doll.\r\n \r\nDress are made of American cotton. Socks made of cotton jersey.\r\n \r\nIn the set is included: \r\n- Dress (Snaps on back)\r\n- Striped socks\r\n \r\nDoll and props are not included!\r\n \r\nThis outfit will fit LittleFee and other similar sized dolls.\r\nDress is modeled by FairyLand LittleFee Ante. \r\n \r\nThank you for looking)))",
+        "price": "27.00",
+        "image": "products/1843341275/1843341275.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-08-22T14:05:18.394Z"
     }
-  }
+}
 ]

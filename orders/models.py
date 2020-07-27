@@ -14,6 +14,7 @@ from carts.models import Cart
 from eCommerce_Django.utils import unique_order_id_generator
 from products.models import Product
 
+
 ORDER_STATUS_CHOICES = (
     ('created', 'Created'),
     ('paid', 'Paid'),
@@ -108,10 +109,8 @@ class OrderManager(models.Manager):
 class Order(models.Model):
     billing_profile = models.ForeignKey(BillingProfile, on_delete=models.DO_NOTHING, null=True, blank=True)
     order_id = models.CharField(max_length=120, blank=True)
-    shipping_address = models.ForeignKey(Address, related_name='shipping_address', on_delete=models.DO_NOTHING,
-                                         null=True, blank=True)
-    billing_address = models.ForeignKey(Address, related_name='billing_address', on_delete=models.DO_NOTHING, null=True,
-                                        blank=True)
+    shipping_address = models.ForeignKey(Address, related_name='shipping_address', on_delete=models.DO_NOTHING, null=True, blank=True)
+    billing_address = models.ForeignKey(Address, related_name='billing_address', on_delete=models.DO_NOTHING, null=True, blank=True)
     shipping_address_final = models.TextField(blank=True, null=True)
     billing_address_final = models.TextField(blank=True, null=True)
     cart = models.ForeignKey(Cart, on_delete=models.DO_NOTHING)
@@ -174,6 +173,7 @@ class Order(models.Model):
                 billing_profile=self.billing_profile
             )
         return ProductPurchase.objects.filter(order_id=self.order_id).count()
+
 
     def mark_paid(self):
         if self.status != 'paid':

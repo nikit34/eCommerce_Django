@@ -4,72 +4,71 @@
 
 <div class='row'>
     <div class='col'>
-        <h1>{% trans "Cart" %}</h1>
+         <h1>{% trans "Cart" %}</h1>
         <hr/>
     </div>
 </div>
 {% if cart.products.exists %}
-<div class="canvas-cart-table">
-    <table class="table cart-table">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>{% trans "Product Name" %}</th>
-            <th>{% trans "Price" %}</th>
-        </tr>
-        </thead>
-        <tbody class="cart-body">
-        {% for product in cart.products.all %}
-        <tr class="cart-product">
-            <th scope="row">{{ forloop.counter }}</th>
-            <td><a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
-                {% include 'carts/remove-product.html' with product_id=product.id %}
-            </td>
-            <td>{{ product.price | floatformat:2 }}</td>
-        </tr>
-        {% endfor %}
-        <tr>
-            <td colspan="2"></td>
-            <td>
-                <div class="row">
-                    <div class="col">
-                        {% trans "Subtotal" %}:
-                    </div>
-                    <div class="col">
-                        $<span class="cart-subtotal">{{ cart.subtotal | floatformat:2 }}</span>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-            <td>
-                <div class="row">
-                    <div class="col">
-                        {% trans "Total" %}:
-                    </div>
-                    <div class="col">
-                        $<span class="cart-total">{{ cart.total | floatformat:2 }}</span>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-            <td><a class="btn btn-success" href="{% url 'cart:checkout' %}">{% trans "Checkout" %}</a></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div class="cart-item-remove-form" style="display: none">
-    {% include 'carts/remove-product.html' %}
-</div>
-{% else %}
-<a href='{% url "products:list" %}'>
-    <div class="bank-canvas-cell-small-2">
-        <h1>{% trans "Cart is empty" %}</h1>
+    <div class="canvas-cart-table">
+        <table class="table cart-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>{% trans "Product Name" %}</th>
+                    <th>{% trans "Price" %}</th>
+                </tr>
+            </thead>
+            <tbody class="cart-body">
+                {% for product in cart.products.all %}
+                <tr class="cart-product">
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td><a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+                        {% include 'carts/remove-product.html' with product_id=product.id %}</td>
+                    <td>{{ product.price | floatformat:2 }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                {% trans "Subtotal" %}:
+                            </div>
+                            <div class="col">
+                                $<span class="cart-subtotal">{{ cart.subtotal | floatformat:2 }}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                {% trans "Total" %}:
+                            </div>
+                            <div class="col">
+                                $<span class="cart-total">{{ cart.total | floatformat:2 }}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td><a class="btn btn-success" href="{% url 'cart:checkout' %}">{% trans "Checkout" %}</a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</a>
+    <div class="cart-item-remove-form" style="display: none">
+        {% include 'carts/remove-product.html' %}
+    </div>
+{% else %}
+    <a href='{% url "products:list" %}'>
+        <div class="bank-canvas-cell-small-2">
+            <h1>{% trans "Cart is empty" %}</h1>
+        </div>
+    </a>
 {% endif %}
 
 {% endblock %}

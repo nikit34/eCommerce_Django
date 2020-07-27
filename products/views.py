@@ -105,7 +105,7 @@ class ProductDownloadView(View):
             if gussed_mimetype:
                 mimetype = gussed_mimetype
             response = HttpResponse(wrapper, content_type=mimetype)
-            response['Content-Disposition'] = "attachment;filename=%s" % (download_obj.name)
+            response['Content-Disposition'] = "attachment;filename=%s" %(download_obj.name)
             response["X-SendFile"] = str(download_obj.name)
             return response
         return redirect(download_obj.get_default_url())

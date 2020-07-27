@@ -5,6 +5,7 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
         ('addresses', '0001_initial'),
         ('orders', '0003_auto_20190819_1901'),
@@ -14,13 +15,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='order',
             name='billing_address',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING,
-                                    related_name='billing_address', to='addresses.Address'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='billing_address', to='addresses.Address'),
         ),
         migrations.AddField(
             model_name='order',
             name='shipping_address',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING,
-                                    related_name='shipping_address', to='addresses.Address'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='shipping_address', to='addresses.Address'),
         ),
     ]

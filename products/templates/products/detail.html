@@ -2,72 +2,72 @@
 {% load i18n %}
 {% block content %}
 
-<div class="row detail-top-panel">
-    <div class="col-8">
-        <h4><b>{{ object.title }}</b></h4>
-        {{ object.timestamp|timesince }} {% trans "ago" %}
-    </div>
-    <div class="col">
-        <div class="row detail-price-update">
-            <div class="v-line"></div>
-            <h2>
-                {{ object.price }} &#36;
-            </h2>
-            {% include 'products/update-cart.html' with product=object cart=cart %}
+    <div class="row detail-top-panel">
+        <div class="col-8">
+            <h4><b>{{ object.title }}</b></h4>
+            {{ object.timestamp|timesince }} {% trans "ago" %}
         </div>
-    </div>
-</div>
-<hr/>
-<div class="row detail-content">
-    <div class="col detail-description">
-        {{ object.description|linebreaks }}
-    </div>
-    <div class="col-8">
-        <div id="carouselAction" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselAction" data-slide-to="0" class="active"></li>
-                {% for slide in slides %}
-                <li data-target="#carouselAction" data-slide-to="{{ forloop.counter }}"></li>
-                {{ forloop.counter1 }}
-                {% endfor %}
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    {% if object.image %}
-                    <img src="{{ object.image.url }}" class="d-block w-100">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{ object.title }}</h5>
-                        <p>{{ object.description }}</p>
-                    </div>
-                    {% else %}
-                    <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found :(" %}</p>
-                    {% endif %}
-                </div>
-                {% for slide in slides %}
-                <div class="carousel-item">
-                    {% if slide.image %}
-                    <img src="{{ slide.image.url }}" class="d-block w-100">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{ slide.name }}</h5>
-                        <p>{{ slide.description }}</p>
-                    </div>
-                    {% else %}
-                    <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found :(" %}</p>
-                    {% endif %}
-                </div>
-                {% endfor %}
+        <div class="col">
+            <div class="row detail-price-update">
+                <div class="v-line"></div>
+                <h2>
+                  {{ object.price }} &#36;
+                </h2>
+                {% include 'products/update-cart.html' with product=object cart=cart %}
             </div>
-            <a class="carousel-control-prev" href="#carouselAction" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">{% trans "Previous" %}</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselAction" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">{% trans "Next" %}</span>
-            </a>
         </div>
     </div>
-</div>
-<br/>
+    <hr/>
+    <div class="row detail-content">
+      <div class="col detail-description">
+        {{ object.description|linebreaks }}
+      </div>
+      <div class="col-8">
+        <div id="carouselAction" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselAction" data-slide-to="0" class="active"></li>
+          {% for slide in slides %}
+            <li data-target="#carouselAction" data-slide-to="{{ forloop.counter }}"></li>
+            {{ forloop.counter1 }}
+          {% endfor %}
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+            {% if object.image %}
+                <img src="{{ object.image.url }}" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{ object.title }}</h5>
+                  <p>{{ object.description }}</p>
+                </div>
+            {% else %}
+              <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found :(" %}</p>
+            {% endif %}
+            </div>
+            {% for slide in slides %}
+              <div class="carousel-item">
+              {% if slide.image %}
+                <img src="{{ slide.image.url }}" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{ slide.name }}</h5>
+                  <p>{{ slide.description }}</p>
+                </div>
+              {% else %}
+                <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found :(" %}</p>
+              {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+          <a class="carousel-control-prev" href="#carouselAction" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">{% trans "Previous" %}</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselAction" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">{% trans "Next" %}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <br/>
 
 {% endblock %}

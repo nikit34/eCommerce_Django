@@ -7,6 +7,7 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
         ('products', '0011_product_is_digital'),
         ('billing', '0009_auto_20190827_0440'),
@@ -22,8 +23,7 @@ class Migration(migrations.Migration):
                 ('refunded', models.BooleanField(default=False)),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
-                ('billing_profile',
-                 models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='billing.BillingProfile')),
+                ('billing_profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='billing.BillingProfile')),
                 ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='products.Product')),
             ],
         ),

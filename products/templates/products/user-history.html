@@ -2,29 +2,27 @@
 {% load i18n %}
 {% block content %}
 
-<div class='row'>
-    <div class='col'>
-        <h1>{% trans "Product View History" %}</h1>
-        <hr/>
+    <div class='row'>
+        <div class='col'>
+            <h1>{% trans "Product View History" %}</h1>
+            <hr/>
+        </div>
     </div>
-</div>
 {% if object_list.exists %}
-<div class="row text-center">
+    <div class="row text-center">
     {% for obj in object_list %}
-    {% if forloop.counter0|divisibleby:2 %}
-</div>
-<div class="row text-center" style="padding-left:2.5%;">{% endif %}
-    <div class='col my-3'>
-        {% trans "Viewed" %}: {{ forloop.counter }}
-        {% include 'products/card.html' with instance=obj.content_object complet="0" %}
-    </div>
+        {% if forloop.counter0|divisibleby:2 %} </div><div class="row text-center" style="padding-left:2.5%;">{% endif %}
+            <div class='col my-3'>
+                {% trans "Viewed" %}: {{ forloop.counter }}
+                {% include 'products/card.html' with instance=obj.content_object complet="0" %}
+            </div>
     {% endfor %}
-</div>
-{% else %}
-<a href='{% url "products:list" %}'>
-    <div class="product-canvas-cell-small-2">
-        <h1>{% trans "History missing" %}</h1>
     </div>
-</a>
+{% else %}
+    <a href='{% url "products:list" %}'>
+        <div class="product-canvas-cell-small-2">
+            <h1>{% trans "History missing" %}</h1>
+        </div>
+    </a>
 {% endif %}
 {% endblock %}

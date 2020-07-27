@@ -17,7 +17,6 @@
         <h3>{% trans "Continue as Guest" %}</h3>
         <hr>
         {% url "guest_register" as guest_register_url %}
-        {% include 'accounts/form.html' with form=guest_form next_url=request.build_absolute_uri
-        action_url=guest_register_url %}
+        {% include 'accounts/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url %}
     </div>
 </div>

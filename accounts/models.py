@@ -12,8 +12,8 @@ from django.utils.translation import gettext
 
 from eCommerce_Django.utils import random_string_generator, unique_key_generator
 
-DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
+DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
 class UserManager(BaseUserManager):
     def create_user(self, email, full_name=None, password=None, is_active=True, is_staff=False, is_admin=False):
@@ -160,13 +160,13 @@ class EmailActivation(models.Model):
                 from_email = settings.DEFAULT_FROM_EMAIL
                 recipient_list = [self.email]
                 sent_mail = send_mail(
-                    subject,
-                    txt_,
-                    from_email,
-                    recipient_list,
-                    html_message=html_,
-                    fail_silently=False,
-                )
+                        subject,
+                        txt_,
+                        from_email,
+                        recipient_list,
+                        html_message=html_,
+                        fail_silently=False,
+                    )
                 return sent_mail
         return False
 

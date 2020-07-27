@@ -10,29 +10,24 @@
 <div class='row'>
     <div class='col'>
         <table class='table cart-table'>
-            <thead>
-            <th>{% trans "Order Id" %}</th>
-            <th>{% trans "Status" %}</th>
-            <th>{% trans "Total" %}</th>
-            </thead>
+            <thead><th>{% trans "Order Id" %}</th><th>{% trans "Status" %}</th><th>{% trans "Total" %}</th></thead>
 
             <tbody>
-            {% for object in object_list %}
-            <tr>
-                <td><a href='{{ object.get_absolute_url }}'>{{ object.order_id }}</a></td>
-                <td>{{ object.get_status }}</td>
-                <td>{{ object.total | floatformat:2 }}</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="3">{% trans "No orders yet" %}.</td>
-            </tr>
-            {% endfor %}
+                {% for object in object_list %}
+                    <tr>
+                        <td><a href='{{ object.get_absolute_url }}'>{{ object.order_id }}</a></td>
+                        <td>{{ object.get_status }}</td>
+                        <td>{{ object.total | floatformat:2 }}</td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="3">{% trans "No orders yet" %}.</td></tr>
+                {% endfor %}
             </tbody>
 
         </table>
     </div>
 </div>
+
 
 
 {% endblock %}

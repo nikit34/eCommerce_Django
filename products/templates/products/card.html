@@ -2,40 +2,40 @@
 
 <div class="card">
     {% if instance.image %}
-    <a href="{{ instance.get_absolute_url }}">
-        <img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title }} logo">
-    </a>
+        <a href="{{ instance.get_absolute_url }}">
+            <img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title }} logo">
+        </a>
     {% else %}
-    <p class="text-center mt-2 mb-2">{% trans "Image not found :(" %}</p>
+        <p class="text-center mt-2 mb-2">{% trans "Image not found :(" %}</p>
     {% endif %}
     <div class="row card-body">
         <div class="col-5">
             {% if complet == "1" %}
-            <h5>{{ instance.title }}</h5>
-            <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>
+                <h5>{{ instance.title }}</h5>
+                <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>
             {% else %}
-            <h5>{{ instance.title }}</h5>
+                <h5>{{ instance.title }}</h5>
             {% endif %}
         </div>
         {% if complet == "1" %}
-        <div class="col-5 card-button">
-            <div class="row">
-                <div class="col-4">
-                    <a href="{{ instance.get_absolute_url }}" class="btn btn-danger">{% trans "View" %}</a>
-                </div>
-                <div class="col text-right">
-                    {% include 'products/update-cart.html' with product=instance cart=cart %}
+            <div class="col-5 card-button">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{{ instance.get_absolute_url }}" class="btn btn-danger">{% trans "View" %}</a>
+                    </div>
+                    <div class="col text-right">
+                        {% include 'products/update-cart.html' with product=instance cart=cart %}
+                    </div>
                 </div>
             </div>
-        </div>
         {% else %}
-        <div class="col-3 card-button">
-            <div class="row">
-                <div class="col text-right">
-                    <a href="{{ instance.get_absolute_url }}" class="btn btn-danger">{% trans "View" %}</a>
+            <div class="col-3 card-button">
+                <div class="row">
+                    <div class="col text-right">
+                        <a href="{{ instance.get_absolute_url }}" class="btn btn-danger">{% trans "View" %}</a>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endif %}
         <div class="col card-price text-right">
             <h2>{{ instance.price }} &#36;</h2>
