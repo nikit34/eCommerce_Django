@@ -5,7 +5,6 @@ import products.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('products', '0003_product_image'),
     ]

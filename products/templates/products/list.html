@@ -4,16 +4,17 @@
 
 <div class="row text-center">
     {% for obj in object_list %}
-        {% if forloop.counter0|divisibleby:2 %}
-            </div><div class="row text-center">
+    {% if forloop.counter0|divisibleby:2 %}
+</div>
+<div class="row text-center">
+    {% endif %}
+    <div class="col my-3">
+        {% if object_list.count != 1 %}
+        {% include 'products/card.html' with instance=obj complet="0" %}
+        {% else %}
+        {% include 'products/card.html' with instance=obj complet="1" %}
         {% endif %}
-        <div class="col my-3">
-            {%  if object_list.count != 1 %}
-                {% include 'products/card.html' with instance=obj complet="0" %}
-            {% else %}
-                {% include 'products/card.html' with instance=obj complet="1" %}
-            {% endif %}
-        </div>
+    </div>
     {% endfor %}
 
-{% endblock %}
+    {% endblock %}

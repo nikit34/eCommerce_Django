@@ -3,6 +3,7 @@ from django.core import mail
 
 from accounts.models import User, EmailActivation, GuestEmail
 
+
 class UserModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -73,7 +74,7 @@ class EmailActivationModelTest(TestCase):
         EmailActivation.objects.create(
             user=user,
             email='emailactivationmodeltest@gmail.com'
-            )
+        )
 
     def test_user_label(self):
         email_activation = EmailActivation.objects.get(id=1)

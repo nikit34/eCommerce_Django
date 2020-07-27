@@ -12,7 +12,8 @@
             <h3>{% trans "Cart Items" %}:</h3>
             <hr>
             {% for product in object.cart.products.all %}
-                {% if forloop.counter|divisibleby:2 %}<p style="color:rgb(150,0,150);">{% else %}<p style="color:rgb(200,0,200);">{% endif %}{{ forloop.counter }}) {{ product }}</p>
+            {% if forloop.counter|divisibleby:2 %}<p style="color:rgb(150,0,150);">{% else %}
+            <p style="color:rgb(200,0,200);">{% endif %}{{ forloop.counter }}) {{ product }}</p>
             {% endfor %}
             <hr>
             <div class="row">
@@ -75,7 +76,8 @@
                         <div class="row">
                             <div class="col">
                                 <h4>{% trans "Payment Method" %}
-                                    (<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">{% trans "Change" %}</a>):
+                                    (<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">{%
+                                        trans "Change" %}</a>):
                                 </h4>
                             </div>
                             <div class="col">

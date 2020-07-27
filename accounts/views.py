@@ -29,6 +29,7 @@ class AccountEmailActivateView(FormMixin, View):
     success_url = '/login/'
     form_class = ReactivateEmailForm
     key = None
+
     def get(self, request, key=None, *args, **kwargs):
         self.key = key
         if key is not None:
@@ -43,7 +44,9 @@ class AccountEmailActivateView(FormMixin, View):
                 activated_qs = qs.filter(activated=True)
                 if activated_qs.exists():
                     reset_link = reverse("password_reset")
-                    msg = gettext("Your email has already been confirmed. Do you need to <a href='%{link}s'>reset you password</a>?") % { 'link': reset_link }
+                    msg = gettext(
+                        "Your email has already been confirmed. Do you need to <a href='%{link}s'>reset you password</a>?") % {
+                              'link': reset_link}
                     messages.success(request, mark_safe(msg))
                     return redirect("login")
         context = {'form': self.get_form(), 'key': key}

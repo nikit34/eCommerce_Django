@@ -9,7 +9,6 @@ import products.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('products', '0011_product_is_digital'),
     ]
@@ -19,7 +18,9 @@ class Migration(migrations.Migration):
             name='ProductFile',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('file', models.FileField(storage=django.core.files.storage.FileSystemStorage(location='/mnt/c/Users/permi/source/repos/draft/2/static_cdn/protected_media'), upload_to=products.models.upload_product_file_loc)),
+                ('file', models.FileField(storage=django.core.files.storage.FileSystemStorage(
+                    location='/mnt/c/Users/permi/source/repos/draft/2/static_cdn/protected_media'),
+                                          upload_to=products.models.upload_product_file_loc)),
                 ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='products.Product')),
             ],
         ),

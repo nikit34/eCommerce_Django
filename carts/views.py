@@ -14,6 +14,7 @@ from products.models import Product
 from .models import Cart
 
 import stripe
+
 STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY', None)
 STRIPE_PUB_KEY = getattr(settings, 'STRIPE_PUB_KEY', None)
 stripe.api_key = STRIPE_SECRET_KEY
@@ -24,11 +25,11 @@ from .paypal import CreateOrder
 def cart_detail_api_view(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
     products = [{
-            'id': x.id,
-            'url': x.get_absolute_url(),
-            'name': x.name,
-            'price': x.price
-        } for x in cart_obj.products.all()
+        'id': x.id,
+        'url': x.get_absolute_url(),
+        'name': x.name,
+        'price': x.price
+    } for x in cart_obj.products.all()
     ]
     cart_data = {
         'products': products,
@@ -107,12 +108,12 @@ def checkout_home(request):
         if is_prepared:
             did_charge, orderID = billing_profile.charge('S', order_obj)
             if did_charge:
-                order_obj.mark_paid() # sort signal
+                order_obj.mark_paid()  # sort signal
                 request.session['cart_items'] = 0
                 del request.session['cart_id']
                 if not billing_profile.user:
                     billing_profile.set_cards_inactive()
-                return redirect(reverse('cart:success', kwargs={ 'orderID': orderID }))
+                return redirect(reverse('cart:success', kwargs={'orderID': orderID}))
             else:
                 return redirect('cart:checkout')
 
@@ -168,10 +169,10 @@ def paypal_checkout_home(request):
             if response.status_code == 201 and response.result.status == 'CREATED':
                 did_charge, orderID = billing_profile.charge('P', order_obj, response)
                 if did_charge:
-                    order_obj.mark_paid() # sort signal
+                    order_obj.mark_paid()  # sort signal
                     request.session['cart_items'] = 0
                     del request.session['cart_id']
-                    return redirect(reverse('cart:success', kwargs={ 'orderID': orderID }))
+                    return redirect(reverse('cart:success', kwargs={'orderID': orderID}))
                 else:
                     return redirect('cart:checkout')
 
@@ -189,4 +190,4 @@ def paypal_checkout_home(request):
 
 
 def checkout_done_view(request, orderID=None):
-    return render(request, 'carts/checkout-done.html', { 'orderID': orderID })
+    return render(request, 'carts/checkout-done.html', {'orderID': orderID})

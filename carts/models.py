@@ -4,8 +4,8 @@ from django.db import models
 from products.models import Product
 from django.db.models.signals import pre_save, post_save, m2m_changed
 
-
 User = settings.AUTH_USER_MODEL
+
 
 class CartManager(models.Manager):
     def new_or_get(self, request):
@@ -73,5 +73,6 @@ def product_pre_save_receiver(sender, instance, *args, **kwargs):
         instance.total = Decimal(instance.subtotal)  # here can change final cost
     else:
         instance.total = 0.00
+
 
 pre_save.connect(product_pre_save_receiver, sender=Cart)

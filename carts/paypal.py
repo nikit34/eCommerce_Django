@@ -26,7 +26,7 @@ class PayPalClient:
         return result
 
     def array_to_json_array(self, json_array):
-        result =[]
+        result = []
         if isinstance(json_array, list):
             for item in json_array:
                 if not self.is_primittive(item):
@@ -62,9 +62,9 @@ class CreateOrder(PayPalClient):
                 print('\t{}: {}\tCall Type: {}'.format(link.rel, link.href, link.method))
             print('Total Amount: {} {}' \
                 .format(
-                    response.result.purchase_units[0].amount.currency_code,
-                    response.result.purchase_units[0].amount.value
-                )
+                response.result.purchase_units[0].amount.currency_code,
+                response.result.purchase_units[0].amount.value
+            )
             )
         return response
 
@@ -123,13 +123,12 @@ def build_request_body(prepared_data_order):
             "shipping_preference": "NO_SHIPPING",
             "user_action": "PAY_NOW"
         },
-        "purchase_units": [
-            {
-                "reference_id": "PUHF",
-                "description": "PayPal deal",
-                "custom_id": "CUST-HighFashions",
-                "soft_descriptor": "HighFashions",
-            },
+        "purchase_units": [{
+            "reference_id": "PUHF",
+            "description": "PayPal deal",
+            "custom_id": "CUST-HighFashions",
+            "soft_descriptor": "HighFashions",
+        },
         ]
     }
     response_structure['purchase_units'][0].update(prepared_data_order)

@@ -5,6 +5,7 @@ from django.utils.http import is_safe_url
 from django.utils.translation import gettext
 
 import stripe
+
 STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY', None)
 STRIPE_PUB_KEY = getattr(settings, 'STRIPE_PUB_KEY', None)
 stripe.api_key = STRIPE_SECRET_KEY

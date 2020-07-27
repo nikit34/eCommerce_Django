@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -23,7 +22,8 @@ class Migration(migrations.Migration):
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
                 ('products', models.ManyToManyField(blank=True, to='products.Product')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT,
+                                           to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

@@ -4,63 +4,65 @@
 
 <div class='row'>
 
-<div class='col-12'>
-  <h1>{% trans "Account" %}</h1>
-  <hr/>
-</div>
-
-<div class='col-12 col-md-3 my-3'>
-    <div class="card-home">
-      <div class="card-home-body" style="background:#ff000080;">
-        <h3 class="card-home-title">{% trans "Billing" %}</h3>
-          <div class='list-group'>
-            <a class='list-group-item' href='{% url "orders:list" %}'>{% trans "Orders" %}</a>
-            <a class='list-group-item' href='{% url "billing-payment-method" %}'>{% trans "Payment Methods" %}</a>
-            <a class='list-group-item' href='{% url "addresses" %}'>{% trans "Saved addresses" %}</a>
-          </div>
-      </div>
+    <div class='col-12'>
+        <h1>{% trans "Account" %}</h1>
+        <hr/>
     </div>
-</div>
 
-<div class='col-12 col-md-3 my-3'>
-    <div class="card-home">
-      <div class="card-home-body" style="background:#ffff0080;">
-        <h3 class="card-home-title">{% trans "History" %}</h3>
-            <div class='list-group'>
-                <a class='list-group-item' href='{% url "accounts:user-product-history" %}'>{% trans "Products" %}</a>
-                <a class='list-group-item' href='{% url "collection" %}'>{% trans "Collection" %}</a>
-                {% if user.staff %}
-                  <a class='list-group-item' href='{% url "sales-analytics" %}'>{% trans "Statistics" %}</a>
-                {% endif %}
+    <div class='col-12 col-md-3 my-3'>
+        <div class="card-home">
+            <div class="card-home-body" style="background:#ff000080;">
+                <h3 class="card-home-title">{% trans "Billing" %}</h3>
+                <div class='list-group'>
+                    <a class='list-group-item' href='{% url "orders:list" %}'>{% trans "Orders" %}</a>
+                    <a class='list-group-item' href='{% url "billing-payment-method" %}'>{% trans "Payment Methods"
+                        %}</a>
+                    <a class='list-group-item' href='{% url "addresses" %}'>{% trans "Saved addresses" %}</a>
+                </div>
             </div>
-      </div>
-    </div>
-</div>
-
-<div class='col-12 col-md-3 my-3'>
-    <div class="card-home">
-      <div class="card-home-body" style="background:#00ff0080">
-      <h3 class="card-home-title">{% trans "Support" %}</h3>
-        <div class='list-group'>
-          <a class='list-group-item' href='{% url "about" %}'>{% trans "About" %}</a>
-          <a class='list-group-item' href='{% url "contact" %}'>{% trans "Contact" %}</a>
         </div>
-      </div>
     </div>
-</div>
 
-<div class='col-12 col-md-3 my-3'>
-    <div class="card-home">
-      <div class="card-home-body" style="background:#0000ff80;">
-        <h3 class="card-home-title">{% trans "Account Details" %}</h3>
-            <div class='list-group'>
-                <a class='list-group-item' href='{% url "marketing-pref" %}'>{% trans "Email Marketing" %}</a>
-                <a class='list-group-item' href='{% url "accounts:user-update" %}'>{% trans "Update Details" %}</a>
-                <a class='list-group-item' href='{% url "password_change" %}'>{% trans "Change Password" %}</a>
+    <div class='col-12 col-md-3 my-3'>
+        <div class="card-home">
+            <div class="card-home-body" style="background:#ffff0080;">
+                <h3 class="card-home-title">{% trans "History" %}</h3>
+                <div class='list-group'>
+                    <a class='list-group-item' href='{% url "accounts:user-product-history" %}'>{% trans "Products"
+                        %}</a>
+                    <a class='list-group-item' href='{% url "collection" %}'>{% trans "Collection" %}</a>
+                    {% if user.staff %}
+                    <a class='list-group-item' href='{% url "sales-analytics" %}'>{% trans "Statistics" %}</a>
+                    {% endif %}
+                </div>
             </div>
-      </div>
+        </div>
     </div>
-</div>
+
+    <div class='col-12 col-md-3 my-3'>
+        <div class="card-home">
+            <div class="card-home-body" style="background:#00ff0080">
+                <h3 class="card-home-title">{% trans "Support" %}</h3>
+                <div class='list-group'>
+                    <a class='list-group-item' href='{% url "about" %}'>{% trans "About" %}</a>
+                    <a class='list-group-item' href='{% url "contact" %}'>{% trans "Contact" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='col-12 col-md-3 my-3'>
+        <div class="card-home">
+            <div class="card-home-body" style="background:#0000ff80;">
+                <h3 class="card-home-title">{% trans "Account Details" %}</h3>
+                <div class='list-group'>
+                    <a class='list-group-item' href='{% url "marketing-pref" %}'>{% trans "Email Marketing" %}</a>
+                    <a class='list-group-item' href='{% url "accounts:user-update" %}'>{% trans "Update Details" %}</a>
+                    <a class='list-group-item' href='{% url "password_change" %}'>{% trans "Change Password" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 

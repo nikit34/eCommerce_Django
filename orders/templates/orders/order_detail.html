@@ -2,10 +2,10 @@
 {% load i18n %}
 {% block content %}
 
- <div class='row'>
+<div class='row'>
     <div class='col-12 col-md-6 mx-auto'>
-         <h1>{% trans "Order" %} {{ object.order_id }}</h1>
-          <hr/>
+        <h1>{% trans "Order" %} {{ object.order_id }}</h1>
+        <hr/>
     </div>
 </div>
 
@@ -16,7 +16,8 @@
                 <h4>{% trans "Items" %}:</h4>
             </div>
             <div class="col">
-                <h4>{% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</h4>
+                <h4>{% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{%
+                    endfor %}</h4>
             </div>
         </div>
         <hr>

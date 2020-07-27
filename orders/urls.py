@@ -2,7 +2,6 @@ from django.conf.urls import url
 
 from .views import (OrderListView, OrderDetailView, VerifyOwnership)
 
-
 urlpatterns = [
     url(r'^$', OrderListView.as_view(), name='list'),
     url(r'^endpoint/verify/ownership/$', VerifyOwnership.as_view(), name='verify-ownership'),
