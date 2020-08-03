@@ -1,4 +1,5 @@
 import sys
+import json
 from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
 from paypalcheckoutsdk.orders import OrdersCreateRequest
 
@@ -133,4 +134,8 @@ def build_request_body(prepared_data_order):
         ]
     }
     response_structure['purchase_units'][0].update(prepared_data_order)
+
+    if settings.DEBUG:
+        print(json.dumps(response_structure, indent=4, sort_keys=True))
+        
     return response_structure
