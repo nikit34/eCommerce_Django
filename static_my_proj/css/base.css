@@ -111,12 +111,30 @@ h1, h2, h3, h4, h5, h6 {
 div.left-field {
     background: linear-gradient(270deg, #ffffff00 50%, #ff00001f 100%);
     top:0.5vh;
+    background-color: rgba(0,0,0,0);
     min-height: 90vh;
+    transition: background-color 1s;
+}
+div.left-field i{
+    margin-top: 45vh;
+    margin-left: 5vh;
+    color: #ff00001f;
+    position: fixed;
+    transition: color 1s;
+}
+div.left-field:hover i{
+    color: #ffffff;
+}
+div.left-field:hover {
+    background-color: #ff00001f;
 }
 div.right-field {
     background: rgba(100, 100, 255, 0.025);
     top:0.5vh;
     min-height: 90vh;
+}
+div.right-field span {
+    position: fixed;
 }
 
 

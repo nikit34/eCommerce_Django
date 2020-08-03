@@ -3,7 +3,9 @@
     min-width: 150px;
 }
 
-
+.btn:focus, .btn.focus {
+    box-shadow: none !important;
+}
 
 .detail-top-panel {
     margin-top: 2.5%;

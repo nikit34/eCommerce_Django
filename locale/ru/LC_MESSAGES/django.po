@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-22 03:56+0000\n"
+"POT-Creation-Date: 2020-08-03 06:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -677,9 +677,17 @@ msgstr "Поиск"
 msgid "Results for"
 msgstr "Результаты поиска"
 
-#: templates/base.html:36
+#: templates/base.html:40
 msgid "Important"
 msgstr "Важно"
+
+#: templates/base.html:59
+msgid "Have any requests or questions?"
+msgstr "Есть какие-либо пожелания или вопросы?"
+
+#: templates/base.html:62
+msgid "Write me, please"
+msgstr "Напиши мне пожалуйста"
 
 #: templates/base/footer.html:6
 msgid "Developed"
