@@ -26,8 +26,17 @@
     {% if user.staff %}
         <div class="row">
             <div class="col">
+            <hr>
                 <h1>{% trans "Premium Content" %}</h1>
                 {{ premium_content }}
+                {% if request.get_full_path != contact_url %}
+                    <p class="text-center">
+                        {% trans "Have any requests or questions?" %}
+                    </p>
+                    <p class="text-center">
+                        <a href='{% url "contact" %}'>{% trans "Write me, please" %}</a>
+                    </p>
+                {% endif %}
             </div>
         </div>
     {% endif %}

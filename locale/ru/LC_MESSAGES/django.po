@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-03 06:48+0000\n"
+"POT-Creation-Date: 2020-08-03 12:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -677,17 +677,9 @@ msgstr "Поиск"
 msgid "Results for"
 msgstr "Результаты поиска"
 
-#: templates/base.html:40
+#: templates/base.html:42
 msgid "Important"
 msgstr "Важно"
-
-#: templates/base.html:59
-msgid "Have any requests or questions?"
-msgstr "Есть какие-либо пожелания или вопросы?"
-
-#: templates/base.html:62
-msgid "Write me, please"
-msgstr "Напиши мне пожалуйста"
 
 #: templates/base/footer.html:6
 msgid "Developed"
@@ -717,7 +709,7 @@ msgstr "Способ оплаты"
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/contact/about.html:25 templates/home_page.html:29
+#: templates/contact/about.html:25 templates/home_page.html:30
 msgid "Premium Content"
 msgstr "Премиум"
 
@@ -753,6 +745,14 @@ msgstr "Главная страница"
 #: templates/home_page.html:10
 msgid "Best offers"
 msgstr "Лучшие предложения"
+
+#: templates/home_page.html:34
+msgid "Have any requests or questions?"
+msgstr "Есть какие-либо пожелания или вопросы?"
+
+#: templates/home_page.html:37
+msgid "Write me, please"
+msgstr "Напиши мне пожалуйста"
 
 #: templates/registration/activation-error.html:7
 msgid "Activation Error. Please try again"

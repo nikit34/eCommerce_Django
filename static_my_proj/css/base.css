@@ -1,5 +1,6 @@
 html {
     overflow-x: hidden;
+    user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -khtml-user-select: none;
@@ -128,6 +129,8 @@ div.left-field:hover i{
 div.left-field:hover {
     background-color: #ff00001f;
 }
+
+
 div.right-field {
     background: rgba(100, 100, 255, 0.025);
     top:0.5vh;
@@ -135,6 +138,25 @@ div.right-field {
 }
 div.right-field span {
     position: fixed;
+}
+.right-field .promo-code{
+    font-size: smaller;
+    text-decoration: none;
+    text-align: center;
+    user-select: all !important;
+    -moz-user-select: all !important;
+    -ms-user-select: all !important;
+    -khtml-user-select: all !important;
+    -webkit-user-select: all !important;
+    -webkit-touch-callout: all !important;
+    transition: background-color 0.5s;
+}
+.right-field .promo-code:hover{
+    text-decoration: none;
+    background-color: rgb(255, 200, 200);
+}
+.right-field .promo-code a {
+    text-decoration: none;
 }
 
 
@@ -246,7 +268,6 @@ div.right-field span {
     border: 2px solid #0000ff80;
     border-radius: 15px;
     font-size: x-large;
-    min-width: 25em;
 }
 .base-canvas-cell-2 {
     background-color: #0000ff10;
@@ -254,7 +275,6 @@ div.right-field span {
     border: 1px solid #0000ff80;
     border-radius: 15px;
     font-size: large;
-    min-width: 25em;
 }
 .base-canvas-cell-small {
     background-color: whitesmoke;
@@ -262,7 +282,6 @@ div.right-field span {
     border: 1px solid #0000ff80;
     border-radius: 15px;
     text-align: center;
-    min-width: 25em;
 }
 .base-canvas-cell-small-2 {
     background-color: #0000ff50;
@@ -271,7 +290,6 @@ div.right-field span {
     border-right: 1px solid #0000ff80;
     border-radius: 15px;
     text-align: center;
-    min-width: 25em;
 }
 .base-canvas-cell-empty {
     padding: 2em 1em 0 1em;

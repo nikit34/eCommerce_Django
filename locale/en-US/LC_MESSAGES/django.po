@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-03 06:48+0000\n"
+"POT-Creation-Date: 2020-08-03 12:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -663,16 +663,8 @@ msgstr ""
 msgid "Results for"
 msgstr ""
 
-#: templates/base.html:40
+#: templates/base.html:42
 msgid "Important"
-msgstr ""
-
-#: templates/base.html:59
-msgid "Have any requests or questions?"
-msgstr ""
-
-#: templates/base.html:62
-msgid "Write me, please"
 msgstr ""
 
 #: templates/base/footer.html:6
@@ -703,7 +695,7 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: templates/contact/about.html:25 templates/home_page.html:29
+#: templates/contact/about.html:25 templates/home_page.html:30
 msgid "Premium Content"
 msgstr ""
 
@@ -738,6 +730,14 @@ msgstr ""
 
 #: templates/home_page.html:10
 msgid "Best offers"
+msgstr ""
+
+#: templates/home_page.html:34
+msgid "Have any requests or questions?"
+msgstr ""
+
+#: templates/home_page.html:37
+msgid "Write me, please"
 msgstr ""
 
 #: templates/registration/activation-error.html:7
