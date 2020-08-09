@@ -29,12 +29,18 @@
 .detail-description {
     background-color: whitesmoke;
     padding: 1em;
-    border: 2px solid white;
     border-radius: 15px;
     font-size: x-large;
     font-weight: lighter;
     height: 100%;
     text-align: justify;
+}
+.detail-comments {
+    background-color: whitesmoke;
+    padding: 1em 2.5em 2.5em 2.5em;
+    border-radius: 15px;
+    font-size: x-large;
+    font-weight: lighter;
 }
 
 

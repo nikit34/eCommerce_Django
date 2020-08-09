@@ -10,6 +10,8 @@ from django.conf import settings
 
 from analytics.mixins import ObjectViewedMixin
 from carts.models import Cart
+from chats.models import Comment
+from chats.forms import CommentForm
 from .models import Product, ProductFile
 
 
@@ -46,6 +48,18 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
     queryset = Product.objects.all()
     template_name = 'products/detail.html'
 
+    def post(self, request, *args, **kwargs):
+        slug = self.kwargs.get('slug')
+        product = get_object_or_404(Product, slug=slug)
+        new_comment = None
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.listing = product
+            new_comment.sender = request.user
+            new_comment.save()
+        return redirect(product)
+
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetailSlugView, self).get_context_data(*args, **kwargs)
         cart_obj, new_obj = Cart.objects.new_or_get(self.request)
@@ -53,6 +67,15 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
         slug = self.kwargs.get('slug')
         slides = ProductFile.objects.all().filter(product__slug=slug)
         context['slides'] = slides
+        context['comments'] = ''
+        context['comment_form'] = CommentForm()
+        try:
+            instance = Product.objects.get(slug=slug, active=True)
+            context['comments'] = instance.comments.filter(active=True)
+        except Comment.DoesNotExist:
+            raise Http404('Not found..')
+        except:
+            raise Http404('Indefinite')
         return context
 
     def get_object(self, *args, **kwargs):

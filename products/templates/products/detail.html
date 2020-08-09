@@ -9,7 +9,8 @@
         </div>
         <div class="col">
             <div class="row detail-price-update">
-                <div class="v-line"></div>
+                <div class="v-line">
+                </div>
                 <h2>
                   {{ object.price }} &#36;
                 </h2>
@@ -68,6 +69,43 @@
         </div>
       </div>
     </div>
-    <br/>
+    <hr/>
+    <div class="row detail-comments">
+        <div class="col">
+            <h6 class="text-right">{{ comments.count }} {% trans "comments" %}</h6>
+            {% for comment in comments %}
+                <hr/>
+                <div class="container-field">
+                    <small>{{ comment.sender }} <em>{% trans "says" %}: {{ comment.send_time }}</em></small>
+                </div>
+                <div class="container">
+                    {{ comment.msg }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if new_comment %}
+                <div class="alert alert-success" role="alert">
+                    {% trans "Your comment is awaiting moderation" %}
+                </div>
+            {% else %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row d-flex justify-content-center">
+                        <h2 class="text-center">{% trans "Leave a comment" %}</h2>
+                        <div class="col-4"></div>
+                        <button type="submit" class="btn btn-outline-info">{% trans "Submit" %}</button>
+                    </div>
+                    <br/>
+                    <div class="row d-flex justify-content-center">
+                        <label for="{{ form.msg.id_for_label }}"></label>
+                        <textarea name="msg" cols="100" rows="10" required="" id="id_msg"></textarea>
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+    </div>
 
 {% endblock %}
