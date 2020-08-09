@@ -75,8 +75,13 @@
             <h6 class="text-right">{{ comments.count }} {% trans "comments" %}</h6>
             {% for comment in comments %}
                 <hr/>
-                <div class="container-field">
-                    <small>{{ comment.sender }} <em>{% trans "says" %}: {{ comment.send_time }}</em></small>
+                <div class="row container-field">
+                    <div class="col">
+                        <h6>{{ comment.sender }}</h6>
+                    </div>
+                    <div class="col text-right">
+                        <h6><em>{% trans "says" %}: {{ comment.send_time }}</em></h6>
+                    </div>
                 </div>
                 <div class="container">
                     {{ comment.msg }}

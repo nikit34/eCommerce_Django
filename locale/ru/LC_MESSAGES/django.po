@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-03 12:35+0000\n"
+"POT-Creation-Date: 2020-08-09 20:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,7 +107,8 @@ msgid "Change Password"
 msgstr "Сменить пароль"
 
 #: accounts/templates/accounts/form.html:37
-#: addresses/templates/addresses/form.html:106 templates/contact/view.html:21
+#: addresses/templates/addresses/form.html:106
+#: products/templates/products/detail.html:104 templates/contact/view.html:21
 msgid "Submit"
 msgstr "Отправить"
 
@@ -631,8 +632,8 @@ msgid "Status"
 msgstr "Статус"
 
 #: products/templates/products/card.html:9
-#: products/templates/products/detail.html:43
-#: products/templates/products/detail.html:55
+#: products/templates/products/detail.html:44
+#: products/templates/products/detail.html:56
 msgid "Image not found :("
 msgstr "Изображения нет :("
 
@@ -641,13 +642,29 @@ msgstr "Изображения нет :("
 msgid "View"
 msgstr "Посмотреть"
 
-#: products/templates/products/detail.html:62
+#: products/templates/products/detail.html:63
 msgid "Previous"
 msgstr "Предыдущий"
 
-#: products/templates/products/detail.html:66
+#: products/templates/products/detail.html:67
 msgid "Next"
 msgstr "Следующий"
+
+#: products/templates/products/detail.html:75
+msgid "comments"
+msgstr "комментариев"
+
+#: products/templates/products/detail.html:83
+msgid "says"
+msgstr "написано"
+
+#: products/templates/products/detail.html:96
+msgid "Your comment is awaiting moderation"
+msgstr "Ваш комментарий ждет публикации"
+
+#: products/templates/products/detail.html:102
+msgid "Leave a comment"
+msgstr "Оставьте комментарий"
 
 #: products/templates/products/update-cart.html:11
 msgid "In cart"
@@ -709,7 +726,7 @@ msgstr "Способ оплаты"
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/contact/about.html:25 templates/home_page.html:30
+#: templates/contact/about.html:18 templates/home_page.html:30
 msgid "Premium Content"
 msgstr "Премиум"
 

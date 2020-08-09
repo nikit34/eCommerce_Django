@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-03 12:35+0000\n"
+"POT-Creation-Date: 2020-08-09 20:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,7 +98,8 @@ msgid "Change Password"
 msgstr ""
 
 #: accounts/templates/accounts/form.html:37
-#: addresses/templates/addresses/form.html:106 templates/contact/view.html:21
+#: addresses/templates/addresses/form.html:106
+#: products/templates/products/detail.html:104 templates/contact/view.html:21
 msgid "Submit"
 msgstr ""
 
@@ -617,8 +618,8 @@ msgid "Status"
 msgstr ""
 
 #: products/templates/products/card.html:9
-#: products/templates/products/detail.html:43
-#: products/templates/products/detail.html:55
+#: products/templates/products/detail.html:44
+#: products/templates/products/detail.html:56
 msgid "Image not found :("
 msgstr ""
 
@@ -627,12 +628,28 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: products/templates/products/detail.html:62
+#: products/templates/products/detail.html:63
 msgid "Previous"
 msgstr ""
 
-#: products/templates/products/detail.html:66
+#: products/templates/products/detail.html:67
 msgid "Next"
+msgstr ""
+
+#: products/templates/products/detail.html:75
+msgid "comments"
+msgstr ""
+
+#: products/templates/products/detail.html:83
+msgid "says"
+msgstr ""
+
+#: products/templates/products/detail.html:96
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+#: products/templates/products/detail.html:102
+msgid "Leave a comment"
 msgstr ""
 
 #: products/templates/products/update-cart.html:11
@@ -695,7 +712,7 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: templates/contact/about.html:25 templates/home_page.html:30
+#: templates/contact/about.html:18 templates/home_page.html:30
 msgid "Premium Content"
 msgstr ""
 
