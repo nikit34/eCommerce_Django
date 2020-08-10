@@ -121,7 +121,7 @@ def build_request_body(prepared_data_order):
         "application_context": {
             "brand_name": "OlyalyaStudio",
             "landing_page": "NO_PREFERENCE",
-            "shipping_preference": "NO_SHIPPING",
+            "shipping_preference": "GET_FROM_FILE",
             "user_action": "PAY_NOW"
         },
         "purchase_units": [
@@ -137,5 +137,5 @@ def build_request_body(prepared_data_order):
 
     if settings.DEBUG:
         print(json.dumps(response_structure, indent=4, sort_keys=True))
-        
+
     return response_structure
