@@ -53,15 +53,13 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
     def post(self, request, *args, **kwargs):
         slug = self.kwargs.get('slug')
         self.object = self.get_object()
-        product = get_object_or_404(Product, slug=slug)
         comment_form = CommentForm(data=request.POST)
         new_comment = None
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
-            new_comment.listing = product
+            new_comment.listing = self.object
             new_comment.sender = request.user
             new_comment.save()
-            ser_new_comment = serializers.serialize('json', [new_comment])
             context = super(ProductDetailSlugView, self).get_context_data(*args, **kwargs)
             return self.render_to_response(context=context)
         else:

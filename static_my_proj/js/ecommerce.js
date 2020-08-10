@@ -275,9 +275,9 @@ $(document).ready(function () {
     let serializedData = $(this).serialize();
     $.ajax({
       url: window.location.href,
-      type: 'POST',
+      type: "POST",
       data: serializedData,
-      success: function(response){
+      success: function(){
         $('#id_msg').val('');
         location.reload();
       }
