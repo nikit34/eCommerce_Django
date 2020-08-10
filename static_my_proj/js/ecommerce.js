@@ -280,7 +280,14 @@ $(document).ready(function () {
       success: function(){
         $('#id_msg').val('');
         location.reload();
+      },
+      error: function(error){
+        $.alert({
+          title: "Break!",
+          content: "An error occurred",
+          theme: "modern",
+        });
       }
-    })
-  })
+    });
+  });
 });

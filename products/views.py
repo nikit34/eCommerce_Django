@@ -62,9 +62,7 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
             new_comment.save()
             context = super(ProductDetailSlugView, self).get_context_data(*args, **kwargs)
             return self.render_to_response(context=context)
-        else:
-            return JsonResponse({'error': ''}, status=400) #TODO
-        return JsonResponse({'error': ''}, status=400) #TODO
+        return JsonResponse({'error': 'Form is not valid'}, status=400)
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetailSlugView, self).get_context_data(*args, **kwargs)
