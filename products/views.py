@@ -52,6 +52,7 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
 
     def post(self, request, *args, **kwargs):
         slug = self.kwargs.get('slug')
+        self.object = self.get_object()
         product = get_object_or_404(Product, slug=slug)
         comment_form = CommentForm(data=request.POST)
         new_comment = None
@@ -61,10 +62,11 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
             new_comment.sender = request.user
             new_comment.save()
             ser_new_comment = serializers.serialize('json', [new_comment])
-            return JsonResponse({'last_comment': ser_new_comment}, status=200)
+            context = super(ProductDetailSlugView, self).get_context_data(*args, **kwargs)
+            return self.render_to_response(context=context)
         else:
-            return JsonResponse({'error': ''}, status=400)
-        return JsonResponse({'error': ''}, status=400)
+            return JsonResponse({'error': ''}, status=400) #TODO
+        return JsonResponse({'error': ''}, status=400) #TODO
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetailSlugView, self).get_context_data(*args, **kwargs)

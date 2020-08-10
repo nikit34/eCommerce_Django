@@ -279,22 +279,6 @@ $(document).ready(function () {
       data: serializedData,
       success: function(response){
         $('#id_msg').val('');
-        let last_comment = JSON.parse(response['last_comment']);
-        let fields = last_comment[0]['fields'];
-        $('#comments').append(`
-          <hr/>
-          <div class="row container-field">
-            <div class="col">
-              <h6>${ fields.sender }</h6>
-            </div>
-            <div class="col text-right">
-              <h6><em>{% trans "says" %}: ${ fields.send_time }</em></h6>
-            </div>
-          </div>
-          <div class="container">
-            ${ fields.msg }
-          </div>
-        `);
         location.reload();
       }
     })
