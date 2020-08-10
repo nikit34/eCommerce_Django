@@ -55,10 +55,10 @@ $(document).ready(function(){
         });
       },
 
-      onError: function(err) {
+      onError: function(error) {
         order_done = false;
         location.replace('/cart/');
-        console.log(err);
+        console.log(error);
       },
 
       onCancel: function() {

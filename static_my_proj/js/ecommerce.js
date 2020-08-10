@@ -3,10 +3,17 @@ $(document).ready(function () {
   var contactForm = $(".contact-form");
   var contactFormMethod = contactForm.attr("method");
   var contactFormEndpoint = contactForm.attr("action");
+  let lang = localization();
   function displaySubmitting(submitBtn, defaultText, doSubmit) {
     if (doSubmit) {
       submitBtn.addClass("disabled");
-      submitBtn.html('<i class="fa fa-spin fa-spinner"></i>Sending...');
+      if(lang == "en"){
+        submitBtn.html('<i class="fa fa-spin fa-spinner"></i>Sending...');
+      } else if(lang == "ru"){
+        submitBtn.html('<i class="fa fa-spin fa-spinner"></i>Отправление...');
+      } else {
+        submitBtn.html('<i class="fa fa-spin fa-spinner"></i>Undefined langueges in js');
+      }
     } else {
       submitBtn.removeClass("disabled");
       submitBtn.html(defaultText);
@@ -19,6 +26,7 @@ $(document).ready(function () {
     var contactFormData = contactForm.serialize();
     var thisForm = $(this);
     displaySubmitting(contactFormSubmitBtn, "", true);
+    let lang = localization();
     $.ajax({
       method: contactFormMethod,
       url: contactFormEndpoint,
@@ -73,8 +81,15 @@ $(document).ready(function () {
     clearTimeout(typingTimer);
   });
   function displaySearching() {
+    let lang = localization();
     searchBtn.addClass("disabled");
-    searchBtn.html('<i class="fa fa-spin fa-spinner"></i>Searching...');
+    if (lang == "en") {
+      searchBtn.html('<i class="fa fa-spin fa-spinner"></i>Searching...');
+    } else if (lang == "ru") {
+      searchBtn.html('<i class="fa fa-spin fa-spinner"></i>Поиск...');
+    } else {
+      searchBtn.html('<i class="fa fa-spin fa-spinner"></i>Undefined langueges in js');
+    }
   }
   function perfomSearch() {
     displaySearching();
@@ -91,17 +106,7 @@ $(document).ready(function () {
     var httpMethod = "GET";
     var data = { product_id: productId };
     var isOwner;
-    let localizations = document.getElementsByName("language");
-    let i_attr_value, lang;
-    for (let i = 0; i < localizations.length; i++) {
-      if (localizations[i].outerHTML.includes("selected")) {
-        i_attr_value = localizations[i].outerHTML.indexOf("value=");
-        lang = localizations[i].outerHTML.slice(
-          i_attr_value + 7,
-          i_attr_value + 9
-        );
-      }
-    }
+    let lang = localization();
     $.ajax({
       url: actionEndpoint,
       method: httpMethod,
@@ -150,17 +155,7 @@ $(document).ready(function () {
     var actionEndpoint = thisForm.attr("data-endpoint");
     var httpMethod = thisForm.attr("method");
     var formData = thisForm.serialize();
-    let localizations = document.getElementsByName("language");
-    let i_attr_value, lang;
-    for (let i = 0; i < localizations.length; i++) {
-      if (localizations[i].outerHTML.includes("selected")) {
-        i_attr_value = localizations[i].outerHTML.indexOf("value=");
-        lang = localizations[i].outerHTML.slice(
-          i_attr_value + 7,
-          i_attr_value + 9
-        );
-      }
-    }
+    let lang = localization();
     $.ajax({
       url: actionEndpoint,
       method: httpMethod,
@@ -291,3 +286,18 @@ $(document).ready(function () {
     });
   });
 });
+
+function localization(){
+  let localizations = document.getElementsByName("language");
+  let i_attr_value, lang;
+  for (let i = 0; i < localizations.length; i++) {
+    if (localizations[i].outerHTML.includes("selected")) {
+      i_attr_value = localizations[i].outerHTML.indexOf("value=");
+      lang = localizations[i].outerHTML.slice(
+        i_attr_value + 7,
+        i_attr_value + 9
+      );
+    }
+  }
+  return lang;
+}
