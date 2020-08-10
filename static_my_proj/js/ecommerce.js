@@ -269,4 +269,23 @@ $(document).ready(function () {
       },
     });
   }
+
+  $('#form_comments').on('submit', function(event){
+    event.preventDefault();
+    let serializedData = $(this).serialize();
+    $.ajax({
+      url: window.location.href,
+      type:'POST',
+      data: serializedData,
+      success: function(){
+        $(this).val('')
+        location.reload()
+      },
+      error: function(xhr,errmsg,err) {
+        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+        console.log(xhr.status + ": " + xhr.responseText);
+      }
+    })
+  })
 });

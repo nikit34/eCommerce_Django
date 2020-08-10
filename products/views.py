@@ -1,12 +1,14 @@
 import os
+import json
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, View
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from wsgiref.util import FileWrapper
 from mimetypes import guess_type
 from django.conf import settings
+from django.core import serializers
 
 from analytics.mixins import ObjectViewedMixin
 from carts.models import Cart
@@ -51,14 +53,18 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
     def post(self, request, *args, **kwargs):
         slug = self.kwargs.get('slug')
         product = get_object_or_404(Product, slug=slug)
-        new_comment = None
         comment_form = CommentForm(data=request.POST)
+        new_comment = None
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.listing = product
             new_comment.sender = request.user
             new_comment.save()
-        return redirect(product)
+            ser_new_comment = serializers.serialize('json', [new_comment])
+            return JsonResponse({'comments': ser_new_comment}, status=200)
+        else:
+            return JsonResponse({'error': comment_form.errors}, status=400)
+        return JsonResponse({'error': ''}, status=400)
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetailSlugView, self).get_context_data(*args, **kwargs)

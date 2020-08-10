@@ -96,7 +96,7 @@
                     {% trans "Your comment is awaiting moderation" %}
                 </div>
             {% else %}
-                <form method="POST">
+                <form method="POST" id="form_comments">
                     {% csrf_token %}
                     <div class="row d-flex justify-content-center">
                         <h2 class="text-center">{% trans "Leave a comment" %}</h2>
