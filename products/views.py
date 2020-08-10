@@ -61,9 +61,9 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
             new_comment.sender = request.user
             new_comment.save()
             ser_new_comment = serializers.serialize('json', [new_comment])
-            return render(request, 'products/detail.html')
+            return JsonResponse({'last_comment': ser_new_comment}, status=200)
         else:
-            return JsonResponse({'error': comment_form.errors}, status=400)
+            return JsonResponse({'error': ''}, status=400)
         return JsonResponse({'error': ''}, status=400)
 
     def get_context_data(self, *args, **kwargs):

@@ -275,16 +275,27 @@ $(document).ready(function () {
     let serializedData = $(this).serialize();
     $.ajax({
       url: window.location.href,
-      type:'POST',
+      type: 'POST',
       data: serializedData,
-      success: function(){
-        $(this).val('')
-        location.reload()
-      },
-      error: function(xhr,errmsg,err) {
-        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
-            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
-        console.log(xhr.status + ": " + xhr.responseText);
+      success: function(response){
+        $('#id_msg').val('');
+        let last_comment = JSON.parse(response['last_comment']);
+        let fields = last_comment[0]['fields'];
+        $('#comments').append(`
+          <hr/>
+          <div class="row container-field">
+            <div class="col">
+              <h6>${ fields.sender }</h6>
+            </div>
+            <div class="col text-right">
+              <h6><em>{% trans "says" %}: ${ fields.send_time }</em></h6>
+            </div>
+          </div>
+          <div class="container">
+            ${ fields.msg }
+          </div>
+        `);
+        location.reload();
       }
     })
   })
