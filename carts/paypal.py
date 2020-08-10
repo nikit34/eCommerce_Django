@@ -1,6 +1,6 @@
 import sys
 import json
-from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
+from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment, LiveEnvironment
 from paypalcheckoutsdk.orders import OrdersCreateRequest
 
 from django.conf import settings
@@ -10,7 +10,7 @@ class PayPalClient:
     def __init__(self):
         self.client_id = getattr(settings, 'PAYPAL_CLIENT_ID', None)
         self.client_secret = getattr(settings, 'PAYPAL_CLIENT_SECRET', None)
-        self.environment = SandboxEnvironment(client_id=self.client_id, client_secret=self.client_secret)
+        self.environment = LiveEnvironment(client_id=self.client_id, client_secret=self.client_secret)
         self.client = PayPalHttpClient(self.environment)
 
     def object_to_json(self, json_data):
