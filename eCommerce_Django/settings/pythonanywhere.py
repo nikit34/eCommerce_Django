@@ -13,21 +13,23 @@ DJANGO_TEST_PROCESSES = 8
 ALLOWED_HOSTS = ['olyastudio.pythonanywhere.com']
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
     'accounts',
+
+    'django.contrib.admin',
+    'django.contrib.auth',
+
     'addresses',
     'analytics',
     'billing',
+    'products',
     'carts',
     'marketing',
     'orders',
-    'products',
     'search',
     'tags',
     'chats',
