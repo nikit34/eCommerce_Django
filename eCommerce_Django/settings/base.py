@@ -17,6 +17,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'robots',
 
     'accounts',
 
@@ -35,6 +38,7 @@ INSTALLED_APPS = [
     'chats',
 ]
 
+SITE_ID = 1
 
 SUPPORT_EMAIL = get_secret_key(BASE_DIR, 'SUPPORT_EMAIL')
 

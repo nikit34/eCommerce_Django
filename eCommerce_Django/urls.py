@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.views.generic import TemplateView, RedirectView
 from django.conf.urls.i18n import i18n_patterns
+from django.contrib.sitemaps.views import sitemap
 
 from addresses.views import (
     AddressCreateView,
@@ -21,6 +22,8 @@ from marketing.views import MarketingPreferenceUpdateView, MailchimpWebhookView
 from orders.views import CollectionView
 from .views import ProductListView, about_page, contact_page, update
 
+from .sitemaps import global_maps
+
 
 urlpatterns = [
     url(r'^update_server/$', update, name='update'),
@@ -28,6 +31,9 @@ urlpatterns = [
     url(r'^cart/create-paypal-transaction/$', paypal_checkout_home, name='paypal-checkout'),
     url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
     url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
+
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': global_maps}, name='django.contrib.sitemaps.views.sitemap'),
+    url(r'^robots\.txt', include('robots.urls')),
 
   ] + i18n_patterns(
 

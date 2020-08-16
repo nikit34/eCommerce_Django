@@ -9,6 +9,7 @@ coverage==5.2
 cryptography==2.9.2
 dj-database-url==0.4.2
 Django==1.11.17
+django-robots==4.0
 django-storages==1.6.5
 docutils==0.14
 gitdb2==2.0.3
@@ -20,6 +21,7 @@ olefile==0.44
 paypal-checkout-serversdk==1.0.1
 paypalhttp==1.0.0
 Pillow==7.2.0
+pkg-resources==0.0.0
 pycparser==2.20
 pyOpenSSL==19.1.0
 python-dateutil==2.6.1
