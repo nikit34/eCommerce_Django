@@ -22,7 +22,7 @@ from marketing.views import MarketingPreferenceUpdateView, MailchimpWebhookView
 from orders.views import CollectionView
 from .views import ProductListView, about_page, contact_page, update
 
-from .sitemaps import global_maps
+from .sitemaps import global_maps, RobotsTxtView
 
 
 urlpatterns = [
@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
 
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': global_maps}, name='django.contrib.sitemaps.views.sitemap'),
-    url(r'^robots\.txt$', include('robots.urls')),
+    url(r'^robots\.txt$', RobotsTxtView.as_view()),
 
   ] + i18n_patterns(
 
