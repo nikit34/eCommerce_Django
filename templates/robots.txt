@@ -1,2 +1,4 @@
-User-agent: *
-Allow: /
+User-Agent: *
+Disallow: /update_server/
+Disallow: /webhooks/mailchimp/
+Disallow: /api/cart/
