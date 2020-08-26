@@ -76,6 +76,9 @@ class ProductDetailSlugView(ObjectViewedMixin, DetailView):
         try:
             instance = Product.objects.get(slug=slug, active=True)
             context['comments'] = instance.comments.filter(active=True)
+            instance.views = instance.views + 1
+            context['views'] = instance.views
+            instance.save()
         except Comment.DoesNotExist:
             raise Http404('Not found..')
         except:
