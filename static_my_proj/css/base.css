@@ -46,6 +46,10 @@ h1, h2, h3, h4, h5, h6 {
     border-style: none;
     border-bottom-style: groove;
     background: radial-gradient(circle, #ff00001f 50%, rgba(255, 255, 255, 0) 100%);
+    min-width: 300px;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 .navbar .nav-item .nav-link {
     font-family: 'Times New Roman';
@@ -56,6 +60,7 @@ h1, h2, h3, h4, h5, h6 {
     background-size: 100% 0.2em;
     background-position: 0 80%;
     transition: background-size 0.25s ease-out;
+    max-width: 15em;
 }
 .navbar .nav-item .nav-link:hover{
     background-size: 100% 80%;
@@ -70,9 +75,13 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-toggler {
     background-color: rgba(255, 0, 0, 0.5);
 }
+.search-form {
+    float: right;
+}
 .search-form .form-control {
     border: none;
     border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+    max-width: 20vw;
     background: rgba(255, 255, 255, 0);
 }
 .search-form button {

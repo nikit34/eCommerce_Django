@@ -14,7 +14,7 @@
 {% load i18n %}
 {% load static %}
 
-<nav class="row navbar navbar-expand-lg">
+<nav class="row navbar navbar-expand-lg px-4">
     <div class="container">
         <a class="navbar-brand" href="{{ home_url }}">
           {% if brand_name %} {{ brand_name }} {% else %} {% trans "Sewing Shop" %} {% endif %}
@@ -23,7 +23,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mx-4" id="navbarSupportedContent">
           <ul class="navbar-nav col-md-10">
             <li class="nav-item {% if request.path == home_url %}active{% endif %}">
               <a class="nav-link" href="{{ home_url }}">{% trans "Home" %} <i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">({% trans "current"%})</span></a>
@@ -43,14 +43,17 @@
                   {% if user.admin %}
                     <a class="nav-link dropdown-toggle" href="#" style="color:red;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {% else %}
+
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {% if user.staff %}
+                      <i class="fa fa-star mr-4 ml-2 my-0" style="color:rgba(255, 0, 0, 0.75); margin-top:12px; margin-left:50px;"></i>
+                    {% endif %}
                   {% endif %}
                   {{ user }}
                   </a>
                 {% else %}
                   Account
                 {% endif %}
-
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   {% if user.admin %}
                     <a class="dropdown-item " href="{{ admin }}">{% trans "Admin" %}</a>
@@ -63,9 +66,7 @@
                   <a class="dropdown-item" href="{{ logout_url }}">{% trans "Logout" %}</a>
                 </div>
               </li>
-              {% if user.staff %}
-              <i class="fa fa-star" style="color:rgba(255, 0, 0, 0.75); margin-top:12px; margin-left:50px;"></i>
-              {% endif %}
+
             {% else %}
               <div class="row col-md-5 offset-md-2">
                 <li class="nav-item {% if request.path == register_url %}active{% endif %}">
