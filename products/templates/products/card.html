@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<div class="card">
+<div class="card px-4">
     {% if instance.image %}
         <a href="{{ instance.get_absolute_url }}">
             <img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title }} logo">
@@ -9,7 +9,7 @@
         <p class="text-center mt-2 mb-2">{% trans "Image not found :(" %}</p>
     {% endif %}
     <div class="row card-body">
-        <div class="col-5">
+        <div class="col-4">
             {% if complet == "1" %}
                 <h5>{{ instance.title }}</h5>
                 <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>
@@ -20,10 +20,10 @@
         {% if complet == "1" %}
             <div class="col-5 card-button">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-4 px-4 py-2">
                         <a href="{{ instance.get_absolute_url }}" class="btn btn-danger">{% trans "View" %}</a>
                     </div>
-                    <div class="col text-right">
+                    <div class="col-8 px-4 py-2 text-right">
                         {% include 'products/update-cart.html' with product=instance cart=cart %}
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                 </div>
             </div>
         {% endif %}
-        <div class="col card-price text-right">
+        <div class="col-3 pl-0 card-price text-right">
             <h2>{{ instance.price }} &#36;</h2>
         </div>
     </div>

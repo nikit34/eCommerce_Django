@@ -312,6 +312,7 @@ footer.footer:hover{
 footer.footer #instagram{
     font-size: 1.2em;
     transition: all 0.8s;
+    max-width: none !important;
     background-color: rgba(128, 0, 128, 0.5);
 }
 footer.footer #instagram:hover{
@@ -320,6 +321,7 @@ footer.footer #instagram:hover{
 footer.footer #pinterest{
     font-size: 1.2em;
     transition: all 0.8s;
+    max-width: none !important;
     background-color: rgba(112, 128, 144, 0.5);
 }
 footer.footer #pinterest:hover{
@@ -328,6 +330,7 @@ footer.footer #pinterest:hover{
 footer.footer #facebook{
     padding-top: 0.3em;
     transition: all 0.8s;
+    max-width: none !important;
     background-color: rgba(90, 181, 255, 0.5);
 }
 footer.footer #facebook:hover{
@@ -337,6 +340,7 @@ footer.footer #etsy{
     font-size: 0.8em;
     padding-top: 0.5em;
     transition: all 0.8s;
+    max-width: none !important;
     background-color: rgba(255, 255, 0, 0.5);
 }
 footer.footer #etsy:hover{

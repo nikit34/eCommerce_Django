@@ -1,6 +1,5 @@
 .sort-dropup-block{
     padding: 0 0 1em 0;
-    min-width: 150px;
 }
 
 .btn:focus, .btn.focus {
@@ -67,17 +66,18 @@
 .card-price {
     padding-top: 1em;
     padding-bottom: 1em;
+    white-space: nowrap;
 }
 @media only screen and (max-width:1400px) {
     .card-button {
-        padding: 5em 5em 5em 5em;
+        /* padding: 5em 5em 5em 5em; */
         -webkit-box-orient: vertical;
         flex-direction: column;
     }
 }
 @media only screen and (min-width:1400px) {
     .card-button {
-        padding: 1em 0 1em 2.5em;
+        /* padding: 1em 0 1em 1em; */
         -webkit-box-orient: horizontal;
         flex-direction: row;
     }
