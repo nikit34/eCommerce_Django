@@ -127,7 +127,7 @@ div.left-field {
 }
 div.left-field i{
     margin-top: 45vh;
-    margin-left: 5vh;
+    margin-left: 8vh;
     color: #ff00001f;
     position: fixed;
     transition: color 1s;
@@ -277,6 +277,7 @@ div.right-field span {
     border: 2px solid #0000ff80;
     border-radius: 15px;
     font-size: x-large;
+    min-width: 20em;
 }
 .base-canvas-cell-2 {
     background-color: #0000ff10;
