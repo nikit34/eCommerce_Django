@@ -26,10 +26,10 @@
         {% include 'base/navbar.html' with brand_name="Olyalya Studio" %}
 
         <span class="row">
-            <div id="up" class="col-1 left-field">
+            <div id="up" class="col-1 d-none d-md-block left-field">
                 <i class="fa fa-4x fa-arrow-circle-up"></i>
             </div>
-            <div class="col-9">
+            <div class="col">
                 <div class="container-field">
                 <br>
                 {% if messages %}
@@ -47,7 +47,7 @@
                 </div>
             </div>
             </div>
-            <div class="col-2">
+            <div class="col-2 d-none d-xl-block">
                 {% include 'base/right_field.html' %}
             </div>
         </span>

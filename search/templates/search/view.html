@@ -16,9 +16,9 @@
         </div>
     {% endif %}
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
     {% for obj in object_list %}
-    <div class="col">
+    <div class="col-11 col-sm-8 col-lg-10 col-xl-8">
         {{ forloop.counter }}
         {% include 'products/card.html' with instance=obj complet="1" %}
         {% if forloop.counter|divisibleby:2 %}
