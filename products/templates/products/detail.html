@@ -3,7 +3,7 @@
 {% block content %}
 {% load humanize %}
 
-    <div class="row detail-top-panel">
+    <div class="row ml-2 ml-md-0 detail-top-panel">
         <div class="col-8">
             <h4><b>{{ object.title }}</b></h4>
             <span class="badge badge-secondary">{{ object.timestamp|timesince }} {% trans "ago" %}</span>
@@ -13,7 +13,7 @@
             <div class="row detail-price-update">
                 <div class="v-line">
                 </div>
-                <h2>
+                <h2 class="text-center">
                   {{ object.price }} &#36;
                 </h2>
                 {% include 'products/update-cart.html' with product=object cart=cart %}
@@ -21,8 +21,8 @@
         </div>
     </div>
     <hr/>
-    <div class="row detail-content">
-      <div class="col detail-description">
+    <div class="row ml-2 ml-md-0 detail-content">
+      <div class="col-4 detail-description">
         {{ object.description|linebreaks }}
       </div>
       <div class="col-8">
