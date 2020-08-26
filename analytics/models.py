@@ -56,7 +56,7 @@ class ObjectViewed(models.Model):
 def object_viewed_receiver(sender, instance, request, *args, **kwargs):
     c_type = ContentType.objects.get_for_model(sender)
     user = None
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         user = request.user
     new_view_obj = ObjectViewed.objects.create(
         user = user,
