@@ -68,14 +68,12 @@
               </li>
 
             {% else %}
-              <div class="row col-md-5 offset-md-2">
                 <li class="nav-item {% if request.path == register_url %}active{% endif %}">
                   <a class="nav-link" href="{{ register_url }}">{% trans "Register" %} <i class="fa fa-key" aria-hidden="true"></i></a>
                 </li>
                 <li class="nav-item {% if request.path == login_url %}active{% endif %}">
                   <a class="nav-link" href="{{ login_url }}">{% trans "Login" %} <i class="fa fa-sign-in" aria-hidden="true"></i></a>
                 </li>
-              </div>
             {% endif %}
           </ul>
           {% include 'search/search-form.html' %}

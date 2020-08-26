@@ -9,7 +9,7 @@
         <p class="text-center mt-2 mb-2">{% trans "Image not found :(" %}</p>
     {% endif %}
     <div class="row card-body">
-        <div class="col-4">
+        <div class="col-4 card-text">
             {% if complet == "1" %}
                 <h5>{{ instance.title }}</h5>
                 <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>

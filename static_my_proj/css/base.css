@@ -123,13 +123,14 @@ div.left-field {
     top:0.5vh;
     background-color: rgba(0,0,0,0);
     min-height: 90vh;
+    max-width: 8em;
     transition: background-color 1s;
+    text-align:center;
 }
 div.left-field i{
     margin-top: 45vh;
-    margin-left: 8vh;
     color: #ff00001f;
-    position: fixed;
+    position: relative;
     transition: color 1s;
 }
 div.left-field:hover i{

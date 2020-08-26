@@ -63,6 +63,20 @@
 .card-body {
     padding: 1.25em 1em 1em 1em;
 }
+.card-text h5 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.card-text p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 .card-price {
     padding-top: 1em;
     padding-bottom: 1em;
