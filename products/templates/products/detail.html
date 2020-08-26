@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
+{% load humanize %}
 
     <div class="row detail-top-panel">
         <div class="col-8">
@@ -77,10 +78,10 @@
                 <hr/>
                 <div class="row container-field">
                     <div class="col">
-                        <h6>{{ comment.sender }}</h6>
+                        <h6><span class="badge badge-secondary">{{ comment.sender }}</span></h6>
                     </div>
                     <div class="col text-right">
-                        <h6><em>{% trans "says" %}: {{ comment.send_time }}</em></h6>
+                        <h6><em>{% trans "says" %}: {{ comment.send_time|naturaltime }}</em></h6>
                     </div>
                 </div>
                 <div class="container">
