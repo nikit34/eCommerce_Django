@@ -1,7 +1,7 @@
 .canvas-cart-table {
     margin-top: 5%;
-    border: 1px solid #ff000080;
-    background-color: whitesmoke;
+    border: 1px solid #ff000050;
+    background-color: white;
     border-radius: 15px;
     padding: 5px 25px 5px 25px;
     display: inline-block;
@@ -12,7 +12,7 @@
     margin: 30px 0 30px 0;
 }
 table.cart-table td, table.cart-table th {
-    background: whitesmoke;
+    background: white;
     border: none;
     font-weight: normal;
     font-size: x-large;
@@ -57,9 +57,9 @@ table.cart-table a {
 
 /* canvas red */
 .bank-canvas-cell {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 1.5em;
-    border: 2px solid #ff000080;
+    border: 2px solid #ff000050;
     border-radius: 15px;
     font-size: x-large;
 }
@@ -67,22 +67,22 @@ table.cart-table a {
 .bank-canvas-cell-2 {
     background-color: #ff000010;
     padding: 1em 2em 1em 2em;
-    border: 1px solid #ff000080;
+    border: 1px solid #ff000050;
     border-radius: 15px;
     font-size: large;
 }
 .bank-canvas-cell-small {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 1em;
-    border: 1px solid #ff000080;
+    border: 1px solid #ff000050;
     border-radius: 15px;
     text-align: center;
 }
 .bank-canvas-cell-small-2 {
-    background-color: #ff000050;
+    background-color: #ff000030;
     padding: 1em;
-    border-left: 1px solid #ff000080;
-    border-right: 1px solid #ff000080;
+    border-left: 1px solid #ff000050;
+    border-right: 1px solid #ff000050;
     border-radius: 15px;
     text-align: center;
 }
@@ -95,7 +95,7 @@ table.cart-table a {
 
 .payments-form-api {
     background-color: #ffffff;
-    border: 2px solid #ff000080;
+    border: 2px solid #ff000050;
     border-radius: 15px;
     padding: 20px 25px 5px 25px;
     width: 100%;

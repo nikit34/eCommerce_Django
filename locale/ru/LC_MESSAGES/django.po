@@ -530,7 +530,7 @@ msgid "Checkout"
 msgstr "Отплатить"
 
 #: carts/templates/carts/home.html:69
-msgid "Cart is empty"
+msgid "Is empty"
 msgstr "Корзина пуста"
 
 #: carts/templates/carts/remove-product.html:5

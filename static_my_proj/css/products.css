@@ -26,7 +26,7 @@
     padding: 1em 0 0 0;
 }
 .detail-description {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 1em;
     border-radius: 15px;
     font-size: x-large;
@@ -35,7 +35,7 @@
     text-align: justify;
 }
 .detail-comments {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 1em 2.5em 2.5em 2.5em;
     border-radius: 15px;
     font-size: x-large;
@@ -100,7 +100,7 @@
 
 /* canvas yellow */
 .product-canvas-cell {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 1.5em;
     border: 2px solid #ffff0080;
     border-radius: 15px;
@@ -114,7 +114,7 @@
     font-size: large;
 }
 .product-canvas-cell-small {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 1em;
     border: 1px solid #ffff0080;
     border-radius: 15px;

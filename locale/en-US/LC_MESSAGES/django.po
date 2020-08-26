@@ -516,7 +516,7 @@ msgid "Checkout"
 msgstr ""
 
 #: carts/templates/carts/home.html:69
-msgid "Cart is empty"
+msgid "Is empty"
 msgstr ""
 
 #: carts/templates/carts/remove-product.html:5

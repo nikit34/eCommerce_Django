@@ -11,7 +11,7 @@ html {
 
 
 body {
-    background-color: whitesmoke;
+    background-color: white;
 }
 body img.main {
     background-repeat: no-repeat;
@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Times New Roman';
     font-style: italic;
     font-size: smaller;
-    background-image: linear-gradient(0deg, #ff000080 0%, #ff00001f 80%, #ffffff00 100%);
+    background-image: linear-gradient(0deg, #ff000050 0%, #ff00001f 80%, #ffffff00 100%);
     background-repeat: no-repeat;
     background-size: 100% 0.2em;
     background-position: 0 80%;
@@ -66,11 +66,11 @@ h1, h2, h3, h4, h5, h6 {
     background-size: 100% 80%;
 }
 .navbar .nav-item .dropdown-item.active {
-    color: #ff000080;
+    color: #ff000050;
     background-color: #0000001f;
 }
 .navbar .nav-item .dropdown-item:hover{
-    background-color: #ff000080;
+    background-color: #ff000050;
 }
 .navbar-toggler {
     background-color: rgba(255, 0, 0, 0.5);
@@ -199,9 +199,9 @@ div.right-field span {
 
 /* btn hover */
 .btn-danger:hover {
-    border-color:#ff000080;
+    border-color:#ff000050;
     color:black;
-    background-color:#ff000080;
+    background-color:#ff000050;
 }
 .btn-warning:hover {
     border-color:#ffff0080;
@@ -221,7 +221,7 @@ div.right-field span {
 
 /* btn outline */
 .btn-outline-danger {
-    border-color:#ff000050;
+    border-color:#ff000030;
     color:black;
     transition: border-color 1.5s, background-color 0.5s;
 }
@@ -245,7 +245,7 @@ div.right-field span {
 .btn-outline-danger:hover {
     border-color:#ff0000;
     color:black;
-    background-color:#ff000080;
+    background-color:#ff000050;
 }
 .btn-outline-warning:hover {
     border-color:#ffff00;
@@ -273,7 +273,7 @@ div.right-field span {
 
 /* canvas blue */
 .base-canvas-cell {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 1.5em;
     border: 2px solid #0000ff80;
     border-radius: 15px;
@@ -288,7 +288,7 @@ div.right-field span {
     font-size: large;
 }
 .base-canvas-cell-small {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 1em;
     border: 1px solid #0000ff80;
     border-radius: 15px;
