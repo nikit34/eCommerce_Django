@@ -74,7 +74,7 @@ class AddressUpdateViewTest(TestCase):
             address_line_1='Testogorsk',
             state='Testovskya',
             city='Testovo',
-            country='US',
+            country='RU',
             postal_code='87654321'
         )
 

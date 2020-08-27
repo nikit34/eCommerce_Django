@@ -79,7 +79,7 @@ def structurng_input(order_obj, cart_obj):
         items.append({
             'name': item.title,
             'unit_amount': {
-                'currency_code': 'USD',
+                'currency_code': 'RUB',
                 'value': str(item.price)
             },
             'quantity': '1',
@@ -87,15 +87,15 @@ def structurng_input(order_obj, cart_obj):
         })
     prepared_data_order = {
         'amount': {
-            'currency_code': 'USD',
+            'currency_code': 'RUB',
             'value': str(order_obj.total),
             'breakdown': {
                 'item_total': {
-                    'currency_code': 'USD',
+                    'currency_code': 'RUB',
                     'value': str(cart_obj.total)
                 },
                 'shipping': {
-                    'currency_code': 'USD',
+                    'currency_code': 'RUB',
                     'value': str(order_obj.shipping_total)
                 }
             }
@@ -108,7 +108,7 @@ def structurng_input(order_obj, cart_obj):
                 'admin_area_2': order_obj.billing_address.city,
                 'admin_area_1': order_obj.billing_address.country,
                 'postal_code': order_obj.billing_address.postal_code,
-                'country_code': 'US',
+                'country_code': 'RU',
             }
         }
     }
