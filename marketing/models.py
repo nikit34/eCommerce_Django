@@ -8,7 +8,7 @@ from .utils import Mailchimp
 class MarketingPreference(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
     subscribed = models.BooleanField(default=True)
-    mailchimp_subscribed = models.BooleanField(blank=True, null=True)
+    mailchimp_subscribed = models.BooleanField(default=False)
     mailchimp_msg = models.TextField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
