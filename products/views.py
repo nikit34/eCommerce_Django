@@ -108,15 +108,6 @@ class ProductFeaturedListView(ListView):
         return Product.objects.all().featured()
 
 
-class ProductFeaturedDetailView(ObjectViewedMixin, DetailView):
-    queryset = Product.objects.all().featured()
-    template_name = 'products/featured-detail.html'
-
-    def get_queryset(self, *args, **kwargs):
-        request = self.request
-        return Product.objects.featured()
-
-
 class ProductDownloadView(View):
     def get(self, request, *args, **kwargs):
         file_root = settings.PROTECTED_ROOT

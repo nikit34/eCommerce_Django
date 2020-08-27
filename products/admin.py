@@ -15,5 +15,8 @@ class ProductAdmin(admin.ModelAdmin):
     class Meta:
         model = Product
 
+    class Media:
+        js = ('/static/js/tinyInject.js',)
+
 
 admin.site.register(Product, ProductAdmin)

@@ -12,7 +12,7 @@
         <div class="col-4 card-text">
             {% if complet == "1" %}
                 <h5>{{ instance.title }}</h5>
-                <p>{{ instance.description|linebreaks|truncatewords:18 }}</p>
+                <p class="preview">{{ instance.description|safe|linebreaks|truncatewords:18 }}</p>
             {% else %}
                 <h5>{{ instance.title }}</h5>
             {% endif %}
