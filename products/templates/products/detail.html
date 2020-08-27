@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 {% load i18n %}
+
 {% block content %}
 {% load humanize %}
 {% load static %}
+
+{% block extra_head_tags %}
+<meta name="Description" content="Dress doll {{ object.title }} olyalya">
+{% endblock extra_head_tags %}
 
     <div class="row ml-2 ml-md-0 detail-top-panel">
         <div class="col-8">
@@ -116,4 +121,4 @@
         </div>
     </div>
 
-{% endblock %}
+{% endblock content %}
