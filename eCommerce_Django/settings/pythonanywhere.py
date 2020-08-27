@@ -19,22 +19,23 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'django.contrib.humanize',
 
     'accounts',
 
     'django.contrib.admin',
     'django.contrib.auth',
 
-    'addresses',
-    'analytics',
     'billing',
+    'analytics',
+    'addresses',
     'products',
     'carts',
     'marketing',
     'orders',
-    'search',
     'tags',
     'chats',
+    'search',
 ]
 
 SITE_ID = 1
