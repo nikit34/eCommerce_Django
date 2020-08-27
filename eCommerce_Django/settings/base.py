@@ -26,16 +26,16 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
 
-    'addresses',
-    'analytics',
     'billing',
+    'analytics',
+    'addresses',
     'products',
     'carts',
     'marketing',
     'orders',
-    'search',
     'tags',
     'chats',
+    'search',
 ]
 
 SITE_ID = 1
