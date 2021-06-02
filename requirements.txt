@@ -33,4 +33,4 @@ six==1.11.0
 smmap2==2.0.3
 stripe==1.68.0
 tblib==1.6.0
-urllib3==1.25.9
+urllib3==1.26.5
