@@ -1,7 +1,7 @@
 from django.test import TestCase
-from django.core import mail
 
 from accounts.models import User, EmailActivation, GuestEmail
+
 
 class UserModelTest(TestCase):
     @classmethod

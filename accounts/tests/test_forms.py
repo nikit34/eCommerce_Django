@@ -1,12 +1,7 @@
 from django.test import TestCase
-from django import forms
 
-from accounts.forms import (
-    LoginForm, RegisterForm,
-    UserAdminCreationForm, UserDetailChangeForm
-)
+from accounts.forms import LoginForm, RegisterForm, UserDetailChangeForm
 from accounts.views import LoginView
-from accounts.models import User
 
 
 class LoginFormTest(TestCase):
