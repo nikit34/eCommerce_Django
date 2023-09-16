@@ -1,4 +1,5 @@
 venv/**
+
 **/*.pyc
 **/__pycache__/**
 **/.vscode/**
@@ -6,8 +7,6 @@ venv/**
 **/migrations/**
 **/settings/__init__.py
 
-
-bash
 db.sqlite3
 
-**/settings/base.py
+.coverage
