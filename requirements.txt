@@ -27,7 +27,7 @@ paypalhttp==1.0.0
 Pillow==7.2.0
 polling==0.3.2
 pycparser==2.20
-pyOpenSSL==19.1.0
+pyOpenSSL==23.2.0
 python-dateutil==2.6.1
 pytz==2017.2
 requests==2.23.0
