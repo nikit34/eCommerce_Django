@@ -20,12 +20,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
-
-    'accounts',
-
     'django.contrib.admin',
     'django.contrib.auth',
 
+    'accounts',
     'billing',
     'analytics',
     'addresses',
