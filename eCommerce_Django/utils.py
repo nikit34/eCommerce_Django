@@ -88,7 +88,7 @@ def unique_slug_generator(instance, new_slug=None):
 
 
 def get_secret_key(root_path, name):
-    with open(root_path + "/../secret", "r") as f:
+    with open(root_path + "/secret", "r") as f:
         for line in f.readlines():
             if name in line:
                 if '\n' in line:
