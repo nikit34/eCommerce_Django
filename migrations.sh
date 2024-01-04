@@ -1,4 +1,5 @@
 apps=(
+  ''
   'accounts'
   'billing'
   'analytics'
