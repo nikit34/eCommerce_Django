@@ -1,32 +1,208 @@
 {% load i18n %}
 
 <footer class="footer">
-    <div class="row text-muted">
-        <div class="col-4 footer-left pt-2">
-            {% trans "Developed" %} {% if dev_source %}<a href="{{ dev_source }}">GitHub</a>{% endif %}, 2020
+    <div class="footer-content">
+        <!-- Left: Copyright -->
+        <div class="footer-left">
+            <span class="footer-brand">✦ Olyalya Studio</span>
+            <p class="footer-copyright">
+                © 2020–2026 • {% trans "Handmade with" %} <span class="heart">♥</span>
+                {% if dev_source %}
+                    • <a href="{{ dev_source }}" target="_blank" rel="noopener">GitHub</a>
+                {% endif %}
+            </p>
         </div>
-        <div class="col-1" id="instagram">
-            <a href="https://www.instagram.com/olyalya_sew"><i class="fa fa-instagram fa-2x" style="color:gold;"></i></a>
+
+        <!-- Center: Social Links -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/olyalya_sew" class="social-link instagram" 
+               target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fa fa-instagram"></i>
+            </a>
+            <a href="https://www.pinterest.ru/studioolyalya" class="social-link pinterest" 
+               target="_blank" rel="noopener" aria-label="Pinterest">
+                <i class="fa fa-pinterest"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100032897610134" class="social-link facebook" 
+               target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a href="http://www.etsy.com/shop/StudioOlyalya" class="social-link etsy" 
+               target="_blank" rel="noopener" aria-label="Etsy">
+                <i class="fa fa-etsy"></i>
+            </a>
         </div>
-        <div class="col-1" id="pinterest">
-            <a href="https://www.pinterest.ru/studioolyalya"><i class="fa fa-pinterest fa-2x" style="color:red;"></i></a>
-        </div>
-        <div class="col-1" id="facebook">
-            <a href="https://www.facebook.com/profile.php?id=100032897610134"><i class="fa fa-facebook fa-2x" style="color:blue;"></i></a>
-        </div>
-        <div class="col-1" id="etsy">
-            <a href="http://www.etsy.com/shop/StudioOlyalya"><i class="fa fa-etsy fa-2x"  style="color:brown;"></i></a>
-        </div>
-        <div class="col-4 footer-right">
-            <form action="{% url 'set_language' %}" method="POST" value="{{ redirect_to }}">
+
+        <!-- Right: Language Switcher -->
+        <div class="language-switch">
+            <form action="{% url 'set_language' %}" method="POST">
                 {% csrf_token %}
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    {% for language in languages %}
-                        <input class="btn btn-sm btn-outline-danger mt-1" type="submit" name="language" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                    {% endfor %}
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <button type="submit" name="language" value="{{ language.code }}" 
+                            class="btn btn-sm {% if language.code == LANGUAGE_CODE %}active{% endif %}">
+                        {{ language.code|upper }}
+                    </button>
+                {% endfor %}
             </form>
         </div>
     </div>
 </footer>
+
+<style>
+/* Footer Styles */
+footer.footer {
+    background: linear-gradient(135deg, #2d3436 0%, #1e272e 100%);
+    color: #b2bec3;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    position: relative;
+}
+
+footer.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #d63031, #e17055, #fdcb6e, #00b894);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-brand {
+    font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    margin: 0;
+    color: #636e72;
+}
+
+.footer-copyright a {
+    color: #fab1a0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-copyright a:hover {
+    color: #d63031;
+}
+
+.heart {
+    color: #d63031;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-link {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    transform: translateY(-4px);
+    color: white;
+}
+
+.social-link.instagram:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-link.pinterest:hover {
+    background: #e60023;
+}
+
+.social-link.facebook:hover {
+    background: #1877f2;
+}
+
+.social-link.etsy:hover {
+    background: #f56400;
+}
+
+/* Language Switch */
+.language-switch form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.language-switch .btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #b2bec3;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.language-switch .btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.language-switch .btn.active {
+    background: var(--color-accent, #d63031);
+    border-color: var(--color-accent, #d63031);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-left {
+        text-align: center;
+    }
+    
+    .social-links {
+        order: -1;
+    }
+}
+</style>

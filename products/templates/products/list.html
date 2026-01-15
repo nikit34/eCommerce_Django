@@ -1,19 +1,135 @@
 {% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Products" %}{% endblock %}
 
 {% block content %}
 
-<div class="row text-center justify-content-center">
+<!-- Page Header -->
+<section class="page-header">
+    <span class="page-badge">✦ {% trans "Our Collection" %}</span>
+    <h1>{% trans "Products" %}</h1>
+    <p>{% trans "Browse our unique handmade creations" %}</p>
+</section>
+
+<!-- Products Grid -->
+<section class="products-grid-section stagger-animation">
     {% for obj in object_list %}
-        {% if forloop.counter0|divisibleby:2 %}
-            </div><div class="row text-center justify-content-center">
-        {% endif %}
-        <div class="col-11 col-sm-8 col-lg-10 col-xl-8 my-3">
-            {%  if object_list.count != 1 %}
+        <div class="product-item">
+            {% if object_list.count != 1 %}
                 {% include 'products/card.html' with instance=obj complet="0" %}
             {% else %}
                 {% include 'products/card.html' with instance=obj complet="1" %}
             {% endif %}
         </div>
+    {% empty %}
+        <div class="products-empty">
+            <i class="fa fa-shopping-bag"></i>
+            <h3>{% trans "No products available" %}</h3>
+            <p>{% trans "Check back soon for new arrivals!" %}</p>
+        </div>
     {% endfor %}
+</section>
+
+<style>
+/* Page Header */
+.page-header {
+    text-align: center;
+    padding: var(--space-2xl, 3rem) var(--space-lg, 1.5rem);
+    margin-bottom: var(--space-xl, 2rem);
+}
+
+.page-badge {
+    display: inline-block;
+    background: var(--gradient-accent, linear-gradient(135deg, #d63031 0%, #e17055 100%));
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-full, 9999px);
+    margin-bottom: var(--space-lg, 1.5rem);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--space-sm, 0.5rem);
+}
+
+.page-header p {
+    color: var(--color-text-muted, #636e72);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Products Grid */
+.products-grid-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl, 2rem);
+}
+
+.product-item {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Stagger Animation */
+.stagger-animation .product-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation .product-item:nth-child(2) { animation-delay: 0.15s; }
+.stagger-animation .product-item:nth-child(3) { animation-delay: 0.2s; }
+.stagger-animation .product-item:nth-child(4) { animation-delay: 0.25s; }
+.stagger-animation .product-item:nth-child(5) { animation-delay: 0.3s; }
+.stagger-animation .product-item:nth-child(6) { animation-delay: 0.35s; }
+.stagger-animation .product-item:nth-child(7) { animation-delay: 0.4s; }
+.stagger-animation .product-item:nth-child(8) { animation-delay: 0.45s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Empty State */
+.products-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-3xl, 5rem) var(--space-lg, 1.5rem);
+    background: var(--color-surface, #fff);
+    border-radius: var(--radius-xl, 24px);
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.04));
+}
+
+.products-empty i {
+    font-size: 4rem;
+    color: var(--color-text-light, #b2bec3);
+    margin-bottom: var(--space-lg, 1.5rem);
+    display: block;
+}
+
+.products-empty h3 {
+    color: var(--color-text-muted, #636e72);
+    margin-bottom: var(--space-sm, 0.5rem);
+}
+
+.products-empty p {
+    color: var(--color-text-light, #b2bec3);
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .products-grid-section {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 
 {% endblock %}

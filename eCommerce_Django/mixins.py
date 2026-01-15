@@ -1,4 +1,4 @@
-from django.utils.http import is_safe_url
+from django.utils.http import url_has_allowed_host_and_scheme
 
 
 class RequestFormAttachMixin(object):
@@ -15,6 +15,6 @@ class NextUrlMixin(object):
         next_ = request.GET.get('next')
         next_post = request.POST.get('next')
         redirect_path = next_ or next_post or None
-        if is_safe_url(redirect_path, request.get_host()):
+        if url_has_allowed_host_and_scheme(redirect_path, allowed_hosts={request.get_host()}):
             return redirect_path
         return self.default_next

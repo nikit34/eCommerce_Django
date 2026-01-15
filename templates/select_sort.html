@@ -1,34 +1,139 @@
 {% load i18n %}
 
-<div class="row">
-    <div class="col-10">
-
-    </div>
-    <div class="col sort-dropup-block">
-        <form action="{% url 'home' %}" method="GET">
-            <div class="row">
-                <div class="dropup">
-                    <button class="btn btn-default dropdown-toggle" type="submit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {% trans "Price" %}
-                        <span class="caret"></span>
+<div class="sort-controls">
+    <form action="{% url 'home' %}" method="GET" class="sort-form">
+        <span class="sort-label">{% trans "Sort by" %}:</span>
+        
+        <div class="sort-buttons">
+            <!-- Price Sort -->
+            <div class="dropdown sort-dropdown">
+                <button class="sort-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-dollar"></i>
+                    {% trans "Price" %}
+                </button>
+                <div class="dropdown-menu">
+                    <button type="submit" name="price" value="ascend" class="dropdown-item">
+                        <i class="fa fa-arrow-up"></i>
+                        {% trans "Low to High" %}
                     </button>
-                    <ul class="dropdown-menu">
-                      <button type="submit" name="price" value="descend" class="btn btn-default">{% trans "descending" %}</button>
-                      <button type="submit" name="price" value="ascend" class="btn btn-default">{% trans "ascending" %}</button>
-                    </ul>
-                </div>
-                &nbsp;
-                <div class="dropup">
-                    <button class="btn btn-default dropdown-toggle" type="submit" data-toggle="dropdown">
-                        {% trans "Time" %}
-                        <span class="caret"></span>
+                    <button type="submit" name="price" value="descend" class="dropdown-item">
+                        <i class="fa fa-arrow-down"></i>
+                        {% trans "High to Low" %}
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <button type="submit" name="time_update" value="descend" class="btn btn-default">{% trans "update early" %}</button>
-                        <button type="submit" name="time_update" value="ascend" class="btn btn-default">{% trans "update last" %}</button>
-                    </ul>
                 </div>
             </div>
-        </form>
-    </div>
+            
+            <!-- Time Sort -->
+            <div class="dropdown sort-dropdown">
+                <button class="sort-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-clock-o"></i>
+                    {% trans "Date" %}
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <button type="submit" name="time_update" value="descend" class="dropdown-item">
+                        <i class="fa fa-arrow-up"></i>
+                        {% trans "Newest First" %}
+                    </button>
+                    <button type="submit" name="time_update" value="ascend" class="dropdown-item">
+                        <i class="fa fa-arrow-down"></i>
+                        {% trans "Oldest First" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+
+<style>
+.sort-controls {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--space-md, 1rem) 0;
+}
+
+.sort-form {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md, 1rem);
+}
+
+.sort-label {
+    color: var(--color-text-muted, #636e72);
+    font-size: 0.9rem;
+}
+
+.sort-buttons {
+    display: flex;
+    gap: var(--space-sm, 0.5rem);
+}
+
+.sort-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs, 0.25rem);
+    padding: var(--space-sm, 0.5rem) var(--space-md, 1rem);
+    background: var(--color-surface, #fff);
+    border: 2px solid var(--color-border-light, #f0f0f0);
+    border-radius: var(--radius-full, 9999px);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text, #2d3436);
+    cursor: pointer;
+    transition: all var(--transition-fast, 0.15s ease);
+}
+
+.sort-btn:hover {
+    border-color: var(--color-accent, #d63031);
+    background: var(--color-bg-alt, #fff5f5);
+}
+
+.sort-btn i {
+    font-size: 0.85em;
+    color: var(--color-text-muted, #636e72);
+}
+
+.sort-dropdown .dropdown-menu {
+    border: none;
+    box-shadow: var(--shadow-lg, 0 8px 40px rgba(0,0,0,0.12));
+    border-radius: var(--radius-lg, 16px);
+    padding: var(--space-sm, 0.5rem);
+    margin-top: var(--space-sm, 0.5rem);
+}
+
+.sort-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm, 0.5rem);
+    padding: var(--space-sm, 0.5rem) var(--space-md, 1rem);
+    border-radius: var(--radius-md, 8px);
+    font-size: 0.9rem;
+    color: var(--color-text, #2d3436);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast, 0.15s ease);
+    width: 100%;
+    text-align: left;
+}
+
+.sort-dropdown .dropdown-item:hover {
+    background: var(--color-bg-alt, #fff5f5);
+    color: var(--color-accent, #d63031);
+}
+
+.sort-dropdown .dropdown-item i {
+    color: var(--color-text-light, #b2bec3);
+    font-size: 0.85em;
+}
+
+@media (max-width: 576px) {
+    .sort-controls {
+        justify-content: center;
+    }
+    
+    .sort-form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+</style>

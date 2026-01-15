@@ -2,45 +2,231 @@
 {% load i18n %}
 {% load static %}
 
-<title>{% trans "Home page" %}</title>
+{% block title %}{% trans "Home" %}{% endblock %}
 
-{% block extra_head_tags %}<meta name="Description" content="Dress doll olyalya">{% endblock %}
+{% block extra_head_tags %}
+<meta name="description" content="Olyalya Studio - Handmade doll dresses and clothing. Unique designs made with love.">
+{% endblock %}
 
 {% block content %}
 
-    <div class="text-center">
-        <h1>{% trans "Best offers" %}</h1>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <span class="hero-badge">✦ {% trans "Handmade Collection" %}</span>
+        <h1 class="hero-title">{% trans "Best offers" %}</h1>
+        <p class="hero-subtitle">{% trans "Discover unique handmade creations crafted with love and attention to detail" %}</p>
     </div>
-    {% include 'select_sort.html' %}
-    <div class="row justify-content-center">
-        {% for obj in object_list %}
-            <div class="col-11 col-sm-8 col-lg-10 col-xl-8">
-                {% include 'products/card.html' with instance=obj complet="1" %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <br>
-            </div>
-        {% endfor %}
-    </div>
+</section>
 
-    {% if user.staff %}
-        <div class="row">
-            <div class="col">
-            <hr>
-                <h1>{% trans "Premium Content" %}</h1>
-                {{ premium_content }}
-                {% if request.get_full_path != contact_url %}
-                    <p class="text-center">
-                        {% trans "Have any requests or questions?" %}
-                    </p>
-                    <p class="text-center">
-                        <a href='{% url "contact" %}'>{% trans "Write me, please" %}</a>
-                    </p>
-                {% endif %}
-            </div>
+<!-- Sort Controls -->
+<div class="controls-section">
+    {% include 'select_sort.html' %}
+</div>
+
+<!-- Products Grid -->
+<section class="products-section stagger-animation">
+    {% for obj in object_list %}
+        <div class="product-item">
+            {% include 'products/card.html' with instance=obj complet="1" %}
         </div>
-    {% endif %}
+    {% empty %}
+        <div class="products-empty">
+            <i class="fa fa-shopping-bag"></i>
+            <h3>{% trans "No products available" %}</h3>
+            <p>{% trans "Check back soon for new arrivals!" %}</p>
+        </div>
+    {% endfor %}
+</section>
+
+<!-- Premium Content (Staff Only) -->
+{% if user.staff %}
+    <section class="premium-section">
+        <div class="premium-card">
+            <div class="premium-icon">★</div>
+            <h2>{% trans "Premium Content" %}</h2>
+            {{ premium_content }}
+            {% if request.get_full_path != contact_url %}
+                <p class="premium-cta">
+                    {% trans "Have any requests or questions?" %}
+                </p>
+                <a href='{% url "contact" %}' class="btn btn-primary">
+                    <i class="fa fa-envelope"></i>
+                    {% trans "Write me, please" %}
+                </a>
+            {% endif %}
+        </div>
+    </section>
+{% endif %}
 
 {% endblock %}
+
+<style>
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: var(--space-3xl, 5rem) var(--space-lg, 1.5rem);
+    background: linear-gradient(135deg, var(--color-bg, #faf9f7) 0%, var(--color-bg-alt, #fff5f5) 50%, rgba(253, 203, 110, 0.1) 100%);
+    border-radius: var(--radius-xl, 24px);
+    margin-bottom: var(--space-2xl, 3rem);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(214, 48, 49, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--gradient-accent, linear-gradient(135deg, #d63031 0%, #e17055 100%));
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-full, 9999px);
+    margin-bottom: var(--space-lg, 1.5rem);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: var(--space-md, 1rem);
+    background: linear-gradient(135deg, var(--color-primary, #2d3436) 0%, var(--color-accent, #d63031) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-muted, #636e72);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Controls Section */
+.controls-section {
+    margin-bottom: var(--space-xl, 2rem);
+}
+
+/* Products Section */
+.products-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl, 2rem);
+}
+
+.product-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Empty State */
+.products-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-3xl, 5rem) var(--space-lg, 1.5rem);
+    background: var(--color-surface, #fff);
+    border-radius: var(--radius-xl, 24px);
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.04));
+}
+
+.products-empty i {
+    font-size: 4rem;
+    color: var(--color-text-light, #b2bec3);
+    margin-bottom: var(--space-lg, 1.5rem);
+    display: block;
+}
+
+.products-empty h3 {
+    color: var(--color-text-muted, #636e72);
+    margin-bottom: var(--space-sm, 0.5rem);
+}
+
+.products-empty p {
+    color: var(--color-text-light, #b2bec3);
+    margin: 0;
+}
+
+/* Premium Section */
+.premium-section {
+    margin-top: var(--space-3xl, 5rem);
+    padding-top: var(--space-2xl, 3rem);
+    border-top: 2px solid var(--color-border-light, #f0f0f0);
+}
+
+.premium-card {
+    background: linear-gradient(135deg, #fffbf0 0%, #fff5e0 100%);
+    border-radius: var(--radius-xl, 24px);
+    padding: var(--space-2xl, 3rem);
+    text-align: center;
+    box-shadow: var(--shadow-md, 0 4px 20px rgba(0,0,0,0.08));
+}
+
+.premium-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #fdcb6e 0%, #f9c43f 100%);
+    color: var(--color-primary, #2d3436);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg, 1.5rem);
+}
+
+.premium-cta {
+    margin-top: var(--space-lg, 1.5rem);
+    margin-bottom: var(--space-md, 1rem);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger Animation Delays */
+.stagger-animation .product-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation .product-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation .product-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation .product-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation .product-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation .product-item:nth-child(6) { animation-delay: 0.6s; }
+.stagger-animation .product-item:nth-child(7) { animation-delay: 0.7s; }
+.stagger-animation .product-item:nth-child(8) { animation-delay: 0.8s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: var(--space-2xl, 3rem) var(--space-md, 1rem);
+    }
+    
+    .premium-card {
+        padding: var(--space-xl, 2rem);
+    }
+}
+</style>

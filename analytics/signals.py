@@ -1,4 +1,5 @@
 from django.dispatch import Signal
 
 
-object_viewed_signal = Signal(providing_args=['instance', 'request'])
+# providing_args was removed in Django 4.0
+object_viewed_signal = Signal()

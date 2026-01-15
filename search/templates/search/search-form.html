@@ -1,9 +1,94 @@
 {% load i18n %}
-<form method="GET" action="{% url 'search:query' %}" class="form search-form">
-    <div class="input-group">
-    <input class="form-control" type="text" name="q" aria-label="Search" value="{{ request.GET.q }}">
-    <span class="input-group-btn">
-    <button class="btn btn-outline-danger" type="submit">{% trans "Search" %}</button>
-    </span>
+
+<form method="GET" action="{% url 'search:query' %}" class="search-form">
+    <div class="search-input-wrapper">
+        <input 
+            class="form-control search-input" 
+            type="text" 
+            name="q" 
+            placeholder="{% trans 'Search products...' %}"
+            aria-label="{% trans 'Search' %}" 
+            value="{{ request.GET.q }}"
+        >
+        <button class="search-btn" type="submit" aria-label="{% trans 'Search' %}">
+            <i class="fa fa-search"></i>
+        </button>
     </div>
 </form>
+
+<style>
+.search-form {
+    margin-left: auto;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.6rem 1rem;
+    padding-right: 2.75rem;
+    border: 2px solid var(--color-border-light, #f0f0f0);
+    border-radius: var(--radius-full, 9999px);
+    font-size: 0.9rem;
+    background: var(--color-bg, #faf9f7);
+    min-width: 200px;
+    transition: all var(--transition-fast, 0.15s ease);
+}
+
+.search-input:focus {
+    border-color: var(--color-accent, #d63031);
+    background: var(--color-surface, #fff);
+    box-shadow: 0 0 0 3px rgba(214, 48, 49, 0.1);
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--color-text-light, #b2bec3);
+}
+
+.search-btn {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: var(--gradient-accent, linear-gradient(135deg, #d63031 0%, #e17055 100%));
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast, 0.15s ease);
+}
+
+.search-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(214, 48, 49, 0.3);
+}
+
+.search-btn i {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 991px) {
+    .search-form {
+        width: 100%;
+        margin: var(--space-md, 1rem) 0 0 0;
+    }
+    
+    .search-input-wrapper {
+        width: 100%;
+    }
+    
+    .search-input {
+        width: 100%;
+        min-width: auto;
+    }
+}
+</style>

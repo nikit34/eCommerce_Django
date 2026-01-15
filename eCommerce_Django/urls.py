@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import url, include
+from django.urls import path, re_path, include
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.views.generic import TemplateView, RedirectView
@@ -26,52 +26,52 @@ from .sitemaps import global_maps, RobotsTxtView
 
 
 urlpatterns = [
-    url(r'^update_server/$', update, name='update'),
-    url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
-    url(r'^cart/create-paypal-transaction/$', paypal_checkout_home, name='paypal-checkout'),
-    url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
-    url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
+    path('update_server/', update, name='update'),
+    path('billing/payment-method/create/', payment_method_createview, name='billing-payment-method-endpoint'),
+    path('cart/create-paypal-transaction/', paypal_checkout_home, name='paypal-checkout'),
+    path('webhooks/mailchimp/', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
+    path('api/cart/', cart_detail_api_view, name='api-cart'),
 
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': global_maps}, name='django.contrib.sitemaps.views.sitemap'),
-    url(r'^robots\.txt$', RobotsTxtView.as_view()),
+    path('sitemap.xml', sitemap, {'sitemaps': global_maps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', RobotsTxtView.as_view()),
 
   ] + i18n_patterns(
 
-    url(r'^i18n/', include('django.conf.urls.i18n')),
+    path('i18n/', include('django.conf.urls.i18n')),
 
-    url(r'^$', ProductListView.as_view(), name='home'),
-    url(r'^about/$', about_page, name='about'),
-    url(r'^contact/$', contact_page, name='contact'),
-    url(r'^login/$', LoginView.as_view(), name='login'),
-    url(r'^logout/$', LogoutView.as_view(), name='logout'),
-    url(r'^register/$', RegisterView.as_view(), name='register'),
-    url(r'^collection/$', CollectionView.as_view(), name='collection'),
-    url(r'^search/', include(('search.urls', 'eCommerce_Django'), namespace='search')),
-    url(r'^settings/email/$', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
+    path('', ProductListView.as_view(), name='home'),
+    path('about/', about_page, name='about'),
+    path('contact/', contact_page, name='contact'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('collection/', CollectionView.as_view(), name='collection'),
+    path('search/', include(('search.urls', 'eCommerce_Django'), namespace='search')),
+    path('settings/email/', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
 
-    url(r'^accounts/$', RedirectView.as_view(url='/account')),
-    url(r'^account/', include(('accounts.urls', 'eCommerce_Django'), namespace='accounts')),
-    url(r'^accounts/', include('accounts.passwords.urls')),
-    url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
-    url(r'^checkout/address/reuse/$', checkout_address_reuse_view, name='checkout_address_reuse'),
+    path('accounts/', RedirectView.as_view(url='/account')),
+    path('account/', include(('accounts.urls', 'eCommerce_Django'), namespace='accounts')),
+    path('accounts/', include('accounts.passwords.urls')),
+    path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
+    path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
 
-    url(r'^address/$', RedirectView.as_view(url='/addresses')),
-    url(r'^addresses/$', AddressListView.as_view(), name='addresses'),
-    url(r'^addresses/create/$', AddressCreateView.as_view(), name='address-create'),
-    url(r'^addresses/(?P<pk>\d+)/$', AddressUpdateView.as_view(), name='address-update'),
+    path('address/', RedirectView.as_view(url='/addresses')),
+    path('addresses/', AddressListView.as_view(), name='addresses'),
+    path('addresses/create/', AddressCreateView.as_view(), name='address-create'),
+    path('addresses/<int:pk>/', AddressUpdateView.as_view(), name='address-update'),
 
-    url(r'^analytics/sales/$', SalesView.as_view(), name='sales-analytics'),
-    url(r'^analytics/sales/data/$', SalesAjaxView.as_view(), name='sales-analytics-data'),
+    path('analytics/sales/', SalesView.as_view(), name='sales-analytics'),
+    path('analytics/sales/data/', SalesAjaxView.as_view(), name='sales-analytics-data'),
 
-    url(r'^cart/', include(('carts.urls','eCommerce_Django'), namespace='cart')),
+    path('cart/', include(('carts.urls','eCommerce_Django'), namespace='cart')),
 
-    url(r'^billing/payment-method/$', payment_method_view, name='billing-payment-method'),
+    path('billing/payment-method/', payment_method_view, name='billing-payment-method'),
 
-    url(r'^orders/', include(('orders.urls', 'eCommerce_Django'), namespace='orders')),
+    path('orders/', include(('orders.urls', 'eCommerce_Django'), namespace='orders')),
 
-    url(r'^products/', include(('products.urls', 'eCommerce_Django'), namespace='products')),
+    path('products/', include(('products.urls', 'eCommerce_Django'), namespace='products')),
 
-    url(r'^admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 )
 
 

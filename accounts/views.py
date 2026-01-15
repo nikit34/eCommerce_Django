@@ -6,7 +6,7 @@ from django.views.generic import CreateView, FormView, DetailView, View, UpdateV
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.utils.http import is_safe_url
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.views.generic.edit import FormMixin

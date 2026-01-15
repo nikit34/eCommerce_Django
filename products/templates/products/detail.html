@@ -1,124 +1,511 @@
 {% extends "base.html" %}
 {% load i18n %}
-
-{% block content %}
 {% load humanize %}
 {% load static %}
 
+{% block title %}{{ object.title }}{% endblock %}
+
 {% block extra_head_tags %}
-<meta name="Description" content="Dress doll {{ object.title }} olyalya">
+<meta name="description" content="{{ object.title }} - Handmade doll dress by Olyalya Studio">
 {% endblock extra_head_tags %}
 
-    <div class="row ml-2 ml-md-0 detail-top-panel">
-        <div class="col-8">
-            <h4><b>{{ object.title }}</b></h4>
-            <span class="badge badge-secondary">{{ object.timestamp|timesince }} {% trans "ago" %}</span>
-            <span class="badge badge-secondary">{{ object.views }} views </span>
-        </div>
-        <div class="col">
-            <div class="row detail-price-update">
-                <div class="v-line">
-                </div>
-                <h2 class="text-center">
-                  {{ object.price }} &#36;
-                </h2>
-                {% include 'products/update-cart.html' with product=object cart=cart %}
+{% block content %}
+
+<article class="product-detail animate-fade-in-up">
+    <!-- Breadcrumb -->
+    <nav class="product-breadcrumb" aria-label="breadcrumb">
+        <ol>
+            <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+            <li><a href="{% url 'products:list' %}">{% trans "Products" %}</a></li>
+            <li class="active">{{ object.title|truncatechars:30 }}</li>
+        </ol>
+    </nav>
+
+    <!-- Product Header -->
+    <header class="product-header">
+        <div class="product-info">
+            <h1 class="product-title">{{ object.title }}</h1>
+            <div class="product-meta">
+                <span class="meta-item">
+                    <i class="fa fa-clock-o"></i>
+                    {{ object.timestamp|timesince }} {% trans "ago" %}
+                </span>
+                <span class="meta-item">
+                    <i class="fa fa-eye"></i>
+                    {{ object.views }} {% trans "views" %}
+                </span>
             </div>
         </div>
-    </div>
-    <hr/>
-    <div class="row ml-2 ml-md-0 detail-content">
-      <div class="col-4 detail-description preview">
-        {{ object.description|linebreaks|safe }}
-      </div>
-      <div class="col-8">
-        <div id="carouselAction" class="carousel slide" data-ride="carousel">
+        <div class="product-purchase">
+            <div class="product-price">
+                <span class="price-label">{% trans "Price" %}</span>
+                <span class="price-value">${{ object.price }}</span>
+            </div>
+            {% include 'products/update-cart.html' with product=object cart=cart %}
+        </div>
+    </header>
+
+    <!-- Product Content -->
+    <div class="product-content">
+        <!-- Gallery -->
+        <div class="product-gallery">
+            <div id="productCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
           <ol class="carousel-indicators">
-            <li data-target="#carouselAction" data-slide-to="0" class="active"></li>
+                    <li data-target="#productCarousel" data-slide-to="0" class="active"></li>
           {% for slide in slides %}
-            <li data-target="#carouselAction" data-slide-to="{{ forloop.counter }}"></li>
-            {{ forloop.counter1 }}
+                        <li data-target="#productCarousel" data-slide-to="{{ forloop.counter }}"></li>
           {% endfor %}
           </ol>
+                
+                <!-- Slides -->
           <div class="carousel-inner">
             <div class="carousel-item active">
             {% if object.image %}
-                <img src="{{ object.image.url }}" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>{{ object.title }}</h5>
-                  <p class="preview">{{ object.description|safe }}</p>
+                            <img src="{{ object.image.url }}" class="d-block w-100" alt="{{ object.title }}">
+                        {% else %}
+                            <div class="carousel-placeholder">
+                                <i class="fa fa-image"></i>
+                                <span>{% trans "No image available" %}</span>
                 </div>
-            {% else %}
-              <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found :(" %}</p>
             {% endif %}
             </div>
             {% for slide in slides %}
               <div class="carousel-item">
               {% if slide.image %}
-                <img src="{{ slide.image.url }}" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>{{ slide.name }}</h5>
-                  <p class="preview">{{ slide.description|safe }}</p>
+                                <img src="{{ slide.image.url }}" class="d-block w-100" alt="{{ slide.name }}">
+                            {% else %}
+                                <div class="carousel-placeholder">
+                                    <i class="fa fa-image"></i>
+                                    <span>{% trans "No image available" %}</span>
                 </div>
-              {% else %}
-                <p style="margin-left:50%; margin-top:50px;">{% trans "Image not found :(" %}</p>
               {% endif %}
               </div>
             {% endfor %}
           </div>
-          <a class="carousel-control-prev" href="#carouselAction" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">{% trans "Previous" %}</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselAction" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">{% trans "Next" %}</span>
+                
+                <!-- Controls -->
+                <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-icon"><i class="fa fa-chevron-left"></i></span>
+                </a>
+                <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-icon"><i class="fa fa-chevron-right"></i></span>
           </a>
         </div>
       </div>
+        
+        <!-- Description -->
+        <aside class="product-description">
+            <h3>{% trans "Description" %}</h3>
+            <div class="description-content">
+                {{ object.description|linebreaks|safe }}
+            </div>
+        </aside>
     </div>
-    <hr/>
-    <div class="row detail-comments">
-        <div class="col">
-            <h6 class="text-right">{{ comments.count }} {% trans "comments" %}</h6>
+
+    <!-- Comments Section -->
+    <section class="comments-section">
+        <div class="comments-header">
+            <h3>
+                <i class="fa fa-comments"></i>
+                {% trans "Comments" %}
+                <span class="comments-count">{{ comments.count }}</span>
+            </h3>
+        </div>
+        
+        <div class="comments-list">
             {% for comment in comments %}
-                <hr/>
-                <div class="row container-field">
-                    <div class="col">
-                        <h6><span class="badge badge-secondary">{{ comment.sender }}</span></h6>
+                <div class="comment-item">
+                    <div class="comment-header">
+                        <span class="comment-author">
+                            <i class="fa fa-user-circle"></i>
+                            {{ comment.sender }}
+                        </span>
+                        <span class="comment-time">
+                            {{ comment.send_time|naturaltime }}
+                        </span>
                     </div>
-                    <div class="col text-right">
-                        <h6><em>{% trans "says" %}: {{ comment.send_time|naturaltime }}</em></h6>
+                    <div class="comment-body">
+                        {{ comment.msg }}
                     </div>
                 </div>
-                <div class="container">
-                    {{ comment.msg }}
+            {% empty %}
+                <div class="comments-empty">
+                    <i class="fa fa-comment-o"></i>
+                    <p>{% trans "No comments yet. Be the first to share your thoughts!" %}</p>
                 </div>
             {% endfor %}
         </div>
-    </div>
-    <div class="row pt-4">
-        <div class="col">
+
+        <!-- Comment Form -->
+        <div class="comment-form-section">
             {% if new_comment %}
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success">
+                    <i class="fa fa-check-circle"></i>
                     {% trans "Your comment is awaiting moderation" %}
                 </div>
             {% else %}
-                <form method="POST" id="form_comments">
+                <h4>{% trans "Leave a comment" %}</h4>
+                <form method="POST" id="form_comments" class="comment-form">
                     {% csrf_token %}
-                    <div class="row d-flex justify-content-center">
-                        <h2 class="text-center">{% trans "Leave a comment" %}</h2>
-                        <div class="col-4"></div>
-                        <button type="submit" class="btn btn-outline-info">{% trans "Submit" %}</button>
+                    <div class="form-group">
+                        <textarea name="msg" id="id_msg" rows="4" 
+                                  placeholder="{% trans 'Share your thoughts...' %}" required></textarea>
                     </div>
-                    <br/>
-                    <div class="row d-flex justify-content-center">
-                        <label for="{{ form.msg.id_for_label }}"></label>
-                        <textarea name="msg" cols="100" rows="10" required="" id="id_msg"></textarea>
-                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-paper-plane"></i>
+                        {% trans "Submit" %}
+                    </button>
                 </form>
             {% endif %}
         </div>
-    </div>
+    </section>
+</article>
+
+<style>
+/* Product Detail Styles */
+.product-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Breadcrumb */
+.product-breadcrumb {
+    margin-bottom: var(--space-xl, 2rem);
+}
+
+.product-breadcrumb ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm, 0.5rem);
+    padding: 0;
+    margin: 0;
+}
+
+.product-breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm, 0.5rem);
+    color: var(--color-text-muted, #636e72);
+    font-size: 0.9rem;
+}
+
+.product-breadcrumb li:not(:last-child)::after {
+    content: '/';
+    color: var(--color-text-light, #b2bec3);
+}
+
+.product-breadcrumb a {
+    color: var(--color-text-muted, #636e72);
+    text-decoration: none;
+}
+
+.product-breadcrumb a:hover {
+    color: var(--color-accent, #d63031);
+}
+
+.product-breadcrumb .active {
+    color: var(--color-text, #2d3436);
+    font-weight: 500;
+}
+
+/* Product Header */
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-xl, 2rem);
+    padding: var(--space-xl, 2rem);
+    background: var(--color-surface, #fff);
+    border-radius: var(--radius-xl, 24px);
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.04));
+    margin-bottom: var(--space-xl, 2rem);
+}
+
+.product-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: var(--space-md, 1rem);
+}
+
+.product-meta {
+    display: flex;
+    gap: var(--space-lg, 1.5rem);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs, 0.25rem);
+    color: var(--color-text-muted, #636e72);
+    font-size: 0.9rem;
+}
+
+.meta-item i {
+    color: var(--color-text-light, #b2bec3);
+}
+
+.product-purchase {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg, 1.5rem);
+}
+
+.product-price {
+    text-align: right;
+}
+
+.price-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #636e72);
+    margin-bottom: var(--space-xs, 0.25rem);
+}
+
+.price-value {
+    font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent, #d63031);
+}
+
+/* Product Content */
+.product-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-xl, 2rem);
+    margin-bottom: var(--space-2xl, 3rem);
+}
+
+/* Gallery */
+.product-gallery {
+    border-radius: var(--radius-xl, 24px);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg, 0 8px 40px rgba(0,0,0,0.12));
+}
+
+.carousel-inner {
+    border-radius: var(--radius-xl, 24px);
+}
+
+.carousel-item img {
+    border-radius: var(--radius-xl, 24px);
+    object-fit: cover;
+    max-height: 600px;
+}
+
+.carousel-placeholder {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-alt, #fff5f5);
+    color: var(--color-text-light, #b2bec3);
+    gap: var(--space-md, 1rem);
+    border-radius: var(--radius-xl, 24px);
+}
+
+.carousel-placeholder i {
+    font-size: 4rem;
+    opacity: 0.5;
+}
+
+.carousel-control-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--color-surface, #fff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text, #2d3436);
+    box-shadow: var(--shadow-md, 0 4px 20px rgba(0,0,0,0.08));
+    transition: all var(--transition-fast, 0.15s ease);
+}
+
+.carousel-control-prev:hover .carousel-control-icon,
+.carousel-control-next:hover .carousel-control-icon {
+    background: var(--color-accent, #d63031);
+    color: white;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    margin: 0 4px;
+}
+
+.carousel-indicators .active {
+    background: var(--color-accent, #d63031);
+}
+
+/* Description */
+.product-description {
+    background: var(--color-surface, #fff);
+    padding: var(--space-xl, 2rem);
+    border-radius: var(--radius-xl, 24px);
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.04));
+    height: fit-content;
+}
+
+.product-description h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-lg, 1.5rem);
+    padding-bottom: var(--space-md, 1rem);
+    border-bottom: 2px solid var(--color-border-light, #f0f0f0);
+}
+
+.description-content {
+    color: var(--color-text, #2d3436);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* Comments Section */
+.comments-section {
+    background: var(--color-surface, #fff);
+    padding: var(--space-2xl, 3rem);
+    border-radius: var(--radius-xl, 24px);
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.04));
+}
+
+.comments-header h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md, 1rem);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-xl, 2rem);
+}
+
+.comments-count {
+    background: var(--color-bg-alt, #fff5f5);
+    color: var(--color-accent, #d63031);
+    font-size: 0.9rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full, 9999px);
+}
+
+.comments-list {
+    margin-bottom: var(--space-xl, 2rem);
+}
+
+.comment-item {
+    padding: var(--space-lg, 1.5rem);
+    background: var(--color-bg, #faf9f7);
+    border-radius: var(--radius-lg, 16px);
+    margin-bottom: var(--space-md, 1rem);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm, 0.5rem);
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm, 0.5rem);
+    font-weight: 600;
+    color: var(--color-text, #2d3436);
+}
+
+.comment-author i {
+    color: var(--color-accent, #d63031);
+}
+
+.comment-time {
+    color: var(--color-text-muted, #636e72);
+    font-size: 0.85rem;
+}
+
+.comment-body {
+    color: var(--color-text, #2d3436);
+    line-height: 1.6;
+}
+
+.comments-empty {
+    text-align: center;
+    padding: var(--space-2xl, 3rem);
+    color: var(--color-text-muted, #636e72);
+}
+
+.comments-empty i {
+    font-size: 3rem;
+    color: var(--color-text-light, #b2bec3);
+    margin-bottom: var(--space-md, 1rem);
+    display: block;
+}
+
+/* Comment Form */
+.comment-form-section {
+    padding-top: var(--space-xl, 2rem);
+    border-top: 2px solid var(--color-border-light, #f0f0f0);
+}
+
+.comment-form-section h4 {
+    margin-bottom: var(--space-lg, 1.5rem);
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: var(--space-lg, 1.5rem);
+    border: 2px solid var(--color-border, #e0e0e0);
+    border-radius: var(--radius-lg, 16px);
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 120px;
+    transition: all var(--transition-fast, 0.15s ease);
+}
+
+.comment-form textarea:focus {
+    border-color: var(--color-accent, #d63031);
+    box-shadow: 0 0 0 4px rgba(214, 48, 49, 0.1);
+    outline: none;
+}
+
+.comment-form .btn {
+    margin-top: var(--space-md, 1rem);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .product-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .carousel-item img {
+        max-height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .product-purchase {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md, 1rem);
+    }
+    
+    .product-price {
+        text-align: left;
+    }
+    
+    .comments-section {
+        padding: var(--space-xl, 2rem);
+    }
+}
+</style>
 
 {% endblock content %}

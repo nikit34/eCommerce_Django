@@ -1,28 +1,171 @@
 {% extends "base.html" %}
 {% load i18n %}
+
+{% block title %}{% trans "Contact" %}{% endblock %}
+
 {% block content %}
 
-<div class="text-center">
-{% if title %}<h1 class="my-3">{{ title }}</h1>{% endif %}
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="text-center">
-                    <p>{{ content }}</p>
-                </div>
-                <div class="col-md-6 col-12 mx-auto">
-                    <form class="contact-form" method="POST" action="{% url 'contact' %}"> {% csrf_token %}
-                    {{ form.as_p }}
-                    </form>
-                </div>
-                <div class="row">
-                    <div class="col-9 text-right">
-                        <button type="submit" class="btn btn-success">{% trans "Submit" %}</button>
-                    </div>
-                </div>
+<div class="contact-page animate-fade-in-up">
+    <div class="contact-container">
+        <!-- Header -->
+        <div class="contact-header">
+            <div class="contact-icon">
+                <i class="fa fa-envelope"></i>
             </div>
+            {% if title %}
+                <h1>{{ title }}</h1>
+            {% else %}
+                <h1>{% trans "Get in Touch" %}</h1>
+            {% endif %}
+            {% if content %}
+                <p class="contact-description">{{ content }}</p>
+            {% else %}
+                <p class="contact-description">{% trans "Have a question or want to work together? We'd love to hear from you!" %}</p>
+            {% endif %}
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+            <form class="contact-form" method="POST" action="{% url 'contact' %}">
+                {% csrf_token %}
+                
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}
+                            {% if field.field.required %}<span class="required">*</span>{% endif %}
+                        </label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="form-error">{{ field.errors }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                
+                <button type="submit" class="btn btn-primary btn-submit">
+                    <i class="fa fa-paper-plane"></i>
+                    {% trans "Send Message" %}
+                </button>
+            </form>
         </div>
     </div>
+</div>
+
+<style>
+.contact-page {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-xl, 2rem) var(--space-lg, 1.5rem);
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl, 3rem);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-accent, linear-gradient(135deg, #d63031 0%, #e17055 100%));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg, 1.5rem);
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.contact-header h1 {
+    margin-bottom: var(--space-md, 1rem);
+}
+
+.contact-description {
+    color: var(--color-text-muted, #636e72);
+    font-size: 1.1rem;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.contact-form-wrapper {
+    background: var(--color-surface, #fff);
+    padding: var(--space-2xl, 3rem);
+    border-radius: var(--radius-xl, 24px);
+    box-shadow: var(--shadow-lg, 0 8px 40px rgba(0,0,0,0.12));
+}
+
+.contact-form .form-group {
+    margin-bottom: var(--space-lg, 1.5rem);
+}
+
+.contact-form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--space-sm, 0.5rem);
+    color: var(--color-text, #2d3436);
+}
+
+.contact-form label .required {
+    color: var(--color-accent, #d63031);
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    padding: var(--space-md, 1rem) var(--space-lg, 1.5rem);
+    font-size: 1rem;
+    border: 2px solid var(--color-border, #e0e0e0);
+    border-radius: var(--radius-lg, 16px);
+    background: var(--color-bg, #faf9f7);
+    font-family: inherit;
+    transition: all var(--transition-fast, 0.15s ease);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-color: var(--color-accent, #d63031);
+    background: var(--color-surface, #fff);
+    box-shadow: 0 0 0 4px rgba(214, 48, 49, 0.1);
+    outline: none;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-error {
+    color: var(--color-accent, #d63031);
+    font-size: 0.85rem;
+    margin-top: var(--space-xs, 0.25rem);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: var(--space-md, 1rem) var(--space-xl, 2rem);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm, 0.5rem);
+    margin-top: var(--space-md, 1rem);
+}
+
+@media (max-width: 576px) {
+    .contact-form-wrapper {
+        padding: var(--space-xl, 2rem);
+    }
+}
+</style>
 
 {% endblock %}
